@@ -41,38 +41,34 @@ export default function Container({ children }) {
           )}
         </button>
         <div className="hidden sm:hidden md:flex lg:flex xl:flex items-center ">
-          {theme === 'dark' ? (
-            <Image
-              alt="mhrsntrk-logo-white"
-              height={50}
-              width={250}
-              src='/mhrsntrk-500-white.png'
-              className=""
-            />
-          ) : (
-            <Image
-              alt="mhrsntrk-logo-black"
-              height={50}
-              width={250}
-              src='/mhrsntrk-500-black.png'
-              className=""
-            />
-          )}
+          <NextLink href="/">
+            <a>
+              {theme === 'dark' ? (
+                <Image
+                  alt="mhrsntrk-logo-white"
+                  height={50}
+                  width={250}
+                  src="/mhrsntrk-500-white.png"
+                  className=""
+                />
+              ) : (
+                <Image
+                  alt="mhrsntrk-logo-black"
+                  height={50}
+                  width={250}
+                  src="/mhrsntrk-500-black.png"
+                  className=""
+                />
+              )}
+            </a>
+          </NextLink>
         </div>
         <div>
           <NextLink href="/blog">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Blog</a>
           </NextLink>
-          <NextLink href="/gear">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Gear</a>
-          </NextLink>
           <NextLink href="/about">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">About</a>
-          </NextLink>
-          <NextLink href="/photos">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-              Photos
-            </a>
           </NextLink>
           <NextLink href="/">
             <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Home</a>

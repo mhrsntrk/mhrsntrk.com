@@ -20,17 +20,19 @@ export default function Blog({ post, morePosts }) {
         <Container>
           <div>
             <BlogLayout post={post} />
+            <hr className="border-black dark:border-white mt-8 mb-4 mx-2 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-32" />
             <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
-              <h2 className="ffont-bold text-2xl md:text-3xl tracking-tight mb-4 text-black dark:text-white">
+              <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-8 text-black dark:text-white">
                 See More
               </h2>
-              {morePosts.length > 0 && morePosts.map((post) => (
-                <BlogPost
-                  title={post.title}
-                  excerpt={post.excerpt}
-                  slug={post.slug}
-                />
-              ))}
+              {morePosts.length > 0 &&
+                morePosts.map((post) => (
+                  <BlogPost
+                    title={post.title}
+                    excerpt={post.excerpt}
+                    slug={post.slug}
+                  />
+                ))}
             </div>
           </div>
         </Container>

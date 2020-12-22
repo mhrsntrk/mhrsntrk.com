@@ -10,15 +10,47 @@ export default function Home({ allPosts }) {
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
         <h1 className="font-bold text-3xl md:text-5xl mb-4 text-black dark:text-white">
-          Hello world! It's mhrsntrk.
+          Hello world!
         </h1>
         <h2 className="text-gray-600 dark:text-gray-400 mb-16">
-          Nulla vitae elit libero, a pharetra augue. Curabitur blandit tempus
-          porttitor.
+          I'm an electronics engineer, full-stack developer and entrepreneur. I own
+          several start-ups{' '}
+          <a
+            href="https://mapinsky.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            mapinsky
+          </a>
+          ,{' '}
+          <a
+            href="https://efervesan.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            efervesan
+          </a>
+          ,{' '}
+          <a
+            href="https://mormu.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            mormu
+          </a>{' '}
+          and{' '}
+          <a
+            href="http://alist.com.tr"
+            target="_blank"
+            className="hover:underline"
+          >
+            alist
+          </a>
+          . I try to collect my ideas, projects, code snippets in this website.
         </h2>
         <NextLink href="/blog">
           <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white hover:underline no-underline">
-            <h3>Blog </h3>
+            <h3>Recent Posts</h3>
           </a>
         </NextLink>
 
@@ -33,10 +65,10 @@ export default function Home({ allPosts }) {
           Projects
         </h3>
         <ProjectCard
-          title="Fast Feedback"
-          description="The easiest way to add comments or reviews to your static site. Built as part of React 2025."
-          href="https://fastfeedback.io/"
-          icon="fastfeedback"
+          title=""
+          description=""
+          href=""
+          icon=""
         /> */}
       </div>
     </Container>

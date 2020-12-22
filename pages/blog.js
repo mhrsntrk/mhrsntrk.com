@@ -30,21 +30,21 @@ export default function Blog({ allPosts }) {
             description
           }}
         />
-        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+        <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
           <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
             Blog
           </h1>
           <p className="text-gray-600 dark:text-gray-400 mb-4">
-            {`Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. 
-            In total, I've written ${allPosts.length} articles on this site.
-            Use the search below to filter by title.`}
+            {`I try to collect my ideas, projects, code snippets in this website.
+            In total, I've written ${allPosts.length} posts on this website.
+            You can use the search below to filter by title.`}
           </p>
           <div className="relative w-full mb-4">
             <input
               aria-label="Search articles"
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search articles"
+              placeholder="Search posts"
               className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-blue-500 focus:border-blue-500 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
             />
             <svg

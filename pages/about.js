@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
@@ -14,26 +13,58 @@ export default function About() {
           title: 'About Me – mhrsntrk'
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About Me
         </h1>
         <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
           <p>
-            Vestibulum id ligula porta felis euismod semper. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-            porta gravida at eget metus. Sed posuere consectetur est at
-            lobortis. Maecenas sed diam eget risus varius blandit sit amet non
-            magna. Duis mollis, est non commodo luctus, nisi erat porttitor
-            ligula, eget lacinia odio sem nec elit. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit.
+            I'm an electronics engineer, full-stack developer and entrepreneur.
+            I own several start-ups{' '}
+            <a
+              href="https://mapinsky.com"
+              target="_blank"
+              className="hover:underline"
+            >
+              mapinsky
+            </a>
+            ,{' '}
+            <a
+              href="https://efervesan.com"
+              target="_blank"
+              className="hover:underline"
+            >
+              efervesan
+            </a>
+            ,{' '}
+            <a
+              href="https://mormu.com"
+              target="_blank"
+              className="hover:underline"
+            >
+              mormu
+            </a>{' '}
+            and{' '}
+            <a
+              href="http://alist.com.tr"
+              target="_blank"
+              className="hover:underline"
+            >
+              alist
+            </a>
+            .
           </p>
           <p>
-            Donec ullamcorper nulla non metus auctor fringilla. Maecenas sed
-            diam eget risus varius blandit sit amet non magna. Nullam quis risus
-            eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis
-            euismod semper. Cras mattis consectetur purus sit amet fermentum.
-            Etiam porta sem malesuada magna mollis euismod.
+            I grew up in Istanbul, Turkey. I lived and studied 1-year in Oppdal,
+            Norway as an exchange student with AFS. I studied Electronics
+            Enginnering in Işık University. After school I worked as sales
+            engineer in various companies and finally I established my first
+            company.
+          </p>
+          <p>
+            I started building websites with WordPress and after that I switched
+            to better by meeting with React and Node.js. Right now, I am trying
+            to develop websites by using Next.js and Tailwind CSS and Strapi.
           </p>
         </div>
       </div>
