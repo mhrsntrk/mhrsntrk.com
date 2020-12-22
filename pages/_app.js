@@ -6,8 +6,6 @@ import Head from 'next/head';
 
 import SEO from '../next-seo.config';
 
-// TODO: Figure out prism styles
-
 export default function App({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class">
