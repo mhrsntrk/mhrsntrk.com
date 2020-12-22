@@ -45,7 +45,7 @@ class MyDocument extends Document {
           />
           <meta content="" name="yandex-verification" />
           <meta
-            content=""
+            content="rYargHnDEihGmlWCkUo045M7LfXSTlFRglkAXndayII"
             name="google-site-verification"
           />
         </Head>
