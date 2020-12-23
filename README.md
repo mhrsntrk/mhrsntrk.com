@@ -110,7 +110,7 @@ Create a `.env.local` with below variables.
 - `NEXT_PUBLIC_STRAPI_API_URL` should be set as `http://localhost:1337` (no trailing slash).
 
 Create an app from [developer.spotify.com](https://developer.spotify.com/) enter **CLIENT_ID** and **CLIENT_SECRET**. 
-You can see my [blog post](https://mhrsntrk.com) to see how to get your **REFRESH_TOKEN**
+You can see my [blog post](https://mhrsntrk.com/blog/how-to-get-spotify-refresh-token) to see how to get your **REFRESH_TOKEN**
 
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
