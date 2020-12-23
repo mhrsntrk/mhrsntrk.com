@@ -105,7 +105,7 @@ Next, select **Posts** and click **Add New Post**.
 
 ## Environment Variables
 
-Create a `.env.local` with below variables. 
+Create a `.env.local` on Next.js frontend with below variables. 
 
 - `NEXT_PUBLIC_STRAPI_API_URL` should be set as `http://localhost:1337` (no trailing slash).
 
