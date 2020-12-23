@@ -49,7 +49,7 @@ export default function Home({ allPosts }) {
           . I try to collect my ideas, projects, code snippets in this website.
         </h2>
         <NextLink href="/blog">
-          <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white hover:underline no-underline">
+          <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
             <h3>
               Recent Posts <p className="font-normal text-3xl inline">↴</p>
             </h3>
