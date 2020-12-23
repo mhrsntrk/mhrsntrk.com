@@ -13,8 +13,8 @@ export default function Home({ allPosts }) {
           Hello world!
         </h1>
         <h2 className="text-gray-600 dark:text-gray-400 mb-16">
-          I'm an electronics engineer, full-stack developer and entrepreneur. I own
-          several start-ups{' '}
+          I'm an electronics engineer, full-stack developer and entrepreneur. I
+          own several start-ups{' '}
           <a
             href="https://mapinsky.com"
             target="_blank"
@@ -50,7 +50,9 @@ export default function Home({ allPosts }) {
         </h2>
         <NextLink href="/blog">
           <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white hover:underline no-underline">
-            <h3>Recent Posts</h3>
+            <h3>
+              Recent Posts <p className="font-normal text-3xl inline">↴</p>
+            </h3>
           </a>
         </NextLink>
 

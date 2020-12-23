@@ -63,7 +63,7 @@ export default function Blog({ allPosts }) {
             </svg>
           </div>
           <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-            All Posts
+            All Posts <p className="font-normal text-3xl inline">↴</p>
           </h3>
           {!filteredBlogPosts.length && 'No posts found.'}
           {filteredBlogPosts.map((post) => (
