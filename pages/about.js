@@ -17,14 +17,14 @@ export default function About() {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           About Me
         </h1>
-        <div className="mb-8 prose leading-6 text-gray-600 dark:text-gray-400">
+        <div className="mb-8 leading-6 text-gray-600 dark:text-gray-400">
           <p>
             I'm an electronics engineer, full-stack developer and entrepreneur.
             I own several start-ups{' '}
             <a
               href="https://mapinsky.com"
               target="_blank"
-              className="hover:underline text-gray-600 dark:text-gray-400"
+              className="hover:underline"
             >
               mapinsky
             </a>
@@ -32,7 +32,7 @@ export default function About() {
             <a
               href="https://efervesan.com"
               target="_blank"
-              className="hover:underline text-gray-600 dark:text-gray-400"
+              className="hover:underline"
             >
               efervesan
             </a>
@@ -40,7 +40,7 @@ export default function About() {
             <a
               href="https://mormu.com"
               target="_blank"
-              className="hover:underline text-gray-600 dark:text-gray-400"
+              className="hover:underline"
             >
               mormu
             </a>{' '}
@@ -48,12 +48,14 @@ export default function About() {
             <a
               href="http://alist.com.tr"
               target="_blank"
-              className="hover:underline text-gray-600 dark:text-gray-400"
+              className="hover:underline"
             >
               alist
             </a>
             .
           </p>
+        </div>
+        <div className="mb-8 leading-6 text-gray-600 dark:text-gray-400">
           <p>
             I grew up in Istanbul, Turkey. I lived and studied 1-year in Oppdal,
             Norway as an exchange student with AFS. I studied Electronics
@@ -61,6 +63,8 @@ export default function About() {
             engineer in various companies and finally I established my first
             company.
           </p>
+        </div>
+        <div className="mb-8 leading-6 text-gray-600 dark:text-gray-400">
           <p>
             I started building websites with WordPress and after that I switched
             to better by meeting with React and Node.js. Right now, I am trying
