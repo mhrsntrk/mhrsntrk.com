@@ -16,7 +16,7 @@ export default function Photos({ allPhotos }) {
           description: ` `
         }}
       />
-      <div className="mb-8">
+      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
         <PhotoViewer gallery={allPhotos} />
       </div>
     </Container>
