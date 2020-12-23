@@ -85,7 +85,7 @@ export default function Footer() {
         <Link href="/gear">
           <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
         </Link>
-        <Link href="/abvout">
+        <Link href="/about">
           <a className="text-sm text-gray-500 hover:text-gray-600">/about</a>
         </Link>
         <Link href="/photos">
