@@ -24,7 +24,7 @@ export default function About() {
             <a
               href="https://mapinsky.com"
               target="_blank"
-              className="hover:underline"
+              className="hover:underline text-gray-600 dark:text-gray-400"
             >
               mapinsky
             </a>
@@ -32,7 +32,7 @@ export default function About() {
             <a
               href="https://efervesan.com"
               target="_blank"
-              className="hover:underline"
+              className="hover:underline text-gray-600 dark:text-gray-400"
             >
               efervesan
             </a>
@@ -40,7 +40,7 @@ export default function About() {
             <a
               href="https://mormu.com"
               target="_blank"
-              className="hover:underline"
+              className="hover:underline text-gray-600 dark:text-gray-400"
             >
               mormu
             </a>{' '}
@@ -48,7 +48,7 @@ export default function About() {
             <a
               href="http://alist.com.tr"
               target="_blank"
-              className="hover:underline"
+              className="hover:underline text-gray-600 dark:text-gray-400"
             >
               alist
             </a>
