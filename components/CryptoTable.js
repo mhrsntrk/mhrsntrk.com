@@ -66,7 +66,7 @@ class CryptoTable extends Component {
         ...Loading
       </h1>
     ) : (
-      <div className="w-full flex justify-center px-2 mt-2 pb-10 overflow-x-auto">
+      <div className="w-full flex justify-start md:justify-center lg:justify-center xl:justify-center px-2 mt-2 pb-10 overflow-x-auto">
         <table className="table-auto">
           <thead>
             <tr className="rounded-lg text-sm font-medium text-gray-600 dark:text-gray-400 text-center">
@@ -100,7 +100,7 @@ class CryptoTable extends Component {
                   />
                 </label>
               </th> */}
-              <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden md:block lg:block xl:block">
+              <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden sm:block md:block lg:block xl:block">
                 <label className="">NAME</label>
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800">
@@ -133,7 +133,7 @@ class CryptoTable extends Component {
                   /> */}
                 </label>
               </th>
-              <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden md:block lg:block xl:block">
+              <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden sm:block md:block lg:block xl:block">
                 <label className="">
                   MARKET CAP
                   {/* <br />
@@ -150,7 +150,7 @@ class CryptoTable extends Component {
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800">
                 <label className="">
-                  CHANGE (24HR)
+                  CHANGE
                   {/* <br />
                   <i className="material-icons crypto-table__sorting-arrows rotate-90">
                     compare_arrows

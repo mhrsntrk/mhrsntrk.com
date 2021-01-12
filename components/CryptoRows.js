@@ -52,7 +52,7 @@ class CryptoRows extends Component {
                 {ticker.name}
               </div>
             </td> */}
-            <td className="px-4 py-4 text-center hidden md:block lg:block xl:block">
+            <td className="px-4 py-4 text-center hidden sm:block md:block lg:block xl:block">
             {ticker.name}
             </td>
             <td className="px-4 py-4 text-center">
@@ -61,7 +61,7 @@ class CryptoRows extends Component {
             <td className="px-4 py-4 text-center">
               ${ticker.quote.USD.price.toFixed(2)}
             </td>
-            <td className="px-4 py-4 hidden md:block lg:block xl:block">
+            <td className="px-4 py-4 hidden sm:block md:block lg:block xl:block">
               ${ticker.quote.USD.market_cap.toLocaleString()}
             </td>
             {/* render % increase as green text, % decrease as red text*/}
