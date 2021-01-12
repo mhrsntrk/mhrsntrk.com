@@ -79,6 +79,9 @@ export default function Footer() {
         </ExternalLink>
       </div>
       <div className="space-x-3">
+        <Link href="/crypto">
+          <a className="text-sm text-gray-500 hover:text-gray-600">/crypto</a>
+        </Link>
         <Link href="/blog">
           <a className="text-sm text-gray-500 hover:text-gray-600">/blog</a>
         </Link>

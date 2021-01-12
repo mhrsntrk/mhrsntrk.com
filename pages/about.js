@@ -10,7 +10,8 @@ export default function About() {
         canonical="https://mhrsntrk.com/about"
         openGraph={{
           url: 'https://mhrsntrk.com/about',
-          title: 'About Me – mhrsntrk'
+          title: 'About Me – mhrsntrk',
+          description: `Welcome to my personal blog. I try to collect my ideas, projects, code snippets in this website.`
         }}
       />
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">

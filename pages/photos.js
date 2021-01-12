@@ -13,7 +13,7 @@ export default function Photos({ allPhotos }) {
         openGraph={{
           url: 'https://mhrsntrk.com/photos',
           title: 'Photos – mhrsntrk',
-          description: ` `
+          description: `Welcome to my personal blog. I try to collect my ideas, projects, code snippets in this website.`
         }}
       />
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">

@@ -14,7 +14,7 @@ export default function Uses({ allGears }) {
         openGraph={{
           url: 'https://mhrsntrk.com/gear',
           title: 'Gear – mhrsntrk',
-          description: ` `
+          description: `Welcome to my personal blog. I try to collect my ideas, projects, code snippets in this website.`
         }}
       />
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8 w-full">

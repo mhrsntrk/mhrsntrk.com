@@ -8,7 +8,7 @@ import { getAllPostsForBlog } from '@/lib/strapi';
 const url = 'https://mhrsntrk/blog';
 const title = 'Blog – mhrsntrk';
 const description =
-  'Maecenas sed diam eget risus varius blandit sit amet non magna.';
+  'Welcome to my personal blog. I try to collect my ideas, projects, code snippets in this website.';
 
 export default function Blog({ allPosts }) {
   const [searchValue, setSearchValue] = useState('');

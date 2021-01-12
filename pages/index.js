@@ -1,5 +1,5 @@
-import Container from '../components/Container';
-import BlogPost from '../components/BlogPost';
+import Container from '@/components/Container';
+import BlogPost from '@/components/BlogPost';
 //import ProjectCard from '../components/ProjectCard';
 import NextLink from 'next/link';
 
