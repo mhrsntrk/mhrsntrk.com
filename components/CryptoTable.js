@@ -101,10 +101,10 @@ class CryptoTable extends Component {
                 </label>
               </th> */}
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden md:block lg:block xl:block">
-                <label className="crypto-table__header-text">NAME</label>
+                <label className="">NAME</label>
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800">
-                <label className="crypto-table__header-text">
+                <label className="">
                   SYMBOL
                   {/* <br />
                   <i className="material-icons crypto-table__sorting-arrows rotate-90">
@@ -119,7 +119,7 @@ class CryptoTable extends Component {
                 </label>
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800">
-                <label className="crypto-table__header-text">
+                <label className="">
                   PRICE
                   {/* <br />
                   <i className="material-icons crypto-table__sorting-arrows rotate-90">
@@ -134,7 +134,7 @@ class CryptoTable extends Component {
                 </label>
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800 hidden md:block lg:block xl:block">
-                <label className="crypto-table__header-text">
+                <label className="">
                   MARKET CAP
                   {/* <br />
                   <i className="material-icons crypto-table__sorting-arrows rotate-90">
@@ -149,7 +149,7 @@ class CryptoTable extends Component {
                 </label>
               </th>
               <th className="px-4 py-2 bg-gray-200 dark:bg-gray-800">
-                <label className="crypto-table__header-text">
+                <label className="">
                   CHANGE (24HR)
                   {/* <br />
                   <i className="material-icons crypto-table__sorting-arrows rotate-90">
