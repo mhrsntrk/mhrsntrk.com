@@ -128,10 +128,6 @@ input[type='email'] {
   appearance: none;
 }
 
-.metric-card > a {
-  @apply no-underline;
-}
-
 .metric-card > p {
   @apply my-2;
 }
