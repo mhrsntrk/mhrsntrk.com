@@ -98,7 +98,7 @@ export default function Crypto({
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const bitcoin = await getBitcoin();
   const ethereum = await getEthereum();
   const vechain = await getVeChain();
