@@ -40,12 +40,12 @@ export default function Kutt() {
   return (
     <Container>
       <NextSeo
-        title="Kutt – mhrsntrk"
+        title="Kutt.it – mhrsntrk"
         description={` `}
         canonical="https://mhrsntrk.com/kutt"
         openGraph={{
           url: 'https://mhrsntrk.com/kutt',
-          title: 'Kutt – mhrsntrk',
+          title: 'Kutt.it – mhrsntrk',
           description: ``
         }}
       />
@@ -58,7 +58,7 @@ export default function Kutt() {
           domain support. You can use the input below to shorten your URL under
           my custom domain.
         </p>
-        <div className="relative w-full mb-4">
+        <div className="w-full mb-4">
           <form className="flex">
             <input
               aria-label="url"
@@ -95,7 +95,7 @@ export default function Kutt() {
           className={
             link == ''
               ? 'hidden'
-              : 'w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-6'
+              : 'w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 mr-2'
           }
         >
           <ExternalLink href={link}>

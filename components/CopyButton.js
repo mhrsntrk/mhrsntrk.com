@@ -14,7 +14,7 @@ export default function CopyButton({ url }) {
   return (
     <div className="">
       <button
-        className="flex bg-black dark:bg-white duration-300 rounded-md text-gray-300 dark:text-gray-900 ml-4 p-2"
+        className="bg-black dark:bg-white duration-300 rounded-md text-gray-300 dark:text-gray-900 ml-4 p-2"
         onClick={copyToClipboard}
       >
         {copied ? (
