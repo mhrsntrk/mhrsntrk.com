@@ -1,17 +1,7 @@
 import Link from 'next/link';
 
 import NowPlaying from '@/components/NowPlaying';
-
-const ExternalLink = ({ href, children }) => (
-  <a
-    className="text-sm text-gray-500 hover:text-gray-600 transition"
-    target="_blank"
-    rel="noopener noreferrer"
-    href={href}
-  >
-    {children}
-  </a>
-);
+import ExternalLink from '@/components/ExternalLink';
 
 export default function Footer() {
   return (
@@ -82,8 +72,8 @@ export default function Footer() {
         <Link href="/crypto">
           <a className="text-sm text-gray-500 hover:text-gray-600">/crypto</a>
         </Link>
-        <Link href="/blog">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/blog</a>
+        <Link href="/kutt.it">
+          <a className="text-sm text-gray-500 hover:text-gray-600">/kutt</a>
         </Link>
         <Link href="/gear">
           <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
