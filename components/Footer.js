@@ -72,8 +72,8 @@ export default function Footer() {
         <Link href="/crypto">
           <a className="text-sm text-gray-500 hover:text-gray-600">/crypto</a>
         </Link>
-        <Link href="/kutt.it">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/kutt</a>
+        <Link href="/kutt">
+          <a className="text-sm text-gray-500 hover:text-gray-600">/kutt.it</a>
         </Link>
         <Link href="/gear">
           <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
