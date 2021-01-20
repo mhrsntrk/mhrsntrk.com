@@ -75,6 +75,9 @@ export default function Footer() {
         <Link href="/kutt">
           <a className="text-sm text-gray-500 hover:text-gray-600">/kutt.it</a>
         </Link>
+        <Link href="/auth">
+          <a className="text-sm text-gray-500 hover:text-gray-600">/auth</a>
+        </Link>
         <Link href="/gear">
           <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
         </Link>

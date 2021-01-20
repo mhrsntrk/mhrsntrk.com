@@ -45,7 +45,7 @@ export default function Container({ children }) {
             <a>
               {theme === 'dark' ? (
                 <Image
-                  alt="mhrsntrk-logo-white"
+                  alt="mhrsntrk-logo"
                   height={50}
                   width={250}
                   src="/mhrsntrk-500-white.png"
@@ -53,7 +53,7 @@ export default function Container({ children }) {
                 />
               ) : (
                 <Image
-                  alt="mhrsntrk-logo-black"
+                  alt="mhrsntrk-logo"
                   height={50}
                   width={250}
                   src="/mhrsntrk-500-black.png"

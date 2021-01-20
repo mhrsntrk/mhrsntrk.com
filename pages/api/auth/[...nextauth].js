@@ -56,7 +56,7 @@ const options = {
     // secret: 'INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw', 
     
     // Set to true to use encryption (default: false)
-    // encryption: true,
+    //encryption: true,
 
     // You can define your own encode/decode functions for signing and encryption
     // if you want to override the default behaviour.
@@ -69,10 +69,10 @@ const options = {
   // pages is not specified for that route.
   // https://next-auth.js.org/configuration/pages
   pages: {
-    // signIn: '/api/auth/signin',  // Displays signin buttons
+    // signIn: '/api/auth/email-signin',  // Displays signin buttons
     // signOut: '/api/auth/signout', // Displays form with sign out button
     // error: '/api/auth/error', // Error code passed in query string as ?error=
-    // verifyRequest: '/api/auth/verify-request', // Used for check email page
+    verifyRequest: '/verify', // Used for check email page
     // newUser: null // If set, new users will be directed here on first sign in
   },
 
