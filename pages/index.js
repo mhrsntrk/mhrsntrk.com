@@ -80,7 +80,7 @@ export default function Home({ allPosts }) {
         <SwissKnifeCard
           title="Kutt.it Link Shortener"
           description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
-          href="swissknife/crypto"
+          href="swissknife/kutt"
           icon="kutt"
           width="60"
           height="60"

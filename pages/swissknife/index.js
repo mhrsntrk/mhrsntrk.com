@@ -44,7 +44,7 @@ export default function SwissKnife() {
           <SwissKnifeCard
             title="Kutt.it Link Shortener"
             description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
-            href="swissknife/crypto"
+            href="swissknife/kutt"
             icon="kutt"
             width="150"
             height="150"
