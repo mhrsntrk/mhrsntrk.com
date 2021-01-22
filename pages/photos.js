@@ -9,7 +9,7 @@ export default function Photos({ allPhotos }) {
       <NextSeo
         title="Photos – mhrsntrk"
         description={` `}
-        canonical="https://mhrsntrk.com/gear"
+        canonical="https://mhrsntrk.com/photos"
         openGraph={{
           url: 'https://mhrsntrk.com/photos',
           title: 'Photos – mhrsntrk',

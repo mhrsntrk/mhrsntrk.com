@@ -1,6 +1,6 @@
 module.exports = {
   images: {
-    domains: ['i.scdn.co', 'res.cloudinary.com'] // Spotify Album Art & Cloudinary
+    domains: ['i.scdn.co', 'res.cloudinary.com', 'api.qrserver.com'] // Spotify Album Art & Cloudinary & QR Code
   },
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
