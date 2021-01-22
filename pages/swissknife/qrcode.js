@@ -32,9 +32,18 @@ export default function qrCode() {
           QR Code Generator
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
-          Et qui labore ut ex eu nulla laboris duis nisi proident. Minim et
-          ullamco excepteur id. Magna deserunt excepteur sunt consequat pariatur
-          fugiat laboris cillum.
+          You can create QR code graphics easily by yourself with goqr.me's API.
+          The API is very straightforward and easy to use. I have tried to
+          implement the easiest method like sending a image source link to API.
+          You can access the code on my{' '}
+          <a
+            href="https://github.com/mhrsntrk/mhrsntrk.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            GitHub repo
+          </a>
+          .
         </p>
         <label className="text-gray-600 dark:text-gray-400" htmlFor="url">
           Enter an URL
@@ -48,17 +57,15 @@ export default function qrCode() {
           value={input.url}
           className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-yellow-600 focus:border-yellow-600 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 mb-4"
         />
-        <label className="text-gray-600 dark:text-gray-400" htmlFor="url">
-          Result
-        </label>
-        <div className="flex justify-center w-full border dark:border-gray-200 border-gray-900 rounded-md">
+        <h2 className="text-xl text-black dark:text-white pt-4">QR Code</h2>
+        <div className="w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-black p-4 mr-2">
           {theme === 'dark' ? (
             <Image
               alt="qr-code"
               height={250}
               width={250}
               src={`https://api.qrserver.com/v1/create-qr-code/?data=${input.url}&size=250x250&color=ffffff&bgcolor=000000&margin=20`}
-              className=""
+              className="m-4"
             />
           ) : (
             <Image
@@ -66,7 +73,7 @@ export default function qrCode() {
               height={250}
               width={250}
               src={`https://api.qrserver.com/v1/create-qr-code/?data=${input.url}&size=250x250&color=000000&bgcolor=ffffff&margin=20`}
-              className=""
+              className="m-4"
             />
           )}
         </div>

@@ -1,6 +1,6 @@
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
-//import ProjectCard from '../components/ProjectCard';
+import SwissKnifeCard from '@/components/SwissKnifeCard';
 import NextLink from 'next/link';
 
 import { getAllPostsForHome } from '@/lib/strapi';
@@ -63,15 +63,28 @@ export default function Home({ allPosts }) {
             slug={post.slug}
           />
         ))}
-        {/* <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-          Projects
-        </h3>
-        <ProjectCard
-          title=""
-          description=""
-          href=""
-          icon=""
-        /> */}
+        <NextLink href="/swissknife">
+          <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+            <h3>Swiss Knife</h3>
+          </a>
+        </NextLink>
+        <SwissKnifeCard
+          title="Crypto Ticker"
+          description="You can find the cryptocurrencies that
+          I currently follow and hold on the page."
+          href="swissknife/crypto"
+          icon="crypto"
+          width="60"
+          height="60"
+        />
+        <SwissKnifeCard
+          title="Kutt.it Link Shortener"
+          description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
+          href="swissknife/crypto"
+          icon="kutt"
+          width="60"
+          height="60"
+        />
       </div>
     </Container>
   );

@@ -1,10 +1,10 @@
 import format from 'comma-number';
 
-export default function MetricCard({ name, symbol, price, change, ath }) {
+export default function CryptoCard({ name, symbol, price, change, ath }) {
   const formattedPrice = format(price);
   const formattedATH = format(ath);
   return (
-    <div className="metric-card border border-gray-200 dark:border-gray-800 rounded p-4">
+    <div className="metric-card border border-gray-200 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 rounded p-4">
       <div className="flex items-center text-gray-900 dark:text-gray-100">
         <span className="text-md">{name}</span>
         <span className="text-sm">&nbsp;&nbsp;&#40;{symbol}&#41;</span>
