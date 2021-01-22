@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import Container from '@/components/Container';
+import { NextSeo } from 'next-seo';
 
 export default function auth() {
   const [session] = useSession();
@@ -17,6 +18,15 @@ export default function auth() {
 
   return (
     <Container>
+      <NextSeo
+        title="Authentication – mhrsntrk"
+        canonical="https://mhrsntrk.com/auth"
+        openGraph={{
+          url: 'https://mhrsntrk.com/auth',
+          title: 'Authentication – mhrsntrk',
+          description: ``
+        }}
+      />
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
         {!session && (
           <>

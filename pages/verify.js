@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '@/components/Container';
 
-export default function verify(provider, type) {
+export default function verify() {
   return (
     <Container>
       <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
