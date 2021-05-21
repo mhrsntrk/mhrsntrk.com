@@ -13,7 +13,7 @@ export default function Home({ allPosts }) {
           Hello world!
         </h1>
         <h2 className="text-gray-600 dark:text-gray-400 mb-16">
-          I'm an electronics engineer, full-stack developer and entrepreneur. I
+          I'm an electrical and electronics engineer, full-stack developer and entrepreneur. I
           own several start-ups{' '}
           <a
             href="https://mapinsky.com"
@@ -46,7 +46,7 @@ export default function Home({ allPosts }) {
           >
             alist
           </a>
-          . I try to collect my ideas, projects, code snippets in this website.
+          . I try to collect my ideas, projects, code snippets in this website. Currently, I am working as a Product Owner at Energy Web Foundation.
         </h2>
         <NextLink href="/blog">
           <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
