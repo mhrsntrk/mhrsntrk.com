@@ -72,6 +72,11 @@ export default function About() {
             to develop websites by using Next.js and Tailwind CSS and Strapi.
           </p>
         </div>
+<div className="mb-8 leading-6 text-gray-600 dark:text-gray-400">
+          <p>
+            Currently, I am working as a Product Owner at Energy Web Foundation. It is a great opportunity to be a part of an amazing team. Our mission is to accelerate a low-carbon, customer-centric electricity system by unleashing the potential of open-source, decentralized technologies.
+          </p>
+        </div>
       </div>
     </Container>
   );
