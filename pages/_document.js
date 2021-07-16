@@ -65,6 +65,7 @@ class MyDocument extends Document {
           `
             }}
           />
+          <script async defer data-website-id="e968b9df-7bb9-45dd-abc1-6d16cc1a0549" src="http://umami.dev.mhrsntrk.com/umami.js"/>
         </Head>
         <body className="bg-white dark:bg-black text-white dark:text-black">
           <Main />
