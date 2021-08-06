@@ -3,10 +3,10 @@ import { NextSeo } from 'next-seo';
 import {
   getBitcoin,
   getEthereum,
-  getVeChain,
+  getEnergyWeb,
   getUniSwap,
-  getSynthetix,
-  getChainLink
+  getMina,
+  getAlgo
 } from '@/lib/coinpaprika';
 
 import Container from '@/components/Container';
@@ -15,10 +15,10 @@ import CryptoCard from '@/components/CryptoCard';
 export default function Crypto({
   bitcoin,
   ethereum,
-  vechain,
+  energyWeb,
   uniswap,
-  synthetix,
-  link
+  mina,
+  algo
 }) {
   return (
     <Container>
@@ -63,27 +63,27 @@ export default function Crypto({
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
           <CryptoCard
-            name={vechain.name}
-            symbol={vechain.symbol}
-            price={vechain.quotes.USD.price.toFixed(6)}
-            change={vechain.quotes.USD.percent_change_24h}
-            ath={vechain.quotes.USD.ath_price.toFixed(6)}
+            name={energyWeb.name}
+            symbol={energyWeb.symbol}
+            price={energyWeb.quotes.USD.price.toFixed(6)}
+            change={energyWeb.quotes.USD.percent_change_24h}
+            ath={energyWeb.quotes.USD.ath_price.toFixed(6)}
           />
           <CryptoCard
-            name={link.name}
-            symbol={link.symbol}
-            price={link.quotes.USD.price.toFixed(5)}
-            change={link.quotes.USD.percent_change_24h}
-            ath={link.quotes.USD.ath_price.toFixed(5)}
+            name={algo.name}
+            symbol={algo.symbol}
+            price={algo.quotes.USD.price.toFixed(5)}
+            change={algo.quotes.USD.percent_change_24h}
+            ath={algo.quotes.USD.ath_price.toFixed(5)}
           />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
           <CryptoCard
-            name={synthetix.name}
-            symbol={synthetix.symbol}
-            price={synthetix.quotes.USD.price.toFixed(5)}
-            change={synthetix.quotes.USD.percent_change_24h}
-            ath={synthetix.quotes.USD.ath_price.toFixed(5)}
+            name={mina.name}
+            symbol={mina.symbol}
+            price={mina.quotes.USD.price.toFixed(5)}
+            change={mina.quotes.USD.percent_change_24h}
+            ath={mina.quotes.USD.ath_price.toFixed(5)}
           />
           <CryptoCard
             name={uniswap.name}
@@ -101,12 +101,12 @@ export default function Crypto({
 export async function getServerSideProps() {
   const bitcoin = await getBitcoin();
   const ethereum = await getEthereum();
-  const vechain = await getVeChain();
+  const energyWeb = await getEnergyWeb();
   const uniswap = await getUniSwap();
-  const synthetix = await getSynthetix();
-  const link = await getChainLink();
+  const mina = await getMina();
+  const algo = await getAlgo();
 
   return {
-    props: { bitcoin, ethereum, vechain, uniswap, synthetix, link }
+    props: { bitcoin, ethereum, energyWeb, uniswap, mina, algo }
   };
 }

@@ -9,7 +9,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="flex items-center border border-gray-200 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 rounded p-4">
+      <div className="flex items-center border border-gray-200 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 rounded p-4 h-40">
         {icon == 'crypto' && (
           <div className="ml-2 mr-4">
             <span className="sr-only">{title}</span>
@@ -18,6 +18,18 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                   height={width}
                   width={height}
                   src="/static/icons/coinpaprika.png"
+                  className=""
+                />
+          </div>
+        )}
+        {icon == 'starmap' && (
+          <div className="ml-2 mr-4">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={icon}
+                  height={width}
+                  width={height}
+                  src="/static/icons/starmap.png"
                   className=""
                 />
           </div>

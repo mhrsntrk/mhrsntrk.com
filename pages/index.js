@@ -78,6 +78,14 @@ export default function Home({ allPosts }) {
           height="60"
         />
         <SwissKnifeCard
+            title="Starmap Generator"
+            description="A tool for creating customized starmaps. Login required in order to use that tool."
+            href="https://starmap.mhrsntrk.com"
+            icon="starmap"
+            width="60"
+            height="60"
+          />
+        <SwissKnifeCard
           title="Kutt.it Link Shortener"
           description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
           href="swissknife/kutt"

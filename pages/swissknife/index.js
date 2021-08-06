@@ -42,12 +42,30 @@ export default function SwissKnife() {
             height="120"
           />
           <SwissKnifeCard
+            title="Starmap Generator"
+            description="A tool for creating customized starmaps. Login required."
+            href="https://starmap.mhrsntrk.com"
+            icon="starmap"
+            width="100"
+            height="100"
+          />
+        </div>
+        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <SwissKnifeCard
             title="Kutt.it Link Shortener"
             description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
             href="swissknife/kutt"
             icon="kutt"
             width="150"
             height="150"
+          />
+          <SwissKnifeCard
+            title="QR Code Generator"
+            description="You can create QR code graphics easily with goqr.me's API."
+            href="swissknife/qrcode"
+            icon="qrcode"
+            width="90"
+            height="90"
           />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
@@ -58,14 +76,6 @@ export default function SwissKnife() {
             icon="auth"
             width="100"
             height="100"
-          />
-          <SwissKnifeCard
-            title="QR Code Generator"
-            description="You can create QR code graphics easily with goqr.me's API."
-            href="swissknife/qrcode"
-            icon="qrcode"
-            width="90"
-            height="90"
           />
         </div>
         <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full"></div>
