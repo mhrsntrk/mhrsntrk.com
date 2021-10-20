@@ -8,11 +8,11 @@ import { getAllPostsForHome } from '@/lib/strapi';
 export default function Home({ allPosts }) {
   return (
     <Container>
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl mb-4 text-black dark:text-white">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+        <h1 className="mb-4 text-3xl font-bold text-black md:text-5xl dark:text-white">
           Hello world!
         </h1>
-        <h2 className="text-gray-600 dark:text-gray-400 mb-16">
+        <h2 className="mb-16 text-gray-600 dark:text-gray-400">
           I'm an electrical and electronics engineer, full-stack developer and entrepreneur. I
           own several start-ups{' '}
           <a
@@ -49,9 +49,9 @@ export default function Home({ allPosts }) {
           . I try to collect my ideas, projects, code snippets in this website. Currently, I am working as a Product Owner at Energy Web Foundation.
         </h2>
         <NextLink href="/blog">
-          <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+          <a className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3>
-              Recent Posts <p className="font-normal text-3xl inline">↴</p>
+              Recent Posts <p className="inline text-3xl font-normal">↴</p>
             </h3>
           </a>
         </NextLink>
@@ -64,7 +64,7 @@ export default function Home({ allPosts }) {
           />
         ))}
         <NextLink href="/swissknife">
-          <a className="font-bold text-3xl md:text-4xl tracking-tight mb-4 text-black dark:text-white">
+          <a className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3>Swiss Knife</h3>
           </a>
         </NextLink>

@@ -9,7 +9,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
       target="_blank"
       rel="noopener noreferrer"
     >
-      <div className="flex items-center border border-gray-200 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500 rounded p-4 h-40">
+      <div className="flex items-center h-40 p-4 border border-gray-200 rounded dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
         {icon == 'crypto' && (
           <div className="ml-2 mr-4">
             <span className="sr-only">{title}</span>
