@@ -83,9 +83,20 @@ export default function qroxy() {
           qroxy - Dynamic QR Codes
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          You can create QR code graphics easily by yourself with goqr.me's API.
-          The API is very straightforward and easy to use. I have tried to
-          implement the easiest method like sending a image source link to API.
+          "qroxy" name is originated from concatenating "qr code" and "proxy"
+          words, it will hopefully give idea of the project overview. 
+          It is a dynamic QR code generator REST API with a connected
+          mongoDB to store routes. You can use the form below to generate a QR
+          Code and update the target URL later on using the UUID on the end of
+          the generated URL. You can get more information about the REST API{' '}
+          <a
+            href="https://github.com/mhrsntrk/qroxy"
+            target="_blank"
+            className="hover:underline"
+          >
+            here
+          </a>
+          .
         </p>
         <ul className="flex w-full border-b">
           <li className="w-1/2 mr-1">
