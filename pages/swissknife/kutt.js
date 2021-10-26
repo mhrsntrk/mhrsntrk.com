@@ -41,19 +41,23 @@ export default function Kutt() {
     <Container>
       <NextSeo
         title="Kutt.it – mhrsntrk"
-        description={` `}
-        canonical="https://mhrsntrk.com/kutt"
+        description={`Kutt is a modern URL shortener. They have a fantastic API and custom
+        domain support. You can use the input below to shorten your URL under
+        my custom domain.`}
+        canonical="https://mhrsntrk.com/swissknife/kutt"
         openGraph={{
-          url: 'https://mhrsntrk.com/kutt',
+          url: 'https://mhrsntrk.com/swissknife/kutt',
           title: 'Kutt.it – mhrsntrk',
-          description: ``
+          description: `Kutt is a modern URL shortener. They have a fantastic API and custom
+          domain support. You can use the input below to shorten your URL under
+          my custom domain.`
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-8">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Kutt.it
         </h1>
-        <p className="text-gray-600 dark:text-gray-400 mb-4">
+        <p className="mb-4 text-gray-600 dark:text-gray-400">
           Kutt is a modern URL shortener. They have a fantastic API and custom
           domain support. You can use the input below to shorten your URL under
           my custom domain.
@@ -66,15 +70,15 @@ export default function Kutt() {
               type="url"
               onChange={(e) => setInput(e.target.value)}
               placeholder="Paste a long URL here"
-              className="px-4 py-2 border border-gray-300 dark:border-gray-900 focus:ring-yellow-600 focus:border-yellow-600 block w-full rounded-md bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+              className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-yellow-600 focus:border-yellow-600 dark:bg-gray-800 dark:text-gray-100"
             />
             <button
-              className="bg-black dark:bg-white duration-300 p-2 px-6 rounded-md"
+              className="p-2 px-6 duration-300 bg-black rounded-md dark:bg-white"
               type="submit"
               onClick={shorten}
             >
               <svg
-                className="h-7 w-7 text-gray-300 dark:text-gray-900"
+                className="text-gray-300 h-7 w-7 dark:text-gray-900"
                 stroke="currentColor"
                 fill="currentColor"
                 viewBox="0 0 342.946 342.946"
@@ -99,7 +103,7 @@ export default function Kutt() {
           }
         >
           <ExternalLink href={link}>
-            <p className="text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500 text-lg">
+            <p className="text-lg text-gray-600 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-500">
               {link}
             </p>
           </ExternalLink>

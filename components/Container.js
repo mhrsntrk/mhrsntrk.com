@@ -14,11 +14,11 @@ export default function Container({ children }) {
 
   return (
     <div className="bg-white dark:bg-black">
-      <nav className="sticky-nav flex justify-between items-center max-w-4xl w-full p-8 my-0 md:my-8 mx-auto bg-white dark:bg-black bg-opacity-60">
+      <nav className="flex items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 bg-white sticky-nav md:my-8 dark:bg-black bg-opacity-60">
         <button
           aria-label="Toggle Dark Mode"
           type="button"
-          className="bg-gray-200 dark:bg-gray-800 rounded p-3 h-10 w-10"
+          className="w-10 h-10 p-3 bg-gray-200 rounded dark:bg-gray-800"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
           {mounted && (
@@ -26,7 +26,7 @@ export default function Container({ children }) {
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
               fill="currentColor"
-              className="h-4 w-4 text-gray-800 dark:text-gray-200"
+              className="w-4 h-4 text-gray-800 dark:text-gray-200"
             >
               {theme === 'dark' ? (
                 <path
@@ -40,7 +40,7 @@ export default function Container({ children }) {
             </svg>
           )}
         </button>
-        <div className="hidden sm:hidden md:flex lg:flex xl:flex items-center ">
+        <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
           <NextLink href="/">
             <a>
               {theme === 'dark' ? (
@@ -65,17 +65,17 @@ export default function Container({ children }) {
         </div>
         <div>
           <NextLink href="/blog">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Blog</a>
+            <a className="p-1 text-gray-900 sm:p-4 dark:text-gray-100">Blog</a>
           </NextLink>
           <NextLink href="/about">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">About</a>
+            <a className="p-1 text-gray-900 sm:p-4 dark:text-gray-100">About</a>
           </NextLink>
           <NextLink href="/">
-            <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">Home</a>
+            <a className="p-1 text-gray-900 sm:p-4 dark:text-gray-100">Home</a>
           </NextLink>
         </div>
       </nav>
-      <main className="flex flex-col justify-center bg-white dark:bg-black px-8">
+      <main className="flex flex-col justify-center px-8 bg-white dark:bg-black">
         {children}
         <Footer />
       </main>

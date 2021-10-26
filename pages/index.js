@@ -69,6 +69,22 @@ export default function Home({ allPosts }) {
           </a>
         </NextLink>
         <SwissKnifeCard
+            title="Starmap Generator"
+            description="A tool for creating customized starmaps. Login required in order to use that tool."
+            href="https://starmap.mhrsntrk.com"
+            icon="starmap"
+            width="60"
+            height="60"
+          />
+          <SwissKnifeCard
+            title="qroxy - Dynamic QR Code Tool"
+            description="You can generate and update dynamic QR codes using the connected REST API and mongoDB"
+            href="swissknife/qroxy"
+            icon="qrcode"
+            width="90"
+            height="90"
+          />
+          <SwissKnifeCard
           title="Crypto Ticker"
           description="You can find the cryptocurrencies that
           I currently follow and hold on the page."
@@ -77,14 +93,6 @@ export default function Home({ allPosts }) {
           width="60"
           height="60"
         />
-        <SwissKnifeCard
-            title="Starmap Generator"
-            description="A tool for creating customized starmaps. Login required in order to use that tool."
-            href="https://starmap.mhrsntrk.com"
-            icon="starmap"
-            width="60"
-            height="60"
-          />
         <SwissKnifeCard
           title="Kutt.it Link Shortener"
           description="Kutt is a modern URL shortener. You can try the API under my domain on the page."

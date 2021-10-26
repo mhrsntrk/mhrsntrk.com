@@ -16,8 +16,8 @@ export default function SwissKnife() {
           description: ``
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Swiss Knife
         </h1>
         <div className="mb-16">
@@ -31,15 +31,14 @@ export default function SwissKnife() {
             .
           </p>
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <SwissKnifeCard
-            title="Crypto Ticker"
-            description="You can find the cryptocurrencies that
-          I currently follow and hold on the page."
-            href="swissknife/crypto"
-            icon="crypto"
-            width="120"
-            height="120"
+            title="qroxy"
+            description="Create dynamic QR codes using the connected REST API and mongoDB"
+            href="swissknife/qroxy"
+            icon="qrcode"
+            width="90"
+            height="90"
           />
           <SwissKnifeCard
             title="Starmap Generator"
@@ -50,8 +49,8 @@ export default function SwissKnife() {
             height="100"
           />
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
-        <SwissKnifeCard
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+          <SwissKnifeCard
             title="Kutt.it Link Shortener"
             description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
             href="swissknife/kutt"
@@ -60,25 +59,16 @@ export default function SwissKnife() {
             height="150"
           />
           <SwissKnifeCard
-            title="QR Code Generator"
-            description="You can create QR code graphics easily with goqr.me's API."
-            href="swissknife/qrcode"
-            icon="qrcode"
-            width="90"
-            height="90"
+            title="Crypto Ticker"
+            description="You can find the cryptocurrencies that
+          I currently follow and hold on the page."
+            href="swissknife/crypto"
+            icon="crypto"
+            width="120"
+            height="120"
           />
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
-          <SwissKnifeCard
-            title="Authentication"
-            description="Magic link authentication example with next-auth library."
-            href="swissknife/auth"
-            icon="auth"
-            width="100"
-            height="100"
-          />
-        </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full"></div>
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2"></div>
       </div>
     </Container>
   );

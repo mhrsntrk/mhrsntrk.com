@@ -44,11 +44,6 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-          <meta content="" name="yandex-verification" />
-          <meta
-            content=""
-            name="google-site-verification"
-          />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -65,9 +60,8 @@ class MyDocument extends Document {
           `
             }}
           />
-          <script async defer data-website-id="e968b9df-7bb9-45dd-abc1-6d16cc1a0549" src="http://umami.dev.mhrsntrk.com/umami.js"/>
         </Head>
-        <body className="bg-white dark:bg-black text-white dark:text-black">
+        <body className="text-white bg-white dark:bg-black dark:text-black">
           <Main />
           <NextScript />
         </body>

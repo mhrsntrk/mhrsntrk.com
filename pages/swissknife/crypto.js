@@ -24,17 +24,20 @@ export default function Crypto({
     <Container>
       <NextSeo
         title="Crypto – mhrsntrk"
-        canonical="https://mhrsntrk.com/crypto"
+        description={`You can find the cryptocurrencies that
+        I currently follow and hold below. I have used coinpaprika's API to
+        get current prices, 24 hour change and all time high data.`}
+        canonical="https://mhrsntrk.com/swissknife/crypto"
         openGraph={{
-          url: 'https://mhrsntrk.com/crypto',
+          url: 'https://mhrsntrk.com/swissknife/crypto',
           title: 'Crypto – mhrsntrk',
-          description: `I am deeply interested in
-          cryptocurrencies since 2018. You can find the cryptocurrencies that
-          I currently follow and hold below.`
+          description: `You can find the cryptocurrencies that
+          I currently follow and hold below. I have used coinpaprika's API to
+          get current prices, 24 hour change and all time high data.`
         }}
       />
-      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           Crypto Ticker
         </h1>
         <div className="mb-16">
@@ -45,7 +48,7 @@ export default function Crypto({
             get current prices, 24 hour change and all time high data.
           </p>
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <CryptoCard
             name={bitcoin.name}
             symbol={bitcoin.symbol}
@@ -61,7 +64,7 @@ export default function Crypto({
             ath={ethereum.quotes.USD.ath_price.toFixed(3)}
           />
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <CryptoCard
             name={energyWeb.name}
             symbol={energyWeb.symbol}
@@ -77,7 +80,7 @@ export default function Crypto({
             ath={algo.quotes.USD.ath_price.toFixed(5)}
           />
         </div>
-        <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 my-2 w-full">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <CryptoCard
             name={mina.name}
             symbol={mina.symbol}
