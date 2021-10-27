@@ -46,6 +46,12 @@ class MyDocument extends Document {
           />
           <script
             async
+            src="https://ackee.dev.mhrsntrk.com/tracker.js"
+            data-ackee-server="https://ackee.dev.mhrsntrk.com"
+            data-ackee-domain-id="d96a1f11-3fc7-4e41-96fa-52fea4b8c6df"
+          ></script>
+          <script
+            async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
           <script
