@@ -22,8 +22,8 @@ export default function SwissKnife() {
         </h1>
         <div className="mb-16">
           <p className="text-gray-600 dark:text-gray-400">
-            You can find my collection of implemented API's and features below.
-            I try to add what I learn to this page to test them. I also write
+            You can find my collection of past projects below. I add what I
+            learn in the building stage to this page to test them. I also write
             blog posts how to use and how to implement them on my{' '}
             <a href="/blog" className="hover:underline">
               blog

@@ -84,11 +84,11 @@ export default function qroxy() {
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
           "qroxy" name is originated from concatenating "qr code" and "proxy"
-          words, it will hopefully give idea of the project overview. 
-          It is a dynamic QR code generator REST API with a connected
-          mongoDB to store routes. You can use the form below to generate a QR
-          Code and update the target URL later on using the UUID on the end of
-          the generated URL. You can get more information about the REST API{' '}
+          words, it will hopefully give idea of the project overview. It is a
+          dynamic QR code generator REST API with a connected mongoDB to store
+          routes. You can use the form below to generate a QR Code and update
+          the target URL later on using the UUID on the end of the generated
+          URL. You can get more information about the REST API{' '}
           <a
             href="https://github.com/mhrsntrk/qroxy"
             target="_blank"
@@ -200,27 +200,32 @@ export default function qroxy() {
                 </div>
               </form>
               {generatedURL.length > 0 ? (
-                <div className="p-8 mt-16 text-gray-600 border border-black rounded-md dark:text-gray-400 dark:border-white">
-                  <div className="flex justify-center w-full">
-                    <Image
-                      alt="qr-code"
-                      height={350}
-                      width={350}
-                      src={generatedQR}
-                      className=""
-                    />
+                <>
+                  <h2 className="mt-16 text-lg text-gray-600 text-bold dark:text-gray-400">
+                    Dynamic QR Code
+                  </h2>
+                  <div className="p-8 text-gray-600 border border-gray-300 rounded-md bg-gray-50 dark:border-gray-900 dark:text-gray-400 dark:bg-gray-800">
+                    <div className="flex justify-center w-full">
+                      <Image
+                        alt="qr-code"
+                        height={350}
+                        width={350}
+                        src={generatedQR}
+                        className=""
+                      />
+                    </div>
+                    <div className="flex justify-center w-full mt-2">
+                      <a
+                        className="text-sm text-gray-400 transition hover:text-gray-600"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={generatedURL}
+                      >
+                        {generatedURL.slice(qroxyBase.length + 1)}
+                      </a>
+                    </div>
                   </div>
-                  <div className="flex justify-center w-full mt-2">
-                    <a
-                      className="text-sm text-gray-400 transition hover:text-gray-600"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={generatedURL}
-                    >
-                      {generatedURL.slice(qroxyBase.length + 1)}
-                    </a>
-                  </div>
-                </div>
+                </>
               ) : (
                 <div className="w-full p-8 mt-10"></div>
               )}
@@ -264,9 +269,14 @@ export default function qroxy() {
                 </div>
               </form>
               {updatedMessage.length > 0 ? (
-                <div className="w-full p-8 mt-10 text-gray-600 border border-black rounded-md dark:text-gray-400 dark:border-white">
-                  <p>{updatedMessage}</p>
-                </div>
+                <>
+                  <h2 className="mt-16 text-lg text-gray-600 text-bold dark:text-gray-400">
+                    Result
+                  </h2>
+                  <div className="w-full p-8 text-gray-600 border border-gray-300 rounded-md bg-gray-50 dark:border-gray-900 dark:text-gray-400 dark:bg-gray-800">
+                    <p>{updatedMessage}</p>
+                  </div>
+                </>
               ) : (
                 <div className="w-full p-8 mt-10"></div>
               )}
