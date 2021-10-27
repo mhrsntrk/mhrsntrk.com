@@ -7,10 +7,10 @@ export default function Footer() {
   return (
     <footer className="flex flex-col items-center mb-8">
       <NowPlaying />
-      <div className="flex space-x-4 mb-4">
+      <div className="flex mb-4 space-x-4">
         <ExternalLink href="https://twitter.com/mhrsntrk">
           <span className="sr-only">Twitter</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" viewBox="0 0 24 24">
             <g
               fill="none"
               stroke="currentColor"
@@ -24,7 +24,7 @@ export default function Footer() {
         </ExternalLink>
         <ExternalLink href="https://github.com/mhrsntrk">
           <span className="sr-only">Github</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" viewBox="0 0 24 24">
             <g
               fill="none"
               stroke="currentColor"
@@ -38,7 +38,7 @@ export default function Footer() {
         </ExternalLink>
         <ExternalLink href="https://www.linkedin.com/in/mahirsenturk">
           <span className="sr-only">LinkedIn</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24">
+          <svg className="w-5 h-5" viewBox="0 0 24 24">
             <g
               fill="none"
               stroke="currentColor"
@@ -52,29 +52,11 @@ export default function Footer() {
             </g>
           </svg>
         </ExternalLink>
-        <ExternalLink href="mailto:m@mhrsntrk.com">
-          <span className="sr-only">Email</span>
-          <svg className="h-5 w-5" viewBox="0 0 24 24">
-            <g
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </g>
-          </svg>
-        </ExternalLink>
       </div>
       <div className="space-x-3">
-        <Link href="/swissknife">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/swissknife</a>
-        </Link>
-        <Link href="/swissknife/crypto">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/crypto</a>
-        </Link>
+        <ExternalLink href="https://contact.mhrsntrk.com">
+          <a className="text-sm text-gray-500 hover:text-gray-600">/contact</a>
+        </ExternalLink>
         <Link href="/gear">
           <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
         </Link>

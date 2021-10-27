@@ -13,8 +13,20 @@ export default function Home({ allPosts }) {
           hello, world
         </h1>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
-          I'm an electrical and electronics engineer with MBA, full-stack
-          developer and entrepreneur. I own several start-ups; {' '}
+          I currently work as a Senior Solution Owner at{' '}
+          <a
+            href="https://energyweb.org"
+            target="_blank"
+            className="hover:underline"
+          >
+            Energy Web Foundation
+          </a>
+          . I am currently focused on adding new decentralized products and
+          services to EW-DOS (Decentralized Operating System) and managing grid
+          flexibility projects worldwide. I hold a B.Sc. in Electrical and
+          Electronics Engineering and Master of Business Administration degrees.
+          Before joining the Energy Web Foundation team, I co-founded and
+          managed several startups (i.e.{' '}
           <a
             href="https://mapinsky.com"
             target="_blank"
@@ -38,15 +50,14 @@ export default function Home({ allPosts }) {
           >
             alist
           </a>
-          . I try to collect my ideas, projects, code snippets in this website.
-          Currently, I am working as a Senior Solution Owner at Energy Web
-          Foundation.
+          ) in Turkey.
         </h2>
         <NextLink href="/blog">
-          <a className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3>
-              Recent Posts <p className="inline text-3xl font-normal">↴</p>
-            </h3>
+          <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+            <h3 className="hover:underline">Recent Posts </h3>
+            <span className="inline ml-2 text-3xl font-normal no-underline">
+              ↴
+            </span>
           </a>
         </NextLink>
 
@@ -58,10 +69,11 @@ export default function Home({ allPosts }) {
           />
         ))}
         <NextLink href="/swissknife">
-          <a className="mb-4 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3>
-              Swiss Knife <p className="inline text-3xl font-normal">↴</p>
-            </h3>
+        <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+            <h3 className="hover:underline">Swiss Knife </h3>
+            <span className="inline ml-2 text-3xl font-normal no-underline">
+              ↴
+            </span>
           </a>
         </NextLink>
         <SwissKnifeCard

@@ -65,13 +65,13 @@ export default function Container({ children }) {
         </div>
         <div>
         <NextLink href="/swissknife">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100">Swiss Knife</a>
+            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Swiss Knife</a>
           </NextLink>
           <NextLink href="/blog">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100">Blog</a>
+            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Blog</a>
           </NextLink>
           <NextLink href="/">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100">Home</a>
+            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Home</a>
           </NextLink>
         </div>
       </nav>
