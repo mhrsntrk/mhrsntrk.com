@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import GoogleFonts from 'next-google-fonts';
-import { GA_TRACKING_ID } from '@/lib/gtag';
 
 class MyDocument extends Document {
   render() {
@@ -50,22 +49,6 @@ class MyDocument extends Document {
             data-ackee-server="https://ackee.dev.mhrsntrk.com"
             data-ackee-domain-id="d96a1f11-3fc7-4e41-96fa-52fea4b8c6df"
           ></script>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `
-            }}
-          />
         </Head>
         <body className="text-white bg-white dark:bg-black dark:text-black">
           <Main />
