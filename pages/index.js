@@ -23,7 +23,7 @@ export default function Home({ allPosts }) {
           </a>
           . I am currently focused on adding new decentralized products and
           services to EW-DOS (Decentralized Operating System) and managing grid
-          flexibility projects worldwide. I hold a B.Sc. in Electrical and
+          flexibility projects worldwide. I hold B.Sc. in Electrical and
           Electronics Engineering and Master of Business Administration degrees.
           Before joining the Energy Web Foundation team, I co-founded and
           managed several startups (i.e.{' '}
