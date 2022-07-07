@@ -6,7 +6,7 @@ import {
   getEnergyWeb,
   getUniSwap,
   getMina,
-  getAlgo
+  getPolkadot
 } from '@/lib/coinpaprika';
 
 import Container from '@/components/Container';
@@ -18,7 +18,7 @@ export default function Crypto({
   energyWeb,
   uniswap,
   mina,
-  algo
+  polkadot
 }) {
   return (
     <Container>
@@ -43,8 +43,8 @@ export default function Crypto({
         <div className="mb-16">
           <p className="text-gray-600 dark:text-gray-400">
             New world, new currencies! I am deeply interested in
-            cryptocurrencies since 2018. You can find the cryptocurrencies that
-            I currently follow and hold below. I have used coinpaprika's API to
+            cryptocurrencies and blockchain since 2017. You can find the cryptocurrencies that
+            I currently follow and invest below. I have used coinpaprika's API to
             get current prices, 24 hour change and all time high data.
           </p>
         </div>
@@ -73,11 +73,11 @@ export default function Crypto({
             ath={energyWeb.quotes.USD.ath_price.toFixed(6)}
           />
           <CryptoCard
-            name={algo.name}
-            symbol={algo.symbol}
-            price={algo.quotes.USD.price.toFixed(5)}
-            change={algo.quotes.USD.percent_change_24h}
-            ath={algo.quotes.USD.ath_price.toFixed(5)}
+            name={polkadot.name}
+            symbol={polkadot.symbol}
+            price={polkadot.quotes.USD.price.toFixed(5)}
+            change={polkadot.quotes.USD.percent_change_24h}
+            ath={polkadot.quotes.USD.ath_price.toFixed(5)}
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
@@ -107,9 +107,9 @@ export async function getServerSideProps() {
   const energyWeb = await getEnergyWeb();
   const uniswap = await getUniSwap();
   const mina = await getMina();
-  const algo = await getAlgo();
+  const polkadot = await getPolkadot();
 
   return {
-    props: { bitcoin, ethereum, energyWeb, uniswap, mina, algo }
+    props: { bitcoin, ethereum, energyWeb, uniswap, mina, polkadot }
   };
 }
