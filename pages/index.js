@@ -13,7 +13,7 @@ export default function Home({ allPosts }) {
           hello, world
         </h1>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
-          I currently work as a Senior Solution Owner at{' '}
+          I work as Senior Product Owner at{' '}
           <a
             href="https://energyweb.org"
             target="_blank"
@@ -21,36 +21,11 @@ export default function Home({ allPosts }) {
           >
             Energy Web Foundation
           </a>
-          . I am currently focused on adding new decentralized products and
-          services to EW-DOS (Decentralized Operating System) and managing grid
-          flexibility projects worldwide. I hold B.Sc. in Electrical and
-          Electronics Engineering and Master of Business Administration degrees.
-          Before joining the Energy Web Foundation team, I co-founded and
-          managed several startups (i.e.{' '}
-          <a
-            href="https://mapinsky.com"
-            target="_blank"
-            className="hover:underline"
-          >
-            mapinsky
-          </a>
-          ,{' '}
-          <a
-            href="https://mormu.com"
-            target="_blank"
-            className="hover:underline"
-          >
-            mormu
-          </a>{' '}
-          and{' '}
-          <a
-            href="http://alist.com.tr"
-            target="_blank"
-            className="hover:underline"
-          >
-            alist
-          </a>
-          ) in Turkey.
+          .I have B.Sc. in Electrical and Electronics Engineering and Master of
+          Business Administration degrees. Currently, I am managing Self
+          Sovereign Identity (SSI) implementations on Energy Web Chain. Before
+          joining the Energy Web Foundation team, I co-founded and managed
+          several startups in Turkey.
         </h2>
         <NextLink href="/blog">
           <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
@@ -69,7 +44,7 @@ export default function Home({ allPosts }) {
           />
         ))}
         <NextLink href="/swissknife">
-        <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+          <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Swiss Knife </h3>
             <span className="inline ml-2 text-3xl font-normal no-underline">
               ↴
