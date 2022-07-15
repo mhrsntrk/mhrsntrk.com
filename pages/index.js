@@ -10,7 +10,7 @@ export default function Home({ allPosts }) {
     <Container>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-5xl font-bold text-black md:text-6xl dark:text-white">
-          hello, world
+          hello, world.
         </h1>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
           I work as Senior Product Owner at{' '}

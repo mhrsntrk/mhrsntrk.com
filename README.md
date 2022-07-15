@@ -115,6 +115,7 @@ You can see my [blog post](https://mhrsntrk.com/blog/how-to-get-spotify-refresh-
 - `SPOTIFY_CLIENT_ID`
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIFY_REFRESH_TOKEN`
+- `NEXT_PUBLIC_QROXY_API`
 
 ## Tech Stack
 
