@@ -12,7 +12,7 @@ export default function Home({ allPosts }) {
         <h1 className="mb-4 text-5xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
         </h1>
-        <h2 className="mb-10 text-gray-600 dark:text-gray-400">
+        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
           I work as Senior Product Owner at{' '}
           <a
             href="https://energyweb.org"
@@ -26,6 +26,17 @@ export default function Home({ allPosts }) {
           Sovereign Identity (SSI) implementations on Energy Web Chain. Before
           joining the Energy Web Foundation team, I co-founded and managed
           several startups in Turkey.
+        </h2>
+        <h2 className="mb-10 text-gray-600 dark:text-gray-400">
+          You can contact me via my{' '}
+          <a
+            href="https://contact.mhrsntrk.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            contact page
+          </a>
+          .
         </h2>
         <NextLink href="/blog">
           <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">

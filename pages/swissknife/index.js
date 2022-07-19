@@ -13,7 +13,9 @@ export default function SwissKnife() {
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife',
           title: 'Swiss Knife – mhrsntrk',
-          description: ``
+          description: `You can find the collection of my past projects below. I add what I
+          learn in the building stage to this page to test them. I also write
+          blog posts how to use and how to implement them on my blog.`
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
@@ -22,9 +24,9 @@ export default function SwissKnife() {
         </h1>
         <div className="mb-16">
           <p className="text-gray-600 dark:text-gray-400">
-            You can find my collection of past projects below. I add what I
-            learn in the building stage to this page to test them. I also write
-            blog posts how to use and how to implement them on my{' '}
+            You can find the collection of my past personal projects below. I try to add what I
+            learn while I am building to test them on live. I also write
+            blog posts about how to use and how to implement them on my{' '}
             <a href="/blog" className="hover:underline">
               blog
             </a>
