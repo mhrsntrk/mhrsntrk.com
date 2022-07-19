@@ -46,18 +46,6 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        {icon == 'auth' && (
-          <div className="ml-2 mr-4">
-            <span className="sr-only">{title}</span>
-            <Image
-                  alt={icon}
-                  height={width}
-                  width={height}
-                  src="/static/icons/auth.png"
-                  className=""
-                />
-          </div>
-        )}
         {icon == 'qrcode' && (
           <div className="ml-2 mr-4">
             <span className="sr-only">{title}</span>
@@ -66,6 +54,18 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                   height={width}
                   width={height}
                   src="/static/icons/qrcode.png"
+                  className=""
+                />
+          </div>
+        )}
+        {icon == 'jwt' && (
+          <div className="ml-2 mr-4">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={icon}
+                  height={width}
+                  width={height}
+                  src="/static/icons/jwt.svg"
                   className=""
                 />
           </div>

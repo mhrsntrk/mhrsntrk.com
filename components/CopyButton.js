@@ -14,14 +14,21 @@ export default function CopyButton({ url }) {
   return (
     <div className="">
       <button
-        className="bg-black dark:bg-white duration-300 rounded-md text-gray-300 dark:text-gray-900 ml-4 p-2"
+        className="p-2 ml-4 text-gray-300 duration-300 bg-black rounded-md dark:bg-white dark:text-gray-900"
         onClick={copyToClipboard}
       >
         {copied ? (
-          <p className={'text-white dark:text-black text-xs'}>Copied</p>
+          <svg
+            className="w-4 h-4 text-white dark:text-black"
+            stroke="currentColor"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M9.993 19.421 3.286 12.58l1.428-1.401 5.293 5.4 9.286-9.286 1.414 1.414L9.993 19.421z" />
+          </svg>
         ) : (
           <svg
-            className="h-3 w-3 text-white dark:text-black"
+            className="w-4 h-4 text-white dark:text-black"
             stroke="currentColor"
             fill="currentColor"
             viewBox="0 0 460 460"

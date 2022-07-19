@@ -73,7 +73,7 @@ export default function Kutt() {
               className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-yellow-600 focus:border-yellow-600 dark:bg-gray-800 dark:text-gray-100"
             />
             <button
-              className="p-2 px-6 duration-300 bg-black rounded-md dark:bg-white"
+              className="p-2 px-6 ml-2 duration-300 bg-black rounded-md dark:bg-white"
               type="submit"
               onClick={shorten}
             >
@@ -93,13 +93,13 @@ export default function Kutt() {
         <div
           className={link == '' ? 'hidden' : 'text-black dark:text-white pt-4'}
         >
-          <h2 className="text-xl">Shortened Link</h2>
+          <h2 className="mb-4 text-xl">Shortened Link</h2>
         </div>
         <div
           className={
             link == ''
               ? 'hidden'
-              : 'w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 mr-2'
+              : 'w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 mr-2 mb-10'
           }
         >
           <ExternalLink href={link}>

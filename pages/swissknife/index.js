@@ -24,9 +24,10 @@ export default function SwissKnife() {
         </h1>
         <div className="mb-16">
           <p className="text-gray-600 dark:text-gray-400">
-            You can find the collection of my past personal projects below. I try to add what I
-            learn while I am building to test them on live. I also write
-            blog posts about how to use and how to implement them on my{' '}
+            You can find the collection of my past personal projects below. I
+            try to add what I learn while I am building to test them on live. I
+            also write blog posts about how to use and how to implement them on
+            my{' '}
             <a href="/blog" className="hover:underline">
               blog
             </a>
@@ -39,16 +40,16 @@ export default function SwissKnife() {
             description="Create dynamic QR codes using the connected REST API and mongoDB"
             href="swissknife/qroxy"
             icon="qrcode"
-            width="90"
-            height="90"
+            width="120"
+            height="120"
           />
           <SwissKnifeCard
             title="Starmap Generator"
             description="A tool for creating customized starmaps. Login required."
             href="https://starmap.mhrsntrk.com"
             icon="starmap"
-            width="100"
-            height="100"
+            width="120"
+            height="120"
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
@@ -70,7 +71,16 @@ export default function SwissKnife() {
             height="120"
           />
         </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2"></div>
+        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+          <SwissKnifeCard
+            title="Identity Token Signer"
+            description="Create and sign a JWT identity token using Ethereum signatures"
+            href="swissknife/identity-token"
+            icon="jwt"
+            width="120"
+            height="120"
+          />
+        </div>
       </div>
     </Container>
   );

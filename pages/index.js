@@ -21,7 +21,7 @@ export default function Home({ allPosts }) {
           >
             Energy Web Foundation
           </a>
-          .I have B.Sc. in Electrical and Electronics Engineering and Master of
+          . I have B.Sc. in Electrical and Electronics Engineering and Master of
           Business Administration degrees. Currently, I am managing Self
           Sovereign Identity (SSI) implementations on Energy Web Chain. Before
           joining the Energy Web Foundation team, I co-founded and managed
@@ -64,7 +64,7 @@ export default function Home({ allPosts }) {
         </NextLink>
         <SwissKnifeCard
           title="Starmap Generator"
-          description="A tool for creating customized starmaps. Login required in order to use that tool."
+          description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."
           href="https://starmap.mhrsntrk.com"
           icon="starmap"
           width="60"
@@ -72,7 +72,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="qroxy - Dynamic QR Code Tool"
-          description="You can generate and update dynamic QR codes using the connected REST API and mongoDB"
+          description="You can generate and update dynamic QR codes using the connected REST API and mongoDB. I collect personal information in order to use the tool."
           href="swissknife/qroxy"
           icon="qrcode"
           width="90"
@@ -80,8 +80,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="Crypto Ticker"
-          description="You can find the cryptocurrencies that
-          I currently follow and hold on the page."
+          description="You can find the cryptocurrencies that I currently follow and hold on the page."
           href="swissknife/crypto"
           icon="crypto"
           width="60"
