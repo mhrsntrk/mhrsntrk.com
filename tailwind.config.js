@@ -9,6 +9,10 @@ module.exports = {
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans]
       },
+      width: {
+        '88': '22rem',
+        '84': '21rem',
+      },
       colors: {
         black: "#111111",
         gray: {

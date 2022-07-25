@@ -58,6 +58,18 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
+        {icon == 'fingerprint' && (
+          <div className="ml-2 mr-4">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={icon}
+                  height={width}
+                  width={height}
+                  src="/static/icons/fingerprint.png"
+                  className=""
+                />
+          </div>
+        )}
         <div>
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}

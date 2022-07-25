@@ -72,6 +72,14 @@ export default function SwissKnife() {
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+        <SwissKnifeCard
+            title="did:web Resolver"
+            description="You can use this tool to fetch the Decentralized Identifier (DID) document of given DID accessed using https."
+            href="swissknife/web-did-resolver"
+            icon="fingerprint"
+            width="120"
+            height="120"
+          />
         </div>
       </div>
     </Container>
