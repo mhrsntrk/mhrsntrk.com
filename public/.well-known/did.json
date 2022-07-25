@@ -1,0 +1,31 @@
+{
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      {
+        "Ed25519VerificationKey2018": "https://w3id.org/security#Ed25519VerificationKey2018",
+        "publicKeyJwk": {
+          "@id": "https://w3id.org/security#publicKeyJwk",
+          "@type": "@json"
+        }
+      }
+    ],
+    "id": "did:web:mhrsntrk.com",
+    "verificationMethod": [
+      {
+        "id": "did:web:mhrsntrk.com#owner",
+        "type": "Ed25519VerificationKey2018",
+        "controller": "did:web:mhrsntrk.com",
+        "publicKeyJwk": {
+          "kty": "OKP",
+          "crv": "Ed25519",
+          "x": "AzDM9SihNQ9nA2kd2a1JXHfAEUupbCwP8xk1AvAASME"
+        }
+      }
+    ],
+    "authentication": [
+      "did:web:mhrsntrk.com#owner"
+    ],
+    "assertionMethod": [
+      "did:web:mhrsntrk.com#owner"
+    ]
+  }
