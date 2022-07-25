@@ -58,18 +58,6 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        {icon == 'jwt' && (
-          <div className="ml-2 mr-4">
-            <span className="sr-only">{title}</span>
-            <Image
-                  alt={icon}
-                  height={width}
-                  width={height}
-                  src="/static/icons/jwt.svg"
-                  className=""
-                />
-          </div>
-        )}
         <div>
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}

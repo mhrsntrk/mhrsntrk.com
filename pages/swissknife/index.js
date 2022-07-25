@@ -72,14 +72,6 @@ export default function SwissKnife() {
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
-          <SwissKnifeCard
-            title="Identity Token Signer"
-            description="Create and sign a JWT identity token using Ethereum signatures"
-            href="swissknife/identity-token"
-            icon="jwt"
-            width="120"
-            height="120"
-          />
         </div>
       </div>
     </Container>
