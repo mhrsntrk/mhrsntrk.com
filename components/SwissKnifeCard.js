@@ -70,7 +70,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        <div>
+        <div className='px-2'>
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
           </h4>

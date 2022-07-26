@@ -67,16 +67,24 @@ export default function Home({ allPosts }) {
           description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."
           href="https://starmap.mhrsntrk.com"
           icon="starmap"
-          width="60"
-          height="60"
+          width="100"
+          height="100"
+        />
+        <SwissKnifeCard
+          title="DID Resolver"
+          description="You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr (including Energy Web Chain)."
+          href="swissknife/did-resolver"
+          icon="fingerprint"
+          width="160"
+          height="160"
         />
         <SwissKnifeCard
           title="qroxy - Dynamic QR Code Tool"
           description="You can generate and update dynamic QR codes using the connected REST API and mongoDB. I collect personal information in order to use the tool."
           href="swissknife/qroxy"
           icon="qrcode"
-          width="90"
-          height="90"
+          width="110"
+          height="110"
         />
         <SwissKnifeCard
           title="Crypto Ticker"
