@@ -71,7 +71,7 @@ export default function ENSResolver() {
               id="did"
               type="text"
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Enter a DID to Resolve"
+              placeholder="Enter an ENS to Resolve"
               className="block w-full px-4 py-2 text-gray-900 bg-white border border-gray-300 rounded-md dark:border-gray-900 focus:ring-yellow-600 focus:border-yellow-600 dark:bg-gray-800 dark:text-gray-100"
             />
             <button
