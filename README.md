@@ -116,6 +116,8 @@ You can see my [blog post](https://mhrsntrk.com/blog/how-to-get-spotify-refresh-
 - `SPOTIFY_CLIENT_SECRET`
 - `SPOTIFY_REFRESH_TOKEN`
 - `NEXT_PUBLIC_QROXY_API`
+- `NEXT_PUBLIC_INFURA_API_KEY`
+- `NEXT_PUBLIC_ETHERSCAN_API_KEY`
 
 ## Tech Stack
 

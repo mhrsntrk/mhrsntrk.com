@@ -70,7 +70,19 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        <div className='px-2'>
+        {icon == 'ens' && (
+          <div className="ml-2 mr-4">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={icon}
+                  height={width}
+                  width={height}
+                  src="/static/icons/ens.png"
+                  className=""
+                />
+          </div>
+        )}
+        <div>
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
           </h4>

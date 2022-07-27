@@ -80,6 +80,15 @@ export default function SwissKnife() {
             width="160"
             height="160"
           />
+          <SwissKnifeCard
+            title="ENS Resolver"
+            description="You can use this tool to resolve an Ethereum Name Service (ENS)
+            domain."
+            href="swissknife/ens-resolver"
+            icon="ens"
+            width="120"
+            height="120"
+          />
         </div>
       </div>
     </Container>

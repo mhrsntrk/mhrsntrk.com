@@ -87,6 +87,15 @@ export default function Home({ allPosts }) {
           height="110"
         />
         <SwissKnifeCard
+          title="ENS Resolver"
+          description="You can use this tool to resolve an Ethereum Name Service (ENS)
+            domain."
+          href="swissknife/ens-resolver"
+          icon="ens"
+          width="70"
+          height="70"
+        />
+        <SwissKnifeCard
           title="Crypto Ticker"
           description="You can find the cryptocurrencies that I currently follow and hold on the page."
           href="swissknife/crypto"

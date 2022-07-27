@@ -2,72 +2,67 @@ import { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
-import { didResolver } from '@/lib/didResolver';
+import { ensResolver } from '@/lib/ensResolver';
 
-import JSONPretty from 'react-json-pretty';
-
-export default function DIDResolver() {
+export default function ENSResolver() {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
-  const [didDocument, setDidDocument] = useState('');
+  const [ensAddress, setENSAddress] = useState('');
+  const [ensAvatar, setENSAvatar] = useState('');
 
-  const resolveDidDocument = async (e) => {
+  const resolveENS = async (e) => {
     e.preventDefault();
     setLoading(true);
-    didResolver(input).then((didDocument) => {
-      setDidDocument(didDocument);
+    ensResolver(input).then((result) => {
+      setENSAddress(result.address);
+      setENSAvatar(result.url);
       setLoading(false);
     });
   };
 
+  const etherscanURL = `https://etherscan.io/address/${ensAddress}`;
+
   return (
     <Container>
       <NextSeo
-        title="DID Resolver – mhrsntrk"
-        description={`You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr (including Energy Web Chain).`}
-        canonical="https://mhrsntrk.com/swissknife/did-resolver"
+        title="ENS Resolver – mhrsntrk"
+        description={`You can use this tool to resolve an Ethereum Name Service (ENS)
+        domain.`}
+        canonical="https://mhrsntrk.com/swissknife/web-did-resolver"
         openGraph={{
-          url: 'https://mhrsntrk.com/swissknife/did-resolver',
-          title: 'DID Resolver – mhrsntrk',
-          description: `You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr (including Energy Web Chain).`
+          url: 'https://mhrsntrk.com/swissknife/web-did-resolver',
+          title: 'ENS Resolver – mhrsntrk',
+          description: `You can use this tool to resolve an Ethereum Name Service (ENS)
+          domain.`
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
-          Decentralized Identifier (DID) Resolver
+          Ethereum Name Service (ENS) Resolver
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          You can use this tool to fetch the Decentralized Identifier (DID)
-          document of the given DID. Currently supported methods are did:web and
-          did:ethr (including Energy Web Chain).{' '}
+          You can use this tool to resolve an Ethereum Name Service (ENS)
+          domain. You can learn more about ENS domains via this{' '}
+          <a
+            href="https://ens.domains"
+            target="_blank"
+            className="hover:underline"
+          >
+            link
+          </a>
+          .
         </p>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          You can read more about Decentralized Identifier (DID) specs through
-          this{' '}
+          The tool returns the conroller Ethereum address and the avatar (if
+          any) of the given domain name. It uses{' '}
           <a
-            href="https://www.w3.org/TR/did-core/"
+            href="https://github.com/ethers-io/ethers.js"
             target="_blank"
             className="hover:underline"
           >
-            link.
+            ethers
           </a>{' '}
-          This tool uses{' '}
-          <a
-            href="https://github.com/decentralized-identity/web-did-resolver"
-            target="_blank"
-            className="hover:underline"
-          >
-            web-did-resolver
-          </a>{' '}
-          and{' '}
-          <a
-            href="https://github.com/decentralized-identity/ethr-did-resolver"
-            target="_blank"
-            className="hover:underline"
-          >
-            ethr-did-resolver
-          </a>{' '}
-          libraries from Decentralized Identity Foundation.
+          library to resolve the ENS domains.
         </p>
         <div className="w-full mb-4">
           <form className="flex">
@@ -82,7 +77,7 @@ export default function DIDResolver() {
             <button
               className="p-2 px-6 ml-2 duration-300 bg-black rounded-md dark:bg-white"
               type="submit"
-              onClick={resolveDidDocument}
+              onClick={resolveENS}
             >
               <svg
                 className="text-gray-300 h-7 w-7 dark:text-gray-900"
@@ -112,21 +107,49 @@ export default function DIDResolver() {
           <>
             <div
               className={
-                didDocument == '' ? 'hidden' : 'text-black dark:text-white pt-4'
+                ensAddress == '' ? 'hidden' : 'text-black dark:text-white pt-4'
               }
             >
-              <h2 className="mb-4 text-xl">DID Document</h2>
+              <h2 className="mb-4 text-xl">Resolved ENS Address</h2>
             </div>
             <div
               className={
-                didDocument == ''
+                ensAddress == ''
                   ? 'hidden'
-                  : 'w-80 sm:w-full md:w-full lg:w-full xl:w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 pr-4 mb-10'
+                  : 'w-80 sm:w-full md:w-full lg:w-full xl:w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 mb-4'
               }
             >
-              <code className="overflow-auto text-sm text-gray-600 sm:text-sm md:text-md lg:text-md xl:text-md dark:text-gray-400">
-                <JSONPretty id="json-pretty" data={didDocument}></JSONPretty>
-              </code>
+              <p className="overflow-auto text-gray-600 text-md sm:text-md md:text-lg lg:text-lg xl:text-lg dark:text-gray-400">
+                <a
+                  href={etherscanURL}
+                  target="_blank"
+                  className="hover:underline"
+                  rel="noopener noreferrer"
+                >
+                  {' '}
+                  {ensAddress}
+                </a>
+              </p>
+            </div>
+            <div
+              className={
+                ensAvatar == '' ? 'hidden' : 'text-black dark:text-white pt-4'
+              }
+            >
+              <h2 className="mb-4 text-xl">Resolved ENS Avatar</h2>
+            </div>
+            <div
+              className={
+                ensAvatar == ''
+                  ? 'hidden'
+                  : 'w-80 sm:w-full md:w-full lg:w-full xl:w-full flex justify-center border border-gray-300 dark:border-gray-900 rounded-md bg-white dark:bg-gray-800 p-4 mb-10'
+              }
+            >
+              <img
+                src={ensAvatar}
+                alt="ENS Avatar"
+                className="w-full h-full"
+              ></img>
             </div>
           </>
         )}
