@@ -53,7 +53,7 @@ export default function ENSResolver() {
           .
         </p>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          The tool returns the conroller Ethereum address and the avatar (if
+          The tool returns the controller Ethereum address and the avatar (if
           any) of the given domain name. It uses{' '}
           <a
             href="https://github.com/ethers-io/ethers.js"
