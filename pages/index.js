@@ -13,7 +13,7 @@ export default function Home({ allPosts }) {
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          I work as Senior Product Owner at{' '}
+          I work as Senior Product Manager at{' '}
           <a
             href="https://energyweb.org"
             target="_blank"
@@ -23,7 +23,7 @@ export default function Home({ allPosts }) {
           </a>
           . I have B.Sc. in Electrical and Electronics Engineering and Master of
           Business Administration degrees. Currently, I am managing Self
-          Sovereign Identity (SSI) implementations on Energy Web Chain. Before
+          Sovereign Identity (SSI) product on Energy Web Chain. Before
           joining the Energy Web Foundation team, I co-founded and managed
           several startups in Turkey.
         </h2>
