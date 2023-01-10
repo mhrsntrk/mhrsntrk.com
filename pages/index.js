@@ -30,7 +30,7 @@ export default function Home({ allPosts }) {
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
           You can contact me via my{' '}
           <a
-            href="https://contact.mhrsntrk.com"
+            href="/contact"
             target="_blank"
             className="hover:underline"
           >
