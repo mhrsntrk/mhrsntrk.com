@@ -47,7 +47,6 @@ export default function Container({ children }) {
         </button>
         <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
           <Link href="/">
-            <a>
               {theme === 'dark' ? (
                 <Image
                   alt="mhrsntrk-logo"
@@ -65,7 +64,6 @@ export default function Container({ children }) {
                   className=""
                 />
               )}
-            </a>
           </Link>
         </div>
         <div className="items-center w-10 h-10 p-2 pl-3 bg-gray-200 rounded dark:bg-gray-800">
