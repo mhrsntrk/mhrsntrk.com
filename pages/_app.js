@@ -4,14 +4,8 @@ import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
 import { appWithTranslation } from 'next-i18next';
-import localFont from '@next/font/local';
 
 import SEO from '../next-seo.config';
-
-const sofia = localFont({
-  src: '../public/fonts/MostardesignSofiaProRegular.woff2',
-  variable: '--font-sofia',
-});
 
 function App({ Component, pageProps }) {
   return (
@@ -20,9 +14,7 @@ function App({ Component, pageProps }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
-      <main className={`${sofia.variable} font-sans`}>
-        <Component {...pageProps} />
-      </main>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

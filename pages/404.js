@@ -14,17 +14,19 @@ export default function NotFound() {
           title: '404 – mhrsntrk'
         }}
       />
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-        <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
+      <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
           404 – Not Found Not or Available Anymore
         </h1>
-        <p className="mb-8 text-gray-600 dark:text-gray-400">
+        <p className="text-gray-600 dark:text-gray-400 mb-8">
           It seems you've found something that used to exist, or you spelled
           something wrong. I'm guessing you spelled something wrong. Can you
           double check that URL?
         </p>
-        <Link href="/" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+        <Link href="/">
+          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-100 dark:bg-gray-900 text-center rounded-md text-black dark:text-white">
             Return Home
+          </a>
         </Link>
       </div>
     </Container>

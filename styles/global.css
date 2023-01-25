@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'SofiaPro';
+  src: url('/fonts/SofiaProRegular.woff2') format('woff2');
+  font-display: optional;
+}
+
 ::selection {
-  background-color: #EF4444;
+  background-color: #ef4444;
   color: #fefefe;
 }
 
@@ -136,32 +142,32 @@ input[type='email'] {
   @apply my-0;
 }
 
-.react-images__view-image{
+.react-images__view-image {
   max-height: 650px !important;
 }
 
-.react-multi-carousel-item div img{
-height: 500px !important;
+.react-multi-carousel-item div img {
+  height: 500px !important;
 }
 
 .react-photo-gallery--gallery img {
-max-height: 500px;
-object-fit: cover;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 /* On mouse-over, add a grey background color */
 .check-box:hover input ~ .checkmark {
-  background-color: #ACACAC;
+  background-color: #acacac;
 }
 
 /* When the checkbox is checked, add a blue background */
 .check-box input:checked ~ .checkmark {
-  background-color: #EF4444;
+  background-color: #ef4444;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-  content: "";
+  content: '';
   position: absolute;
   display: none;
 }
@@ -172,5 +178,5 @@ object-fit: cover;
 }
 
 :focus-visible {
-  outline: #EF4444 auto 1px;
+  outline: #ef4444 auto 1px;
 }

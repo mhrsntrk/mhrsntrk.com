@@ -2,7 +2,7 @@ import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
 import PodcastCard from '@/components/PodcastCard';
-import Link from 'next/link';
+import NextLink from 'next/link';
 
 import { getAllPostsForHome } from '@/lib/strapi';
 
@@ -35,9 +35,12 @@ export default function Home({ allPosts }) {
           </a>
           .
         </h2>
-        <Link href="/blog" className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <NextLink href="/blog">
+          <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Recent Posts </h3>
-        </Link>
+          </a>
+        </NextLink>
+
         {allPosts.map((post) => (
           <BlogPost
             title={post.title}
@@ -45,9 +48,11 @@ export default function Home({ allPosts }) {
             slug={post.slug}
           />
         ))}
-        <Link href="/podcast" className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <NextLink href="/podcasts">
+          <a className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Podcasts </h3>
-        </Link>
+          </a>
+        </NextLink>
         <PodcastCard
           title="Üretim Bandı Podcast"
           description="Blokzincir günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde Mahir Şentürk ile Energy Web'i keşfediyoruz."
@@ -62,9 +67,11 @@ export default function Home({ allPosts }) {
           </a>
         </NextLink>
          */}
-        <Link href="/swissknife" className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <NextLink href="/swissknife">
+          <a className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Swiss Knife </h3>
-        </Link>
+          </a>
+        </NextLink>
         <SwissKnifeCard
           title="Starmap Generator"
           description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."
