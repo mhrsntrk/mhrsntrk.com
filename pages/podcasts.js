@@ -25,7 +25,7 @@ export default function Podcast() {
             You can find the collection of the podcasts and streams that I joined as a guest. I mostly talk about web3, self-sovereign identity and energy markets.
           </p>
         </div>
-        <div className="w-full">
+        <div className="w-full mb-4">
           <PodcastCard
             title="Üretim Bandı Podcast"
             description="Blokzincir günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde Mahir Şentürk ile Energy Web'i keşfediyoruz."
@@ -34,6 +34,8 @@ export default function Podcast() {
             width="120"
             height="120"
           />
+          </div>
+          <div className="w-full mb-4">
           <PodcastCard
             title="Üretim Bandı Podcast"
             description="Mahir Şentürk ile birlikte eDevlet Blokzincirinde Olsaydı nasıl bir yapıda olurdu, Self Sovereign Identity (Öz Kimlik) nedir konuştuk."
