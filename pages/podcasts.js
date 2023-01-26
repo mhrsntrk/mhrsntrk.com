@@ -34,6 +34,14 @@ export default function Podcast() {
             width="120"
             height="120"
           />
+          <PodcastCard
+            title="Üretim Bandı Podcast"
+            description="Mahir Şentürk ile birlikte eDevlet Blokzincirinde Olsaydı nasıl bir yapıda olurdu, Self Sovereign Identity (Öz Kimlik) nedir konuştuk."
+            href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
+            icon="uretimbandi"
+            width="120"
+            height="120"
+          />
         </div>
       </div>
     </Container>
