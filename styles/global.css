@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'SofiaPro';
-  src: url('/fonts/SofiaProRegular.woff2') format('woff2');
+  font-family: 'sofia-pro';
+  src: url("https://use.typekit.net/wjs2wtl.css");
   font-display: optional;
 }
 

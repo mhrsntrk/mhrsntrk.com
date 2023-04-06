@@ -5,22 +5,9 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        {/* <GoogleFonts href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" /> */}
         <Head>
-          <link
-            rel="preload"
-            href="/fonts/SofiaProRegular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
-          />
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
-          {/* <link
-            rel="preconnect"
-            href="https://fonts.gstatic.com/"
-            crossOrigin=""
-          /> */}
           <link
             href="/static/favicons/apple-touch-icon.png"
             rel="apple-touch-icon"
