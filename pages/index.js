@@ -70,19 +70,6 @@ export default function Home({ allPosts }) {
           width="120"
           height="120"
         />
-        <NextLink href="/">
-          <a className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3 className="hover:underline">Courses </h3>
-          </a>
-        </NextLink>
-        <CourseCard
-          title="PM'ler için web3'e Giriş"
-          description="Bu eğitimle Web3'e geçiş yapmak isteyen ürün yöneticisi, pazarlama, iş geliştirme ve benzeri pozisyonlarda çalışanları bu yeni dünyaya hazırlıyoruz."
-          href="https://www.brick.institute/product/pmler-icin-web3e-giris"
-          icon="brickinstitute"
-          width="250"
-          height="250"
-        />
         <NextLink href="/swissknife">
           <a className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Swiss Knife </h3>
