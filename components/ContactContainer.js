@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import Image from 'next/image';
-import { useRouter } from 'next/router';
 import Head from 'next/head'
-import { useTranslation } from 'next-i18next';
 
 export default function Container({ children }) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
-  const router = useRouter();
-  const { t } = useTranslation('common');
   useEffect(() => setMounted(true), []);
 
   return (
@@ -45,39 +40,9 @@ export default function Container({ children }) {
             </svg>
           )}
         </button>
-        <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
-          <Link href="/">
-            <a>
-              {theme === 'dark' ? (
-                <Image
-                  alt="mhrsntrk-logo"
-                  height={50}
-                  width={250}
-                  src="/mhrsntrk-500-white.png"
-                  className=""
-                />
-              ) : (
-                <Image
-                  alt="mhrsntrk-logo"
-                  height={50}
-                  width={250}
-                  src="/mhrsntrk-500-black.png"
-                  className=""
-                />
-              )}
-            </a>
-          </Link>
-        </div>
-        <div className="items-center w-10 h-10 p-2 pl-3 bg-gray-200 rounded dark:bg-gray-800">
-          <Link
-            href={router.pathname}
-            locale={router.locale === 'en' ? 'tr' : 'en'}
-          >
-            <button
-              className="text-sm text-gray-800 dark:text-gray-200"
-            >
-              {t('change-locale')}
-            </button>
+        <div >
+        <Link href="/" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
+            Home
           </Link>
         </div>
       </nav>

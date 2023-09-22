@@ -142,19 +142,6 @@ input[type='email'] {
   @apply my-0;
 }
 
-.react-images__view-image {
-  max-height: 650px !important;
-}
-
-.react-multi-carousel-item div img {
-  height: 500px !important;
-}
-
-.react-photo-gallery--gallery img {
-  max-height: 500px;
-  object-fit: cover;
-}
-
 /* On mouse-over, add a grey background color */
 .check-box:hover input ~ .checkmark {
   background-color: #acacac;

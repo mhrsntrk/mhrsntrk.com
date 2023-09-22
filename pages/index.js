@@ -2,8 +2,7 @@ import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
 import PodcastCard from '@/components/PodcastCard';
-import CourseCard from '@/components/CourseCard';
-import NextLink from 'next/link';
+import Link from 'next/link';
 
 import { getAllPostsForHome } from '@/lib/strapi';
 
@@ -15,7 +14,7 @@ export default function Home({ allPosts }) {
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          I work as Senior Product Manager at{' '}
+          I work as Principal Product Manager at{' '}
           <a
             href="https://energyweb.org"
             target="_blank"
@@ -25,7 +24,7 @@ export default function Home({ allPosts }) {
           </a>
           . I have B.Sc. in Electrical and Electronics Engineering and Master of
           Business Administration degrees. Currently, I am managing Self
-          Sovereign Identity (SSI) product on Energy Web Chain. Before joining
+          Sovereign Identity (SSI) products on Energy Web Chain. Before joining
           the Energy Web Foundation team, I co-founded and managed several
           startups in Turkey.
         </h2>
@@ -36,11 +35,9 @@ export default function Home({ allPosts }) {
           </a>
           .
         </h2>
-        <NextLink href="/blog">
-          <a className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <Link href="/blog" className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Recent Posts </h3>
-          </a>
-        </NextLink>
+        </Link>
 
         {allPosts.map((post) => (
           <BlogPost
@@ -49,11 +46,9 @@ export default function Home({ allPosts }) {
             slug={post.slug}
           />
         ))}
-        <NextLink href="/podcasts">
-          <a className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <Link href="/podcasts" className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Podcasts </h3>
-          </a>
-        </NextLink>
+        </Link>
         <PodcastCard
           title="Üretim Bandı Podcast"
           description="Blokzincir günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde Mahir Şentürk ile Energy Web'i keşfediyoruz."
@@ -70,11 +65,9 @@ export default function Home({ allPosts }) {
           width="120"
           height="120"
         />
-        <NextLink href="/swissknife">
-          <a className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+        <Link href="/swissknife" className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
             <h3 className="hover:underline">Swiss Knife </h3>
-          </a>
-        </NextLink>
+        </Link>
         <SwissKnifeCard
           title="Starmap Generator"
           description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."

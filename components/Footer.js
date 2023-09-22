@@ -69,17 +69,14 @@ export default function Footer() {
         </ExternalLink>
       </div>
       <div className="space-x-3">
-        <Link href="/contact">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/contact</a>
+        <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-600">
+          /contact
         </Link>
-        <Link href="/gear">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/gear</a>
+        <Link href="/gear" className="text-sm text-gray-500 hover:text-gray-600">
+          /gear
         </Link>
-        <Link href="/tools">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/tools</a>
-        </Link>
-        <Link href="/photos">
-          <a className="text-sm text-gray-500 hover:text-gray-600">/photos</a>
+        <Link href="/tools" className="text-sm text-gray-500 hover:text-gray-600">
+          /tools
         </Link>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import Image from 'next/image';
 
 import Footer from '@/components/Footer';
@@ -41,8 +41,7 @@ export default function Container({ children }) {
           )}
         </button>
         <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
-          <NextLink href="/">
-            <a>
+          <Link href="/">
               {theme === 'dark' ? (
                 <Image
                   alt="mhrsntrk-logo"
@@ -60,19 +59,18 @@ export default function Container({ children }) {
                   className=""
                 />
               )}
-            </a>
-          </NextLink>
+          </Link>
         </div>
         <div>
-        <NextLink href="/swissknife">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Swiss Knife</a>
-          </NextLink>
-          <NextLink href="/blog">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Blog</a>
-          </NextLink>
-          <NextLink href="/">
-            <a className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">Home</a>
-          </NextLink>
+        <Link href="/swissknife" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
+            Swiss Knife
+          </Link>
+          <Link href="/blog" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
+            Blog
+          </Link>
+          <Link href="/" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
+            Home
+          </Link>
         </div>
       </nav>
       <main className="flex flex-col justify-center px-8 bg-white dark:bg-black">

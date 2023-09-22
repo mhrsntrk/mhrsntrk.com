@@ -20,9 +20,9 @@ export default function Blog({ post, morePosts }) {
         <Container>
           <div>
             <BlogLayout post={post} />
-            <hr className="border-black dark:border-white mt-8 mb-4 mx-2 sm:mx-8 md:mx-16 lg:mx-32 xl:mx-32" />
-            <div className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
-              <h2 className="font-bold text-2xl md:text-3xl tracking-tight mb-8 text-black dark:text-white">
+            <hr className="mx-2 mt-8 mb-4 border-black dark:border-white sm:mx-8 md:mx-16 lg:mx-32 xl:mx-32" />
+            <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+              <h2 className="mb-8 text-2xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
                 See More
               </h2>
               {morePosts.length > 0 &&
@@ -59,6 +59,6 @@ export async function getStaticProps({ params }) {
         content
       },
       morePosts: data?.morePosts
-    }
+    },
   };
 }

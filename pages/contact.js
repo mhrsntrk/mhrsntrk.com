@@ -1,13 +1,10 @@
 import React from 'react';
-import { useTranslation } from 'next-i18next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 import Container from '@/components/ContactContainer';
 import Card from '@/components/ContactCard';
 import Info from '@/components/ContactInfo';
 
 export default function Home() {
-  const { t } = useTranslation('common');
   return (
     <Container>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mt-8 mb-8">
@@ -15,7 +12,7 @@ export default function Home() {
           Mahir Şentürk
         </h1>
         <h2 className="mb-10 text-gray-800 dark:text-gray-200 text-md md:text-xl">
-          Senior Product Manager at{' '}
+          Principal Product Manager at{' '}
           <a
             href="https://energyweb.org"
             className="hover:underline hover:text-red-500 dark:hover:text-red-500"
@@ -27,7 +24,7 @@ export default function Home() {
           </a>
         </h2>
         <h2 className="mb-8 text-gray-600 dark:text-gray-400">
-          {t('profile')}
+        I work as Senior Product Manager at Energy Web Foundation. I have B.Sc. in Electrical and Electronics Engineering and Master of Business Administration degrees. Currently, I am managing Self Sovereign Identity (SSI) product on Energy Web Chain. Before joining the Energy Web Foundation team, I co-founded and managed several startups in Turkey.
         </h2>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <Info
@@ -51,12 +48,12 @@ export default function Home() {
         </div>
         <div className="grid w-full grid-cols-1 gap-0 mb-8 sm:gap-4 sm:grid-cols-2">
           <Card
-            title={t('booking-title')}
-            description={t('booking-description')}
+            title="Meet me!"
+            description="You can use this link to book a meeting with me at the time you choose."
             href="https://cal.com/mhrsntrk"
           />
           <Card
-            title={t('email-title')}
+            title="Drop me an email!"
             description="m@mhrsntrk.com"
             href="mailto:m@mhrsntrk.com?subject=Website Contact"
           />
@@ -65,9 +62,3 @@ export default function Home() {
     </Container>
   );
 }
-
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ['common']))
-  }
-});
