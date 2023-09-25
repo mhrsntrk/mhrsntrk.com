@@ -34,7 +34,7 @@ export default function SwissKnife() {
             .
           </p>
         </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="qroxy"
             description="Create dynamic QR codes using the connected REST API and mongoDB"
@@ -52,14 +52,14 @@ export default function SwissKnife() {
             height="120"
           />
         </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="Kutt.it Link Shortener"
             description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
             href="swissknife/kutt"
             icon="kutt"
-            width="150"
-            height="150"
+            width="120"
+            height="120"
           />
           <SwissKnifeCard
             title="Crypto Ticker"
@@ -71,14 +71,14 @@ export default function SwissKnife() {
             height="120"
           />
         </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="DID Resolver"
             description="You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID."
             href="swissknife/did-resolver"
             icon="fingerprint"
-            width="160"
-            height="160"
+            width="120"
+            height="120"
           />
           <SwissKnifeCard
             title="ENS Resolver"

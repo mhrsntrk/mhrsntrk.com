@@ -8,7 +8,7 @@ import SEO from '../next-seo.config';
 
 function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class">
+    <ThemeProvider attribute="class" defaultTheme = 'system' enableColorScheme = {true}>
       <Head>
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>

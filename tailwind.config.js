@@ -14,6 +14,12 @@ module.exports = {
         '88': '22rem',
         '84': '21rem',
       },
+      maxWidth: {
+        'xxs': '5rem'
+      },
+      minWidth: {
+        'xxs': '5rem',
+      },
       colors: {
         black: "#111111",
         specialred: "#EF4444",

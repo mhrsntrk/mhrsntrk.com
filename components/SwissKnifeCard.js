@@ -11,7 +11,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
     >
       <div className="flex items-center h-40 p-4 border border-gray-200 rounded dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
         {icon == 'crypto' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -23,7 +23,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           </div>
         )}
         {icon == 'starmap' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -35,7 +35,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           </div>
         )}
         {icon == 'kutt' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -47,7 +47,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           </div>
         )}
         {icon == 'qrcode' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -59,7 +59,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           </div>
         )}
         {icon == 'fingerprint' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -71,7 +71,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           </div>
         )}
         {icon == 'ens' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}
@@ -82,7 +82,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        <div>
+        <div className="ml-4">
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
           </h4>

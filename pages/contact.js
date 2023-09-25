@@ -24,7 +24,12 @@ export default function Home() {
           </a>
         </h2>
         <h2 className="mb-8 text-gray-600 dark:text-gray-400">
-        I work as Senior Product Manager at Energy Web Foundation. I have B.Sc. in Electrical and Electronics Engineering and Master of Business Administration degrees. Currently, I am managing Self Sovereign Identity (SSI) product on Energy Web Chain. Before joining the Energy Web Foundation team, I co-founded and managed several startups in Turkey.
+          I have B.Sc. in Electrical and Electronics Engineering and Master of
+          Business Administration degrees. Currently, I am managing Self
+          Sovereign Identity (SSI) and community facing solutions at Energy Web.
+          Also, I successfully delivered many high-importance projects for
+          energy enterprises. Before joining the Energy Web Foundation team, I
+          co-founded and managed several startups in Turkey.
         </h2>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <Info

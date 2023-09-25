@@ -42,12 +42,12 @@ export default function Container({ children }) {
         </button>
         <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
           <Link href="/">
-              {theme === 'dark' ? (
+              {theme === 'light' ? (
                 <Image
                   alt="mhrsntrk-logo"
                   height={50}
                   width={250}
-                  src="/mhrsntrk-500-white.png"
+                  src="/mhrsntrk-500-black.png"
                   className=""
                 />
               ) : (
@@ -55,7 +55,7 @@ export default function Container({ children }) {
                   alt="mhrsntrk-logo"
                   height={50}
                   width={250}
-                  src="/mhrsntrk-500-black.png"
+                  src="/mhrsntrk-500-white.png"
                   className=""
                 />
               )}

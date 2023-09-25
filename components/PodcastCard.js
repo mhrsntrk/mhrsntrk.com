@@ -11,7 +11,7 @@ export default function PodcastCard({ title, description, href, icon, width, hei
     >
       <div className="flex items-center h-40 p-4 border border-gray-200 rounded dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
         {icon == 'uretimbandi' && (
-          <div className="ml-2 mr-4">
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
                   alt={icon}

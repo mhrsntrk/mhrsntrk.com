@@ -24,7 +24,7 @@ export default function Home({ allPosts }) {
           </a>
           . I have B.Sc. in Electrical and Electronics Engineering and Master of
           Business Administration degrees. Currently, I am managing Self
-          Sovereign Identity (SSI) products on Energy Web Chain. Before joining
+          Sovereign Identity (SSI) and community facing solutions. Before joining
           the Energy Web Foundation team, I co-founded and managed several
           startups in Turkey.
         </h2>
@@ -51,7 +51,7 @@ export default function Home({ allPosts }) {
         </Link>
         <PodcastCard
           title="Üretim Bandı Podcast"
-          description="Blokzincir günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde Mahir Şentürk ile Energy Web'i keşfediyoruz."
+          description="Blokzinciri günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde, Mahir Şentürk ile Energy Web'i keşfediyoruz."
           href="https://uretimbandi.com/podcast/mahir-senturk-energy-web-blockchainle-enerji-problemini-cozmek/"
           icon="uretimbandi"
           width="120"
@@ -59,7 +59,7 @@ export default function Home({ allPosts }) {
         />
         <PodcastCard
           title="Üretim Bandı Podcast"
-          description="Mahir Şentürk ile birlikte eDevlet Blokzincirinde Olsaydı nasıl bir yapıda olurdu, Self Sovereign Identity (Öz Kimlik) nedir konuştuk."
+          description="Mahir Şentürk ile birlikte eDevlet Blokzincirinde olsaydı nasıl bir yapıda olurdu ve Self Sovereign Identity (Öz Kimlik) nedir konuştuk."
           href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
           icon="uretimbandi"
           width="120"
@@ -73,24 +73,24 @@ export default function Home({ allPosts }) {
           description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."
           href="https://starmap.mhrsntrk.com"
           icon="starmap"
-          width="100"
-          height="100"
+          width="120"
+          height="120"
         />
         <SwissKnifeCard
           title="DID Resolver"
           description="You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr (including Energy Web Chain)."
           href="swissknife/did-resolver"
           icon="fingerprint"
-          width="160"
-          height="160"
+          width="120"
+          height="120"
         />
         <SwissKnifeCard
           title="qroxy - Dynamic QR Code Tool"
-          description="You can generate and update dynamic QR codes using the connected REST API and mongoDB. I collect personal information in order to use the tool."
+          description="You can generate and update dynamic QR codes using the connected REST API and mongoDB. I collect personal information in order to use the tool, to prevent spamming."
           href="swissknife/qroxy"
           icon="qrcode"
-          width="110"
-          height="110"
+          width="120"
+          height="120"
         />
         <SwissKnifeCard
           title="ENS Resolver"
@@ -98,16 +98,16 @@ export default function Home({ allPosts }) {
             domain."
           href="swissknife/ens-resolver"
           icon="ens"
-          width="70"
-          height="70"
+          width="120"
+          height="120"
         />
         <SwissKnifeCard
           title="Crypto Ticker"
           description="You can find the cryptocurrencies that I currently follow and hold on the page."
           href="swissknife/crypto"
           icon="crypto"
-          width="60"
-          height="60"
+          width="120"
+          height="120"
         />
       </div>
     </Container>
