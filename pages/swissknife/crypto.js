@@ -4,7 +4,7 @@ import {
   getBitcoin,
   getEthereum,
   getEnergyWeb,
-  getUniSwap,
+  getAvax,
   getMina,
   getPolkadot
 } from '@/lib/coinpaprika';
@@ -16,7 +16,7 @@ export default function Crypto({
   bitcoin,
   ethereum,
   energyWeb,
-  uniswap,
+  avax,
   mina,
   polkadot
 }) {
@@ -89,11 +89,11 @@ export default function Crypto({
             ath={mina.quotes.USD.ath_price.toFixed(5)}
           />
           <CryptoCard
-            name={uniswap.name}
-            symbol={uniswap.symbol}
-            price={uniswap.quotes.USD.price.toFixed(6)}
-            change={uniswap.quotes.USD.percent_change_24h}
-            ath={uniswap.quotes.USD.ath_price.toFixed(6)}
+            name={avax.name}
+            symbol={avax.symbol}
+            price={avax.quotes.USD.price.toFixed(6)}
+            change={avax.quotes.USD.percent_change_24h}
+            ath={avax.quotes.USD.ath_price.toFixed(6)}
           />
         </div>
       </div>
@@ -105,11 +105,11 @@ export async function getServerSideProps() {
   const bitcoin = await getBitcoin();
   const ethereum = await getEthereum();
   const energyWeb = await getEnergyWeb();
-  const uniswap = await getUniSwap();
+  const avax = await getAvax();
   const mina = await getMina();
   const polkadot = await getPolkadot();
 
   return {
-    props: { bitcoin, ethereum, energyWeb, uniswap, mina, polkadot }
+    props: { bitcoin, ethereum, energyWeb, avax, mina, polkadot }
   };
 }
