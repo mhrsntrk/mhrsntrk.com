@@ -124,7 +124,9 @@ module.exports = {
             },
             code: { color: theme('colors.pink.500') },
             'blockquote p:first-of-type::before': false,
-            'blockquote p:last-of-type::after': false
+            'blockquote p:last-of-type::after': false,
+            "code::before": {content: ''},
+            "code::after": {content: ''}
           }
         },
         dark: {
