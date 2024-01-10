@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Sofia Pro', ...defaultTheme.fontFamily.sans]
+        sans: ['lores-9-plus-narrow', ...defaultTheme.fontFamily.sans]
       },
       width: {
         '88': '22rem',
