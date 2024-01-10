@@ -24,12 +24,25 @@ export default function Home() {
           </a>
         </h2>
         <h2 className="mb-8 text-gray-600 dark:text-gray-400">
-          I have B.Sc. in Electrical and Electronics Engineering and Master of
-          Business Administration degrees. Currently, I am managing Self
-          Sovereign Identity (SSI) and community facing solutions at Energy Web.
-          Also, I successfully delivered many high-importance projects for
-          energy enterprises. Before joining the Energy Web Foundation team, I
-          co-founded and managed several startups in Turkey.
+          As Principal Product Manager at Energy Web, I bring a dynamic blend of
+          technical expertise and strategic business knowledge, backed by B.Sc.
+          in Electrical and Electronics Engineering and MBA degrees. My journey
+          in the tech and energy sectors has been marked by a passion for
+          innovation and community engagement. Currently, I am managing{' '}
+          <a
+            href="https://energywebx.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            EWX
+          </a>{' '}
+          ecosystem products, focusing on our "Marketplace" and "SaaS
+          offerings", driving forward the integration of web3 technology in the
+          energy sector. My prior experience includes co-founding and leading
+          various startups in Turkey, where I developed and refined my skills in
+          creating and running technology-driven businesses. At Energy Web, I
+          continue to leverage these skills to foster growth and sustainability
+          in the ever-evolving landscape of web3 solutions.
         </h2>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <Info
