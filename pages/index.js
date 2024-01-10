@@ -14,22 +14,25 @@ export default function Home({ allPosts }) {
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          I work as Principal Product Manager at{' '}
+        As Principal Product Manager at{' '}
           <a
             href="https://energyweb.org"
             target="_blank"
             className="hover:underline"
           >
-            Energy Web Foundation
+            Energy Web
           </a>
-          . I have B.Sc. in Electrical and Electronics Engineering and Master of
-          Business Administration degrees. Currently, I am managing Self
-          Sovereign Identity (SSI) and community facing solutions. Before joining
-          the Energy Web Foundation team, I co-founded and managed several
-          startups in Turkey.
+          , I bring a dynamic blend of technical expertise and strategic business knowledge, backed by B.Sc. in Electrical and Electronics Engineering and MBA degrees. My journey in the tech and energy sectors has been marked by a passion for innovation and community engagement. Currently, I am managing {' '}
+          <a
+            href="https://energywebx.com"
+            target="_blank"
+            className="hover:underline"
+          >
+            EWX
+          </a> ecosystem products, focusing on our "Marketplace" and "SaaS offerings", driving forward the integration of web3 technology in the energy sector. My prior experience includes co-founding and leading various startups in Turkey, where I developed and refined my skills in creating and running technology-driven businesses. At Energy Web, I continue to leverage these skills to foster growth and sustainability in the ever-evolving landscape of web3 solutions.
         </h2>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
-          You can contact me via my{' '}
+          You can contact me via the{' '}
           <a href="/contact" target="_blank" className="hover:underline">
             contact page
           </a>
@@ -59,7 +62,7 @@ export default function Home({ allPosts }) {
         />
         <PodcastCard
           title="Üretim Bandı Podcast"
-          description="Mahir Şentürk ile birlikte eDevlet Blokzincirinde olsaydı nasıl bir yapıda olurdu ve Self Sovereign Identity (Öz Kimlik) nedir konuştuk."
+          description="Mahir Şentürk ile birlikte eDevlet blokzincirinde olsaydı nasıl bir yapıda olurdu ve Self Sovereign Identity (Öz Kimlik) nedir konularını konuştuk."
           href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
           icon="uretimbandi"
           width="120"
