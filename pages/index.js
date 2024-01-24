@@ -54,7 +54,7 @@ export default function Home({ allPosts }) {
         </Link>
         <PodcastCard
           title="Üretim Bandı Podcast"
-          description="Blokzinciri günden güne hayatımızda ve teknolojide daha farklı alanlarda yer buluyor. Üretim Bandı Podcast'in bu bölümünde, Mahir Şentürk ile Energy Web'i keşfediyoruz."
+          description="Bu bölümde, Mahir Senturk ile birlikte Energy Web'i keşfediyoruz."
           href="https://uretimbandi.com/podcast/mahir-senturk-energy-web-blockchainle-enerji-problemini-cozmek/"
           icon="uretimbandi"
           width="120"
@@ -62,7 +62,7 @@ export default function Home({ allPosts }) {
         />
         <PodcastCard
           title="Üretim Bandı Podcast"
-          description="Mahir Şentürk ile birlikte eDevlet blokzincirinde olsaydı nasıl bir yapıda olurdu ve Self Sovereign Identity (Öz Kimlik) nedir konularını konuştuk."
+          description="Mahir Senturk ile birlikte Self Sovereign Identity (Öz Kimlik) konusunu konuştuk."
           href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
           icon="uretimbandi"
           width="120"
@@ -73,7 +73,7 @@ export default function Home({ allPosts }) {
         </Link>
         <SwissKnifeCard
           title="Starmap Generator"
-          description="A tool for creating customized starmap prints. Login required in order to use the tool, you can contact me for the inquiries."
+          description="A tool for creating customized starmap prints. Login required."
           href="https://starmap.mhrsntrk.com"
           icon="starmap"
           width="120"
@@ -81,7 +81,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="DID Resolver"
-          description="You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr (including Energy Web Chain)."
+          description="This tool will allow you to fetch the DID document of the given a DID."
           href="swissknife/did-resolver"
           icon="fingerprint"
           width="120"
@@ -89,7 +89,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="qroxy - Dynamic QR Code Tool"
-          description="You can generate and update dynamic QR codes using the connected REST API and mongoDB. I collect personal information in order to use the tool, to prevent spamming."
+          description="Create dynamic QR codes using the connected REST API and mongoDB"
           href="swissknife/qroxy"
           icon="qrcode"
           width="120"
@@ -97,8 +97,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="ENS Resolver"
-          description="You can use this tool to resolve an Ethereum Name Service (ENS)
-            domain."
+          description="This tool will allow you to resolve an Ethereum Name Service (ENS) domain."
           href="swissknife/ens-resolver"
           icon="ens"
           width="120"
@@ -106,7 +105,7 @@ export default function Home({ allPosts }) {
         />
         <SwissKnifeCard
           title="Crypto Ticker"
-          description="You can find the cryptocurrencies that I currently follow and hold on the page."
+          description="View the cryptocurrencies that I currently track on this page."
           href="swissknife/crypto"
           icon="crypto"
           width="120"
