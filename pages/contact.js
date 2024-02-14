@@ -9,7 +9,7 @@ export default function Home() {
     <Container>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mt-8 mb-8">
         <h1 className="mb-2 text-4xl font-bold text-black md:text-5xl dark:text-white">
-          Mahir Şentürk
+          Mahir Sentürk
         </h1>
         <h2 className="mb-10 text-gray-800 dark:text-gray-200 text-md md:text-xl">
           Principal Product Manager at{' '}
