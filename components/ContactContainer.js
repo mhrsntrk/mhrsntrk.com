@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
 import Link from 'next/link';
-import Head from 'next/head'
+import Head from 'next/head';
 
 export default function Container({ children }) {
   const [mounted, setMounted] = useState(false);
@@ -11,7 +11,7 @@ export default function Container({ children }) {
   return (
     <div className="bg-white dark:bg-black">
       <Head>
-        <title>Mahir Şentürk</title>
+        <title>Mahir Sentürk</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <nav className="flex items-center justify-between w-full max-w-4xl p-4 mx-auto my-0 bg-white sticky-nav md:my-8 dark:bg-black bg-opacity-60">
@@ -40,8 +40,11 @@ export default function Container({ children }) {
             </svg>
           )}
         </button>
-        <div >
-        <Link href="/" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
+        <div>
+          <Link
+            href="/"
+            className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+          >
             Home
           </Link>
         </div>
