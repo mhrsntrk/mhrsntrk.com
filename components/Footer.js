@@ -52,7 +52,7 @@ export default function Footer() {
             </g>
           </svg>
         </ExternalLink>
-        <ExternalLink href="https://www.lensfrens.xyz/mhrsntrk.lens">
+        <ExternalLink href="https://www.lensfrens.xyz/mhrsntrk">
           <span className="sr-only">Lens</span>
           <svg
             width={20}
@@ -69,13 +69,22 @@ export default function Footer() {
         </ExternalLink>
       </div>
       <div className="space-x-3">
-        <Link href="/contact" className="text-sm text-gray-500 hover:text-gray-600">
+        <Link
+          href="/contact"
+          className="text-sm text-gray-500 hover:text-gray-600"
+        >
           /contact
         </Link>
-        <Link href="/gear" className="text-sm text-gray-500 hover:text-gray-600">
+        <Link
+          href="/gear"
+          className="text-sm text-gray-500 hover:text-gray-600"
+        >
           /gear
         </Link>
-        <Link href="/tools" className="text-sm text-gray-500 hover:text-gray-600">
+        <Link
+          href="/tools"
+          className="text-sm text-gray-500 hover:text-gray-600"
+        >
           /tools
         </Link>
       </div>
