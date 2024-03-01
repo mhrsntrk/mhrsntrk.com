@@ -12,37 +12,35 @@ export default function Home() {
           Mahir Sentürk
         </h1>
         <h2 className="mb-10 text-gray-800 dark:text-gray-200 text-md md:text-xl">
-          Principal Product Manager at{' '}
+          Senior Project Manager at{' '}
           <a
-            href="https://energyweb.org"
+            href="https://hashgraph-association.com/"
             className="hover:underline hover:text-red-500 dark:hover:text-red-500"
             aria-label="Energy Web"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Energy Web Foundation
+            The Hashgraph Association
           </a>
         </h2>
         <h2 className="mb-8 text-gray-600 dark:text-gray-400">
-          As Principal Product Manager at Energy Web, I bring a dynamic blend of
-          technical expertise and strategic business knowledge, backed by B.Sc.
-          in Electrical and Electronics Engineering and MBA degrees. My journey
-          in the tech and energy sectors has been marked by a passion for
-          innovation and community engagement. Currently, I am managing{' '}
+          As the Sr. Project Manager at The Hashgraph Association , I bring a
+          fusion of technical prowess and strategic insight, grounded in a B.Sc.
+          in Electrical and Electronics Engineering and an MBA. My career in
+          tech and energy is driven by a dedication to innovation and impactful
+          leadership. Previously at{' '}
           <a
-            href="https://energywebx.com"
+            href="https://energyweb.org"
             target="_blank"
             className="hover:underline"
           >
-            EWX
-          </a>{' '}
-          ecosystem products, focusing on our "Marketplace" and "SaaS
-          offerings", driving forward the integration of web3 technology in the
-          energy sector. My prior experience includes co-founding and leading
-          various startups in Turkey, where I developed and refined my skills in
-          creating and running technology-driven businesses. At Energy Web, I
-          continue to leverage these skills to foster growth and sustainability
-          in the ever-evolving landscape of web3 solutions.
+            Energy Web
+          </a>
+          , I led the development of key ecosystem products, integrating web3
+          technologies into the energy sector. Now, at The Hashgraph
+          Association, I'm excited to steer groundbreaking projects in
+          distributed ledger technology, building on my experience as a tech
+          entrepreneur to advance the blockchain industry.
         </h2>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <Info

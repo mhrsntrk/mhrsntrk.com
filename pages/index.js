@@ -14,7 +14,18 @@ export default function Home({ allPosts }) {
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-        As Principal Product Manager at{' '}
+          As the Sr. Project Manager at{' '}
+          <a
+            href="https://hashgraph-association.com/"
+            target="_blank"
+            className="hover:underline"
+          >
+            The Hashgraph Association
+          </a>
+          , I bring a fusion of technical prowess and strategic insight,
+          grounded in a B.Sc. in Electrical and Electronics Engineering and an
+          MBA. My career in tech and energy is driven by a dedication to
+          innovation and impactful leadership. Previously at{' '}
           <a
             href="https://energyweb.org"
             target="_blank"
@@ -22,14 +33,11 @@ export default function Home({ allPosts }) {
           >
             Energy Web
           </a>
-          , I bring a dynamic blend of technical expertise and strategic business knowledge, backed by B.Sc. in Electrical and Electronics Engineering and MBA degrees. My journey in the tech and energy sectors has been marked by a passion for innovation and community engagement. Currently, I am managing {' '}
-          <a
-            href="https://energywebx.com"
-            target="_blank"
-            className="hover:underline"
-          >
-            EWX
-          </a> ecosystem products, focusing on our "Marketplace" and "SaaS offerings", driving forward the integration of web3 technology in the energy sector. My prior experience includes co-founding and leading various startups in Turkey, where I developed and refined my skills in creating and running technology-driven businesses. At Energy Web, I continue to leverage these skills to foster growth and sustainability in the ever-evolving landscape of web3 solutions.
+          , I led the development of key ecosystem products, integrating web3
+          technologies into the energy sector. Now, at The Hashgraph
+          Association, I'm excited to steer groundbreaking projects in
+          distributed ledger technology, building on my experience as a tech
+          entrepreneur to advance the blockchain industry.
         </h2>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
           You can contact me via the{' '}
@@ -38,8 +46,11 @@ export default function Home({ allPosts }) {
           </a>
           .
         </h2>
-        <Link href="/blog" className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3 className="hover:underline">Recent Posts </h3>
+        <Link
+          href="/blog"
+          className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+        >
+          <h3 className="hover:underline">Recent Posts </h3>
         </Link>
 
         {allPosts.map((post) => (
@@ -49,8 +60,11 @@ export default function Home({ allPosts }) {
             slug={post.slug}
           />
         ))}
-        <Link href="/podcasts" className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3 className="hover:underline">Podcasts </h3>
+        <Link
+          href="/podcasts"
+          className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+        >
+          <h3 className="hover:underline">Podcasts </h3>
         </Link>
         <PodcastCard
           title="Üretim Bandı Podcast"
@@ -68,8 +82,11 @@ export default function Home({ allPosts }) {
           width="120"
           height="120"
         />
-        <Link href="/swissknife" className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
-            <h3 className="hover:underline">Swiss Knife </h3>
+        <Link
+          href="/swissknife"
+          className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+        >
+          <h3 className="hover:underline">Swiss Knife </h3>
         </Link>
         <SwissKnifeCard
           title="Starmap Generator"
