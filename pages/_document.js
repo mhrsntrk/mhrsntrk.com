@@ -37,12 +37,27 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
+          /*
           <script
             async
             src="https://ackee.dev.mhrsntrk.com/tracker.js"
             data-ackee-server="https://ackee.dev.mhrsntrk.com"
             data-ackee-domain-id="d96a1f11-3fc7-4e41-96fa-52fea4b8c6df"
           ></script>
+          */
+          <script type="text/javascript">
+            var _paq = window._paq = window._paq || [];
+            /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+              var u="//analytics.dev.mhrsntrk.com/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+            })();
+          </script>
         </Head>
         <body className="text-white bg-white dark:bg-black dark:text-black">
           <Main />
