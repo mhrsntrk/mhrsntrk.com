@@ -14,30 +14,16 @@ export default function Home({ allPosts }) {
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          As the Sr. Project Manager at{' '}
-          <a
-            href="https://hashgraph-association.com/"
-            target="_blank"
-            className="hover:underline"
-          >
-            The Hashgraph Association
-          </a>
-          , I bring a fusion of technical prowess and strategic insight,
-          grounded in a B.Sc. in Electrical and Electronics Engineering and an
-          MBA. My career in tech and energy is driven by a dedication to
-          innovation and impactful leadership. Previously at{' '}
-          <a
-            href="https://energyweb.org"
-            target="_blank"
-            className="hover:underline"
-          >
-            Energy Web
-          </a>
-          , I led the development of key ecosystem products, integrating web3
-          technologies into the energy sector. Now, at The Hashgraph
-          Association, I'm excited to steer groundbreaking projects in
-          distributed ledger technology, building on my experience as a tech
-          entrepreneur to advance the blockchain industry.
+          As a Senior Product Manager at The Hashgraph Association, I blend technical expertise with strategic vision, leveraging my B.Sc. in Electrical and Electronics Engineering and MBA. My career in technology is driven by a passion for innovation and impactful leadership, with a particular focus on self-sovereign identity (SSI) solutions.
+        </h2>
+        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
+          Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
+        </h2>
+        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
+          Now at The Hashgraph Association, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
+        </h2>
+        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
+          My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
         </h2>
         <h2 className="mb-10 text-gray-600 dark:text-gray-400">
           You can contact me via the{' '}
