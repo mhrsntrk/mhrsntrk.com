@@ -1,24 +1,44 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
-import { ensResolver } from '@/lib/ensResolver';
+import { ensResolver, getProviderStatus } from '@/lib/ensResolver';
 
 export default function ENSResolver() {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState('');
   const [ensAddress, setENSAddress] = useState('');
   const [ensAvatar, setENSAvatar] = useState('');
+  const [providerUsed, setProviderUsed] = useState('');
+  const [providerStatus, setProviderStatus] = useState([]);
 
   const resolveENS = async (e) => {
     e.preventDefault();
+    if (!input.trim()) {
+      return;
+    }
+    
     setLoading(true);
-    ensResolver(input).then((result) => {
+    setProviderUsed('');
+    try {
+      const result = await ensResolver(input.trim());
       setENSAddress(result.address);
       setENSAvatar(result.url);
+      // Note: Provider info is logged to console, not returned in result
+      // This is a limitation of the current implementation
+    } catch (error) {
+      console.error('ENS resolution failed:', error);
+      setENSAddress('Error resolving ENS. Please try again.');
+      setENSAvatar('');
+    } finally {
       setLoading(false);
-    });
+    }
   };
+
+  // Load provider status on component mount
+  React.useEffect(() => {
+    setProviderStatus(getProviderStatus());
+  }, []);
 
   const etherscanURL = `https://etherscan.io/address/${ensAddress}`;
 
@@ -62,8 +82,25 @@ export default function ENSResolver() {
           >
             ethers
           </a>{' '}
-          library to resolve the ENS domains.
+          library to resolve the ENS domains with multiple provider fallbacks for reliability.
         </p>
+        <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-md">
+          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Provider Status:</h3>
+          <div className="flex flex-wrap gap-2">
+            {providerStatus.map((provider) => (
+              <span
+                key={provider.name}
+                className={`px-2 py-1 text-xs rounded-full ${
+                  provider.configured
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200'
+                    : 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200'
+                }`}
+              >
+                {provider.name} {provider.configured ? '✓' : '✗'}
+              </span>
+            ))}
+          </div>
+        </div>
         <div className="w-full mb-4">
           <form className="flex">
             <input
