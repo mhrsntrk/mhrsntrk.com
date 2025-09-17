@@ -42,22 +42,6 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
-        {icon == 'kutt' && (
-          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
-            <span className="sr-only">{title}</span>
-            <Image
-                  alt={`${title} - URL shortener tool icon`}
-                  height={width}
-                  width={height}
-                  src="/static/icons/kutt.png"
-                  className=""
-                  priority={false}
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                />
-          </div>
-        )}
         {icon == 'qrcode' && (
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>

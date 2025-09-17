@@ -54,14 +54,6 @@ export default function SwissKnife() {
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
-            title="Kutt.it Link Shortener"
-            description="Kutt is a modern URL shortener. You can try the API under my domain on the page."
-            href="swissknife/kutt"
-            icon="kutt"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
             title="Crypto Ticker"
             description="You can find the cryptocurrencies that
           I currently follow and hold on the page."
