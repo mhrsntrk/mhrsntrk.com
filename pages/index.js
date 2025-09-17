@@ -20,7 +20,7 @@ export default function Home({ allPosts }) {
           Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
         </h2>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          Now at The Hashgraph Association, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
+          Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
         </h2>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
           My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
