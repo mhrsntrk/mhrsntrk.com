@@ -109,12 +109,6 @@ Create a `.env.local` on Next.js frontend with below variables.
 
 - `NEXT_PUBLIC_STRAPI_API_URL` should be set as `http://localhost:1337` (no trailing slash).
 
-Create an app from [developer.spotify.com](https://developer.spotify.com/) enter **CLIENT_ID** and **CLIENT_SECRET**. 
-You can see my [blog post](https://mhrsntrk.com/blog/how-to-get-spotify-refresh-token) to see how to get your **REFRESH_TOKEN**
-
-- `SPOTIFY_CLIENT_ID`
-- `SPOTIFY_CLIENT_SECRET`
-- `SPOTIFY_REFRESH_TOKEN`
 - `NEXT_PUBLIC_QROXY_API`
 - `NEXT_PUBLIC_INFURA_API_KEY`
 - `NEXT_PUBLIC_ETHERSCAN_API_KEY`
