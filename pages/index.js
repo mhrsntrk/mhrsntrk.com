@@ -2,6 +2,8 @@ import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
 import PodcastCard from '@/components/PodcastCard';
+import ContactCard from '@/components/ContactCard';
+import ContactInfo from '@/components/ContactInfo';
 import Link from 'next/link';
 
 import { getAllPostsForHome } from '@/lib/strapi';
@@ -10,7 +12,7 @@ export default function Home({ allPosts }) {
   return (
     <Container>
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-        <h1 className="mb-4 text-5xl font-bold text-black md:text-6xl dark:text-white">
+        <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
         </h1>
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
@@ -22,15 +24,8 @@ export default function Home({ allPosts }) {
         <h2 className="mb-4 text-gray-600 dark:text-gray-400">
           Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
         </h2>
-        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
+        <h2 className="mb-8 text-gray-600 dark:text-gray-400">
           My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
-        </h2>
-        <h2 className="mb-10 text-gray-600 dark:text-gray-400">
-          You can contact me via the{' '}
-          <a href="/contact" target="_blank" className="hover:underline">
-            contact page
-          </a>
-          .
         </h2>
         <Link
           href="/blog"
@@ -114,6 +109,46 @@ export default function Home({ allPosts }) {
           width="120"
           height="120"
         />
+        <div id="contact">
+          <Link
+            href="#contact"
+            className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+          >
+            <h3 className="hover:underline">Contact me</h3>
+          </Link>
+          <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+            <ContactInfo
+              icon="linkedin"
+              title="Linkedin"
+              href="https://www.linkedin.com/in/mahirsenturk"
+            />
+            <ContactInfo
+              icon="github"
+              title="Github"
+              href="https://github.com/mhrsntrk"
+            />
+          </div>
+          <div className="grid w-full grid-cols-1 gap-4 my-2 mb-4 sm:grid-cols-2">
+            <ContactInfo
+              icon="twitter"
+              title="Twitter"
+              href="https://twitter.com/mhrsntrk"
+            />
+            <ContactInfo icon="telegram" title="Telegram" href="https://t.me/mhrsntrk" />
+          </div>
+          <div className="grid w-full grid-cols-1 gap-0 mb-6 sm:gap-4 sm:grid-cols-2">
+            <ContactCard
+              title="Meet me!"
+              description="You can use this link to book a meeting with me at the time you choose."
+              href="https://cal.com/mhrsntrk"
+            />
+            <ContactCard
+              title="Drop me an email!"
+              description="m@mhrsntrk.com"
+              href="mailto:m@mhrsntrk.com?subject=Website Contact"
+            />
+          </div>
+        </div>
       </div>
     </Container>
   );

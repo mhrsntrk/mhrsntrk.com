@@ -9,9 +9,9 @@ export default function Podcast() {
     <Container>
       <NextSeo
         title="Podcast – mhrsntrk"
-        canonical="https://mhrsntrk.com/swissknife"
+        canonical="https://mhrsntrk.com/podcasts"
         openGraph={{
-          url: 'https://mhrsntrk.com/swissknife',
+          url: 'https://mhrsntrk.com/podcasts',
           title: 'Podcast – mhrsntrk',
           description: `You can find the collection of the podcasts and streams that I joined as a guest. I mostly talk about web3, self-sovereign identity and energy markets.`
         }}

@@ -70,12 +70,6 @@ export default function Footer() {
       </div>
       <div className="space-x-3">
         <Link
-          href="/contact"
-          className="text-sm text-gray-500 hover:text-gray-600"
-        >
-          /contact
-        </Link>
-        <Link
           href="/gear"
           className="text-sm text-gray-500 hover:text-gray-600"
         >

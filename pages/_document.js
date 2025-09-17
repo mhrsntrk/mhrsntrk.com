@@ -37,14 +37,21 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-          /*
+          {/* Google Analytics */}
           <script
             async
-            src="https://ackee.dev.mhrsntrk.com/tracker.js"
-            data-ackee-server="https://ackee.dev.mhrsntrk.com"
-            data-ackee-domain-id="d96a1f11-3fc7-4e41-96fa-52fea4b8c6df"
+            src="https://www.googletagmanager.com/gtag/js?id=G-GKC7Y2DZHQ"
           ></script>
-          */
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-GKC7Y2DZHQ');
+              `,
+            }}
+          />
         </Head>
         <body className="text-white bg-white dark:bg-black dark:text-black">
           <Main />
