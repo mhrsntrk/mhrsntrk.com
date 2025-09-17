@@ -40,6 +40,7 @@ export default function Home({ allPosts }) {
 
         {allPosts.map((post) => (
           <BlogPost
+            key={post.slug}
             title={post.title}
             excerpt={post.excerpt}
             slug={post.slug}

@@ -74,6 +74,7 @@ export default function Blog({ allPosts }) {
           {!filteredBlogPosts.length && 'No posts found.'}
           {filteredBlogPosts.map((post) => (
             <BlogPost
+              key={post.slug}
               title={post.title}
               excerpt={post.excerpt}
               slug={post.slug}

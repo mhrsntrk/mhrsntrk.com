@@ -28,6 +28,7 @@ export default function Blog({ post, morePosts }) {
               {morePosts.length > 0 &&
                 morePosts.map((post) => (
                   <BlogPost
+                    key={post.slug}
                     title={post.title}
                     excerpt={post.excerpt}
                     slug={post.slug}
