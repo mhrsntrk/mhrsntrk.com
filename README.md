@@ -108,7 +108,6 @@ Next, select **Posts** and click **Add New Post**.
 Create a `.env.local` on Next.js frontend with below variables. 
 
 - `NEXT_PUBLIC_STRAPI_API_URL` should be set as `http://localhost:1337` (no trailing slash).
-
 - `NEXT_PUBLIC_QROXY_API`
 - `NEXT_PUBLIC_INFURA_API_KEY`
 - `NEXT_PUBLIC_ETHERSCAN_API_KEY`

@@ -18,18 +18,14 @@
     "start": "next start"
   },
   "dependencies": {
-    "big.js": "6.0.3",
     "comma-number": "2.0.1",
     "date-fns": "2.16.1",
     "did-resolver": "^3.2.2",
     "ethers": "^5.6.9",
     "ethr-did-resolver": "4.3.4",
-    "googleapis": "^126.0.1",
-    "isomorphic-unfetch": "^3.1.0",
     "next": "^13.5.2",
     "next-seo": "^6.1.0",
     "next-themes": "^0.2.1",
-    "preact": "^10.5.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-json-pretty": "^2.2.0",
@@ -39,7 +35,6 @@
     "remark-html": "^15.0.2",
     "remark-rehype": "^11.0.0",
     "remark-slug": "6.0.0",
-    "swr": "2.2.2",
     "web-did-resolver": "^2.0.19"
   },
   "devDependencies": {
