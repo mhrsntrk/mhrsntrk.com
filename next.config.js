@@ -9,23 +9,13 @@ module.exports = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+  swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap');
     }
 
-    // Replace React with Preact only in client production build
-    // Temporarily disabled to fix build issues
-    // if (!dev && !isServer) {
-    //   Object.assign(config.resolve.alias, {
-    //     react: 'preact/compat',
-    //     'react-dom/test-utils': 'preact/test-utils',
-    //     'react-dom': 'preact/compat',
-    //     'react/jsx-runtime': 'preact/jsx-runtime'
-    //   });
-    // }
-
-    // Optimize bundle
+    // Simple bundle optimization
     if (!dev && !isServer) {
       config.optimization.splitChunks.cacheGroups = {
         ...config.optimization.splitChunks.cacheGroups,
@@ -60,10 +50,32 @@ module.exports = {
             key: 'Permissions-Policy',
             value: 'camera=(), microphone=(), geolocation=()',
           },
+          {
+            key: 'X-DNS-Prefetch-Control',
+            value: 'on',
+          },
         ],
       },
       {
         source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/image(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -77,6 +89,15 @@ module.exports = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=3600, s-maxage=3600',
+          },
+        ],
+      },
+      {
+        source: '/:path*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

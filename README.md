@@ -13,7 +13,7 @@ $ yarn
 $ yarn dev
 ```
 
-## Running Locally (Backend)
+## Running Locally (Backend)image.png
 
 You can also [follow the instructions on this page](https://strapi.io/documentation/v3.x/installation/cli.html) to create a Strapi project locally.
 

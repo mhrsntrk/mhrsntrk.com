@@ -19,18 +19,20 @@ export default function Home({ allPosts }) {
         <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
         </h1>
-        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          As a Senior Product Manager at The Hashgraph Group, I blend technical expertise with strategic vision, leveraging my B.Sc. in Electrical and Electronics Engineering and MBA. My career in technology is driven by a passion for innovation and impactful leadership, with a particular focus on self-sovereign identity (SSI) solutions.
-        </h2>
-        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
-        </h2>
-        <h2 className="mb-4 text-gray-600 dark:text-gray-400">
-          Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
-        </h2>
-        <h2 className="mb-8 text-gray-600 dark:text-gray-400">
-          My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
-        </h2>
+        <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
+          <p>
+            As a Senior Product Manager at The Hashgraph Group, I blend technical expertise with strategic vision, leveraging my B.Sc. in Electrical and Electronics Engineering and MBA. My career in technology is driven by a passion for innovation and impactful leadership, with a particular focus on self-sovereign identity (SSI) solutions.
+          </p>
+          <p>
+            Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
+          </p>
+          <p>
+            Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
+          </p>
+          <p>
+            My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
+          </p>
+        </div>
         <Link
           href="/blog"
           className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"

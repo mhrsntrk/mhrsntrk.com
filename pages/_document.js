@@ -5,7 +5,18 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          {/* Preconnect to external domains for faster loading */}
+          <link rel="preconnect" href="https://use.typekit.net" />
+          <link rel="preconnect" href="https://www.googletagmanager.com" />
+          <link rel="preconnect" href="https://res.cloudinary.com" />
+          <link rel="preconnect" href="https://api.qrserver.com" />
+          
+          {/* DNS prefetch for additional performance */}
+          <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+          <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+          
           <link rel="stylesheet" href="https://use.typekit.net/wjs2wtl.css" />
+          
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link
@@ -37,10 +48,11 @@ class MyDocument extends Document {
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
           />
-          {/* Google Analytics */}
+          {/* Google Analytics - Load asynchronously with better performance */}
           <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-GKC7Y2DZHQ"
+            strategy="afterInteractive"
           ></script>
           <script
             dangerouslySetInnerHTML={{
@@ -48,12 +60,15 @@ class MyDocument extends Document {
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', 'G-GKC7Y2DZHQ');
+                gtag('config', 'G-GKC7Y2DZHQ', {
+                  page_title: document.title,
+                  page_location: window.location.href
+                });
               `,
             }}
           />
         </Head>
-        <body className="text-white bg-white dark:bg-black dark:text-black">
+        <body className="text-white bg-white dark:bg-black dark:text-black tk-lores-9-plus-narrow">
           <a
             href="#main-content"
             className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 z-50 px-4 py-2 text-white bg-blue-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"

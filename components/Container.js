@@ -49,6 +49,8 @@ export default function Container({ children }) {
                   width={250}
                   src="/mhrsntrk-500-black.png"
                   className=""
+                  priority={true}
+                  loading="eager"
                 />
               ) : (
                 <Image
@@ -57,6 +59,8 @@ export default function Container({ children }) {
                   width={250}
                   src="/mhrsntrk-500-white.png"
                   className=""
+                  priority={true}
+                  loading="eager"
                 />
               )}
           </Link>

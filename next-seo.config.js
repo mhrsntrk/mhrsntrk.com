@@ -1,4 +1,4 @@
-const title = 'Mahir Senturk - Senior Product Manager & Blockchain Expert';
+const title = 'Mahir Senturk';
 const description =
   'Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems. Former Energy Web developer with expertise in web3 and digital identity.';
 
@@ -9,7 +9,7 @@ const SEO = {
   additionalMetaTags: [
     {
       name: 'keywords',
-      content: 'Mahir Senturk, blockchain, self-sovereign identity, SSI, web3, product manager, Hashgraph, Energy Web, decentralized identity, digital identity, blockchain developer, cryptocurrency, DeFi'
+      content: 'Mahir Senturk, blockchain, self-sovereign identity, SSI, web3, product manager, Hedera, Hashgraph, Energy Web, decentralized identity, digital identity, blockchain developer, cryptocurrency, DeFi'
     },
     {
       name: 'author',
@@ -38,7 +38,7 @@ const SEO = {
     images: [
       {
         url: 'https://mhrsntrk.com/static/images/banner.jpg',
-        alt: 'Mahir Senturk - Senior Product Manager & Blockchain Expert',
+        alt: 'Mahir Senturk',
         width: 1280,
         height: 720,
         type: 'image/jpeg'
