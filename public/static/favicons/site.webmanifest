@@ -1,7 +1,7 @@
 {
-    "name": "mhrsntrk",
-    "short_name": "mhrsntrk.com",
-    "description": "engineer, developer, entrepreneur",
+    "name": "Mahir Senturk - Senior Product Manager & Blockchain Expert",
+    "short_name": "Mahir Senturk",
+    "description": "Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",
@@ -15,10 +15,12 @@
         }
     ],
     "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "theme_color": "#000000",
     "display": "standalone",
     "dir": "ltr",
     "lang": "en-US",
     "orientation": "portrait-primary",
-    "start_url": "../../index.html"
+    "start_url": "/",
+    "scope": "/",
+    "categories": ["business", "productivity", "technology"]
 }

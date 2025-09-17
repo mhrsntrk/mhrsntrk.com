@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
+import StructuredData, { BlogSchema } from '@/components/StructuredData';
 import { getAllPostsForBlog } from '@/lib/strapi';
 
 const url = 'https://mhrsntrk/blog';
@@ -19,6 +20,7 @@ export default function Blog({ allPosts }) {
     );
   return (
     <div>
+      <StructuredData data={BlogSchema(allPosts)} />
       <Container>
         <NextSeo
           title={title}

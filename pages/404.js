@@ -7,12 +7,10 @@ export default function NotFound() {
   return (
     <Container>
       <NextSeo
-        title="404 – mhrsntrk"
-        canonical="https://mhrsntrk.com/404"
-        openGraph={{
-          url: 'https://mhrsntrk.com/404',
-          title: '404 – mhrsntrk'
-        }}
+        title="404 - Page Not Found | Mahir Senturk"
+        description="The page you're looking for doesn't exist. Return to the homepage to explore my work in blockchain and self-sovereign identity."
+        noindex={true}
+        nofollow={true}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
@@ -23,9 +21,17 @@ export default function NotFound() {
           something wrong. I'm guessing you spelled something wrong. Can you
           double check that URL?
         </p>
-        <Link href="/" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+        <div className="flex flex-col space-y-4">
+          <Link href="/" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
             Return Home
-        </Link>
+          </Link>
+          <Link href="/blog" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+            📝 Read my blog
+          </Link>
+          <Link href="/swissknife" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+            🔧 Check out my tools
+          </Link>
+        </div>
       </div>
     </Container>
   );

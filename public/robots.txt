@@ -1,2 +1,20 @@
 User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /blog/
+Allow: /swissknife/
+Allow: /podcasts/
+Allow: /gear/
+Allow: /tools/
+
+# Sitemap location
 Sitemap: https://mhrsntrk.com/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1

@@ -14,7 +14,7 @@ export default function PodcastCard({ title, description, href, icon, width, hei
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - Podcast episode icon`}
                   height={width}
                   width={height}
                   src="/static/icons/uretimbandi.png"

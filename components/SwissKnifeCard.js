@@ -14,7 +14,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - Crypto ticker tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/coinpaprika.png"
@@ -26,7 +26,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - Starmap generator tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/starmap.png"
@@ -38,7 +38,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - URL shortener tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/kutt.png"
@@ -50,7 +50,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - QR code generator tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/qrcode.png"
@@ -62,7 +62,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - DID resolver tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/fingerprint.png"
@@ -74,7 +74,7 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
           <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
             <span className="sr-only">{title}</span>
             <Image
-                  alt={icon}
+                  alt={`${title} - ENS resolver tool icon`}
                   height={width}
                   width={height}
                   src="/static/icons/ens.png"

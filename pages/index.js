@@ -4,14 +4,18 @@ import SwissKnifeCard from '@/components/SwissKnifeCard';
 import PodcastCard from '@/components/PodcastCard';
 import ContactCard from '@/components/ContactCard';
 import ContactInfo from '@/components/ContactInfo';
+import StructuredData, { PersonSchema, WebsiteSchema } from '@/components/StructuredData';
 import Link from 'next/link';
 
 import { getAllPostsForHome } from '@/lib/strapi';
 
 export default function Home({ allPosts }) {
   return (
-    <Container>
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+    <>
+      <StructuredData data={PersonSchema} />
+      <StructuredData data={WebsiteSchema} />
+      <Container>
+      <main id="main-content" className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
         </h1>
@@ -149,8 +153,9 @@ export default function Home({ allPosts }) {
             />
           </div>
         </div>
-      </div>
-    </Container>
+      </main>
+      </Container>
+    </>
   );
 }
 
