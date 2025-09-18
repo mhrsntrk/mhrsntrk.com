@@ -179,7 +179,7 @@ input[type='email'] {
   display: grid;
   grid-template-columns: repeat(96, 1fr);
   grid-template-rows: repeat(32, 1fr);
-  gap: 2px;
+  gap: 1px;
   padding: 0;
   background: transparent;
   border-radius: 0;
@@ -190,6 +190,7 @@ input[type='email'] {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 96/32;
+  contain: layout style paint;
 }
 
 .pixel-grid-visible {
@@ -203,54 +204,33 @@ input[type='email'] {
   border-radius: 50%;
   background: #404040;
   opacity: 0.8;
-  transition: all 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
-  will-change: transform, opacity, box-shadow;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* Simple theme inversion - colors are handled in JavaScript */
 
-/* Enhanced popping animation */
+/* Simplified popping animation */
 .pixel-dot.pixel-pop {
-  animation: enhancedPop 3s ease-in-out;
+  animation: simplePop 1.5s ease-out;
 }
 
-@keyframes enhancedPop {
-  0%, 100% {
-    transform: scale(1);
-    opacity: 0.9;
-    box-shadow: none;
-  }
-  20% {
-    transform: scale(1.15);
-    opacity: 1;
-    box-shadow: 0 0 15px rgba(255,255,255,0.3);
-  }
-  40% {
-    transform: scale(1.25);
-    opacity: 1;
-    box-shadow: 0 0 25px rgba(255,255,255,0.5);
-  }
-  60% {
-    transform: scale(1.2);
-    opacity: 1;
-    box-shadow: 0 0 20px rgba(255,255,255,0.4);
-  }
-  80% {
-    transform: scale(1.1);
-    opacity: 0.95;
-    box-shadow: 0 0 10px rgba(255,255,255,0.2);
-  }
+@keyframes simplePop {
+  0% { transform: scale(1) translateZ(0); }
+  50% { transform: scale(1.2) translateZ(0); }
+  100% { transform: scale(1) translateZ(0); }
 }
 
-/* Ripple effect for neighboring dots */
+/* Simplified ripple effect */
 .pixel-dot.pixel-ripple {
-  animation: ripple 2s ease-out;
+  animation: simpleRipple 1s ease-out;
 }
 
-@keyframes ripple {
-  0% { transform: scale(1); opacity: 0.9; }
-  30% { transform: scale(1.08); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.9; }
+@keyframes simpleRipple {
+  0% { transform: scale(1) translateZ(0); }
+  50% { transform: scale(1.05) translateZ(0); }
+  100% { transform: scale(1) translateZ(0); }
 }
 
 /* Responsive adjustments */

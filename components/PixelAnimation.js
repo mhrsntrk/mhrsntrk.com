@@ -79,7 +79,7 @@ const PixelAnimation = () => {
   useEffect(() => {
     if (!gridRef.current || prefersReducedMotion) return;
 
-    // Create dots for 96×32 grid (3072 total)
+    // Create dots for 96×32 grid (3072 total) - original size
     const dots = [];
     for (let i = 0; i < 3072; i++) {
       const dot = document.createElement('div');
@@ -89,7 +89,7 @@ const PixelAnimation = () => {
     }
     dotsRef.current = dots;
 
-    // Set initial colors
+    // Set initial colors - original 96×32 grid
     const updateColors = () => {
       const currentColors = isDarkMode ? baseColors : baseColors.slice().reverse();
       dots.forEach((dot, index) => {
@@ -150,7 +150,7 @@ const PixelAnimation = () => {
     if (prefersReducedMotion) return;
 
     const createEnhancedPoppingLights = () => {
-      const numberOfPops = Math.floor(Math.random() * 6) + 8; // 8-14 dots
+      const numberOfPops = Math.floor(Math.random() * 3) + 2; // 2-5 dots (reduced for performance)
       
       for (let i = 0; i < numberOfPops; i++) {
         setTimeout(() => {
@@ -166,12 +166,10 @@ const PixelAnimation = () => {
           setTimeout(() => {
             dot.classList.add('pixel-pop');
             
-            // Create ripple effect on neighboring dots
+            // Create ripple effect on neighboring dots (simplified)
             const neighbors = [
               {r: row-1, c: col}, {r: row+1, c: col},
-              {r: row, c: col-1}, {r: row, c: col+1},
-              {r: row-1, c: col-1}, {r: row-1, c: col+1},
-              {r: row+1, c: col-1}, {r: row+1, c: col+1}
+              {r: row, c: col-1}, {r: row, c: col+1}
             ];
             
             neighbors.forEach(({r, c}, idx) => {
@@ -182,24 +180,24 @@ const PixelAnimation = () => {
                 if (neighborDot) {
                   setTimeout(() => {
                     neighborDot.classList.add('pixel-ripple');
-                    setTimeout(() => neighborDot.classList.remove('pixel-ripple'), 2000);
-                  }, idx * 100);
+                    setTimeout(() => neighborDot.classList.remove('pixel-ripple'), 1000);
+                  }, idx * 50);
                 }
               }
             });
             
-            setTimeout(() => dot.classList.remove('pixel-pop'), 3000);
-          }, 50);
+            setTimeout(() => dot.classList.remove('pixel-pop'), 1500);
+          }, 25);
           
-        }, i * (Math.random() * 500 + 200));
+        }, i * (Math.random() * 300 + 100));
       }
     };
 
-    // Start continuous animation
-    animationRef.current = setInterval(createEnhancedPoppingLights, 2500);
+    // Start continuous animation (reduced frequency for performance)
+    animationRef.current = setInterval(createEnhancedPoppingLights, 5000);
     
     // Initial animation
-    setTimeout(createEnhancedPoppingLights, 800);
+    setTimeout(createEnhancedPoppingLights, 1500);
   };
 
   // Don't render if user prefers reduced motion
@@ -212,6 +210,10 @@ const PixelAnimation = () => {
       <div 
         ref={gridRef} 
         className={`pixel-grid ${isVisible ? 'pixel-grid-visible' : ''}`}
+        style={{ 
+          willChange: 'transform, opacity',
+          transform: 'translateZ(0)' // Force GPU acceleration
+        }}
       />
     </div>
   );
