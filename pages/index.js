@@ -6,8 +6,15 @@ import ContactCard from '@/components/ContactCard';
 import ContactInfo from '@/components/ContactInfo';
 import StructuredData, { PersonSchema, WebsiteSchema } from '@/components/StructuredData';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
 
 import { getAllPostsForHome } from '@/lib/strapi';
+
+// Dynamically import the animation component for better performance
+const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
+  ssr: false, // Disable server-side rendering for better performance
+  loading: () => <div className="h-32" /> // Placeholder while loading
+});
 
 export default function Home({ allPosts }) {
   return (
@@ -16,6 +23,7 @@ export default function Home({ allPosts }) {
       <StructuredData data={WebsiteSchema} />
       <Container>
       <main id="main-content" className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+        <PixelAnimation />
         <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
         </h1>

@@ -165,3 +165,103 @@ input[type='email'] {
 :focus-visible {
   outline: #ef4444 auto 1px;
 }
+
+/* Pixel Animation Styles */
+.pixel-animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0 2rem 0;
+  width: 100%;
+}
+
+.pixel-grid {
+  display: grid;
+  grid-template-columns: repeat(96, 1fr);
+  grid-template-rows: repeat(32, 1fr);
+  gap: 2px;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 96/32;
+}
+
+.pixel-grid-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.pixel-dot {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #404040;
+  opacity: 0.8;
+  transition: all 1.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform, opacity, box-shadow;
+}
+
+/* Simple theme inversion - colors are handled in JavaScript */
+
+/* Enhanced popping animation */
+.pixel-dot.pixel-pop {
+  animation: enhancedPop 3s ease-in-out;
+}
+
+@keyframes enhancedPop {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: none;
+  }
+  20% {
+    transform: scale(1.15);
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  }
+  40% {
+    transform: scale(1.25);
+    opacity: 1;
+    box-shadow: 0 0 25px rgba(255,255,255,0.5);
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  }
+  80% {
+    transform: scale(1.1);
+    opacity: 0.95;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  }
+}
+
+/* Ripple effect for neighboring dots */
+.pixel-dot.pixel-ripple {
+  animation: ripple 2s ease-out;
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.9; }
+  30% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.9; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .pixel-grid {
+    gap: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pixel-grid {
+    gap: 1px;
+  }
+}
