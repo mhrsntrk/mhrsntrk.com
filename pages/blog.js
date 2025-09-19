@@ -9,7 +9,7 @@ import { getAllPostsForBlog } from '@/lib/strapi';
 const url = 'https://mhrsntrk/blog';
 const title = 'Blog – mhrsntrk';
 const description =
-  'Actually, I hate writing but I am aware that somebody will eventually benefit my writings. So, I am collecting my ideas, writings, code snippets and tutorials in this website that I own.';
+  'Actually, I hate writing but I am aware that somebody will eventually benefit my writings. So, I am collecting my ideas, writings, code snippets and tutorials in this section of my website.';
 
 export default function Blog({ allPosts }) {
   const [searchValue, setSearchValue] = useState('');
@@ -39,7 +39,7 @@ export default function Blog({ allPosts }) {
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             Actually, I hate writing but I am aware that somebody will eventually
             benefit my writings. So, I am collecting my ideas, writings, code
-            snippets and tutorials in this website that I own.
+            snippets and tutorials in this section of my website.
           </p>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             {`I've written ${allPosts.length} posts in total.

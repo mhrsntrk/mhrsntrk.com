@@ -35,7 +35,7 @@ export default function Home({ allPosts }) {
             Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
           </p>
           <p>
-            Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of blockchain applications.
+            Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of enterprise blockchain and decentralized applications.
           </p>
           <p>
             My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
@@ -84,14 +84,6 @@ export default function Home({ allPosts }) {
         >
           <h3 className="hover:underline">Swiss Knife </h3>
         </Link>
-        <SwissKnifeCard
-          title="Starmap Generator"
-          description="A tool for creating customized starmap prints. Login required."
-          href="https://starmap.mhrsntrk.com"
-          icon="starmap"
-          width="120"
-          height="120"
-        />
         <SwissKnifeCard
           title="DID Resolver"
           description="This tool will allow you to fetch the DID document of the given a DID."
