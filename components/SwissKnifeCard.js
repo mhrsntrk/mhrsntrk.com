@@ -6,7 +6,6 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
       className="mb-4 hover:shadow"
       href={href}
       aria-label={title}
-      target="_blank"
       rel="noopener noreferrer"
     >
       <div className="flex items-center h-40 p-4 border border-gray-200 rounded dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
