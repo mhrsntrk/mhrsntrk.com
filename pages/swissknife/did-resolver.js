@@ -59,12 +59,12 @@ export default function DIDResolver() {
     <Container>
       <NextSeo
         title="DID Resolver – mhrsntrk"
-        description={`You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr. Includes comprehensive analysis and caching.`}
+        description={`You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web, did:ethr, and did:key. Includes comprehensive analysis and caching.`}
         canonical="https://mhrsntrk.com/swissknife/did-resolver"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/did-resolver',
           title: 'DID Resolver – mhrsntrk',
-          description: `You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web and did:ethr. Includes comprehensive analysis and caching.`
+          description: `You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web, did:ethr, and did:key. Includes comprehensive analysis and caching.`
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">
@@ -73,8 +73,8 @@ export default function DIDResolver() {
         </h1>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
           You can use this tool to fetch the Decentralized Identifier (DID)
-          document of the given DID. Currently supported methods are did:web and 
-          did:ethr. The tool includes comprehensive analysis of DID documents 
+          document of the given DID. Currently supported methods are did:web, 
+          did:ethr, and did:key. The tool includes comprehensive analysis of DID documents 
           with caching and error handling.{' '}
         </p>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
@@ -94,16 +94,24 @@ export default function DIDResolver() {
             className="hover:underline"
           >
             web-did-resolver
-          </a>{' '}
-          and{' '}
+          </a>
+          ,{' '}
           <a
             href="https://github.com/decentralized-identity/ethr-did-resolver"
             target="_blank"
             className="hover:underline"
           >
             ethr-did-resolver
+          </a>
+          , and{' '}
+          <a
+            href="https://www.npmjs.com/package/@cef-ebsi/key-did-resolver"
+            target="_blank"
+            className="hover:underline"
+          >
+            key-did-resolver
           </a>{' '}
-          libraries from Decentralized Identity Foundation.
+          libraries from Decentralized Identity Foundation and CEF EBSI.
         </p>
         <div className="w-full mb-4">
           <form className="flex flex-col">

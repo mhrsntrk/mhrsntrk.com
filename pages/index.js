@@ -163,8 +163,15 @@ export default function Home({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPostsForHome();
-  return {
-    props: { allPosts }
-  };
+  try {
+    const allPosts = await getAllPostsForHome();
+    return {
+      props: { allPosts: allPosts || [] }
+    };
+  } catch (error) {
+    console.warn('Failed to fetch blog posts:', error.message);
+    return {
+      props: { allPosts: [] }
+    };
+  }
 }
