@@ -5,13 +5,14 @@ import {
   getEnergyWeb,
   getAvax,
   getMina,
-  getPolkadot
+  getPolkadot,
+  getHbar
 } from '@/lib/coinpaprika';
 
 import Container from '@/components/Container';
 import CryptoCard from '@/components/CryptoCard';
 
-export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot }) {
+export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot, hbar }) {
   return (
     <Container>
       <NextSeo
@@ -81,6 +82,13 @@ export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot }) {
             change={avax.quotes.USD.percent_change_24h}
             ath={avax.quotes.USD.ath_price.toFixed(2)}
           />
+          <CryptoCard
+            name={hbar.name}
+            symbol={hbar.symbol}
+            price={hbar.quotes.USD.price.toFixed(2)}
+            change={hbar.quotes.USD.percent_change_24h}
+            ath={hbar.quotes.USD.ath_price.toFixed(2)}
+          />
         </div>
       </div>
     </Container>
@@ -93,8 +101,9 @@ export async function getServerSideProps() {
   const avax = await getAvax();
   const mina = await getMina();
   const polkadot = await getPolkadot();
+  const hbar = await getHbar();
 
   return {
-    props: { ethereum, energyWeb, avax, mina, polkadot }
+    props: { ethereum, energyWeb, avax, mina, polkadot, hbar }
   };
 }
