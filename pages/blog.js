@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
@@ -12,12 +13,59 @@ const description =
   'Actually, I hate writing but I am aware that somebody will eventually benefit my writings. So, I am collecting my ideas, writings, code snippets and tutorials in this section of my website.';
 
 export default function Blog({ allPosts }) {
+  const router = useRouter();
   const [searchValue, setSearchValue] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
+  const didMountRef = useRef(false);
+
+  useEffect(() => {
+    // Reset to first page when search value changes (skip on initial mount)
+    if (didMountRef.current) {
+      setCurrentPage(1);
+    } else {
+      didMountRef.current = true;
+    }
+  }, [searchValue]);
+
+  // Sync page state from URL (so back button restores the previous page)
+  useEffect(() => {
+    if (!router || !router.isReady) return;
+    const qp = parseInt(router.query.page, 10);
+    if (!Number.isNaN(qp) && qp !== currentPage) {
+      setCurrentPage(Math.max(1, qp));
+    }
+  }, [router?.isReady, router?.query?.page]);
+
   const filteredBlogPosts = allPosts
     .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
     .filter((post) =>
       post.title.toLowerCase().includes(searchValue.toLowerCase())
     );
+  const totalFiltered = filteredBlogPosts.length;
+  const totalPages = Math.max(1, Math.ceil(totalFiltered / pageSize));
+  const pageStart = (currentPage - 1) * pageSize;
+  const currentPagePosts = filteredBlogPosts.slice(pageStart, pageStart + pageSize);
+  const canPrev = currentPage > 1;
+  const canNext = currentPage < totalPages;
+
+  const goToPage = (page) => {
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    // Scroll to top of list on page change for better UX
+    if (typeof window !== 'undefined') {
+      const listAnchor = document.getElementById('blog-list-top');
+      if (listAnchor) listAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    // Update URL query for back/forward navigation; avoid full reload
+    if (router && router.isReady) {
+      const nextQuery = { ...router.query, page: String(page) };
+      router.push({ pathname: router.pathname, query: nextQuery }, undefined, {
+        shallow: true,
+        scroll: false
+      });
+    }
+  };
   return (
     <div>
       <StructuredData data={BlogSchema(allPosts)} />
@@ -68,11 +116,11 @@ export default function Blog({ allPosts }) {
               />
             </svg>
           </div>
-          <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+          <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white" id="blog-list-top">
             All Posts <p className="inline text-3xl font-normal">↴</p>
           </h3>
           {!filteredBlogPosts.length && 'No posts found.'}
-          {filteredBlogPosts.map((post) => (
+          {currentPagePosts.map((post) => (
             <BlogPost
               key={post.slug}
               title={post.title}
@@ -80,6 +128,37 @@ export default function Blog({ allPosts }) {
               slug={post.slug}
             />
           ))}
+          {filteredBlogPosts.length > 0 && (
+            <div className="flex items-center justify-between w-full mt-4">
+              <div>
+                {canPrev && (
+                  <button
+                    type="button"
+                    aria-label="Previous page"
+                    onClick={() => goToPage(currentPage - 1)}
+                    className="px-3 py-2 text-sm text-gray-700 border border-gray-300 rounded-md dark:text-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    Previous
+                  </button>
+                )}
+              </div>
+              <div className="text-sm text-gray-600 dark:text-gray-400">
+                Page {currentPage} of {totalPages} · {totalFiltered} result{totalFiltered === 1 ? '' : 's'}
+              </div>
+              <div>
+                {canNext && (
+                  <button
+                    type="button"
+                    aria-label="Next page"
+                    onClick={() => goToPage(currentPage + 1)}
+                    className="px-3 py-2 text-sm text-gray-700 border border-gray-300 rounded-md dark:text-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  >
+                    Next
+                  </button>
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </Container>
     </div>
