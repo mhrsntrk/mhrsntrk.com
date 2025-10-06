@@ -117,12 +117,7 @@ export default function Home({ allPosts }) {
           height="120"
         />
         <div id="contact">
-          <Link
-            href="#contact"
-            className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
-          >
-            <h3 className="hover:underline">Contact me</h3>
-          </Link>
+            <h3 className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">Contact me </h3>
           <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
             <ContactInfo
               icon="linkedin"
