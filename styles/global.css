@@ -44,7 +44,14 @@ html {
 }
 
 .prose pre {
-  @apply text-gray-800 border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
+  @apply relative pt-12 text-gray-800 border border-gray-200 bg-gray-50 dark:border-gray-700 dark:bg-gray-900;
+  overflow: visible;
+}
+
+/* Keep copy button fixed; let only inner code scroll */
+.prose pre > code {
+  display: block;
+  overflow: auto;
 }
 
 .prose code {
@@ -111,14 +118,9 @@ html {
   @apply text-yellow-500;
 }
 
-pre::-webkit-scrollbar {
-  display: none;
-}
-
-pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
+/* Hide scrollbars for inner scroll area of code blocks */
+.prose pre > code::-webkit-scrollbar { display: none; }
+.prose pre > code { -ms-overflow-style: none; scrollbar-width: none; }
 
 .mdx-marker {
   @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;

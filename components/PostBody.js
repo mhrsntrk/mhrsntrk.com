@@ -11,14 +11,15 @@ export default function PostBody({ content }) {
     const pres = Array.from(container.querySelectorAll('pre'))
     pres.forEach((preEl) => {
       if (preEl.dataset.hasCopyButton === 'true') return
-      preEl.dataset.hasCopyButton = 'true'
 
+      // Ensure pre is positioned to anchor the button inside
       preEl.classList.add('relative')
+      preEl.dataset.hasCopyButton = 'true'
 
       const btn = document.createElement('button')
       btn.type = 'button'
       btn.setAttribute('aria-label', 'Copy code to clipboard')
-      btn.className = 'absolute top-2 right-2 px-2 py-1 text-xs text-gray-700 border border-gray-300 rounded-md bg-white/80 backdrop-blur hover:bg-gray-100 active:bg-gray-200 dark:text-gray-100 dark:border-gray-700 dark:bg-gray-800/70 dark:hover:bg-gray-700'
+      btn.className = 'absolute top-2 right-2 z-10 px-2 py-1 text-xs text-gray-700 border border-gray-300 rounded-md bg-white/80 backdrop-blur hover:bg-gray-100 active:bg-gray-200 dark:text-gray-100 dark:border-gray-700 dark:bg-gray-800/70 dark:hover:bg-gray-700'
       btn.textContent = 'Copy'
 
       const getCodeText = () => {
