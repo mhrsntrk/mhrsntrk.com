@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
+import Head from 'next/head';
 import Image from 'next/image';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
+import StructuredData from '@/components/StructuredData';
 import { getAllPhotos } from '@/lib/strapi';
 
 export default function Photos({ photos }) {
@@ -33,11 +35,37 @@ export default function Photos({ photos }) {
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [isOpen, close, showPrev, showNext]);
+  }, [isOpen, close, showPrev, showNext, currentIndex, photos]);
 
   const seoImages = useMemo(() => {
     if (!photos || photos.length === 0) return undefined;
     return photos.slice(0, 3).map((p) => ({ url: p.image.url }));
+  }, [photos]);
+
+  const gallerySchema = useMemo(() => {
+    if (!photos || photos.length === 0) return null;
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: 'Photos – mhrsntrk',
+      url: 'https://mhrsntrk.com/photos',
+      hasPart: photos.slice(0, 12).map((p) => ({
+        '@type': 'ImageObject',
+        contentUrl: p?.image?.url,
+        name: p?.title || 'Photo'
+      }))
+    };
+  }, [photos]);
+
+  const preconnectOrigin = useMemo(() => {
+    try {
+      const firstUrl = photos?.[0]?.image?.url;
+      if (!firstUrl) return null;
+      const u = new URL(firstUrl);
+      return `${u.protocol}//${u.host}`;
+    } catch {
+      return null;
+    }
   }, [photos]);
 
   return (
@@ -45,12 +73,24 @@ export default function Photos({ photos }) {
       <NextSeo
         title="Photos – mhrsntrk"
         description="A full-width photo gallery with a masonry layout."
+        canonical="https://mhrsntrk.com/photos"
         openGraph={{
           url: 'https://mhrsntrk.com/photos',
           title: 'Photos – mhrsntrk',
+          type: 'website',
           images: seoImages
         }}
+        additionalMetaTags={[
+          { name: 'robots', content: 'index,follow,max-image-preview:large' }
+        ]}
       />
+      {gallerySchema && <StructuredData data={gallerySchema} />}
+      {preconnectOrigin && (
+        <Head>
+          <link rel="preconnect" href={preconnectOrigin} crossOrigin="anonymous" />
+          <link rel="dns-prefetch" href={preconnectOrigin} />
+        </Head>
+      )}
 
       <Container>
         <div className="w-full px-2 md:px-4 lg:px-6">
@@ -72,7 +112,8 @@ export default function Photos({ photos }) {
                     height={800}
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
                     className="object-cover w-full h-auto"
-                    loading="lazy"
+                    loading={index < 6 ? 'eager' : 'lazy'}
+                    priority={index < 3}
                   />
                 </button>
               ))}
@@ -126,6 +167,7 @@ export default function Photos({ photos }) {
               {photos[currentIndex].title && (
                 <div className="max-w-3xl mb-2 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
               )}
+              {/* metadata removed */}
               <div className="flex items-center gap-3">
                 <button data-lightbox-control="true"
                   type="button"
