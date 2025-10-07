@@ -14,7 +14,8 @@ export default function Container({ children }) {
 
   return (
     <div className="bg-white dark:bg-black">
-      <nav className="flex items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 bg-white sticky-nav md:my-8 dark:bg-black bg-opacity-60">
+      <nav className="sticky-nav w-full bg-white dark:bg-black bg-opacity-60">
+        <div className="flex items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 md:my-8">
         <button
           aria-label="Toggle Dark Mode"
           type="button"
@@ -75,6 +76,7 @@ export default function Container({ children }) {
           <Link href="/" className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline">
             Home
           </Link>
+        </div>
         </div>
       </nav>
       <main className="flex flex-col justify-center px-8 bg-white dark:bg-black">

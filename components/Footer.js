@@ -4,7 +4,7 @@ import ExternalLink from '@/components/ExternalLink';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-col items-center mb-8">
+    <footer className="flex flex-col items-center pt-12 mb-8">
       <div className="flex mb-4 space-x-4">
         <ExternalLink href="https://twitter.com/mhrsntrk">
           <span className="sr-only">Twitter</span>
@@ -63,6 +63,12 @@ export default function Footer() {
           className="text-sm text-gray-500 hover:text-gray-600"
         >
           /tools
+        </Link>
+        <Link
+          href="/photos"
+          className="text-sm text-gray-500 hover:text-gray-600"
+        >
+          /photos
         </Link>
       </div>
     </footer>
