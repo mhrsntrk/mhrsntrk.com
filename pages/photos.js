@@ -124,7 +124,7 @@ export default function Photos({ photos }) {
 
       {isOpen && photos[currentIndex] && (
         <div
-          className="fixed inset-0 z-40 flex items-start justify-center pt-20 pb-6 lightbox-backdrop md:pt-24 lg:pt-28"
+          className="fixed inset-0 z-40 flex items-center justify-center p-4 lightbox-backdrop md:pt-24 md:pb-6 lg:pt-28"
           aria-modal="true"
           role="dialog"
           onClick={(e) => {
@@ -150,7 +150,7 @@ export default function Photos({ photos }) {
           }}
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
-          <div className="relative z-50 w-full px-4 mx-auto pointer-events-none max-w-none">
+          <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
             <div className="pointer-events-auto lightbox-container">
               <Image
                 src={photos[currentIndex].image.url}
@@ -168,7 +168,7 @@ export default function Photos({ photos }) {
                 <div className="max-w-3xl mb-2 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
               )}
               {/* metadata removed */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 px-4">
                 <button data-lightbox-control="true"
                   type="button"
                   onClick={showPrev}
@@ -180,7 +180,7 @@ export default function Photos({ photos }) {
                 <button data-lightbox-control="true"
                   type="button"
                   onClick={close}
-                  className="flex items-center justify-center p-2 mx-24 text-sm border rounded bg-white/10 hover:bg-white/20 border-white/30"
+                  className="flex items-center justify-center p-2 mx-10 text-sm border rounded bg-white/10 hover:bg-white/20 border-white/30"
                   aria-label="Close lightbox"
                   onContextMenu={(e) => e.preventDefault()}
                 >
