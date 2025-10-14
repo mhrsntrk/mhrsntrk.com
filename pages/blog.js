@@ -38,10 +38,10 @@ export default function Blog({ allPosts }) {
   }, [router?.isReady, router?.query?.page]);
 
   const filteredBlogPosts = allPosts
-    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
-    .filter((post) =>
-      post.title.toLowerCase().includes(searchValue.toLowerCase())
-    );
+    .filter((post) => {
+      const title = (post && post.title) ? String(post.title) : '';
+      return title.toLowerCase().includes(searchValue.toLowerCase());
+    });
   const totalFiltered = filteredBlogPosts.length;
   const totalPages = Math.max(1, Math.ceil(totalFiltered / pageSize));
   const pageStart = (currentPage - 1) * pageSize;

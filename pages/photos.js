@@ -1,15 +1,36 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
 import StructuredData from '@/components/StructuredData';
+import PhotoMetadata from '@/components/PhotoMetadata';
 import { getAllPhotos } from '@/lib/strapi';
 
 export default function Photos({ photos }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(new Set());
+  const [progressiveImages, setProgressiveImages] = useState(new Set());
+  const observerRef = useRef(null);
+
+  // Helper function to get optimal image URL based on screen size
+  const getOptimalImageUrl = useCallback((photo, isHighRes = false) => {
+    if (!photo?.image?.formats) return photo.image.url;
+    
+    // For high resolution (lightbox), prefer large format
+    if (isHighRes) {
+      return photo.image.formats.large?.url || 
+             photo.image.formats.medium?.url || 
+             photo.image.url;
+    }
+    
+    // For gallery view, use medium or small format
+    return photo.image.formats.medium?.url || 
+           photo.image.formats.small?.url || 
+           photo.image.url;
+  }, []);
 
   const openAt = useCallback((index) => {
     setCurrentIndex(index);
@@ -25,6 +46,69 @@ export default function Photos({ photos }) {
   const showNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   }, [photos.length]);
+
+  // Preload critical images using Next.js Image component
+  useEffect(() => {
+    const preloadImages = () => {
+      const criticalImages = photos.slice(0, 6); // Preload first 6 images
+      criticalImages.forEach((photo, index) => {
+        if (!loadedImages.has(index)) {
+          // Use Next.js Image preload for better optimization
+          const img = typeof window !== 'undefined' ? new window.Image() : null;
+          if (!img) return;
+          
+          // Use optimal format for preloading
+          const preloadUrl = getOptimalImageUrl(photo, false);
+          
+          img.src = preloadUrl;
+          img.onload = () => {
+            setLoadedImages(prev => new Set([...prev, index]));
+          };
+        }
+      });
+    };
+
+    if (photos.length > 0) {
+      preloadImages();
+    }
+  }, [photos, loadedImages]);
+
+  // Intersection Observer for lazy loading
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = parseInt(entry.target.dataset.index);
+            if (!loadedImages.has(index)) {
+              const img = typeof window !== 'undefined' ? new window.Image() : null;
+              if (!img) return;
+              
+              // Use optimal format for lazy loading
+              const lazyUrl = getOptimalImageUrl(photos[index], false);
+              
+              img.src = lazyUrl;
+              img.onload = () => {
+                setLoadedImages(prev => new Set([...prev, index]));
+              };
+            }
+          }
+        });
+      },
+      {
+        rootMargin: '100px 0px', // Increased margin for better UX
+        threshold: 0.1,
+      }
+    );
+
+    return () => {
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, [photos, loadedImages]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -104,17 +188,37 @@ export default function Photos({ photos }) {
                   className="w-full overflow-hidden border border-gray-200 rounded masonry-item cursor-zoom-in dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500"
                   onClick={() => openAt(index)}
                   aria-label={`Open ${photo.title || 'photo'} in lightbox`}
+                  data-index={index}
+                  ref={(el) => {
+                    if (el && observerRef.current && index >= 6) {
+                      observerRef.current.observe(el);
+                    }
+                  }}
                 >
-                  <Image
-                    src={photo.image.url}
-                    alt={photo.title || 'Photo'}
-                    width={1200}
-                    height={800}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-                    className="object-cover w-full h-auto"
-                    loading={index < 6 ? 'eager' : 'lazy'}
-                    priority={index < 3}
-                  />
+                  <div className="relative w-full h-auto">
+                  {loadedImages.has(index) ? (
+                      <NextImage
+                        src={getOptimalImageUrl(photo, false)}
+                        alt={photo.title || 'Photo'}
+                        width={photo.image.width || 1200}
+                        height={photo.image.height || 800}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                        className="object-cover w-full h-auto transition-opacity duration-300"
+                        loading={index < 6 ? 'eager' : 'lazy'}
+                        priority={index < 3}
+                        quality={75} // Reduced quality for faster loading
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                      />
+                    ) : (
+                      <div className="relative w-full h-64 overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-sm text-gray-400 dark:text-gray-500">Loading...</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </button>
               ))}
             </div>
@@ -151,23 +255,32 @@ export default function Photos({ photos }) {
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
           <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
-            <div className="pointer-events-auto lightbox-container">
-              <Image
-                src={photos[currentIndex].image.url}
+            <div className={`relative pointer-events-auto lightbox-container ${((photos[currentIndex]?.image?.height || 0) > (photos[currentIndex]?.image?.width || 0)) ? 'portrait' : 'landscape'}`}>
+              <NextImage
+                src={getOptimalImageUrl(photos[currentIndex], true)}
                 alt={photos[currentIndex].title || 'Photo'}
-                fill
+                width={photos[currentIndex].image.width || 1920}
+                height={photos[currentIndex].image.height || 1080}
                 sizes="100vw"
-                className="object-contain pointer-events-auto lightbox-image no-save"
+                className="object-contain w-full h-auto pointer-events-auto lightbox-image no-save"
                 onTouchStart={(e) => e.stopPropagation()}
                 priority
+                quality={90}
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
             </div>
+
+            <PhotoMetadata 
+              metadata={photos[currentIndex].metadata} 
+              photoTitle={photos[currentIndex].title} 
+              isFixed
+            />
 
             <div className="flex flex-col items-center justify-center mt-4 text-black pointer-events-auto dark:text-white" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
               {photos[currentIndex].title && (
                 <div className="max-w-3xl mb-2 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
               )}
-              {/* metadata removed */}
               <div className="flex items-center gap-3 px-4">
                 <button data-lightbox-control="true"
                   type="button"
