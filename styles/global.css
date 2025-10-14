@@ -289,35 +289,7 @@ input[type='email'] {
   margin-right: auto;
   contain: layout style paint;
   will-change: transform;
-}
-
-/* Mobile-specific lightbox adjustments */
-@media (max-width: 768px) {
-  .lightbox-container {
-    width: 95vw;
-    height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  /* Ensure the displayed image fills available width on mobile */
-  .lightbox-container .lightbox-image {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain;
-  }
-  
-  .lightbox-container.portrait {
-    width: 100vw;
-    height: 90vh;
-    padding-left: 0;
-    padding-right: 0;
-  }
-  
-  .lightbox-container.landscape {
-    width: 95vw;
-    height: 85vh;
-  }
+  box-sizing: border-box;
 }
 
 /* Improve fit for portrait vs landscape images */
@@ -329,6 +301,47 @@ input[type='email'] {
 .lightbox-container.landscape {
   width: 90vw;
   height: 80vh;
+}
+/* Reserve a consistent space for bottom controls on desktop */
+@media (min-width: 769px) {
+  .lightbox-container {
+    padding-bottom: 6rem; /* space for controls bar */
+  }
+}
+
+/* Mobile-specific lightbox adjustments */
+@media (max-width: 768px) {
+  .lightbox-container {
+    width: 100% !important; /* avoid 100vw scrollbar/safe-area overflow on mobile */
+    height: 90vh !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: hidden;
+    /* Reserve space for fixed bottom controls */
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+  
+  .lightbox-container .lightbox-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Lightbox controls bottom spacing (mobile-only, safe areas) */
+@media (max-width: 768px) {
+  .lightbox-controls {
+    padding-bottom: 0.75rem; /* default 12px */
+  }
+  @supports (padding: max(0px)) {
+    .lightbox-controls {
+      padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    }
+  }
 }
 
 /* Backdrop overlay (Tailwind v2-compatible) */

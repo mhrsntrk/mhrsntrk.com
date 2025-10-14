@@ -121,6 +121,24 @@ export default function Photos({ photos }) {
     return () => window.removeEventListener('keydown', handler);
   }, [isOpen, close, showPrev, showNext, currentIndex, photos]);
 
+  // Prevent background scroll when lightbox is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow;
+      const prevPosition = document.body.style.position;
+      const prevWidth = document.body.style.width;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        document.body.style.position = prevPosition;
+        document.body.style.width = prevWidth;
+      };
+    }
+  }, [isOpen]);
+
   const seoImages = useMemo(() => {
     if (!photos || photos.length === 0) return undefined;
     return photos.slice(0, 3).map((p) => ({ url: p.image.url }));
@@ -262,7 +280,7 @@ export default function Photos({ photos }) {
                 width={photos[currentIndex].image.width || 1920}
                 height={photos[currentIndex].image.height || 1080}
                 sizes="100vw"
-                className="object-contain w-full h-auto pointer-events-auto lightbox-image no-save"
+                className="object-contain pointer-events-auto lightbox-image no-save"
                 onTouchStart={(e) => e.stopPropagation()}
                 priority
                 quality={90}
@@ -277,11 +295,12 @@ export default function Photos({ photos }) {
               isFixed
             />
 
-            <div className="flex flex-col items-center justify-center mt-4 text-black pointer-events-auto dark:text-white" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
+            {/* Controls: fixed at bottom on all screens */}
+            <div className="fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center text-black pointer-events-auto dark:text-white lightbox-controls" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
               {photos[currentIndex].title && (
-                <div className="max-w-3xl mb-2 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
+                <div className="max-w-3xl mb-4 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
               )}
-              <div className="flex items-center gap-3 px-4">
+              <div className="flex items-center gap-3 px-4 pb-8">
                 <button data-lightbox-control="true"
                   type="button"
                   onClick={showPrev}
