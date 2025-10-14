@@ -83,7 +83,7 @@ const PhotoMetadata = ({ metadata, photoTitle, isFixed = false }) => {
       {isOpen && (
         <div
           ref={popoverRef}
-          className={`${isFixed ? 'fixed top-20 right-6 md:top-24 md:right-12' : 'absolute top-16 right-4'} z-50 w-80 max-w-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4`}
+          className={`${isFixed ? 'fixed top-20 right-24 md:top-24 md:right-28' : 'absolute top-16 right-4'} z-50 w-80 max-w-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4`}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center justify-between mb-3">

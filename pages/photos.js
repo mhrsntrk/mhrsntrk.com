@@ -249,27 +249,6 @@ export default function Photos({ photos }) {
           className="fixed inset-0 z-40 flex items-center justify-center p-4 lightbox-backdrop md:pt-24 md:pb-6 lg:pt-28"
           aria-modal="true"
           role="dialog"
-          onClick={(e) => {
-            // Close on any click that's not the image or controls
-            const target = e.target;
-            const clickedInsideInteractive = target.closest && (
-              target.closest('.lightbox-image') ||
-              target.closest('[data-lightbox-control="true"]')
-            );
-            if (!clickedInsideInteractive) {
-              close();
-            }
-          }}
-          onTouchStart={(e) => {
-            const target = e.target;
-            const clickedInsideInteractive = target.closest && (
-              target.closest('.lightbox-image') ||
-              target.closest('[data-lightbox-control="true"]')
-            );
-            if (!clickedInsideInteractive) {
-              close();
-            }
-          }}
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
           <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
