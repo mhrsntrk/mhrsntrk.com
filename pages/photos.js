@@ -218,7 +218,7 @@ export default function Photos({ photos }) {
           role="dialog"
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
-          <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
+          <div className="relative z-50 flex flex-col items-center justify-center w-full h-full mx-auto pointer-events-none max-w-none">
             <div className={`relative pointer-events-auto lightbox-container ${((photos[currentIndex]?.image?.height || 0) > (photos[currentIndex]?.image?.width || 0)) ? 'portrait' : 'landscape'}`}>
               {!lightboxImageLoaded && (
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
