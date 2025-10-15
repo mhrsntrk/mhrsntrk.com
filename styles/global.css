@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
+}
+
 @layer base {
   html, body {
     font-family: "lores-9-plus-narrow", system-ui, sans-serif !important;
@@ -247,6 +260,7 @@ input[type='email'] {
   column-count: 1;
   column-gap: 1rem; /* ~gap-4 */
   column-fill: balance;
+  contain: layout;
 }
 @media (min-width: 640px) { /* sm */
   .masonry { column-count: 2; }
@@ -262,6 +276,8 @@ input[type='email'] {
   -webkit-column-break-inside: avoid;
   page-break-inside: avoid;
   margin-bottom: 1rem; /* ~mb-4 */
+  contain: layout style paint;
+  will-change: transform;
 }
 
 /* Lightbox sizing (Tailwind v2-compatible) */
@@ -271,6 +287,61 @@ input[type='email'] {
   position: relative; /* required for next/image fill */
   margin-left: auto;
   margin-right: auto;
+  contain: layout style paint;
+  will-change: transform;
+  box-sizing: border-box;
+}
+
+/* Improve fit for portrait vs landscape images */
+.lightbox-container.portrait {
+  width: 70vw; /* narrower container to allow more vertical space perception */
+  max-width: 900px;
+  height: 85vh; /* taller to utilize screen height */
+}
+.lightbox-container.landscape {
+  width: 90vw;
+  height: 80vh;
+}
+/* Reserve a consistent space for bottom controls on desktop */
+@media (min-width: 769px) {
+  .lightbox-container {
+    padding-bottom: 6rem; /* space for controls bar */
+  }
+}
+
+/* Mobile-specific lightbox adjustments */
+@media (max-width: 768px) {
+  .lightbox-container {
+    width: 100% !important; /* avoid 100vw scrollbar/safe-area overflow on mobile */
+    height: 90vh !important;
+    max-width: none !important;
+    box-sizing: border-box;
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
+    margin-left: auto !important;
+    margin-right: auto !important;
+    overflow: hidden;
+    /* Reserve space for fixed bottom controls */
+    padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+  
+  .lightbox-container .lightbox-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Lightbox controls bottom spacing (mobile-only, safe areas) */
+@media (max-width: 768px) {
+  .lightbox-controls {
+    padding-bottom: 0.75rem; /* default 12px */
+  }
+  @supports (padding: max(0px)) {
+    .lightbox-controls {
+      padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    }
+  }
 }
 
 /* Backdrop overlay (Tailwind v2-compatible) */
@@ -294,4 +365,44 @@ input[type='email'] {
   .pixel-grid {
     gap: 1px;
   }
+}
+
+/* Image loading optimizations */
+.masonry-item img {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.lightbox-image {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Make the image scale better inside the container without looking small */
+.lightbox-container .lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Loading skeleton animation */
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+.dark .skeleton {
+  background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
+  background-size: 200px 100%;
 }

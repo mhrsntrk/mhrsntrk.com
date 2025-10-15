@@ -1,15 +1,35 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
+import NextImage from 'next/image';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
 import StructuredData from '@/components/StructuredData';
+import PhotoMetadata from '@/components/PhotoMetadata';
 import { getAllPhotos } from '@/lib/strapi';
 
 export default function Photos({ photos }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loadedImages, setLoadedImages] = useState(new Set());
+  const [progressiveImages, setProgressiveImages] = useState(new Set());
+
+  // Helper function to get optimal image URL based on screen size
+  const getOptimalImageUrl = useCallback((photo, isHighRes = false) => {
+    if (!photo?.image?.formats) return photo.image.url;
+    
+    // For high resolution (lightbox), prefer large format
+    if (isHighRes) {
+      return photo.image.formats.large?.url || 
+             photo.image.formats.medium?.url || 
+             photo.image.url;
+    }
+    
+    // For gallery view, prioritize small format for faster loading with Cloudflare CDN
+    return photo.image.formats.small?.url || 
+           photo.image.formats.medium?.url || 
+           photo.image.url;
+  }, []);
 
   const openAt = useCallback((index) => {
     setCurrentIndex(index);
@@ -26,6 +46,33 @@ export default function Photos({ photos }) {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   }, [photos.length]);
 
+  // Preload all images immediately for gallery view
+  useEffect(() => {
+    const preloadAllImages = () => {
+      photos.forEach((photo, index) => {
+        if (!loadedImages.has(index)) {
+          // Use Next.js Image preload for better optimization
+          const img = typeof window !== 'undefined' ? new window.Image() : null;
+          if (!img) return;
+          
+          // Use optimal format for preloading (small for faster loading)
+          const preloadUrl = getOptimalImageUrl(photo, false);
+          
+          img.src = preloadUrl;
+          img.onload = () => {
+            setLoadedImages(prev => new Set([...prev, index]));
+          };
+        }
+      });
+    };
+
+    if (photos.length > 0) {
+      preloadAllImages();
+    }
+  }, [photos, loadedImages]);
+
+  // No lazy loading - all images load immediately
+
   useEffect(() => {
     if (!isOpen) return;
     const handler = (e) => {
@@ -36,6 +83,24 @@ export default function Photos({ photos }) {
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
   }, [isOpen, close, showPrev, showNext, currentIndex, photos]);
+
+  // Prevent background scroll when lightbox is open
+  useEffect(() => {
+    if (typeof document === 'undefined') return;
+    if (isOpen) {
+      const prevOverflow = document.body.style.overflow;
+      const prevPosition = document.body.style.position;
+      const prevWidth = document.body.style.width;
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      return () => {
+        document.body.style.overflow = prevOverflow;
+        document.body.style.position = prevPosition;
+        document.body.style.width = prevWidth;
+      };
+    }
+  }, [isOpen]);
 
   const seoImages = useMemo(() => {
     if (!photos || photos.length === 0) return undefined;
@@ -104,17 +169,32 @@ export default function Photos({ photos }) {
                   className="w-full overflow-hidden border border-gray-200 rounded masonry-item cursor-zoom-in dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-red-500"
                   onClick={() => openAt(index)}
                   aria-label={`Open ${photo.title || 'photo'} in lightbox`}
+                  data-index={index}
                 >
-                  <Image
-                    src={photo.image.url}
-                    alt={photo.title || 'Photo'}
-                    width={1200}
-                    height={800}
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-                    className="object-cover w-full h-auto"
-                    loading={index < 6 ? 'eager' : 'lazy'}
-                    priority={index < 3}
-                  />
+                  <div className="relative w-full h-auto">
+                  {loadedImages.has(index) ? (
+                      <NextImage
+                        src={getOptimalImageUrl(photo, false)}
+                        alt={photo.title || 'Photo'}
+                        width={photo.image.width || 1200}
+                        height={photo.image.height || 800}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                        className="object-cover w-full h-auto transition-opacity duration-300"
+                        loading="eager"
+                        priority={index < 6}
+                        quality={85} // Optimized quality for Cloudflare CDN
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                      />
+                    ) : (
+                      <div className="relative w-full h-64 overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse">
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-sm text-gray-400 dark:text-gray-500">Loading...</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </button>
               ))}
             </div>
@@ -127,48 +207,37 @@ export default function Photos({ photos }) {
           className="fixed inset-0 z-40 flex items-center justify-center p-4 lightbox-backdrop md:pt-24 md:pb-6 lg:pt-28"
           aria-modal="true"
           role="dialog"
-          onClick={(e) => {
-            // Close on any click that's not the image or controls
-            const target = e.target;
-            const clickedInsideInteractive = target.closest && (
-              target.closest('.lightbox-image') ||
-              target.closest('[data-lightbox-control="true"]')
-            );
-            if (!clickedInsideInteractive) {
-              close();
-            }
-          }}
-          onTouchStart={(e) => {
-            const target = e.target;
-            const clickedInsideInteractive = target.closest && (
-              target.closest('.lightbox-image') ||
-              target.closest('[data-lightbox-control="true"]')
-            );
-            if (!clickedInsideInteractive) {
-              close();
-            }
-          }}
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
           <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
-            <div className="pointer-events-auto lightbox-container">
-              <Image
-                src={photos[currentIndex].image.url}
+            <div className={`relative pointer-events-auto lightbox-container ${((photos[currentIndex]?.image?.height || 0) > (photos[currentIndex]?.image?.width || 0)) ? 'portrait' : 'landscape'}`}>
+              <NextImage
+                src={getOptimalImageUrl(photos[currentIndex], true)}
                 alt={photos[currentIndex].title || 'Photo'}
-                fill
+                width={photos[currentIndex].image.width || 1920}
+                height={photos[currentIndex].image.height || 1080}
                 sizes="100vw"
                 className="object-contain pointer-events-auto lightbox-image no-save"
                 onTouchStart={(e) => e.stopPropagation()}
                 priority
+                quality={95} // Higher quality for lightbox with Cloudflare CDN
+                placeholder="blur"
+                blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
             </div>
 
-            <div className="flex flex-col items-center justify-center mt-4 text-black pointer-events-auto dark:text-white" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
+            <PhotoMetadata 
+              metadata={photos[currentIndex].metadata} 
+              photoTitle={photos[currentIndex].title} 
+              isFixed
+            />
+
+            {/* Controls: fixed at bottom on all screens */}
+            <div className="fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center text-black pointer-events-auto dark:text-white lightbox-controls" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
               {photos[currentIndex].title && (
-                <div className="max-w-3xl mb-2 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
+                <div className="max-w-3xl mb-4 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
               )}
-              {/* metadata removed */}
-              <div className="flex items-center gap-3 px-4">
+              <div className="flex items-center gap-3 px-4 pb-8">
                 <button data-lightbox-control="true"
                   type="button"
                   onClick={showPrev}

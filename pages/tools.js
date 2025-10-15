@@ -34,11 +34,12 @@ export default function Uses({ allGears }) {
 
 export async function getStaticProps() {
   const allGears = await getAllGears();
-  const content = await markdownToHtml(allGears[1]?.content || '');
+  const second = Array.isArray(allGears) && allGears.length > 1 ? allGears[1] : { content: '' };
+  const content = await markdownToHtml(second.content || '');
   return {
     props: {
       allGears: {
-        ...allGears[1],
+        ...second,
         content
       }
     }
