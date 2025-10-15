@@ -13,16 +13,15 @@ export default function Photos({ photos }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState(new Set());
   const [progressiveImages, setProgressiveImages] = useState(new Set());
+  const [lightboxImageLoaded, setLightboxImageLoaded] = useState(true); // Start as true
 
   // Helper function to get optimal image URL based on screen size
   const getOptimalImageUrl = useCallback((photo, isHighRes = false) => {
     if (!photo?.image?.formats) return photo.image.url;
     
-    // For high resolution (lightbox), prefer large format
+    // For high resolution (lightbox), use original full resolution
     if (isHighRes) {
-      return photo.image.formats.large?.url || 
-             photo.image.formats.medium?.url || 
-             photo.image.url;
+      return photo.image.url; // Use original full resolution (3120x2080px)
     }
     
     // For gallery view, prioritize small format for faster loading with Cloudflare CDN
@@ -46,19 +45,18 @@ export default function Photos({ photos }) {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   }, [photos.length]);
 
-  // Preload all images immediately for gallery view
+  // Load all gallery images immediately
   useEffect(() => {
-    const preloadAllImages = () => {
+    const loadAllImages = () => {
       photos.forEach((photo, index) => {
         if (!loadedImages.has(index)) {
-          // Use Next.js Image preload for better optimization
           const img = typeof window !== 'undefined' ? new window.Image() : null;
           if (!img) return;
           
-          // Use optimal format for preloading (small for faster loading)
-          const preloadUrl = getOptimalImageUrl(photo, false);
+          // Use small format for gallery (fast loading)
+          const galleryUrl = getOptimalImageUrl(photo, false);
           
-          img.src = preloadUrl;
+          img.src = galleryUrl;
           img.onload = () => {
             setLoadedImages(prev => new Set([...prev, index]));
           };
@@ -67,11 +65,18 @@ export default function Photos({ photos }) {
     };
 
     if (photos.length > 0) {
-      preloadAllImages();
+      loadAllImages();
     }
   }, [photos, loadedImages]);
 
   // No lazy loading - all images load immediately
+
+  // Reset loading state when lightbox opens or index changes
+  useEffect(() => {
+    if (isOpen) {
+      setLightboxImageLoaded(false);
+    }
+  }, [isOpen, currentIndex]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -172,22 +177,26 @@ export default function Photos({ photos }) {
                   data-index={index}
                 >
                   <div className="relative w-full h-auto">
-                  {loadedImages.has(index) ? (
-                      <NextImage
-                        src={getOptimalImageUrl(photo, false)}
-                        alt={photo.title || 'Photo'}
-                        width={photo.image.width || 1200}
-                        height={photo.image.height || 800}
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
-                        className="object-cover w-full h-auto transition-opacity duration-300"
-                        loading="eager"
-                        priority={index < 6}
-                        quality={85} // Optimized quality for Cloudflare CDN
-                        placeholder="blur"
-                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                      />
-                    ) : (
-                      <div className="relative w-full h-64 overflow-hidden bg-gray-200 dark:bg-gray-700 animate-pulse">
+                    <NextImage
+                      src={getOptimalImageUrl(photo, false)}
+                      alt={photo.title || 'Photo'}
+                      width={photo.image.width || 1200}
+                      height={photo.image.height || 800}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
+                      className={`object-cover w-full h-auto transition-opacity duration-500 ${
+                        loadedImages.has(index) ? 'opacity-100' : 'opacity-0'
+                      }`}
+                      loading="eager"
+                      priority={index < 6}
+                      quality={85} // Optimized quality for Cloudflare CDN
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                      onLoad={() => {
+                        setLoadedImages(prev => new Set([...prev, index]));
+                      }}
+                    />
+                    {!loadedImages.has(index) && (
+                      <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse">
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
                           <div className="text-sm text-gray-400 dark:text-gray-500">Loading...</div>
@@ -211,16 +220,27 @@ export default function Photos({ photos }) {
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
           <div className="relative z-50 flex flex-col items-center w-full mx-auto pointer-events-none max-w-none">
             <div className={`relative pointer-events-auto lightbox-container ${((photos[currentIndex]?.image?.height || 0) > (photos[currentIndex]?.image?.width || 0)) ? 'portrait' : 'landscape'}`}>
+              {!lightboxImageLoaded && (
+                <div className="absolute inset-0 z-10 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-8 h-8 mx-auto mb-4 border-b-2 border-gray-200 rounded-full animate-spin dark:border-gray-700"></div>
+                    <div className="text-lg text-gray-700 dark:text-gray-300">Loading image...</div>
+                  </div>
+                </div>
+              )}
               <NextImage
                 src={getOptimalImageUrl(photos[currentIndex], true)}
                 alt={photos[currentIndex].title || 'Photo'}
-                width={photos[currentIndex].image.width || 1920}
-                height={photos[currentIndex].image.height || 1080}
+                width={photos[currentIndex].image.width || 3120}
+                height={photos[currentIndex].image.height || 2080}
                 sizes="100vw"
-                className="object-contain pointer-events-auto lightbox-image no-save"
+                className={`object-contain pointer-events-auto lightbox-image no-save transition-opacity duration-300 ${
+                  lightboxImageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
                 onTouchStart={(e) => e.stopPropagation()}
+                onLoad={() => setLightboxImageLoaded(true)}
                 priority
-                quality={95} // Higher quality for lightbox with Cloudflare CDN
+                quality={100} // Maximum quality for full resolution lightbox
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
