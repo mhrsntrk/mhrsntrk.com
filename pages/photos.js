@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState, useRef } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import NextImage from 'next/image';
 import { NextSeo } from 'next-seo';
@@ -13,7 +13,6 @@ export default function Photos({ photos }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState(new Set());
   const [progressiveImages, setProgressiveImages] = useState(new Set());
-  const observerRef = useRef(null);
 
   // Helper function to get optimal image URL based on screen size
   const getOptimalImageUrl = useCallback((photo, isHighRes = false) => {
@@ -26,9 +25,9 @@ export default function Photos({ photos }) {
              photo.image.url;
     }
     
-    // For gallery view, use medium or small format
-    return photo.image.formats.medium?.url || 
-           photo.image.formats.small?.url || 
+    // For gallery view, prioritize small format for faster loading with Cloudflare CDN
+    return photo.image.formats.small?.url || 
+           photo.image.formats.medium?.url || 
            photo.image.url;
   }, []);
 
@@ -47,17 +46,16 @@ export default function Photos({ photos }) {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   }, [photos.length]);
 
-  // Preload critical images using Next.js Image component
+  // Preload all images immediately for gallery view
   useEffect(() => {
-    const preloadImages = () => {
-      const criticalImages = photos.slice(0, 6); // Preload first 6 images
-      criticalImages.forEach((photo, index) => {
+    const preloadAllImages = () => {
+      photos.forEach((photo, index) => {
         if (!loadedImages.has(index)) {
           // Use Next.js Image preload for better optimization
           const img = typeof window !== 'undefined' ? new window.Image() : null;
           if (!img) return;
           
-          // Use optimal format for preloading
+          // Use optimal format for preloading (small for faster loading)
           const preloadUrl = getOptimalImageUrl(photo, false);
           
           img.src = preloadUrl;
@@ -69,46 +67,11 @@ export default function Photos({ photos }) {
     };
 
     if (photos.length > 0) {
-      preloadImages();
+      preloadAllImages();
     }
   }, [photos, loadedImages]);
 
-  // Intersection Observer for lazy loading
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.dataset.index);
-            if (!loadedImages.has(index)) {
-              const img = typeof window !== 'undefined' ? new window.Image() : null;
-              if (!img) return;
-              
-              // Use optimal format for lazy loading
-              const lazyUrl = getOptimalImageUrl(photos[index], false);
-              
-              img.src = lazyUrl;
-              img.onload = () => {
-                setLoadedImages(prev => new Set([...prev, index]));
-              };
-            }
-          }
-        });
-      },
-      {
-        rootMargin: '100px 0px', // Increased margin for better UX
-        threshold: 0.1,
-      }
-    );
-
-    return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, [photos, loadedImages]);
+  // No lazy loading - all images load immediately
 
   useEffect(() => {
     if (!isOpen) return;
@@ -207,11 +170,6 @@ export default function Photos({ photos }) {
                   onClick={() => openAt(index)}
                   aria-label={`Open ${photo.title || 'photo'} in lightbox`}
                   data-index={index}
-                  ref={(el) => {
-                    if (el && observerRef.current && index >= 6) {
-                      observerRef.current.observe(el);
-                    }
-                  }}
                 >
                   <div className="relative w-full h-auto">
                   {loadedImages.has(index) ? (
@@ -222,9 +180,9 @@ export default function Photos({ photos }) {
                         height={photo.image.height || 800}
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1536px) 33vw, 25vw"
                         className="object-cover w-full h-auto transition-opacity duration-300"
-                        loading={index < 6 ? 'eager' : 'lazy'}
-                        priority={index < 3}
-                        quality={75} // Reduced quality for faster loading
+                        loading="eager"
+                        priority={index < 6}
+                        quality={85} // Optimized quality for Cloudflare CDN
                         placeholder="blur"
                         blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       />
@@ -262,7 +220,7 @@ export default function Photos({ photos }) {
                 className="object-contain pointer-events-auto lightbox-image no-save"
                 onTouchStart={(e) => e.stopPropagation()}
                 priority
-                quality={90}
+                quality={95} // Higher quality for lightbox with Cloudflare CDN
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
               />
