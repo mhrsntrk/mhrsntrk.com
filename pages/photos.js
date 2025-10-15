@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import NextImage from 'next/image';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 import Container from '@/components/Container';
 import StructuredData from '@/components/StructuredData';
@@ -9,6 +10,7 @@ import PhotoMetadata from '@/components/PhotoMetadata';
 import { getAllPhotos } from '@/lib/strapi';
 
 export default function Photos({ photos }) {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [loadedImages, setLoadedImages] = useState(new Set());
@@ -30,20 +32,41 @@ export default function Photos({ photos }) {
            photo.image.url;
   }, []);
 
+  // URL parameter handling (use slug; keep index as legacy fallback)
+  const updateUrl = useCallback((slugOrIndex, isOpen) => {
+    if (isOpen && slugOrIndex !== undefined && slugOrIndex !== null) {
+      const queryParam = typeof slugOrIndex === 'string' ? `photo=${encodeURIComponent(slugOrIndex)}` : `image=${slugOrIndex}`;
+      router.push(`/photos?${queryParam}`, undefined, { shallow: true });
+    } else {
+      router.push('/photos', undefined, { shallow: true });
+    }
+  }, [router]);
+
   const openAt = useCallback((index) => {
     setCurrentIndex(index);
     setIsOpen(true);
-  }, []);
+    const slug = photos?.[index]?.slug;
+    updateUrl(slug ?? index, true);
+  }, [updateUrl, photos]);
 
-  const close = useCallback(() => setIsOpen(false), []);
+  const close = useCallback(() => {
+    setIsOpen(false);
+    updateUrl(-1, false);
+  }, [updateUrl]);
 
   const showPrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
-  }, [photos.length]);
+    const newIndex = (currentIndex - 1 + photos.length) % photos.length;
+    setCurrentIndex(newIndex);
+    const slug = photos?.[newIndex]?.slug;
+    updateUrl(slug ?? newIndex, true);
+  }, [currentIndex, photos, photos.length, updateUrl]);
 
   const showNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
-  }, [photos.length]);
+    const newIndex = (currentIndex + 1) % photos.length;
+    setCurrentIndex(newIndex);
+    const slug = photos?.[newIndex]?.slug;
+    updateUrl(slug ?? newIndex, true);
+  }, [currentIndex, photos, photos.length, updateUrl]);
 
   // Load all gallery images immediately
   useEffect(() => {
@@ -70,6 +93,45 @@ export default function Photos({ photos }) {
   }, [photos, loadedImages]);
 
   // No lazy loading - all images load immediately
+
+  // Handle URL parameters on page load and browser navigation
+  useEffect(() => {
+    const handleRouteChange = () => {
+      const { photo: photoSlug, image: imageIndex } = router.query || {};
+      // Prefer slug
+      if (typeof photoSlug === 'string') {
+        const idx = photos.findIndex(p => p?.slug === photoSlug);
+        if (idx >= 0) {
+          setCurrentIndex(idx);
+          setIsOpen(true);
+          return;
+        }
+      }
+      // Fallback to index
+      if (imageIndex !== undefined) {
+        const index = parseInt(imageIndex, 10);
+        if (!isNaN(index) && index >= 0 && index < photos.length) {
+          setCurrentIndex(index);
+          setIsOpen(true);
+          return;
+        }
+      }
+      // No valid param -> close
+      setIsOpen(false);
+    };
+
+    // Handle initial load
+    if (router.isReady) {
+      handleRouteChange();
+    }
+
+    // Handle route changes (browser back/forward)
+    router.events.on('routeChangeComplete', handleRouteChange);
+    
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router, photos]);
 
   // Reset loading state when lightbox opens or index changes
   useEffect(() => {
