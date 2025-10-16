@@ -43,11 +43,19 @@ export default function Blog({ post, morePosts }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
-  return {
-    fallback: false, // Changed from true to false
-    paths: allPosts?.map((post) => `/blog/${post.slug}`) || []
-  };
+  try {
+    const allPosts = await getAllPostsWithSlug();
+    return {
+      fallback: 'blocking', // Use blocking fallback for better error handling
+      paths: allPosts?.map((post) => `/blog/${post.slug}`) || []
+    };
+  } catch (error) {
+    console.error('Failed to fetch post slugs during build:', error.message);
+    return {
+      fallback: 'blocking',
+      paths: [] // Return empty paths if API fails during build
+    };
+  }
 }
 
 export async function getStaticProps({ params }) {
