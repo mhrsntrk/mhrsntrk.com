@@ -45,21 +45,28 @@ export default function Blog({ post, morePosts }) {
 export async function getStaticPaths() {
   const allPosts = await getAllPostsWithSlug();
   return {
-    fallback: true,
+    fallback: false, // Changed from true to false
     paths: allPosts?.map((post) => `/blog/${post.slug}`) || []
   };
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getPostAndMorePosts(params.slug);
-  const content = await markdownToHtml(data?.posts[0]?.content || '');
-  return {
-    props: {
-      post: {
-        ...data?.posts[0],
-        content
-      },
-      morePosts: data?.morePosts
-    },
-  };
+  try {
+    const data = await getPostAndMorePosts(params.slug);
+    const content = await markdownToHtml(data?.posts[0]?.content || '');
+    return {
+      props: {
+        post: {
+          ...data?.posts[0],
+          content
+        },
+        morePosts: data?.morePosts
+      }
+    };
+  } catch (error) {
+    console.error('Failed to fetch blog post:', error.message);
+    return {
+      notFound: true, // This will show a 404 page instead of crashing
+    };
+  }
 }
