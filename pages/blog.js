@@ -166,8 +166,14 @@ export default function Blog({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPostsForBlog();
+  // During initial build, wait for Strapi to wake up
+  // During ISR revalidation, use shorter timeouts (cached page served if fails)
+  const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+  const allPosts = await getAllPostsForBlog(isBuildTime);
   return {
-    props: { allPosts }
+    props: { allPosts },
+    // Revalidate every hour, but serve cached page if revalidation fails
+    // Longer interval reduces wake-up frequency for sleeping Strapi
+    revalidate: 3600, // 1 hour
   };
 }

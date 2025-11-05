@@ -159,14 +159,21 @@ export default function Home({ allPosts }) {
 
 export async function getStaticProps() {
   try {
-    const allPosts = await getAllPostsForHome();
+    // During initial build, wait for Strapi to wake up
+    // During ISR revalidation, use shorter timeouts (cached page served if fails)
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    const allPosts = await getAllPostsForHome(isBuildTime);
     return {
-      props: { allPosts: allPosts || [] }
+      props: { allPosts: allPosts || [] },
+      // Revalidate every hour, but serve cached page if revalidation fails
+      // Longer interval reduces wake-up frequency for sleeping Strapi
+      revalidate: 3600, // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch blog posts:', error.message);
     return {
-      props: { allPosts: [] }
+      props: { allPosts: [] },
+      revalidate: 60,
     };
   }
 }
