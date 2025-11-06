@@ -60,29 +60,24 @@ export async function getStaticPaths() {
     
     console.log(`[getStaticPaths] Generated ${paths.length} blog post paths`);
     
+    // Use fallback: false to ensure all posts are generated at build time
+    // Any post not in this list will return 404
     return {
-      fallback: 'blocking', // Use blocking fallback for better error handling
+      fallback: false,
       paths
     };
   } catch (error) {
     console.error('[getStaticPaths] Failed to fetch post slugs during build:', error.message);
     console.error('[getStaticPaths] Stack:', error.stack);
-    // Return blocking fallback so posts can still be generated on-demand
-    // This prevents build failures if Strapi is temporarily unavailable
-    return {
-      fallback: 'blocking',
-      paths: [] // Return empty paths if API fails during build
-    };
+    // Fail the build if we can't fetch posts - this ensures we don't deploy with missing posts
+    throw new Error(`Failed to fetch blog posts during build: ${error.message}`);
   }
 }
 
 export async function getStaticProps({ params }) {
   try {
-    // During initial build, we want to wait for Strapi to wake up
-    // During ISR revalidation, we use default (shorter) timeouts
-    // If ISR revalidation fails, Next.js serves the cached page
-    // We can detect build time by checking if we're in a build context
-    // For now, we'll use a heuristic: if NEXT_PHASE is 'phase-production-build'
+    // All pages are generated at build time only
+    // We detect build time by checking if we're in a build context
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
     const data = await getPostAndMorePosts(params.slug, isBuildTime);
     
@@ -97,11 +92,7 @@ export async function getStaticProps({ params }) {
         },
         morePosts: data?.morePosts || []
       },
-      // Enable ISR: Regenerate page at most once every hour
-      // This allows pages to update without full redeploy
-      // Longer interval reduces wake-up frequency for sleeping Strapi
-      // If Strapi API fails during revalidation, the cached page is still served
-      revalidate: 3600, // 1 hour
+      // No revalidate - pages are fully static and never regenerate after build
     };
   } catch (error) {
     console.error(`[getStaticProps] Failed to fetch blog post "${params.slug}":`, error.message);
@@ -116,9 +107,8 @@ export async function getStaticProps({ params }) {
     
     // For other errors (network, timeout, API down), log but still return 404
     // The retry logic in secureFetch should have already retried
-    // Note: With ISR, if this page was previously generated, it will be served from cache
-    // and revalidation will retry fetching on the next request after 60 seconds
-    console.error(`[getStaticProps] API error for "${params.slug}", will retry on next revalidation`);
+    // Since we're using static generation, build will fail if posts can't be fetched
+    console.error(`[getStaticProps] API error for "${params.slug}" during build`);
     return {
       notFound: true,
     };
