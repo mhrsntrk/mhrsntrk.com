@@ -370,14 +370,34 @@ export default function Photos({ photos }) {
 
 export async function getStaticProps() {
   try {
-    const allPhotos = await getAllPhotos();
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    const allPhotos = await getAllPhotos(isBuildTime);
+    
+    // During revalidation (not build time), if we get empty photos, throw an error
+    // This ensures Next.js serves the stale cached page instead of updating with empty data
+    if (!isBuildTime && (!allPhotos || allPhotos.length === 0)) {
+      throw new Error('Failed to fetch photos during revalidation - keeping stale cache');
+    }
+    
     return {
-      props: { photos: allPhotos || [] }
+      props: { photos: allPhotos || [] },
+      // Revalidate every hour, but serve cached page if revalidation fails
+      revalidate: 3600, // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch photos:', error.message);
+    
+    // During build time, return empty array (we need to build the page)
+    // During revalidation, throw error to keep stale cache
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    if (!isBuildTime) {
+      // Re-throw error during revalidation so Next.js serves stale cached page
+      throw error;
+    }
+    
     return {
-      props: { photos: [] }
+      props: { photos: [] },
+      revalidate: 60,
     };
   }
 }

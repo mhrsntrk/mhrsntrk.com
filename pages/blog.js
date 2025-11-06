@@ -166,14 +166,38 @@ export default function Blog({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  // During initial build, wait for Strapi to wake up
-  // During ISR revalidation, use shorter timeouts (cached page served if fails)
-  const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-  const allPosts = await getAllPostsForBlog(isBuildTime);
-  return {
-    props: { allPosts },
-    // Revalidate every hour, but serve cached page if revalidation fails
-    // Longer interval reduces wake-up frequency for sleeping Strapi
-    revalidate: 3600, // 1 hour
-  };
+  try {
+    // During initial build, wait for Strapi to wake up
+    // During ISR revalidation, use shorter timeouts (cached page served if fails)
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    const allPosts = await getAllPostsForBlog(isBuildTime);
+    
+    // During revalidation (not build time), if we get empty posts, throw an error
+    // This ensures Next.js serves the stale cached page instead of updating with empty data
+    if (!isBuildTime && (!allPosts || allPosts.length === 0)) {
+      throw new Error('Failed to fetch posts during revalidation - keeping stale cache');
+    }
+    
+    return {
+      props: { allPosts: allPosts || [] },
+      // Revalidate every hour, but serve cached page if revalidation fails
+      // Longer interval reduces wake-up frequency for sleeping Strapi
+      revalidate: 3600, // 1 hour
+    };
+  } catch (error) {
+    console.warn('Failed to fetch blog posts:', error.message);
+    
+    // During build time, return empty array (we need to build the page)
+    // During revalidation, throw error to keep stale cache
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    if (!isBuildTime) {
+      // Re-throw error during revalidation so Next.js serves stale cached page
+      throw error;
+    }
+    
+    return {
+      props: { allPosts: [] },
+      revalidate: 60,
+    };
+  }
 }

@@ -33,15 +33,51 @@ export default function Uses({ allGears }) {
 }
 
 export async function getStaticProps() {
-  const allGears = await getAllGears();
-  const second = Array.isArray(allGears) && allGears.length > 1 ? allGears[1] : { content: '' };
-  const content = await markdownToHtml(second.content || '');
-  return {
-    props: {
-      allGears: {
-        ...second,
-        content
-      }
+  try {
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    const allGears = await getAllGears(isBuildTime);
+    
+    // Check if we have valid gear data (need at least 2 items for tools page)
+    const second = Array.isArray(allGears) && allGears.length > 1 ? allGears[1] : null;
+    
+    // During revalidation (not build time), if we get empty gear data, throw an error
+    // This ensures Next.js serves the stale cached page instead of updating with empty data
+    if (!isBuildTime && !second) {
+      throw new Error('Failed to fetch tools data during revalidation - keeping stale cache');
     }
-  };
+    
+    // If no gear data at build time, use empty content
+    const gearData = second || { content: '' };
+    const content = await markdownToHtml(gearData.content || '');
+    
+    return {
+      props: {
+        allGears: {
+          ...gearData,
+          content
+        }
+      },
+      // Revalidate every hour, but serve cached page if revalidation fails
+      revalidate: 3600, // 1 hour
+    };
+  } catch (error) {
+    console.warn('Failed to fetch tools data:', error.message);
+    
+    // During build time, return empty content (we need to build the page)
+    // During revalidation, throw error to keep stale cache
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    if (!isBuildTime) {
+      // Re-throw error during revalidation so Next.js serves stale cached page
+      throw error;
+    }
+    
+    return {
+      props: {
+        allGears: {
+          content: ''
+        }
+      },
+      revalidate: 60,
+    };
+  }
 }

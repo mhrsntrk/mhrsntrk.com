@@ -46,48 +46,48 @@ export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot, hbar
           <CryptoCard
             name={polkadot.name}
             symbol={polkadot.symbol}
-            price={polkadot.quotes.USD.price.toFixed(2)}
-            change={polkadot.quotes.USD.percent_change_24h}
-            ath={polkadot.quotes.USD.ath_price.toFixed(2)}
+            price={Number(polkadot.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(polkadot.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(polkadot.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
           <CryptoCard
             name={ethereum.name}
             symbol={ethereum.symbol}
-            price={ethereum.quotes.USD.price.toFixed(2)}
-            change={ethereum.quotes.USD.percent_change_24h}
-            ath={ethereum.quotes.USD.ath_price.toFixed(2)}
+            price={Number(ethereum.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(ethereum.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(ethereum.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <CryptoCard
             name={energyWeb.name}
             symbol={energyWeb.symbol}
-            price={energyWeb.quotes.USD.price.toFixed(2)}
-            change={energyWeb.quotes.USD.percent_change_24h}
-            ath={energyWeb.quotes.USD.ath_price.toFixed(2)}
+            price={Number(energyWeb.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(energyWeb.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(energyWeb.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
           <CryptoCard
             name={mina.name}
             symbol={mina.symbol}
-            price={mina.quotes.USD.price.toFixed(2)}
-            change={mina.quotes.USD.percent_change_24h}
-            ath={mina.quotes.USD.ath_price.toFixed(2)}
+            price={Number(mina.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(mina.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(mina.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
           <CryptoCard
             name={avax.name}
             symbol={avax.symbol}
-            price={avax.quotes.USD.price.toFixed(2)}
-            change={avax.quotes.USD.percent_change_24h}
-            ath={avax.quotes.USD.ath_price.toFixed(2)}
+            price={Number(avax.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(avax.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(avax.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
           <CryptoCard
             name={hbar.name}
             symbol={hbar.symbol}
-            price={hbar.quotes.USD.price.toFixed(2)}
-            change={hbar.quotes.USD.percent_change_24h}
-            ath={hbar.quotes.USD.ath_price.toFixed(2)}
+            price={Number(hbar.quotes?.USD?.price || 0).toFixed(2)}
+            change={Number(hbar.quotes?.USD?.percent_change_24h || 0)}
+            ath={Number(hbar.quotes?.USD?.ath_price || 0).toFixed(2)}
           />
         </div>
       </div>
@@ -96,14 +96,53 @@ export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot, hbar
 }
 
 export async function getServerSideProps() {
-  const ethereum = await getEthereum();
-  const energyWeb = await getEnergyWeb();
-  const avax = await getAvax();
-  const mina = await getMina();
-  const polkadot = await getPolkadot();
-  const hbar = await getHbar();
-
-  return {
-    props: { ethereum, energyWeb, avax, mina, polkadot, hbar }
+  // Default fallback data structure
+  const defaultCrypto = {
+    name: 'N/A',
+    symbol: 'N/A',
+    quotes: {
+      USD: {
+        price: 0,
+        percent_change_24h: 0,
+        ath_price: 0
+      }
+    }
   };
+
+  try {
+    // Fetch all crypto data in parallel
+    const [ethereum, energyWeb, avax, mina, polkadot, hbar] = await Promise.allSettled([
+      getEthereum(),
+      getEnergyWeb(),
+      getAvax(),
+      getMina(),
+      getPolkadot(),
+      getHbar()
+    ]);
+
+    // Use the value if successful, otherwise use default
+    return {
+      props: {
+        ethereum: ethereum.status === 'fulfilled' ? ethereum.value : defaultCrypto,
+        energyWeb: energyWeb.status === 'fulfilled' ? energyWeb.value : defaultCrypto,
+        avax: avax.status === 'fulfilled' ? avax.value : defaultCrypto,
+        mina: mina.status === 'fulfilled' ? mina.value : defaultCrypto,
+        polkadot: polkadot.status === 'fulfilled' ? polkadot.value : defaultCrypto,
+        hbar: hbar.status === 'fulfilled' ? hbar.value : defaultCrypto
+      }
+    };
+  } catch (error) {
+    console.error('Failed to fetch crypto data:', error.message);
+    // Return default values if all requests fail
+    return {
+      props: {
+        ethereum: defaultCrypto,
+        energyWeb: defaultCrypto,
+        avax: defaultCrypto,
+        mina: defaultCrypto,
+        polkadot: defaultCrypto,
+        hbar: defaultCrypto
+      }
+    };
+  }
 }

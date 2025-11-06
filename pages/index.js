@@ -173,6 +173,13 @@ export async function getStaticProps() {
       getAllPostsForHome(isBuildTime),
       getAllPostsForBlog(isBuildTime)
     ]);
+    
+    // During revalidation (not build time), if we get empty posts, throw an error
+    // This ensures Next.js serves the stale cached page instead of updating with empty data
+    if (!isBuildTime && (!allPosts || allPosts.length === 0)) {
+      throw new Error('Failed to fetch posts during revalidation - keeping stale cache');
+    }
+    
     return {
       props: { 
         allPosts: allPosts || [],
@@ -184,6 +191,15 @@ export async function getStaticProps() {
     };
   } catch (error) {
     console.warn('Failed to fetch blog posts:', error.message);
+    
+    // During build time, return empty arrays (we need to build the page)
+    // During revalidation, throw error to keep stale cache
+    const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
+    if (!isBuildTime) {
+      // Re-throw error during revalidation so Next.js serves stale cached page
+      throw error;
+    }
+    
     return {
       props: { 
         allPosts: [],
