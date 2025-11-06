@@ -56,7 +56,10 @@ export async function getStaticPaths() {
     
     // Pass isBuildTime=true to enable wake-up retry logic and longer timeouts
     const allPosts = await getAllPostsWithSlug(true);
-    const paths = allPosts?.map((post) => `/blog/${post.slug}`) || [];
+    // getAllPostsWithSlug returns an array of slug strings, not objects
+    const paths = allPosts?.map((slug) => ({
+      params: { slug }
+    })) || [];
     
     console.log(`[getStaticPaths] Generated ${paths.length} blog post paths`);
     
