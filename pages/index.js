@@ -8,7 +8,7 @@ import StructuredData, { PersonSchema, WebsiteSchema } from '@/components/Struct
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-import { getAllPostsForHome } from '@/lib/strapi';
+import { getAllPostsForHome, getAllPostsForBlog } from '@/lib/strapi';
 
 // Dynamically import the animation component for better performance
 const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
@@ -16,7 +16,7 @@ const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
   loading: () => <div className="h-32" /> // Placeholder while loading
 });
 
-export default function Home({ allPosts }) {
+export default function Home({ allPosts, totalPosts }) {
   return (
     <>
       <StructuredData data={PersonSchema} />
@@ -43,9 +43,15 @@ export default function Home({ allPosts }) {
         </div>
         <Link
           href="/blog"
-          className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+          className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white group"
         >
-          <h3 className="hover:underline">Recent Posts </h3>
+          <h3>
+            <span className="hover:underline">Recent Posts</span>
+            {' '}
+            <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+              [{totalPosts} posts]
+            </span>
+          </h3>
         </Link>
 
         {allPosts.map((post) => (
@@ -56,6 +62,7 @@ export default function Home({ allPosts }) {
             slug={post.slug}
           />
         ))}
+
         <Link
           href="/podcasts"
           className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
@@ -162,9 +169,15 @@ export async function getStaticProps() {
     // During initial build, wait for Strapi to wake up
     // During ISR revalidation, use shorter timeouts (cached page served if fails)
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-    const allPosts = await getAllPostsForHome(isBuildTime);
+    const [allPosts, allBlogPosts] = await Promise.all([
+      getAllPostsForHome(isBuildTime),
+      getAllPostsForBlog(isBuildTime)
+    ]);
     return {
-      props: { allPosts: allPosts || [] },
+      props: { 
+        allPosts: allPosts || [],
+        totalPosts: allBlogPosts?.length || 0
+      },
       // Revalidate every hour, but serve cached page if revalidation fails
       // Longer interval reduces wake-up frequency for sleeping Strapi
       revalidate: 3600, // 1 hour
@@ -172,7 +185,10 @@ export async function getStaticProps() {
   } catch (error) {
     console.warn('Failed to fetch blog posts:', error.message);
     return {
-      props: { allPosts: [] },
+      props: { 
+        allPosts: [],
+        totalPosts: 0
+      },
       revalidate: 60,
     };
   }
