@@ -376,15 +376,15 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@next/env@13.5.2":
-  version "13.5.2"
-  resolved "https://registry.npmjs.org/@next/env/-/env-13.5.2.tgz"
-  integrity sha512-dUseBIQVax+XtdJPzhwww4GetTjlkRSsXeQnisIJWBaHsnxYcN2RGzsPHi58D6qnkATjnhuAtQTJmR1hKYQQPg==
+"@next/env@13.5.11":
+  version "13.5.11"
+  resolved "https://registry.npmjs.org/@next/env/-/env-13.5.11.tgz"
+  integrity sha512-fbb2C7HChgM7CemdCY+y3N1n8pcTKdqtQLbC7/EQtPdLvlMUT9JX/dBYl8MMZAtYG4uVMyPFHXckb68q/NRwqg==
 
-"@next/swc-darwin-arm64@13.5.2":
-  version "13.5.2"
-  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.2.tgz"
-  integrity sha512-7eAyunAWq6yFwdSQliWMmGhObPpHTesiKxMw4DWVxhm5yLotBj8FCR4PXGkpRP2tf8QhaWuVba+/fyAYggqfQg==
+"@next/swc-darwin-arm64@13.5.9":
+  version "13.5.9"
+  resolved "https://registry.npmjs.org/@next/swc-darwin-arm64/-/swc-darwin-arm64-13.5.9.tgz"
+  integrity sha512-pVyd8/1y1l5atQRvOaLOvfbmRwefxLhqQOzYo/M7FQ5eaRwA1+wuCn7t39VwEgDd7Aw1+AIWwd+MURXUeXhwDw==
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2048,7 +2048,7 @@ multiformats@^9.4.2, multiformats@^9.6.2:
   resolved "https://registry.npmjs.org/multiformats/-/multiformats-9.9.0.tgz"
   integrity sha512-HoMUjhH9T8DDBNT+6xzkrd9ga/XiBI4xLr58LJACwK6G3HTOPeMz4nB4KJs33L2BelrIJa7P0VuNaVF3hMYfjg==
 
-nanoid@^3.3.4, nanoid@^3.3.6:
+nanoid@^3.3.6:
   version "3.3.6"
   resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.6.tgz"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
@@ -2063,29 +2063,28 @@ next-themes@^0.2.1:
   resolved "https://registry.npmjs.org/next-themes/-/next-themes-0.2.1.tgz"
   integrity sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==
 
-next@*, next@^13.5.2, "next@^8.1.1-canary.54 || >=9.0.0":
-  version "13.5.2"
-  resolved "https://registry.npmjs.org/next/-/next-13.5.2.tgz"
-  integrity sha512-vog4UhUaMYAzeqfiAAmgB/QWLW7p01/sg+2vn6bqc/CxHFYizMzLv6gjxKzl31EVFkfl/F+GbxlKizlkTE9RdA==
+next@*, next@^13.5.7, "next@^8.1.1-canary.54 || >=9.0.0":
+  version "13.5.11"
+  resolved "https://registry.npmjs.org/next/-/next-13.5.11.tgz"
+  integrity sha512-WUPJ6WbAX9tdC86kGTu92qkrRdgRqVrY++nwM+shmWQwmyxt4zhZfR59moXSI4N8GDYCBY3lIAqhzjDd4rTC8Q==
   dependencies:
-    "@next/env" "13.5.2"
+    "@next/env" "13.5.11"
     "@swc/helpers" "0.5.2"
     busboy "1.6.0"
     caniuse-lite "^1.0.30001406"
-    postcss "8.4.14"
+    postcss "8.4.31"
     styled-jsx "5.1.1"
     watchpack "2.4.0"
-    zod "3.21.4"
   optionalDependencies:
-    "@next/swc-darwin-arm64" "13.5.2"
-    "@next/swc-darwin-x64" "13.5.2"
-    "@next/swc-linux-arm64-gnu" "13.5.2"
-    "@next/swc-linux-arm64-musl" "13.5.2"
-    "@next/swc-linux-x64-gnu" "13.5.2"
-    "@next/swc-linux-x64-musl" "13.5.2"
-    "@next/swc-win32-arm64-msvc" "13.5.2"
-    "@next/swc-win32-ia32-msvc" "13.5.2"
-    "@next/swc-win32-x64-msvc" "13.5.2"
+    "@next/swc-darwin-arm64" "13.5.9"
+    "@next/swc-darwin-x64" "13.5.9"
+    "@next/swc-linux-arm64-gnu" "13.5.9"
+    "@next/swc-linux-arm64-musl" "13.5.9"
+    "@next/swc-linux-x64-gnu" "13.5.9"
+    "@next/swc-linux-x64-musl" "13.5.9"
+    "@next/swc-win32-arm64-msvc" "13.5.9"
+    "@next/swc-win32-ia32-msvc" "13.5.9"
+    "@next/swc-win32-x64-msvc" "13.5.9"
 
 node-emoji@^1.11.0:
   version "1.11.0"
@@ -2240,21 +2239,12 @@ postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.0.9, postcss@^8.1.0, postcss@^8.1.6, postcss@^8.2.14, postcss@^8.3.5, postcss@^8.4.30, postcss@>=8.0.9:
-  version "8.4.30"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.30.tgz"
-  integrity sha512-7ZEao1g4kd68l97aWG/etQKPKq07us0ieSZ2TnFDk11i0ZfDW2AwKHYU8qv4MZKqN2fdBfg+7q0ES06UA73C1g==
+postcss@^8.0.9, postcss@^8.1.0, postcss@^8.1.6, postcss@^8.2.14, postcss@^8.3.5, postcss@^8.4.30, postcss@>=8.0.9, postcss@8.4.31:
+  version "8.4.31"
+  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.31.tgz"
+  integrity sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==
   dependencies:
     nanoid "^3.3.6"
-    picocolors "^1.0.0"
-    source-map-js "^1.0.2"
-
-postcss@8.4.14:
-  version "8.4.14"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-8.4.14.tgz"
-  integrity sha512-E398TUmfAYFPBSdzgeieK2Y1+1cpdxJx8yXbK/m57nRhKSmk1GB2tO4lbLBtlkfPQTDKfe4Xqv1ASWPpayPEig==
-  dependencies:
-    nanoid "^3.3.4"
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
@@ -2321,13 +2311,13 @@ quick-lru@^5.1.1:
   resolved "https://registry.npmjs.org/quick-lru/-/quick-lru-5.1.1.tgz"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
 
-react-dom@*, react-dom@^18.2.0, react-dom@>=15.0, react-dom@>=16.0.0:
-  version "18.2.0"
-  resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
-  integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
+react-dom@*, react-dom@^18.2.0, react-dom@^18.3.1, react-dom@>=15.0, react-dom@>=16.0.0:
+  version "18.3.1"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.3.1.tgz"
+  integrity sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==
   dependencies:
     loose-envify "^1.1.0"
-    scheduler "^0.23.0"
+    scheduler "^0.23.2"
 
 react-is@^16.13.1:
   version "16.13.1"
@@ -2341,10 +2331,10 @@ react-json-pretty@^2.2.0:
   dependencies:
     prop-types "^15.6.2"
 
-react@*, react@^18.2.0, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=15.0, react@>=16.0.0:
-  version "18.2.0"
-  resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
-  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
+react@*, react@^18.2.0, react@^18.3.1, "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=15.0, react@>=16.0.0:
+  version "18.3.1"
+  resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
+  integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
   dependencies:
     loose-envify "^1.1.0"
 
@@ -2534,10 +2524,10 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-scheduler@^0.23.0:
-  version "0.23.0"
-  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.23.0.tgz"
-  integrity sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==
+scheduler@^0.23.2:
+  version "0.23.2"
+  resolved "https://registry.npmjs.org/scheduler/-/scheduler-0.23.2.tgz"
+  integrity sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==
   dependencies:
     loose-envify "^1.1.0"
 
@@ -3003,11 +2993,6 @@ yaml@^1.10.0, yaml@^1.10.2:
   version "1.10.2"
   resolved "https://registry.npmjs.org/yaml/-/yaml-1.10.2.tgz"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
-
-zod@3.21.4:
-  version "3.21.4"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.21.4.tgz"
-  integrity sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==
 
 zwitch@^1.0.0:
   version "1.0.5"

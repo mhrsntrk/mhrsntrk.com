@@ -92,6 +92,14 @@ export default function Home({ allPosts, totalPosts }) {
           <h3 className="hover:underline">Swiss Knife </h3>
         </Link>
         <SwissKnifeCard
+          title="Fortune Cookie VC"
+          description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
+          href="swissknife/fortune-cookie"
+          icon="fortune-cookie"
+          width="120"
+          height="106"
+        />
+        <SwissKnifeCard
           title="DID Resolver"
           description="This tool will allow you to fetch the DID document of the given a DID."
           href="swissknife/did-resolver"

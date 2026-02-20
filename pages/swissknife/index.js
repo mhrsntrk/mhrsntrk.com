@@ -36,6 +36,14 @@ export default function SwissKnife() {
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
+            title="Fortune Cookie VC"
+            description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
+            href="swissknife/fortune-cookie"
+            icon="fortune-cookie"
+            width="120"
+            height="106"
+          />
+          <SwissKnifeCard
             title="qroxy"
             description="Create dynamic QR codes using the connected REST API and mongoDB"
             href="swissknife/qroxy"

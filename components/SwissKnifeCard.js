@@ -89,6 +89,22 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                 />
           </div>
         )}
+        {icon == 'fortune-cookie' && (
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={`${title} - Fortune cookie VC tool icon`}
+                  height={height}
+                  width={width}
+                  src="/static/icons/fortunecookie.png"
+                  className="object-contain"
+                  priority={false}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
+          </div>
+        )}
         <div className="ml-4">
           <h4 className="text-lg font-bold tracking-tight text-gray-900 dark:text-gray-100">
             {title}
