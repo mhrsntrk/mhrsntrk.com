@@ -9,7 +9,7 @@ Disallow: /admin/
 # Allow important pages
 Allow: /blog/
 Allow: /swissknife/
-Allow: /podcasts/
+Allow: /speaking/
 Allow: /gear/
 Allow: /tools/
 

@@ -64,26 +64,47 @@ export default function Home({ allPosts, totalPosts }) {
         ))}
 
         <Link
-          href="/podcasts"
+          href="/speaking"
           className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
         >
-          <h3 className="hover:underline">Podcasts </h3>
+          <h3 className="hover:underline">Speaking</h3>
         </Link>
+        <PodcastCard
+          title="Next-Gen Tech for Health Data Privacy 2025"
+          description="Speaking on next-generation technologies shaping health data privacy and decentralized identity in healthcare."
+          icon="health-privacy"
+          width={80}
+          height={80}
+        />
+        <PodcastCard
+          title="London Blockchain Conference 2025"
+          description="The UK's biggest enterprise blockchain event. Shared insights on SSI and digital trust."
+          icon="london-blockchain"
+          width={120}
+          height={120}
+        />
+        <PodcastCard
+          title="DID:UNCONF Africa 2026"
+          description="Unconference in Stellenbosch on digital identity and SSI in Africa."
+          icon="did-unconf-africa"
+          width={120}
+          height={120}
+        />
         <PodcastCard
           title="Üretim Bandı Podcast"
           description="Bu bölümde, Mahir Senturk ile birlikte Energy Web'i keşfediyoruz."
           href="https://uretimbandi.com/podcast/mahir-senturk-energy-web-blockchainle-enerji-problemini-cozmek/"
           icon="uretimbandi"
-          width="120"
-          height="120"
+          width={120}
+          height={120}
         />
         <PodcastCard
           title="Üretim Bandı Podcast"
           description="Mahir Senturk ile birlikte Self Sovereign Identity (Öz Kimlik) konusunu konuştuk."
           href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
           icon="uretimbandi"
-          width="120"
-          height="120"
+          width={120}
+          height={120}
         />
         <Link
           href="/swissknife"

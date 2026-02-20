@@ -1,4 +1,13 @@
 module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/podcasts',
+        destination: '/speaking',
+        permanent: true
+      }
+    ];
+  },
   images: {
     domains: ['api.qrserver.com', 'mhrsntrk.com', 'images.mhrsntrk.com'], // QR Code and own domain
     remotePatterns: [
