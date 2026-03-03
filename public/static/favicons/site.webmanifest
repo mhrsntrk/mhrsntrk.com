@@ -1,17 +1,55 @@
 {
-    "name": "Mahir Senturk - Senior Product Manager & Blockchain Expert",
+    "id": "/",
+    "name": "Mahir Senturk - Senior Product Manager & Digital Identity Expert",
     "short_name": "Mahir Senturk",
-    "description": "Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.",
+    "description": "Senior Product Manager specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
             "src": "/static/favicons/android-chrome-512x512.png",
             "sizes": "512x512",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/static/images/banner.jpg",
+            "sizes": "1280x720",
+            "type": "image/jpeg",
+            "form_factor": "wide",
+            "label": "Mahir Senturk - Personal Website Home"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Blog",
+            "short_name": "Blog",
+            "url": "/blog",
+            "description": "Read blog posts about blockchain, SSI, and technology"
+        },
+        {
+            "name": "Speaking",
+            "short_name": "Speaking",
+            "url": "/speaking",
+            "description": "Speaking engagements and podcasts"
+        },
+        {
+            "name": "Swiss Knife",
+            "short_name": "Swiss Knife",
+            "url": "/swissknife",
+            "description": "Developer tools and utilities"
+        },
+        {
+            "name": "Contact",
+            "short_name": "Contact",
+            "url": "/#contact",
+            "description": "Get in touch"
         }
     ],
     "background_color": "#ffffff",
