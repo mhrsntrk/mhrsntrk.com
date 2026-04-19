@@ -1,4 +1,4 @@
-import { getAllPostsWithSlug } from '@/lib/strapi';
+import { getAllPostsForBlog } from '@/lib/strapi';
 
 function buildMarkdownPost(post) {
   const date = new Date(post.date).toISOString().split('T')[0];
@@ -17,18 +17,9 @@ function buildMarkdownIndex(posts) {
 }
 
 export default async function handler(req, res) {
-  const acceptHeader = req.headers.accept || '';
-
-  if (!acceptHeader.includes('text/markdown')) {
-    return res.status(406).json({
-      error: 'Not Acceptable',
-      message: 'This endpoint only supports Accept: text/markdown',
-    });
-  }
-
   try {
     const { path } = req.query;
-    const posts = await getAllPostsWithSlug();
+    const posts = await getAllPostsForBlog();
 
     if (!path || path.length === 0) {
       const markdown = buildMarkdownIndex(posts);
@@ -45,7 +36,11 @@ export default async function handler(req, res) {
       const post = posts.find((p) => p.slug === slug);
 
       if (!post) {
-        return res.status(404).json({ error: 'Post not found' });
+        return res.status(404).json({
+          error: 'Post not found',
+          slug,
+          availableSlugs: posts.map((p) => p.slug),
+        });
       }
 
       const markdown = buildMarkdownPost(post);
