@@ -13,6 +13,10 @@ Allow: /speaking/
 Allow: /gear/
 Allow: /tools/
 
+# Content Signals - AI content usage preferences
+# https://contentsignals.org/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
 # Sitemap location
 Sitemap: https://mhrsntrk.com/sitemap.xml
 

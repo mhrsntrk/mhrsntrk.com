@@ -3,6 +3,7 @@ import { parseISO, format } from 'date-fns';
 
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
+import CopyForLLMButton from '@/components/CopyForLLMButton';
 
 export default function BlogLayout({ post }) {
   return (
@@ -34,6 +35,7 @@ export default function BlogLayout({ post }) {
             </p>
           </div>
         </div>
+        <CopyForLLMButton content={post.rawContent} />
         <div className="w-full prose dark:prose-dark max-w-none">
           <PostBody content={post.content} />
         </div>

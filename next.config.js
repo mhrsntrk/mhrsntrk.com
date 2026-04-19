@@ -58,8 +58,20 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/',
         headers: [
+          {
+            key: 'Link',
+            value: '</.well-known/did.json>; rel="describedby"',
+          },
+          {
+            key: 'Link',
+            value: '</rss.xml>; rel="alternate"',
+          },
+          {
+            key: 'Link',
+            value: '</api/markdown>; rel="alternate"; type="text/markdown"',
+          },
           {
             key: 'X-Frame-Options',
             value: 'DENY',
