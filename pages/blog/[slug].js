@@ -82,16 +82,18 @@ export async function getStaticProps({ params }) {
     // All pages are generated at build time only
     // We detect build time by checking if we're in a build context
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-    const data = await getPostAndMorePosts(params.slug, isBuildTime);
-    
+const data = await getPostAndMorePosts(params.slug, isBuildTime);
+
     // At this point, if we get here, the post exists (function throws if not found)
-    const content = await markdownToHtml(data.posts[0].content || '');
-    
+    const rawContent = data.posts[0].content || '';
+    const content = await markdownToHtml(rawContent);
+
     return {
       props: {
         post: {
           ...data.posts[0],
-          content
+          content,
+          rawContent
         },
         morePosts: data?.morePosts || []
       },
