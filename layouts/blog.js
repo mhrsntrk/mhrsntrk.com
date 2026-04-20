@@ -4,10 +4,12 @@ import { parseISO, format } from 'date-fns';
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
+import StructuredData, { BlogPostingSchema } from '@/components/StructuredData';
 
 export default function BlogLayout({ post }) {
   return (
     <div>
+      <StructuredData data={BlogPostingSchema(post)} />
       <BlogSeo
         title={post.title}
         summary={post.excerpt}

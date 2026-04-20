@@ -43,52 +43,52 @@ export default function Crypto({ ethereum, energyWeb, avax, mina, polkadot, hbar
           </p>
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
-          <CryptoCard
-            name={polkadot.name}
-            symbol={polkadot.symbol}
-            price={Number(polkadot.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(polkadot.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(polkadot.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
-          <CryptoCard
-            name={ethereum.name}
-            symbol={ethereum.symbol}
-            price={Number(ethereum.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(ethereum.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(ethereum.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
-        </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
-          <CryptoCard
-            name={energyWeb.name}
-            symbol={energyWeb.symbol}
-            price={Number(energyWeb.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(energyWeb.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(energyWeb.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
-          <CryptoCard
-            name={mina.name}
-            symbol={mina.symbol}
-            price={Number(mina.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(mina.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(mina.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
-        </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
-          <CryptoCard
-            name={avax.name}
-            symbol={avax.symbol}
-            price={Number(avax.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(avax.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(avax.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
-          <CryptoCard
-            name={hbar.name}
-            symbol={hbar.symbol}
-            price={Number(hbar.quotes?.USD?.price || 0).toFixed(2)}
-            change={Number(hbar.quotes?.USD?.percent_change_24h || 0)}
-            ath={Number(hbar.quotes?.USD?.ath_price || 0).toFixed(2)}
-          />
+      <CryptoCard
+        name={polkadot.name}
+        symbol={polkadot.symbol}
+        price={Number(polkadot.quotes?.USD?.price || 0)}
+        change={Number(polkadot.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(polkadot.quotes?.USD?.ath_price || 0)}
+      />
+      <CryptoCard
+        name={ethereum.name}
+        symbol={ethereum.symbol}
+        price={Number(ethereum.quotes?.USD?.price || 0)}
+        change={Number(ethereum.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(ethereum.quotes?.USD?.ath_price || 0)}
+      />
+    </div>
+    <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+      <CryptoCard
+        name={energyWeb.name}
+        symbol={energyWeb.symbol}
+        price={Number(energyWeb.quotes?.USD?.price || 0)}
+        change={Number(energyWeb.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(energyWeb.quotes?.USD?.ath_price || 0)}
+      />
+      <CryptoCard
+        name={mina.name}
+        symbol={mina.symbol}
+        price={Number(mina.quotes?.USD?.price || 0)}
+        change={Number(mina.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(mina.quotes?.USD?.ath_price || 0)}
+      />
+    </div>
+    <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+      <CryptoCard
+        name={avax.name}
+        symbol={avax.symbol}
+        price={Number(avax.quotes?.USD?.price || 0)}
+        change={Number(avax.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(avax.quotes?.USD?.ath_price || 0)}
+      />
+      <CryptoCard
+        name={hbar.name}
+        symbol={hbar.symbol}
+        price={Number(hbar.quotes?.USD?.price || 0)}
+        change={Number(hbar.quotes?.USD?.percent_change_24h || 0).toFixed(2)}
+        ath={Number(hbar.quotes?.USD?.ath_price || 0)}
+      />
         </div>
       </div>
     </Container>

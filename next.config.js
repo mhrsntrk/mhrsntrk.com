@@ -73,6 +73,10 @@ module.exports = {
             value: '</api/markdown>; rel="alternate"; type="text/markdown"',
           },
           {
+            key: 'Link',
+            value: '</llms.txt>; rel="llms-txt"',
+          },
+          {
             key: 'X-Frame-Options',
             value: 'DENY',
           },

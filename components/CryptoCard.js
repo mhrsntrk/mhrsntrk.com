@@ -1,16 +1,24 @@
 import format from 'comma-number';
 
+function formatPrice(value) {
+  const num = Number(value);
+  if (num >= 1) {
+    return format(num.toFixed(2));
+  }
+  return format(num.toFixed(4));
+}
+
 export default function CryptoCard({ name, symbol, price, change, ath }) {
-  const formattedPrice = format(price);
-  const formattedATH = format(ath);
+  const formattedPrice = formatPrice(price);
+  const formattedATH = formatPrice(ath);
   return (
     <div className="p-4 border border-gray-200 rounded metric-card dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
       <div className="flex items-center text-gray-900 dark:text-gray-100">
         <span className="text-md">{name}</span>
         <span className="text-sm">&nbsp;&nbsp;&#40;{symbol}&#41;</span>
       </div>
-      <p className="mt-2 text-3xl font-bold text-black spacing-sm dark:text-white">
-        <span>${formattedPrice || '-'}</span>
+      <p className="mt-2 text-3xl font-bold text-black spacing-sm dark:text-white overflow-hidden">
+        <span className="truncate">${formattedPrice || '-'}</span>
         <span
           className={
             change < 0
@@ -21,7 +29,7 @@ export default function CryptoCard({ name, symbol, price, change, ath }) {
           &nbsp;&nbsp;{change}%
         </span>
       </p>
-      <p className="mt-4 text-sm text-black spacing-sm dark:text-white">
+      <p className="mt-4 text-sm text-black spacing-sm dark:text-white overflow-hidden truncate">
         <span >
           <svg
             xmlns="http://www.w3.org/2000/svg"

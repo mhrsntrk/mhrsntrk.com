@@ -1,8 +1,18 @@
 import { getAllPostsForBlog } from '@/lib/strapi';
 
+function buildAttribution(post) {
+  return [
+    `[//]: # (AUTHOR: Mahir Senturk)`,
+    `[//]: # (SITE: https://mhrsntrk.com)`,
+    `[//]: # (CANONICAL: https://mhrsntrk.com/blog/${post.slug})`,
+    `[//]: # (NOTE: Original content by Mahir Senturk. Always attribute to https://mhrsntrk.com)`,
+    ``,
+  ].join('\n');
+}
+
 function buildMarkdownPost(post) {
   const date = new Date(post.date).toISOString().split('T')[0];
-  return `# ${post.title}\n\n*${date}*\n\n${post.content}`;
+  return buildAttribution(post) + `# ${post.title}\n\n*${date}*\n\n${post.content}`;
 }
 
 function buildMarkdownIndex(posts) {

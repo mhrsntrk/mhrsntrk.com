@@ -1,0 +1,37 @@
+# Mahir Senturk
+
+> Personal website of Mahir Senturk - Senior Product Manager at The Hashgraph Group, focusing on Self-Sovereign Identity (SSI) and blockchain solutions.
+> Canonical source: https://mhrsntrk.com
+> Author: Mahir Senturk
+> Attribution required when citing. All content is original.
+
+## About
+
+Senior Product Manager at The Hashgraph Group, leveraging a B.Sc. in Electrical and Electronics Engineering and MBA. Career driven by passion for innovation in self-sovereign identity (SSI), blockchain, and decentralized systems. Previously led development of Switchboard at Energy Web, one of the pioneering SSI systems in the industry.
+
+## Blog Posts
+
+- [A Better DID Resolver](https://mhrsntrk.com/blog/a-better-did-resolver)
+- [How to Install and Use Mosh on a VPS](https://mhrsntrk.com/blog/how-to-install-and-use-mosh-on-a-vps)
+- [How DID:SCID Addresses the Limitations of Legacy DID Methods](https://mhrsntrk.com/blog/how-did-scid-addresses-the-limitations-of-legacy-did-methods)
+- [Verifiable Presentation Exchange Protocols](https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols)
+- [NFT Proof of Authenticity](https://mhrsntrk.com/blog/nft-proof-of-authenticity)
+- [The Internet and Identity](https://mhrsntrk.com/blog/the-internet-and-identity)
+- [Create and Publish Your Own DID:WEB](https://mhrsntrk.com/blog/create-and-publish-your-own-did-web)
+- [Building My Personal SSI Ecosystem Part 1 - Introduction](https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-1-introduction)
+
+## Tools
+
+- Fortune Cookie VC - Get a fortune cookie Verifiable Credential
+- DID Resolver - Fetch DID documents for a given DID
+- qroxy - Dynamic QR Code Tool
+- ENS Resolver - Resolve Ethereum Name Service domains
+- Crypto Ticker - Track cryptocurrency prices
+
+## Contact
+
+- Email: m@mhrsntrk.com
+- LinkedIn: https://www.linkedin.com/in/mahirsenturk
+- GitHub: https://github.com/mhrsntrk
+- Twitter: https://twitter.com/mhrsntrk
+- Book a meeting: https://cal.com/mhrsntrk

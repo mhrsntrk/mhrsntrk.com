@@ -100,4 +100,28 @@ export const BlogSchema = (posts) => ({
   }))
 });
 
+export const BlogPostingSchema = (post) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.title,
+  description: post.excerpt || '',
+  url: `https://mhrsntrk.com/blog/${post.slug}`,
+  datePublished: post.date,
+  dateModified: post.date,
+  author: {
+    '@type': 'Person',
+    name: 'Mahir Senturk',
+    url: 'https://mhrsntrk.com'
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Mahir Senturk',
+    url: 'https://mhrsntrk.com'
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `https://mhrsntrk.com/blog/${post.slug}`
+  }
+});
+
 export default StructuredData;

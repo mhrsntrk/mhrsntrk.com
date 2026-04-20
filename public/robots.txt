@@ -12,6 +12,7 @@ Allow: /swissknife/
 Allow: /speaking/
 Allow: /gear/
 Allow: /tools/
+Allow: /llms.txt
 
 # Content Signals - AI content usage preferences
 # https://contentsignals.org/
