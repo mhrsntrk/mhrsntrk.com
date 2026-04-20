@@ -62,7 +62,15 @@ module.exports = {
         headers: [
           {
             key: 'Link',
-            value: '</.well-known/did.json>; rel="describedby"',
+            value: '</.well-known/api-catalog>; rel="api-catalog"',
+          },
+          {
+            key: 'Link',
+            value: '</llms.txt>; rel="service-doc"',
+          },
+          {
+            key: 'Link',
+            value: '</api/markdown>; rel="service-desc"; type="text/markdown"',
           },
           {
             key: 'Link',
@@ -70,11 +78,7 @@ module.exports = {
           },
           {
             key: 'Link',
-            value: '</api/markdown>; rel="alternate"; type="text/markdown"',
-          },
-          {
-            key: 'Link',
-            value: '</llms.txt>; rel="llms-txt"',
+            value: '</.well-known/did.json>; rel="describedby"',
           },
           {
             key: 'X-Frame-Options',
