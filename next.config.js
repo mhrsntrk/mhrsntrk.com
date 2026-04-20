@@ -8,6 +8,14 @@ module.exports = {
       }
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/.well-known/api-catalog',
+        destination: '/api/.well-known/api-catalog',
+      },
+    ];
+  },
   images: {
     domains: ['api.qrserver.com', 'mhrsntrk.com', 'images.mhrsntrk.com'], // QR Code and own domain
     remotePatterns: [
