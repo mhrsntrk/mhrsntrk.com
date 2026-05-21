@@ -29,16 +29,13 @@ export default function Home({ allPosts, totalPosts }) {
         </h1>
         <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
           <p>
-            As a Senior Product Manager at The Hashgraph Group, I blend technical expertise with strategic vision, leveraging my B.Sc. in Electrical and Electronics Engineering and MBA. My career in technology is driven by a passion for innovation and impactful leadership, with a particular focus on self-sovereign identity (SSI) solutions.
+            <strong>product + engineering.</strong> I work on self-sovereign identity at The Hashgraph Group, building an SSI system on Hedera. Before that: Energy Web, where I led Switchboard — one of the early production SSI deployments.
           </p>
           <p>
-            Having worked extensively in the SSI field, I've developed deep knowledge and practical experience implementing decentralized identity systems. During my time at Energy Web, I led the development of Switchboard, one of the pioneering SSI systems in the industry, while also spearheading ecosystem products that integrated web3 technologies into the energy sector.
+            A decade of trying to make decentralized identity work in production has convinced me of one thing: verified identity should belong to the person it describes, not the institutions that check it.
           </p>
           <p>
-            Now at The Hashgraph Group, I'm at the forefront of building a comprehensive self-sovereign identity system on Hedera. This role allows me to apply my knowledge of distributed ledger technology and my entrepreneurial background to push the boundaries of enterprise blockchain and decentralized applications.
-          </p>
-          <p>
-            My work spans the intersection of blockchain, digital identity, and enterprise solutions, positioning me to contribute meaningfully to the advancement of decentralized technologies and their real-world implementations.
+            This is where I keep notes for my future self — on identity, web3, the tools I build, and what I'm learning along the way.
           </p>
         </div>
         <Link

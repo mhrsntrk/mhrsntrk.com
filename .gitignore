@@ -6,3 +6,5 @@ node_modules
 public/sitemap.xml
 .vercel
 .playwright-cli
+blog-backup/
+scripts/download-blog-posts.js
