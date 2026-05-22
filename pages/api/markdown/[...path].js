@@ -12,7 +12,14 @@ function buildAttribution(post) {
 
 function buildMarkdownPost(post) {
   const date = new Date(post.date).toISOString().split('T')[0];
-  return buildAttribution(post) + `# ${post.title}\n\n*${date}*\n\n${post.content}`;
+  const updated = post.updatedAt
+    ? new Date(post.updatedAt).toISOString().split('T')[0]
+    : null;
+  const dateLine =
+    updated && updated !== date
+      ? `*Published ${date} · Updated ${updated}*`
+      : `*${date}*`;
+  return buildAttribution(post) + `# ${post.title}\n\n${dateLine}\n\n${post.content}`;
 }
 
 function buildMarkdownIndex(posts) {

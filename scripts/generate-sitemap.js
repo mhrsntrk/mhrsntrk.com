@@ -66,7 +66,7 @@ const { getAllPostsForBlog } = require('../lib/strapi');
                 return `
                         <url>
                             <loc>${`https://mhrsntrk.com/blog/${post.slug}`}</loc>
-                            <lastmod>${post.date ? new Date(post.date).toISOString() : new Date().toISOString()}</lastmod>
+                            <lastmod>${post.updatedAt ? new Date(post.updatedAt).toISOString() : (post.date ? new Date(post.date).toISOString() : new Date().toISOString())}</lastmod>
                             <changefreq>monthly</changefreq>
                             <priority>0.8</priority>
                         </url>

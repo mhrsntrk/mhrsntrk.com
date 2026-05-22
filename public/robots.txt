@@ -13,6 +13,50 @@ Allow: /speaking/
 Allow: /gear/
 Allow: /tools/
 Allow: /llms.txt
+Allow: /llms-full.txt
+
+# Allow AI-readable markdown endpoint (clean content for LLM fetchers)
+Allow: /api/markdown/
+Allow: /api/llms-full
+
+# --- AI search & citation crawlers (live answers / RAG) — ALLOWED ---
+# These fetch pages to cite you in answers, not to train models.
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- AI training crawlers — DISALLOWED (matches Content-Signal ai-train=no) ---
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
 
 # Content Signals - AI content usage preferences
 # https://contentsignals.org/

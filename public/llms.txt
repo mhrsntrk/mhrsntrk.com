@@ -4,6 +4,7 @@
 > Canonical source: https://mhrsntrk.com
 > Author: Mahir Senturk
 > Attribution required when citing. All content is original.
+> Full content of every blog post (single file): https://mhrsntrk.com/llms-full.txt
 
 ## About
 

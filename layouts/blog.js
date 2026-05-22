@@ -7,6 +7,12 @@ import CopyForLLMButton from '@/components/CopyForLLMButton';
 import StructuredData, { BlogPostingSchema } from '@/components/StructuredData';
 
 export default function BlogLayout({ post }) {
+  const showUpdated =
+    post.updatedAt &&
+    post.date &&
+    format(parseISO(post.updatedAt), 'yyyy-MM-dd') !==
+      format(parseISO(post.date), 'yyyy-MM-dd');
+
   return (
     <div>
       <StructuredData data={BlogPostingSchema(post)} />
@@ -14,8 +20,9 @@ export default function BlogLayout({ post }) {
         title={post.title}
         summary={post.excerpt}
         publishedAt={post.date}
+        modifiedAt={post.updatedAt}
+        slug={post.slug}
         url={`https://mhrsntrk.com/blog/${post.slug}`}
-        avatar="https://mhrsntrk.com/mhrsntrk-PP.jpg"
       />
       <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
@@ -36,8 +43,29 @@ export default function BlogLayout({ post }) {
               {format(parseISO(post.date), 'MMMM dd, yyyy')}
             </p>
           </div>
+          {showUpdated && (
+            <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 md:mt-0">
+              Updated {format(parseISO(post.updatedAt), 'MMMM dd, yyyy')}
+            </p>
+          )}
         </div>
-        <CopyForLLMButton content={post.rawContent} />
+        <div className="mb-4">
+          <CopyForLLMButton content={post.rawContent} />
+        </div>
+        {post.excerpt && (
+          <details
+            open
+            aria-label="Summary"
+            className="w-full p-4 mb-4 border-l-4 border-black rounded-r bg-gray-100 dark:bg-gray-800 dark:border-white"
+          >
+            <summary className="text-xs font-bold tracking-widest text-gray-500 uppercase cursor-pointer select-none dark:text-gray-400">
+              TL;DR
+            </summary>
+            <p className="mt-2 text-sm text-gray-800 dark:text-gray-200">
+              {post.excerpt}
+            </p>
+          </details>
+        )}
         <div className="w-full prose dark:prose-dark max-w-none">
           <PostBody content={post.content} />
         </div>

@@ -100,28 +100,50 @@ export const BlogSchema = (posts) => ({
   }))
 });
 
-export const BlogPostingSchema = (post) => ({
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: post.title,
-  description: post.excerpt || '',
-  url: `https://mhrsntrk.com/blog/${post.slug}`,
-  datePublished: post.date,
-  dateModified: post.date,
-  author: {
-    '@type': 'Person',
-    name: 'Mahir Senturk',
-    url: 'https://mhrsntrk.com'
-  },
-  publisher: {
-    '@type': 'Person',
-    name: 'Mahir Senturk',
-    url: 'https://mhrsntrk.com'
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://mhrsntrk.com/blog/${post.slug}`
-  }
-});
+export const BlogPostingSchema = (post) => {
+  const url = `https://mhrsntrk.com/blog/${post.slug}`;
+  const wordCount = post.rawContent
+    ? post.rawContent.trim().split(/\s+/).filter(Boolean).length
+    : undefined;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt || '',
+    url,
+    datePublished: post.date,
+    dateModified: post.updatedAt || post.date,
+    inLanguage: 'en-US',
+    isAccessibleForFree: true,
+    image: 'https://mhrsntrk.com/static/images/banner.jpg',
+    ...(wordCount ? { wordCount } : {}),
+    author: {
+      '@type': 'Person',
+      name: 'Mahir Senturk',
+      url: 'https://mhrsntrk.com',
+      sameAs: [
+        'https://twitter.com/mhrsntrk',
+        'https://github.com/mhrsntrk',
+        'https://www.linkedin.com/in/mahirsenturk'
+      ]
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Mahir Senturk',
+      url: 'https://mhrsntrk.com'
+    },
+    // Clean machine-readable copy of this post for LLM fetchers
+    encoding: {
+      '@type': 'MediaObject',
+      encodingFormat: 'text/markdown',
+      contentUrl: `https://mhrsntrk.com/api/markdown/blog/${post.slug}`
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url
+    }
+  };
+};
 
 export default StructuredData;
