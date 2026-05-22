@@ -6,12 +6,22 @@ import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
 import StructuredData, { BlogPostingSchema } from '@/components/StructuredData';
 
+// Some posts are written in Turkish. The site <html lang> is "en", so flag
+// the article's language explicitly for screen readers and search engines.
+// Detected via Turkish-specific letters (ı, ğ, ş) which are absent in English.
+function detectLang(text = '') {
+  const turkishChars = (text.match(/[ığş]/gi) || []).length;
+  return turkishChars > 15 ? 'tr' : 'en';
+}
+
 export default function BlogLayout({ post }) {
   const showUpdated =
     post.updatedAt &&
     post.date &&
     format(parseISO(post.updatedAt), 'yyyy-MM-dd') !==
       format(parseISO(post.date), 'yyyy-MM-dd');
+
+  const lang = detectLang(`${post.title} ${post.rawContent || ''}`);
 
   return (
     <div>
@@ -24,7 +34,7 @@ export default function BlogLayout({ post }) {
         slug={post.slug}
         url={`https://mhrsntrk.com/blog/${post.slug}`}
       />
-      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <article lang={lang} className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           {post.title}
         </h1>

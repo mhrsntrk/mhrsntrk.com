@@ -22,7 +22,7 @@ export default function Home({ allPosts, totalPosts }) {
       <StructuredData data={PersonSchema} />
       <StructuredData data={WebsiteSchema} />
       <Container>
-      <main id="main-content" className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <PixelAnimation />
         <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
           hello, world.
@@ -184,7 +184,7 @@ export default function Home({ allPosts, totalPosts }) {
             />
           </div>
         </div>
-      </main>
+      </div>
       </Container>
     </>
   );

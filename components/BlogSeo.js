@@ -25,6 +25,15 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
         url,
         title,
         description: summary,
+        images: [
+          {
+            url: 'https://mhrsntrk.com/static/images/banner.jpg',
+            alt: title,
+            width: 1280,
+            height: 720,
+            type: 'image/jpeg'
+          }
+        ]
       }}
       additionalLinkTags={
         markdownUrl

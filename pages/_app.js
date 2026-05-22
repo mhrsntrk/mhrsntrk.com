@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { ThemeProvider } from 'next-themes';
 import { DefaultSeo } from 'next-seo';
 import Head from 'next/head';
+import Script from 'next/script';
 
 import SEO from '../next-seo.config';
 
@@ -44,6 +45,19 @@ function App({ Component, pageProps }) {
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
       <DefaultSeo {...SEO} />
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-GKC7Y2DZHQ"
+        strategy="afterInteractive"
+      />
+      <Script id="ga-init" strategy="afterInteractive">
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-GKC7Y2DZHQ', {
+  page_title: document.title,
+  page_location: window.location.href
+});`}
+      </Script>
       <Component {...pageProps} />
     </ThemeProvider>
   );

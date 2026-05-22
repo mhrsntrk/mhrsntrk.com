@@ -1,6 +1,6 @@
 const title = 'Mahir Senturk';
 const description =
-  'Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems. Former Energy Web developer with expertise in web3 and digital identity.';
+  'Senior Product Manager at The Hashgraph Group, building self-sovereign identity (SSI) and decentralized systems on blockchain. Notes on identity and web3.';
 
 const SEO = {
   title,

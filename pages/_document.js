@@ -42,30 +42,20 @@ class MyDocument extends Document {
             rel="mask-icon"
           />
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-          <meta content="#ffffff" name="theme-color" />
+          <meta
+            content="#ffffff"
+            name="theme-color"
+            media="(prefers-color-scheme: light)"
+          />
+          <meta
+            content="#000000"
+            name="theme-color"
+            media="(prefers-color-scheme: dark)"
+          />
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta
             content="/static/favicons/browserconfig.xml"
             name="msapplication-config"
-          />
-          {/* Google Analytics - Load asynchronously with better performance */}
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-GKC7Y2DZHQ"
-            strategy="afterInteractive"
-          ></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-GKC7Y2DZHQ', {
-                  page_title: document.title,
-                  page_location: window.location.href
-                });
-              `,
-            }}
           />
         </Head>
         <body className="text-white bg-white dark:bg-black dark:text-black tk-lores-9-plus-narrow">

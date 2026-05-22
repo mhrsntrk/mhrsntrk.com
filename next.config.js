@@ -18,6 +18,10 @@ module.exports = {
         source: '/llms-full.txt',
         destination: '/api/llms-full',
       },
+      {
+        source: '/rss.xml',
+        destination: '/api/rss.xml',
+      },
     ];
   },
   images: {
