@@ -38,6 +38,11 @@ function loadEnv() {
 
 loadEnv();
 
+// Node 18+ exposes a global fetch; fall back to node-fetch (a project
+// dependency) so this script also runs on Node 16/17.
+const fetchFn =
+  typeof fetch === 'function' ? fetch : require('node-fetch');
+
 const STRAPI_URL = process.env.STRAPI_API_URL;
 const TOKEN = process.env.STRAPI_API_TOKEN_FULL;
 
@@ -63,7 +68,7 @@ async function fetchAllPosts() {
   // pageSize 100 covers the whole blog comfortably; loop just in case.
   for (;;) {
     const url = `${STRAPI_URL}/api/posts?pagination[pageSize]=100&pagination[page]=${page}&fields[0]=Slug&fields[1]=Excerpt&fields[2]=Title&publicationState=preview`;
-    const res = await fetch(url, { headers: authHeaders() });
+    const res = await fetchFn(url, { headers: authHeaders() });
     if (!res.ok) {
       const body = await res.text();
       fail(`GET /api/posts failed (${res.status}): ${body.slice(0, 300)}`);
@@ -92,7 +97,7 @@ async function updatePost(post, newExcerpt) {
   // Strapi v5 keys updates by documentId; v4 by numeric id.
   const idForUrl = post.documentId || post.id;
   const url = `${STRAPI_URL}/api/posts/${idForUrl}`;
-  const res = await fetch(url, {
+  const res = await fetchFn(url, {
     method: 'PUT',
     headers: authHeaders({ 'Content-Type': 'application/json' }),
     body: JSON.stringify({ data: { Excerpt: newExcerpt } })

@@ -6,6 +6,13 @@ const prettier = require('prettier');
 // Import the Strapi functions
 const { getAllPostsForBlog } = require('../lib/strapi');
 
+// Returns a valid ISO string for a parseable date, or null.
+function safeISO(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString();
+}
+
 (async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
   const pages = await globby([
@@ -68,10 +75,12 @@ const { getAllPostsForBlog } = require('../lib/strapi');
               .join('')}
             ${blogPosts
               .map((post) => {
+                const lastmod =
+                  safeISO(post.updatedAt) || safeISO(post.date);
                 return `
                         <url>
                             <loc>${`https://mhrsntrk.com/blog/${post.slug}`}</loc>
-                            <lastmod>${post.updatedAt ? new Date(post.updatedAt).toISOString() : (post.date ? new Date(post.date).toISOString() : new Date().toISOString())}</lastmod>
+                            ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
                             <changefreq>monthly</changefreq>
                             <priority>0.8</priority>
                         </url>

@@ -32,8 +32,8 @@ function buildMarkdownPost(post) {
 function buildMarkdownIndex(posts) {
   const postsList = posts
     .map((post) => {
-      const date = new Date(post.date).toISOString().split('T')[0];
-      return `- [${post.title}](https://mhrsntrk.com/blog/${post.slug}) - ${date}`;
+      const date = isoDay(post.date);
+      return `- [${post.title}](https://mhrsntrk.com/blog/${post.slug})${date ? ` - ${date}` : ''}`;
     })
     .join('\n');
 
