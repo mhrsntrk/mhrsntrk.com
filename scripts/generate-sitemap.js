@@ -6,14 +6,23 @@ const prettier = require('prettier');
 // Import the Strapi functions
 const { getAllPostsForBlog } = require('../lib/strapi');
 
+// Returns a valid ISO string for a parseable date, or null.
+function safeISO(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString();
+}
+
 (async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
   const pages = await globby([
     'pages/*.js',
+    'pages/swissknife/*.js',
     'data/**/*.mdx',
     '!pages/_*.js',
     '!pages/api',
-    '!pages/404.js' // Exclude 404 page
+    '!pages/404.js', // Exclude 404 page
+    '!pages/**/[[]*[]].js' // Exclude dynamic routes like [slug].js
   ]);
 
   // Get blog posts
@@ -34,7 +43,8 @@ const { getAllPostsForBlog } = require('../lib/strapi');
                   .replace('data', '')
                   .replace('.js', '')
                   .replace('.mdx', '');
-                const route = path === '/index' ? '' : path;
+                const route =
+                  path === '/index' ? '' : path.replace(/\/index$/, '');
 
                 // Set priority and changefreq based on page type
                 let priority = '0.8';
@@ -51,10 +61,12 @@ const { getAllPostsForBlog } = require('../lib/strapi');
                   changefreq = 'monthly';
                 }
 
+                // No <lastmod> for static pages: it has no real change date,
+                // and emitting build time churns the value on every deploy,
+                // which trains crawlers to ignore lastmod site-wide.
                 return `
                         <url>
                             <loc>${`https://mhrsntrk.com${route}`}</loc>
-                            <lastmod>${new Date().toISOString()}</lastmod>
                             <changefreq>${changefreq}</changefreq>
                             <priority>${priority}</priority>
                         </url>
@@ -63,10 +75,12 @@ const { getAllPostsForBlog } = require('../lib/strapi');
               .join('')}
             ${blogPosts
               .map((post) => {
+                const lastmod =
+                  safeISO(post.updatedAt) || safeISO(post.date);
                 return `
                         <url>
                             <loc>${`https://mhrsntrk.com/blog/${post.slug}`}</loc>
-                            <lastmod>${post.date ? new Date(post.date).toISOString() : new Date().toISOString()}</lastmod>
+                            ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
                             <changefreq>monthly</changefreq>
                             <priority>0.8</priority>
                         </url>

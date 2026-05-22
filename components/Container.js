@@ -79,7 +79,7 @@ export default function Container({ children }) {
         </div>
         </div>
       </nav>
-      <main className="flex flex-col justify-center px-8 bg-white dark:bg-black">
+      <main id="main-content" className="flex flex-col justify-center px-8 bg-white dark:bg-black">
         {children}
         <Footer />
       </main>

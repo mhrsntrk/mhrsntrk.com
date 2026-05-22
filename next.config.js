@@ -14,6 +14,14 @@ module.exports = {
         source: '/.well-known/api-catalog',
         destination: '/api/.well-known/api-catalog',
       },
+      {
+        source: '/llms-full.txt',
+        destination: '/api/llms-full',
+      },
+      {
+        source: '/rss.xml',
+        destination: '/api/rss.xml',
+      },
     ];
   },
   images: {
@@ -75,6 +83,10 @@ module.exports = {
           {
             key: 'Link',
             value: '</llms.txt>; rel="service-doc"',
+          },
+          {
+            key: 'Link',
+            value: '</llms-full.txt>; rel="service-doc"; type="text/plain"',
           },
           {
             key: 'Link',

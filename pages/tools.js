@@ -9,12 +9,12 @@ export default function Uses({ allGears }) {
     <Container>
       <NextSeo
         title="Tools – mhrsntrk"
-        description={` `}
-        canonical="https://mhrsntrk.com/gear"
+        description="The productivity tools and applications Mahir Senturk uses every day."
+        canonical="https://mhrsntrk.com/tools"
         openGraph={{
-          url: 'https://mhrsntrk.com/gear',
+          url: 'https://mhrsntrk.com/tools',
           title: 'Tools – mhrsntrk',
-          description: `Welcome to my personal blog. You can find the productivity tools that I use everyday.`
+          description: 'The productivity tools and applications Mahir Senturk uses every day.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">

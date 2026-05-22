@@ -116,9 +116,9 @@ export default function Blog({ allPosts }) {
               />
             </svg>
           </div>
-          <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white" id="blog-list-top">
-            All Posts <p className="inline text-3xl font-normal">↴</p>
-          </h3>
+          <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white" id="blog-list-top">
+            All Posts <span className="inline text-3xl font-normal">↴</span>
+          </h2>
           {!filteredBlogPosts.length && 'No posts found.'}
           {currentPagePosts.map((post) => (
             <BlogPost
