@@ -10,16 +10,23 @@ function buildAttribution(post) {
   ].join('\n');
 }
 
+// Returns YYYY-MM-DD for a valid date, or null. Strapi allows date to be null.
+function isoDay(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().split('T')[0];
+}
+
 function buildMarkdownPost(post) {
-  const date = new Date(post.date).toISOString().split('T')[0];
-  const updated = post.updatedAt
-    ? new Date(post.updatedAt).toISOString().split('T')[0]
-    : null;
-  const dateLine =
-    updated && updated !== date
-      ? `*Published ${date} · Updated ${updated}*`
-      : `*${date}*`;
-  return buildAttribution(post) + `# ${post.title}\n\n${dateLine}\n\n${post.content}`;
+  const date = isoDay(post.date);
+  const updated = isoDay(post.updatedAt);
+  let dateLine = '';
+  if (date && updated && updated !== date) {
+    dateLine = `*Published ${date} · Updated ${updated}*\n\n`;
+  } else if (date) {
+    dateLine = `*${date}*\n\n`;
+  }
+  return buildAttribution(post) + `# ${post.title}\n\n${dateLine}${post.content}`;
 }
 
 function buildMarkdownIndex(posts) {

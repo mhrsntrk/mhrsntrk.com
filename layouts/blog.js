@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { parseISO, format } from 'date-fns';
+import { parseISO, format, isValid } from 'date-fns';
 
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
@@ -14,18 +14,26 @@ function detectLang(text = '') {
   return turkishChars > 15 ? 'tr' : 'en';
 }
 
+// Parses a date string to a Date, or null if missing/invalid.
+function safeDate(value) {
+  if (!value) return null;
+  const d = parseISO(value);
+  return isValid(d) ? d : null;
+}
+
 export default function BlogLayout({ post }) {
+  const publishedDate = safeDate(post.date);
+  const updatedDate = safeDate(post.updatedAt);
   const showUpdated =
-    post.updatedAt &&
-    post.date &&
-    format(parseISO(post.updatedAt), 'yyyy-MM-dd') !==
-      format(parseISO(post.date), 'yyyy-MM-dd');
+    publishedDate &&
+    updatedDate &&
+    format(updatedDate, 'yyyy-MM-dd') !== format(publishedDate, 'yyyy-MM-dd');
 
   const lang = detectLang(`${post.title} ${post.rawContent || ''}`);
 
   return (
     <div>
-      <StructuredData data={BlogPostingSchema(post)} />
+      <StructuredData data={BlogPostingSchema({ ...post, lang })} />
       <BlogSeo
         title={post.title}
         summary={post.excerpt}
@@ -49,13 +57,12 @@ export default function BlogLayout({ post }) {
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
               {post.author?.name || "mhrsntrk"}
-              {' / '}
-              {format(parseISO(post.date), 'MMMM dd, yyyy')}
+              {publishedDate && ` / ${format(publishedDate, 'MMMM dd, yyyy')}`}
             </p>
           </div>
           {showUpdated && (
             <p className="mt-2 text-sm text-gray-500 dark:text-gray-400 md:mt-0">
-              Updated {format(parseISO(post.updatedAt), 'MMMM dd, yyyy')}
+              Updated {format(updatedDate, 'MMMM dd, yyyy')}
             </p>
           )}
         </div>

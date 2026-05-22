@@ -114,7 +114,7 @@ export const BlogPostingSchema = (post) => {
     url,
     datePublished: post.date,
     dateModified: post.updatedAt || post.date,
-    inLanguage: 'en-US',
+    inLanguage: post.lang === 'tr' ? 'tr-TR' : 'en-US',
     isAccessibleForFree: true,
     image: 'https://mhrsntrk.com/static/images/banner.jpg',
     ...(wordCount ? { wordCount } : {}),

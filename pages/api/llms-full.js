@@ -26,18 +26,21 @@ function buildHeader(posts) {
   ].join('\n');
 }
 
+// Returns YYYY-MM-DD for a valid date, or null. Strapi allows date to be null.
+function isoDay(value) {
+  if (!value) return null;
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? null : d.toISOString().split('T')[0];
+}
+
 function buildPost(post) {
   const url = `https://mhrsntrk.com/blog/${post.slug}`;
-  const date = post.date
-    ? new Date(post.date).toISOString().split('T')[0]
-    : 'unknown';
-  const updated = post.updatedAt
-    ? new Date(post.updatedAt).toISOString().split('T')[0]
-    : null;
+  const date = isoDay(post.date);
+  const updated = isoDay(post.updatedAt);
   const dateLine =
-    updated && updated !== date
+    date && updated && updated !== date
       ? `Published ${date} · Updated ${updated}`
-      : `Published ${date}`;
+      : `Published ${date || 'unknown'}`;
 
   return [
     '---',
