@@ -8,3 +8,4 @@ public/sitemap.xml
 .playwright-cli
 blog-backup/
 scripts/download-blog-posts.js
+scripts/upload-photos.js
