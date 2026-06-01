@@ -7,7 +7,7 @@ class MyDocument extends Document {
         <Head>
           {/* Preconnect to external domains for faster loading */}
           <link rel="preconnect" href="https://use.typekit.net" />
-          <link rel="preconnect" href="https://www.googletagmanager.com" />
+          <link rel="preconnect" href="https://umami.dev.mhrsntrk.com" />
           <link rel="preconnect" href="https://res.cloudinary.com" />
           <link rel="preconnect" href="https://api.qrserver.com" />
           

@@ -46,18 +46,10 @@ function App({ Component, pageProps }) {
       </Head>
       <DefaultSeo {...SEO} />
       <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-GKC7Y2DZHQ"
+        src="https://umami.dev.mhrsntrk.com/script.js"
+        data-website-id="f8dad0d1-49a9-4fce-82d8-97ebf3c9b4ae"
         strategy="afterInteractive"
       />
-      <Script id="ga-init" strategy="afterInteractive">
-        {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-GKC7Y2DZHQ', {
-  page_title: document.title,
-  page_location: window.location.href
-});`}
-      </Script>
       <Component {...pageProps} />
     </ThemeProvider>
   );
