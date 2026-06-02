@@ -9,8 +9,8 @@ You can find all the instructions below to build your own. Cheers!
 ```bash
 $ git clone https://github.com/mhrsntrk/mhrsntrk.com.git
 $ cd mhrsntrk.com
-$ yarn
-$ yarn dev
+$ npm install
+$ npm run dev
 ```
 
 ## Running Locally (Backend)image.png
