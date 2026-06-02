@@ -9,7 +9,7 @@ const SEO = {
   additionalMetaTags: [
     {
       name: 'keywords',
-      content: 'Mahir Senturk, blockchain, self-sovereign identity, SSI, web3, product manager, Hedera, Hashgraph, Energy Web, decentralized identity, digital identity, blockchain developer, cryptocurrency, DeFi'
+      content: 'Mahir Senturk, digital identity, self-sovereign identity, SSI, eIDAS, EUDI wallet, verifiable credentials, decentralized identity, identity policy, product manager'
     },
     {
       name: 'author',

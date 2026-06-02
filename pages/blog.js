@@ -7,10 +7,10 @@ import BlogPost from '@/components/BlogPost';
 import StructuredData, { BlogSchema } from '@/components/StructuredData';
 import { getAllPostsForBlog } from '@/lib/strapi';
 
-const url = 'https://mhrsntrk/blog';
+const url = 'https://mhrsntrk.com/blog';
 const title = 'Blog – mhrsntrk';
 const description =
-  'Actually, I hate writing but I am aware that somebody will eventually benefit my writings. So, I am collecting my ideas, writings, code snippets and tutorials in this section of my website.';
+  'Essays and tutorials on digital identity, eIDAS, self-sovereign identity and the systems behind them — along with code snippets and notes from things I build.';
 
 export default function Blog({ allPosts }) {
   const router = useRouter();
@@ -85,9 +85,9 @@ export default function Blog({ allPosts }) {
             Blog
           </h1>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
-            Actually, I hate writing but I am aware that somebody will eventually
-            benefit my writings. So, I am collecting my ideas, writings, code
-            snippets and tutorials in this section of my website.
+            Essays and tutorials on digital identity, eIDAS, self-sovereign
+            identity and the systems behind them — along with code snippets and
+            notes from things I build.
           </p>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             {`I've written ${allPosts.length} posts in total.
