@@ -5,6 +5,12 @@
   "version": "1.0.0",
   "url": "https://mhrsntrk.com/api/markdown",
   "preferredTransport": "HTTP+JSON",
+  "supportedInterfaces": [
+    {
+      "url": "https://mhrsntrk.com/api/markdown",
+      "transport": "HTTP+JSON"
+    }
+  ],
   "provider": {
     "organization": "Mahir Senturk",
     "url": "https://mhrsntrk.com"
