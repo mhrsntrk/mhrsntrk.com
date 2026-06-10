@@ -70,12 +70,12 @@ export default function qroxy() {
     <Container>
       <NextSeo
         title="qroxy – mhrsntrk"
-        description={` `}
+        description={`qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL anytime without reprinting the code.`}
         canonical="https://mhrsntrk.com/swissknife/qroxy"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/qroxy',
           title: 'qroxy – mhrsntrk',
-          description: ``
+          description: `qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL anytime without reprinting the code.`
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">
@@ -97,6 +97,11 @@ export default function qroxy() {
             here
           </a>
           .
+        </p>
+        <p className="mb-4 text-gray-600 dark:text-gray-400">
+          Unlike a regular (static) QR code, a dynamic QR code points to a
+          short redirect URL—so you can change where it leads anytime, even
+          after the code is printed on packaging, posters or business cards.
         </p>
         <ul className="flex w-full border-b">
           <li className="w-1/2 mr-1">
