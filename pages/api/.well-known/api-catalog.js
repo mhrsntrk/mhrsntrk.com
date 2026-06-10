@@ -35,5 +35,6 @@ export default function handler(req, res) {
 
   res.setHeader('Content-Type', 'application/linkset+json; profile="https://www.rfc-editor.org/info/rfc9727"');
   res.setHeader('Cache-Control', 'public, max-age=3600, s-maxage=3600');
-  res.status(200).json(catalog);
+  // res.json() would reset Content-Type to application/json
+  res.status(200).send(JSON.stringify(catalog));
 }

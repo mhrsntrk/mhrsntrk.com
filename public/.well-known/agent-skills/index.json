@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "blog-markdown",
+      "type": "skill-md",
+      "description": "Fetch blog posts from mhrsntrk.com as clean, attribution-tagged markdown. Use when you need the content of a post on self-sovereign identity, eIDAS, decentralized identity, homelab, or engineering topics by Mahir Senturk.",
+      "url": "/.well-known/agent-skills/blog-markdown/SKILL.md",
+      "digest": "sha256:16e8283bc140d99f8dddf2f7b358bd2ae8632893dec30314e0c128663df2eecd"
+    },
+    {
+      "name": "site-overview",
+      "type": "skill-md",
+      "description": "Get a structured, LLM-friendly overview of mhrsntrk.com — who Mahir Senturk is, what the site contains, and which machine-readable endpoints exist. Use as the entry point before deeper crawling.",
+      "url": "/.well-known/agent-skills/site-overview/SKILL.md",
+      "digest": "sha256:b54c6d678e919a40992c373a543f0c3d12ea54aacb24de13c87645090f909d8f"
+    }
+  ]
+}

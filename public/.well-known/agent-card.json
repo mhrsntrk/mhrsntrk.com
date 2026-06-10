@@ -1,0 +1,46 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "mhrsntrk.com",
+  "description": "Personal website of Mahir Senturk. Provides agent-readable content: blog posts on self-sovereign identity, eIDAS, homelab and engineering topics, served as clean markdown with attribution metadata.",
+  "version": "1.0.0",
+  "url": "https://mhrsntrk.com/api/markdown",
+  "preferredTransport": "HTTP+JSON",
+  "provider": {
+    "organization": "Mahir Senturk",
+    "url": "https://mhrsntrk.com"
+  },
+  "documentationUrl": "https://mhrsntrk.com/llms.txt",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": ["text/plain"],
+  "defaultOutputModes": ["text/markdown"],
+  "skills": [
+    {
+      "id": "blog-markdown-index",
+      "name": "Blog post index as markdown",
+      "description": "GET https://mhrsntrk.com/api/markdown returns a markdown index of all blog posts with canonical URLs and publish dates.",
+      "tags": ["blog", "markdown", "content"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/markdown"]
+    },
+    {
+      "id": "blog-markdown-post",
+      "name": "Single blog post as markdown",
+      "description": "GET https://mhrsntrk.com/api/markdown/blog/{slug} returns one blog post as clean markdown with author attribution and canonical URL.",
+      "tags": ["blog", "markdown", "content"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/markdown"]
+    },
+    {
+      "id": "site-overview",
+      "name": "LLM-friendly site overview",
+      "description": "GET https://mhrsntrk.com/llms.txt for a short site overview, or https://mhrsntrk.com/llms-full.txt for the expanded version.",
+      "tags": ["overview", "llms-txt"],
+      "inputModes": ["text/plain"],
+      "outputModes": ["text/plain"]
+    }
+  ]
+}
