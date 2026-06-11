@@ -9,3 +9,4 @@ public/sitemap.xml
 blog-backup/
 scripts/download-blog-posts.js
 scripts/upload-photos.js
+scripts/publish-blog-post.js
