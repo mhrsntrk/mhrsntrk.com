@@ -1,11 +1,12 @@
 import Image from 'next/image';
 
-export default function SwissKnifeCard({ title, description, href, icon, width, height }) {
+export default function SwissKnifeCard({ title, description, href, icon, width, height, target }) {
   return (
     <a
       className="mb-4 hover:shadow"
       href={href}
       aria-label={title}
+      target={target}
       rel="noopener noreferrer"
     >
       <div className="flex items-center h-40 p-4 border border-gray-200 rounded dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
@@ -98,6 +99,22 @@ export default function SwissKnifeCard({ title, description, href, icon, width, 
                   width={width}
                   src="/static/icons/fortunecookie.png"
                   className="object-contain"
+                  priority={false}
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                />
+          </div>
+        )}
+        {icon == 'bino' && (
+          <div className="ml-2 mr-4 min-w-xxs max-w-xxs">
+            <span className="sr-only">{title}</span>
+            <Image
+                  alt={`${title} - Bino kids safe image search app icon`}
+                  height={height}
+                  width={width}
+                  src="/static/icons/bino.png"
+                  className="rounded-2xl"
                   priority={false}
                   loading="lazy"
                   placeholder="blur"

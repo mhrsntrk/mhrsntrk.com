@@ -110,6 +110,15 @@ export default function Home({ allPosts, totalPosts }) {
           <h3 className="hover:underline">Swiss Knife </h3>
         </Link>
         <SwissKnifeCard
+          title="Bino — Kids Safe Image Search"
+          description="A native iOS app for kids ages 4–9: a safe, Camera Roll-style image browser with SafeSearch permanently enforced. Tap to view on the App Store."
+          href="https://apps.apple.com/us/app/bino-kids-safe-image-search/id6764813350"
+          icon="bino"
+          target="_blank"
+          width="120"
+          height="120"
+        />
+        <SwissKnifeCard
           title="Fortune Cookie VC"
           description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
           href="swissknife/fortune-cookie"
