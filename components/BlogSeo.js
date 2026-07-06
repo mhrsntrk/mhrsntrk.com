@@ -17,6 +17,9 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
     ? `https://mhrsntrk.com/api/markdown/blog/${slug}`
     : null;
 
+  // Per-post OG image rendered on the fly (title + handle, brand template).
+  const ogImage = `https://mhrsntrk.com/api/og?title=${encodeURIComponent(title)}`;
+
   const article = {
     authors: ['https://mhrsntrk.com'],
     ...(date ? { publishedTime: date } : {}),
@@ -36,11 +39,11 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
         description: summary,
         images: [
           {
-            url: 'https://mhrsntrk.com/static/images/banner.jpg',
+            url: ogImage,
             alt: title,
-            width: 1280,
-            height: 720,
-            type: 'image/jpeg'
+            width: 1200,
+            height: 630,
+            type: 'image/png'
           }
         ]
       }}
