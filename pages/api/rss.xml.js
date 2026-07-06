@@ -41,6 +41,16 @@ function generateRSSFeed(posts) {
 export default async function handler(req, res) {
   try {
     const posts = await getAllPostsForBlog();
+
+    // Never serve a 0-item stub. If Strapi was cold and returned nothing, fail
+    // loud (no caching) so the consumer retries instead of ingesting an empty
+    // feed. The happy path is the static public/rss.xml baked at build time;
+    // this route is only the runtime fallback.
+    if (!posts.length) {
+      res.setHeader('Cache-Control', 'no-store');
+      return res.status(503).json({ error: 'Feed temporarily unavailable' });
+    }
+
     const rssFeed = generateRSSFeed(posts);
 
     res.setHeader('Content-Type', 'application/rss+xml; charset=utf-8');

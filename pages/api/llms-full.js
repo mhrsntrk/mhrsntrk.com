@@ -60,6 +60,12 @@ export default async function handler(req, res) {
   try {
     const posts = await getAllPostsForBlog();
 
+    // Cold-start guard: don't ship an empty export if Strapi failed to respond.
+    if (!posts.length) {
+      res.setHeader('Cache-Control', 'no-store');
+      return res.status(503).send('# Temporarily unavailable\n\nRetry shortly.');
+    }
+
     const body =
       buildHeader(posts) +
       '\n' +

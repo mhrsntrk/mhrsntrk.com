@@ -45,6 +45,14 @@ export default async function handler(req, res) {
     const { path } = req.query;
     const posts = await getAllPostsForBlog();
 
+    // Cold-start guard: an empty set means Strapi failed to respond, not that
+    // there are no posts. Fail loud (503, uncached) so a 404 with an empty
+    // availableSlugs list can't be mistaken for a real "post not found".
+    if (!posts.length) {
+      res.setHeader('Cache-Control', 'no-store');
+      return res.status(503).json({ error: 'Content temporarily unavailable' });
+    }
+
     if (!path || path.length === 0) {
       const markdown = buildMarkdownIndex(posts);
       const tokenCount = markdown.split(/\s+/).length;

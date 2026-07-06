@@ -22,6 +22,17 @@ module.exports = {
         source: '/rss.xml',
         destination: '/api/rss.xml',
       },
+      // Raw .md URLs. Static files (public/blog/<slug>.md, public/blog.md) are
+      // baked at build and served directly; these afterFiles rewrites are the
+      // runtime fallback (e.g. a post published between rebuilds).
+      {
+        source: '/blog/:slug.md',
+        destination: '/api/markdown/blog/:slug',
+      },
+      {
+        source: '/blog.md',
+        destination: '/api/markdown',
+      },
     ];
   },
   images: {
@@ -55,6 +66,7 @@ module.exports = {
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap');
+      require('./scripts/generate-blog-artifacts');
     }
 
     // Simple bundle optimization

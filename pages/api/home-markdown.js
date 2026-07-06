@@ -40,6 +40,13 @@ export default async function handler(req, res) {
 
   try {
     const posts = await getAllPostsForHome();
+
+    // Cold-start guard: empty means Strapi failed, not that there are no posts.
+    if (!posts.length) {
+      res.setHeader('Cache-Control', 'no-store');
+      return res.status(503).json({ error: 'Content temporarily unavailable' });
+    }
+
     const markdown = ATTRIBUTION + buildHomeMarkdown(posts);
     const tokenCount = markdown.split(/\s+/).length;
 
