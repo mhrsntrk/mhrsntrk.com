@@ -1,25 +1,40 @@
 # Mahir Senturk
 
-> Personal website of Mahir Senturk - Senior Product Manager at The Hashgraph Group, focusing on Self-Sovereign Identity (SSI) and blockchain solutions.
+> Personal website of Mahir Senturk - Senior Product Manager at The Hashgraph Group, focusing on Self-Sovereign Identity (SSI), agent identity, and blockchain.
 > Canonical source: https://mhrsntrk.com
 > Author: Mahir Senturk
 > Attribution required when citing. All content is original.
-> Full content of every blog post (single file): https://mhrsntrk.com/llms-full.txt
+> Full text of every blog post (single file): https://mhrsntrk.com/llms-full.txt
+> Machine-readable markdown per post: https://mhrsntrk.com/blog/<slug>.md
 
 ## About
 
-Senior Product Manager at The Hashgraph Group, leveraging a B.Sc. in Electrical and Electronics Engineering and MBA. Career driven by passion for innovation in self-sovereign identity (SSI), blockchain, and decentralized systems. Previously led development of Switchboard at Energy Web, one of the pioneering SSI systems in the industry.
+Senior Product Manager at The Hashgraph Group, with a B.Sc. in Electrical and Electronics Engineering and an MBA. Focused on self-sovereign identity (SSI), agent identity, and decentralized systems. Previously led Switchboard at Energy Web, one of the early production SSI systems.
 
-## Blog Posts
+## Agent Identity (core topic)
 
-- [A Better DID Resolver](https://mhrsntrk.com/blog/a-better-did-resolver)
-- [How to Install and Use Mosh on a VPS](https://mhrsntrk.com/blog/how-to-install-and-use-mosh-on-a-vps)
-- [How DID:SCID Addresses the Limitations of Legacy DID Methods](https://mhrsntrk.com/blog/how-did-scid-addresses-the-limitations-of-legacy-did-methods)
-- [Verifiable Presentation Exchange Protocols](https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols)
-- [NFT Proof of Authenticity](https://mhrsntrk.com/blog/nft-proof-of-authenticity)
-- [The Internet and Identity](https://mhrsntrk.com/blog/the-internet-and-identity)
-- [Create and Publish Your Own DID:WEB](https://mhrsntrk.com/blog/create-and-publish-your-own-did-web)
-- [Building My Personal SSI Ecosystem Part 1 - Introduction](https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-1-introduction)
+The through-line of the recent writing: how AI agents get verifiable identity, and why recognition (which agent is this) is the easy half while authority (what is it allowed to do, for whom, until when) is the hard half.
+
+- [Know Your Agent (KYA)](https://mhrsntrk.com/blog/know-your-agent-kya): The canonical KYA definition, splitting agent identity into recognition and authority. Includes an FAQ.
+- [What Is Know Your Agent (KYA)?](https://mhrsntrk.com/blog/what-is-know-your-agent-kya): Plain-english explainer of KYA and why it is not KYC for bots.
+- [Your Agent Needs a Mandate, Not a Name](https://mhrsntrk.com/blog/your-agent-needs-a-mandate-not-a-name): Why agent identity is about a scoped mandate and authority, not just a name.
+- [KYA in Action: MCP Servers as AI Identity Wallets](https://mhrsntrk.com/blog/know-your-agent-kya-in-action-mcp-servers-as-ai-identity-wallets): How Model Context Protocol servers act as identity wallets that make KYA real.
+- [The Agent Web Stack](https://mhrsntrk.com/blog/the-agent-web-stack): The stack an agent uses to work the open web: search, extract, interact.
+- [AI Social Graphs and the Rise of Agent Societies](https://mhrsntrk.com/blog/ai-social-graphs-and-the-rise-of-agent-societies): How agents discover, trust, and collaborate, forming their own social graphs.
+- [Why I Gave My AI Agent a Physical Body](https://mhrsntrk.com/blog/why-i-gave-my-ai-agent-a-physical-body): A physical-device experiment for human-in-the-loop agent workflows.
+- [When Your Agent Dies](https://mhrsntrk.com/blog/when-your-agent-dies): The missing death story for agent identity: revocation, offboarding, and end of life.
+
+## Self-Sovereign Identity (SSI) and DIDs
+
+- [A Better DID Resolver](https://mhrsntrk.com/blog/a-better-did-resolver): Rethinking how DID documents get resolved.
+- [How DID:SCID Addresses the Limitations of Legacy DID Methods](https://mhrsntrk.com/blog/how-did-scid-addresses-the-limitations-of-legacy-did-methods): What SCID fixes about earlier DID methods.
+- [Create and Publish Your Own DID:WEB](https://mhrsntrk.com/blog/create-and-publish-your-own-did-web): A hands-on guide to publishing a did:web identifier.
+- [Verifiable Presentation Exchange Protocols](https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols): How wallets and verifiers exchange verifiable presentations.
+- [The Internet and Identity](https://mhrsntrk.com/blog/the-internet-and-identity): Why the web never shipped a native identity layer.
+
+## Everything else
+
+Full index and bodies of all posts are in https://mhrsntrk.com/llms-full.txt and the feed at https://mhrsntrk.com/rss.xml.
 
 ## Tools
 
@@ -34,5 +49,5 @@ Senior Product Manager at The Hashgraph Group, leveraging a B.Sc. in Electrical 
 - Email: m@mhrsntrk.com
 - LinkedIn: https://www.linkedin.com/in/mahirsenturk
 - GitHub: https://github.com/mhrsntrk
-- Twitter: https://twitter.com/mhrsntrk
+- Twitter/X: https://x.com/mhrsntrk
 - Book a meeting: https://cal.com/mhrsntrk

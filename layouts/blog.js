@@ -5,7 +5,7 @@ import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
 import EmailCapture from '@/components/EmailCapture';
-import StructuredData, { BlogPostingSchema } from '@/components/StructuredData';
+import StructuredData, { BlogPostingSchema, FAQPageSchema } from '@/components/StructuredData';
 
 // Some posts are written in Turkish. The site <html lang> is "en", so flag
 // the article's language explicitly for screen readers and search engines.
@@ -31,10 +31,12 @@ export default function BlogLayout({ post }) {
     format(updatedDate, 'yyyy-MM-dd') !== format(publishedDate, 'yyyy-MM-dd');
 
   const lang = detectLang(`${post.title} ${post.rawContent || ''}`);
+  const faqSchema = FAQPageSchema(post);
 
   return (
     <div>
       <StructuredData data={BlogPostingSchema({ ...post, lang })} />
+      {faqSchema && <StructuredData data={faqSchema} />}
       <BlogSeo
         title={post.title}
         summary={post.excerpt}

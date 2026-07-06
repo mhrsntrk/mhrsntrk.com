@@ -146,4 +146,67 @@ export const BlogPostingSchema = (post) => {
   };
 };
 
+// FAQPage schema, built from a post's markdown when it contains an FAQ section.
+// Convention (matches how posts are authored): an "## FAQ" / "## Frequently
+// asked questions" heading, then each question as a bold-only line
+// (**Question?**) followed by its answer paragraph(s). Returns null when the
+// post has no FAQ section, so callers can conditionally render it.
+export const FAQPageSchema = (post) => {
+  const md = (post && post.rawContent) || '';
+  const lines = md.split('\n');
+
+  let start = -1;
+  let level = 0;
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].trim().match(/^(#{2,3})\s+(faq|frequently asked)/i);
+    if (m) {
+      start = i + 1;
+      level = m[1].length;
+      break;
+    }
+  }
+  if (start === -1) return null;
+
+  const clean = (s) =>
+    s
+      .replace(/\*\*/g, '')
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  const qa = [];
+  let q = null;
+  let ans = [];
+  const flush = () => {
+    if (q && ans.length) qa.push({ q, a: clean(ans.join(' ')) });
+  };
+  const headingBreak = new RegExp(`^#{1,${level}}\\s`);
+
+  for (let i = start; i < lines.length; i++) {
+    const s = lines[i].trim();
+    if (headingBreak.test(s)) break; // next same-or-higher heading ends the FAQ
+    const qm = s.match(/^\*\*([^*]+)\*\*$/);
+    if (qm) {
+      flush();
+      q = qm[1].trim().replace(/:$/, '');
+      ans = [];
+    } else if (s && q) {
+      ans.push(s);
+    }
+  }
+  flush();
+
+  if (!qa.length) return null;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: qa.map(({ q, a }) => ({
+      '@type': 'Question',
+      name: q,
+      acceptedAnswer: { '@type': 'Answer', text: a }
+    }))
+  };
+};
+
 export default StructuredData;
