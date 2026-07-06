@@ -9,10 +9,13 @@ public/blog.md
 public/blog/
 .vercel
 .playwright-cli
+.codex/
 blog-backup/
-scripts/download-blog-posts.js
-scripts/upload-photos.js
-scripts/publish-blog-post.js
+# Local/operational scripts are ignored; only build-time generators are tracked
+# (these two are required by next.config.js during `next build`).
+scripts/*
+!scripts/generate-sitemap.js
+!scripts/generate-blog-artifacts.js
 
 # Postiz — never commit any postiz-related files
 .postiz*
