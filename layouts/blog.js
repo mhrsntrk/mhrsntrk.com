@@ -4,6 +4,7 @@ import { parseISO, format, isValid } from 'date-fns';
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
+import EmailCapture from '@/components/EmailCapture';
 import StructuredData, { BlogPostingSchema } from '@/components/StructuredData';
 
 // Some posts are written in Turkish. The site <html lang> is "en", so flag
@@ -86,7 +87,9 @@ export default function BlogLayout({ post }) {
         <div className="w-full prose dark:prose-dark max-w-none">
           <PostBody content={post.content} />
         </div>
-        <div className="mt-8"></div>
+        <div className="w-full mt-8">
+          <EmailCapture location="post-end" />
+        </div>
       </article>
     </div>
   );
