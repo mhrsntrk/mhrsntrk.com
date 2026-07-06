@@ -2,6 +2,7 @@ import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 
 import { getAllPostsWithSlug, getPostAndMorePosts, wakeUpStrapi } from '@/lib/strapi';
+import { relatedInCluster } from '@/lib/clusters';
 import markdownToHtml from '@/lib/markdownToHtml';
 import BlogPost from '@/components/BlogPost';
 import Container from '@/components/Container';
@@ -12,6 +13,12 @@ export default function Blog({ post, morePosts }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
+  // Prefer topically related posts from the same cluster; fall back to the
+  // random "more posts" for standalone articles.
+  const cluster = post ? relatedInCluster(post.slug) : [];
+  const seeMore = cluster.length
+    ? cluster.map((p) => ({ title: p.title, excerpt: p.blurb, slug: p.slug }))
+    : morePosts;
   return (
     <div>
       {router.isFallback ? (
@@ -25,13 +32,13 @@ export default function Blog({ post, morePosts }) {
               <h2 className="mb-8 text-2xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
                 See More
               </h2>
-              {morePosts.length > 0 &&
-                morePosts.map((post) => (
+              {seeMore.length > 0 &&
+                seeMore.map((p) => (
                   <BlogPost
-                    key={post.slug}
-                    title={post.title}
-                    excerpt={post.excerpt}
-                    slug={post.slug}
+                    key={p.slug}
+                    title={p.title}
+                    excerpt={p.excerpt}
+                    slug={p.slug}
                   />
                 ))}
             </div>

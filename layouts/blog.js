@@ -1,5 +1,8 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { parseISO, format, isValid } from 'date-fns';
+
+import { clusterForSlug } from '@/lib/clusters';
 
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
@@ -32,6 +35,7 @@ export default function BlogLayout({ post }) {
 
   const lang = detectLang(`${post.title} ${post.rawContent || ''}`);
   const faqSchema = FAQPageSchema(post);
+  const cluster = clusterForSlug(post.slug);
 
   return (
     <div>
@@ -69,6 +73,18 @@ export default function BlogLayout({ post }) {
             </p>
           )}
         </div>
+        {cluster && (
+          <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+            Part of the{' '}
+            <Link
+              href={`/${cluster.slug}`}
+              className="font-medium text-black underline dark:text-white hover:text-red-500 dark:hover:text-red-500"
+            >
+              {cluster.title}
+            </Link>{' '}
+            series.
+          </p>
+        )}
         <div className="mb-4">
           <CopyForLLMButton content={post.rawContent} />
         </div>

@@ -8,6 +8,7 @@ Disallow: /admin/
 
 # Allow important pages
 Allow: /blog/
+Allow: /agent-identity
 Allow: /swissknife/
 Allow: /speaking/
 Allow: /gear/
@@ -18,6 +19,12 @@ Allow: /llms-full.txt
 # Allow AI-readable markdown endpoint (clean content for LLM fetchers)
 Allow: /api/markdown/
 Allow: /api/llms-full
+# Allow dynamic OpenGraph images (social/link-preview fetchers)
+Allow: /api/og
+
+# Bing / search engines (citation + classic search)
+User-agent: Bingbot
+Allow: /
 
 # --- AI search & citation crawlers (live answers / RAG) — ALLOWED ---
 # These fetch pages to cite you in answers, not to train models.
