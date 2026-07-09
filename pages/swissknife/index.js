@@ -46,7 +46,7 @@ export default function SwissKnife() {
           />
           <SwissKnifeCard
             title="Light Wallet — SSI Developer Wallet"
-            description="A free, open-source iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
+            description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
             href="https://apps.apple.com/app/id6755690506"
             icon="lightwallet"
             target="_blank"
