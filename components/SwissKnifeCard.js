@@ -17,6 +17,11 @@ const icons = {
     src: '/static/icons/bino.png',
     alt: 'Bino kids safe image search app icon',
     className: 'rounded-2xl'
+  },
+  lightwallet: {
+    src: '/static/icons/lightwallet.png',
+    alt: 'Light Wallet SSI developer wallet app icon',
+    className: 'rounded-2xl'
   }
 };
 

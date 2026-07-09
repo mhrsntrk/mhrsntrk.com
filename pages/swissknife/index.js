@@ -44,6 +44,15 @@ export default function SwissKnife() {
             width="120"
             height="120"
           />
+          <SwissKnifeCard
+            title="Light Wallet — SSI Developer Wallet"
+            description="A free, open-source iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
+            href="https://apps.apple.com/app/id6755690506"
+            icon="lightwallet"
+            target="_blank"
+            width="120"
+            height="120"
+          />
         </div>
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
