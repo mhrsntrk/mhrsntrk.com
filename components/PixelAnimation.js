@@ -2,7 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 
 const PixelAnimation = () => {
   const gridRef = useRef(null);
+  const containerRef = useRef(null);
   const dotsRef = useRef([]);
+  const ghostsRef = useRef([]);
   const animationRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(true);
@@ -89,6 +91,44 @@ const PixelAnimation = () => {
     }
     dotsRef.current = dots;
 
+    // Glitch chromatic-split ghosts: teal silhouette offset left, red offset right.
+    // Static overlays over the portrait band - only person pixels (skip field level 1).
+    ghostsRef.current.forEach((g) => g.remove());
+    // Only the silhouette OUTLINE (person pixel touching the background) - so the
+    // color sits on the offset edge, not washing the whole grayscale face.
+    const isEdge = (idx) => {
+      if (profileMap[idx] === 1) return false;
+      const r = Math.floor(idx / 32);
+      const c = idx % 32;
+      // Only left/right neighbors - side edges, no top/bottom
+      const nb = [[r, c - 1], [r, c + 1]];
+      for (const [nr, nc] of nb) {
+        if (nc < 0 || nc > 31) return true;
+        if (profileMap[nr * 32 + nc] === 1) return true;
+      }
+      return false;
+    };
+    const buildGhost = (color, className) => {
+      const layer = document.createElement('div');
+      layer.className = `glitch-ghost ${className}`;
+      for (let idx = 0; idx < profileMap.length; idx++) {
+        if (!isEdge(idx)) continue; // outline pixels only
+        const cell = document.createElement('div');
+        cell.style.gridRowStart = Math.floor(idx / 32) + 1;
+        cell.style.gridColumnStart = (idx % 32) + 1;
+        cell.style.background = color;
+        layer.appendChild(cell);
+      }
+      return layer;
+    };
+    const ghostTeal = buildGhost('#2dd4bf', 'glitch-teal');
+    const ghostRed = buildGhost('#f43f5e', 'glitch-red');
+    if (containerRef.current) {
+      containerRef.current.appendChild(ghostTeal);
+      containerRef.current.appendChild(ghostRed);
+    }
+    ghostsRef.current = [ghostTeal, ghostRed];
+
     // Set initial colors - original 96×32 grid
     const updateColors = () => {
       const currentColors = isDarkMode ? baseColors : baseColors.slice().reverse();
@@ -120,6 +160,8 @@ const PixelAnimation = () => {
       if (animationRef.current) {
         clearInterval(animationRef.current);
       }
+      ghostsRef.current.forEach((g) => g.remove());
+      ghostsRef.current = [];
     };
   }, [prefersReducedMotion, isDarkMode]);
 
@@ -206,9 +248,9 @@ const PixelAnimation = () => {
   }
 
   return (
-    <div className="pixel-animation-container">
-      <div 
-        ref={gridRef} 
+    <div className="pixel-animation-container" ref={containerRef}>
+      <div
+        ref={gridRef}
         className={`pixel-grid ${isVisible ? 'pixel-grid-visible' : ''}`}
         style={{ 
           willChange: 'transform, opacity',
