@@ -57,6 +57,17 @@ export default function VulgateIndex({ entries, themes }) {
     setIndex(next);
   }, [index, pool.length]);
 
+  const step = useCallback(
+    (delta) => {
+      if (pool.length === 0) return;
+      setIndex((i) => {
+        const cur = Math.min(i, pool.length - 1);
+        return (cur + delta + pool.length) % pool.length;
+      });
+    },
+    [pool.length]
+  );
+
   function pickTheme(theme) {
     setActiveTheme((t) => (t === theme ? null : theme));
     setIndex(0);
@@ -96,8 +107,26 @@ export default function VulgateIndex({ entries, themes }) {
           catalogued{seenCount > 0 ? ` · ${seenCount} seen` : ''}
         </p>
 
-        {/* Controls: three verbs. Shuffle primary. */}
+        {/* Controls: step through sequentially, shuffle at random, share. */}
         <div className="flex flex-wrap items-center w-full gap-3 mb-8">
+          <button
+            type="button"
+            onClick={() => step(-1)}
+            disabled={pool.length <= 1}
+            aria-label="Previous entry"
+            className={`${plexMono.className} px-4 py-3 text-sm tracking-widest text-gray-900 uppercase border border-gray-400 dark:border-gray-700 dark:text-gray-100 disabled:opacity-40`}
+          >
+            ‹ Prev
+          </button>
+          <button
+            type="button"
+            onClick={() => step(1)}
+            disabled={pool.length <= 1}
+            aria-label="Next entry"
+            className={`${plexMono.className} px-4 py-3 text-sm tracking-widest text-gray-900 uppercase border border-gray-400 dark:border-gray-700 dark:text-gray-100 disabled:opacity-40`}
+          >
+            Next ›
+          </button>
           <button
             type="button"
             onClick={shuffle}
