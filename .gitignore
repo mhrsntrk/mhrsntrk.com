@@ -16,6 +16,8 @@ blog-backup/
 scripts/*
 !scripts/generate-sitemap.js
 !scripts/generate-blog-artifacts.js
+!scripts/vulgate-validate.mjs
+!scripts/vulgate-new-entry.mjs
 
 # Postiz — never commit any postiz-related files
 .postiz*

@@ -485,3 +485,19 @@ input[type='email'] {
   background: linear-gradient(90deg, #374151 25%, #4b5563 50%, #374151 75%);
   background-size: 200px 100%;
 }
+
+/* ── The Vulgate ─────────────────────────────────────────────────────────── */
+/* Card-island theme tokens. The card is a catalogued object sitting inside the
+   site voice; the seam is the design. */
+:root {
+  --vg-paper: #fafafa;
+  --vg-ink: #111111;
+  --vg-line: #d4d4d4;
+  --vg-accent: #ef4444;
+}
+.dark {
+  --vg-paper: #161616;
+  --vg-ink: #ededed;
+  --vg-line: #333333;
+  --vg-accent: #ef4444;
+}

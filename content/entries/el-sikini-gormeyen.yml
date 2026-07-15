@@ -1,0 +1,22 @@
+slug: el-sikini-gormeyen
+tr: El sikini görmeyen kendi sikini piyade tüfeği zannedermiş.
+variants:
+  - El sikini görmeyen kendi sikini havan topu sanırmış.
+  - Elin sikini bilmeyen kendi sikini piyade tüfeği zanneder.
+  - El yarrağını görmeyen kendi yarrağını piyade tüfeği sanarmış.
+literal_en: He who the other's dick has not seen, his own dick an infantry rifle supposes.
+meaning_en: >-
+  Absent a reference class, self-assessment inflates. The speaker's estimate of
+  his own endowment is unconstrained by comparison and therefore unbounded.
+meaning_tr: Kıyas imkânı olmayan kişi, kendi durumunu abartır.
+register: obscene
+usage: Deployed against someone whose confidence is a function of their isolation.
+equivalents:
+  - A big fish in a small pond.
+  - In regione caecorum rex est luscus.
+cross_refs:
+  - Dunning & Kruger, 1999.
+  - La Rochefoucauld, Maximes, §3.
+origin: unattested
+themes: [ego, self-perception]
+related: [sikinde-iki-damla-sut, dert-sik-gibidir]

@@ -13,9 +13,18 @@ const icons = {
     src: '/static/icons/fortunecookie.png',
     alt: 'Fortune cookie VC tool icon'
   },
+  vulgate: {
+    src: '/static/icons/vulgate.png',
+    alt: 'The Vulgate corpus icon, a section sign on a catalogue card'
+  },
   bino: {
     src: '/static/icons/bino.png',
     alt: 'Bino kids safe image search app icon',
+    className: 'rounded-2xl'
+  },
+  'bino-reader': {
+    src: '/static/icons/bino-reader.png',
+    alt: 'Bino Kids Read Along app icon',
     className: 'rounded-2xl'
   },
   lightwallet: {

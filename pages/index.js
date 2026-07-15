@@ -119,6 +119,15 @@ export default function Home({ allPosts, totalPosts }) {
           height="120"
         />
         <SwissKnifeCard
+          title="Bino — Kids Read Along"
+          description="An iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
+          href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
+          icon="bino-reader"
+          target="_blank"
+          width="120"
+          height="120"
+        />
+        <SwissKnifeCard
           title="Light Wallet — SSI Developer Wallet"
           description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
           href="https://apps.apple.com/app/id6755690506"

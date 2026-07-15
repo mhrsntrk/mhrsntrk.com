@@ -13,9 +13,11 @@
     "url": "git+https://github.com/mhrsntrk/mhrsntrk.com.git"
   },
   "scripts": {
-    "build": "next build",
+    "build": "npm run validate:vulgate && next build",
     "dev": "next",
-    "start": "next start"
+    "start": "next start",
+    "validate:vulgate": "node scripts/vulgate-validate.mjs",
+    "vulgate:new": "node scripts/vulgate-new-entry.mjs"
   },
   "dependencies": {
     "@cef-ebsi/key-did-resolver": "^2.1.1",
@@ -25,6 +27,7 @@
     "did-resolver": "^3.2.2",
     "ethers": "^5.6.9",
     "ethr-did-resolver": "4.3.4",
+    "js-yaml": "^5.2.1",
     "mermaid": "^11.16.0",
     "next": "^13.5.7",
     "next-seo": "^6.1.0",
@@ -40,7 +43,8 @@
     "remark-html": "^15.0.2",
     "remark-rehype": "^11.0.0",
     "remark-slug": "6.0.0",
-    "web-did-resolver": "^2.0.19"
+    "web-did-resolver": "^2.0.19",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.3.1",

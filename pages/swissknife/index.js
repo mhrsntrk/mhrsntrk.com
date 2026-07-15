@@ -4,6 +4,14 @@ import { NextSeo } from 'next-seo';
 import Container from '@/components/Container';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
 
+function SwissKnifeCategory({ title }) {
+  return (
+    <h2 className="w-full pb-2 mt-10 mb-2 text-xs font-bold tracking-widest text-gray-400 uppercase border-b border-gray-200 dark:border-gray-800 dark:text-gray-500">
+      {title}
+    </h2>
+  );
+}
+
 export default function SwissKnife() {
   return (
     <Container>
@@ -34,12 +42,22 @@ export default function SwissKnife() {
             .
           </p>
         </div>
+        <SwissKnifeCategory title="iOS Apps" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="Bino — Kids Safe Image Search"
             description="A native iOS app for kids ages 4–9: a safe, Camera Roll-style image browser with SafeSearch permanently enforced. Tap to view on the App Store."
             href="https://apps.apple.com/us/app/bino-kids-safe-image-search/id6764813350"
             icon="bino"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="Bino — Kids Read Along"
+            description="An iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
+            href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
+            icon="bino-reader"
             target="_blank"
             width="120"
             height="120"
@@ -54,15 +72,21 @@ export default function SwissKnife() {
             height="120"
           />
         </div>
+
+        <SwissKnifeCategory title="Corpus" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
-            title="Fortune Cookie VC"
-            description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
-            href="swissknife/fortune-cookie"
-            icon="fortune-cookie"
+            title="The Vulgate"
+            description="A corpus of vulgar Turkish folk proverbs, catalogued and annotated. Bilingual, unexpurgated, philologically serious. Reader discretion advised."
+            href="swissknife/vulgate"
+            icon="vulgate"
             width="120"
-            height="106"
+            height="120"
           />
+        </div>
+
+        <SwissKnifeCategory title="Web Tools" />
+        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="qroxy"
             description="Create dynamic QR codes using the connected REST API and mongoDB"
@@ -79,8 +103,6 @@ export default function SwissKnife() {
             width="120"
             height="120"
           />
-        </div>
-        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
           <SwissKnifeCard
             title="Crypto Ticker"
             description="You can find the cryptocurrencies that
@@ -91,7 +113,17 @@ export default function SwissKnife() {
             height="120"
           />
         </div>
+
+        <SwissKnifeCategory title="Identity & Web3" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
+          <SwissKnifeCard
+            title="Fortune Cookie VC"
+            description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
+            href="swissknife/fortune-cookie"
+            icon="fortune-cookie"
+            width="120"
+            height="106"
+          />
           <SwissKnifeCard
             title="DID Resolver"
             description="You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID."
