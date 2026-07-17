@@ -43,30 +43,30 @@ The site runs at [http://localhost:3000](http://localhost:3000). It expects a re
 
 Copy `.env.example` to `.env.local` and fill in real values. Never commit `.env.local`.
 
-| Variable | Purpose |
-| --- | --- |
-| `STRAPI_API_URL` | Base URL of the Strapi instance (no trailing slash) |
-| `STRAPI_API_TOKEN` / `STRAPI_API_TOKEN_FULL` | Strapi read tokens (server-side only) |
-| `LISTMONK_URL` | Base URL of the Listmonk instance |
-| `LISTMONK_API_USER` / `LISTMONK_API_TOKEN` | Listmonk API credentials (server-side only) |
-| `LISTMONK_LIST_ID` | Numeric ID of the double opt-in newsletter list |
-| `NEXT_PUBLIC_UMAMI_URL` / `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Analytics endpoint and site ID |
-| `NEXT_PUBLIC_ETHERSCAN_API_KEY` | ENS / on-chain lookups |
-| `NEXT_PUBLIC_INFURA_API_KEY` | Ethereum RPC provider |
-| `NEXT_PUBLIC_QROXY_API` | Backend for the qroxy QR tool |
+| Variable                                                 | Purpose                                             |
+| -------------------------------------------------------- | --------------------------------------------------- |
+| `STRAPI_API_URL`                                         | Base URL of the Strapi instance (no trailing slash) |
+| `STRAPI_API_TOKEN` / `STRAPI_API_TOKEN_FULL`             | Strapi read tokens (server-side only)               |
+| `LISTMONK_URL`                                           | Base URL of the Listmonk instance                   |
+| `LISTMONK_API_USER` / `LISTMONK_API_TOKEN`               | Listmonk API credentials (server-side only)         |
+| `LISTMONK_LIST_ID`                                       | Numeric ID of the double opt-in newsletter list     |
+| `NEXT_PUBLIC_UMAMI_URL` / `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Analytics endpoint and site ID                      |
+| `NEXT_PUBLIC_ETHERSCAN_API_KEY`                          | ENS / on-chain lookups                              |
+| `NEXT_PUBLIC_INFURA_API_KEY`                             | Ethereum RPC provider                               |
+| `NEXT_PUBLIC_QROXY_API`                                  | Backend for the qroxy QR tool                       |
 
 ## Scripts
 
-| Command | What it does |
-| --- | --- |
-| `npm run dev` | Start the dev server |
-| `npm run build` | Validate the Vulgate corpus, then build for production |
-| `npm run start` | Serve the production build |
-| `npm run lint` | Run ESLint (`next/core-web-vitals`) |
-| `npm run format` | Format source with Prettier |
-| `npm run format:check` | Check formatting without writing |
-| `npm run validate:vulgate` | Validate the Vulgate corpus data (runs on build) |
-| `npm run vulgate:new` | Scaffold a new Vulgate entry |
+| Command                    | What it does                                           |
+| -------------------------- | ------------------------------------------------------ |
+| `npm run dev`              | Start the dev server                                   |
+| `npm run build`            | Validate the Vulgate corpus, then build for production |
+| `npm run start`            | Serve the production build                             |
+| `npm run lint`             | Run ESLint (`next/core-web-vitals`)                    |
+| `npm run format`           | Format source with Prettier                            |
+| `npm run format:check`     | Check formatting without writing                       |
+| `npm run validate:vulgate` | Validate the Vulgate corpus data (runs on build)       |
+| `npm run vulgate:new`      | Scaffold a new Vulgate entry                           |
 
 ## Project structure
 

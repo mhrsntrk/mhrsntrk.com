@@ -32,7 +32,7 @@ export default function EmailCapture({ location = 'unknown' }) {
       const res = await fetch('/api/subscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, consent, company: honeypot, location }),
+        body: JSON.stringify({ email, consent, company: honeypot, location })
       });
       const data = await res.json().catch(() => ({}));
 
@@ -103,7 +103,13 @@ export default function EmailCapture({ location = 'unknown' }) {
         {/* Honeypot: hidden from real users; bots that autofill it are dropped. */}
         <div
           aria-hidden="true"
-          style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}
+          style={{
+            position: 'absolute',
+            left: '-9999px',
+            width: 1,
+            height: 1,
+            overflow: 'hidden'
+          }}
         >
           <label htmlFor={`company-${location}`}>Company</label>
           <input
@@ -126,10 +132,7 @@ export default function EmailCapture({ location = 'unknown' }) {
           />
           <span>
             I agree to receive emails and accept the{' '}
-            <Link
-              href="/privacy"
-              className="underline hover:text-red-500"
-            >
+            <Link href="/privacy" className="underline hover:text-red-500">
               privacy policy
             </Link>
             .

@@ -14,7 +14,7 @@ export default function Privacy() {
           url: 'https://mhrsntrk.com/privacy',
           title: 'Privacy – mhrsntrk',
           description:
-            'How mhrsntrk.com handles your data: newsletter subscriptions, analytics, and your rights.',
+            'How mhrsntrk.com handles your data: newsletter subscriptions, analytics, and your rights.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
@@ -33,10 +33,10 @@ export default function Privacy() {
               Listmonk
             </a>{' '}
             instance solely to send you the newsletter. Subscriptions use{' '}
-            <strong>double opt-in</strong>: you will receive a confirmation email
-            and are only added once you click the link. Every email includes a
-            one-click unsubscribe, and you can ask me to delete your address at
-            any time.
+            <strong>double opt-in</strong>: you will receive a confirmation
+            email and are only added once you click the link. Every email
+            includes a one-click unsubscribe, and you can ask me to delete your
+            address at any time.
           </p>
 
           <h2>Analytics</h2>
@@ -46,8 +46,8 @@ export default function Privacy() {
               Umami
             </a>{' '}
             for aggregate, privacy-friendly analytics. It does not use cookies
-            and does not collect personally identifiable information. Data is not
-            shared with or sold to third parties.
+            and does not collect personally identifiable information. Data is
+            not shared with or sold to third parties.
           </p>
 
           <h2>Your rights</h2>

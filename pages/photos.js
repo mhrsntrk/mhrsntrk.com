@@ -20,34 +20,45 @@ export default function Photos({ photos }) {
   // Helper function to get optimal image URL based on screen size
   const getOptimalImageUrl = useCallback((photo, isHighRes = false) => {
     if (!photo?.image?.formats) return photo.image.url;
-    
+
     // For high resolution (lightbox), use original full resolution
     if (isHighRes) {
       return photo.image.url; // Use original full resolution (3120x2080px)
     }
-    
+
     // For gallery view, prioritize small format for faster loading with Cloudflare CDN
-    return photo.image.formats.small?.url || 
-           photo.image.formats.medium?.url || 
-           photo.image.url;
+    return (
+      photo.image.formats.small?.url ||
+      photo.image.formats.medium?.url ||
+      photo.image.url
+    );
   }, []);
 
   // URL parameter handling (use slug; keep index as legacy fallback)
-  const updateUrl = useCallback((slugOrIndex, isOpen) => {
-    if (isOpen && slugOrIndex !== undefined && slugOrIndex !== null) {
-      const queryParam = typeof slugOrIndex === 'string' ? `photo=${encodeURIComponent(slugOrIndex)}` : `image=${slugOrIndex}`;
-      router.push(`/photos?${queryParam}`, undefined, { shallow: true });
-    } else {
-      router.push('/photos', undefined, { shallow: true });
-    }
-  }, [router]);
+  const updateUrl = useCallback(
+    (slugOrIndex, isOpen) => {
+      if (isOpen && slugOrIndex !== undefined && slugOrIndex !== null) {
+        const queryParam =
+          typeof slugOrIndex === 'string'
+            ? `photo=${encodeURIComponent(slugOrIndex)}`
+            : `image=${slugOrIndex}`;
+        router.push(`/photos?${queryParam}`, undefined, { shallow: true });
+      } else {
+        router.push('/photos', undefined, { shallow: true });
+      }
+    },
+    [router]
+  );
 
-  const openAt = useCallback((index) => {
-    setCurrentIndex(index);
-    setIsOpen(true);
-    const slug = photos?.[index]?.slug;
-    updateUrl(slug ?? index, true);
-  }, [updateUrl, photos]);
+  const openAt = useCallback(
+    (index) => {
+      setCurrentIndex(index);
+      setIsOpen(true);
+      const slug = photos?.[index]?.slug;
+      updateUrl(slug ?? index, true);
+    },
+    [updateUrl, photos]
+  );
 
   const close = useCallback(() => {
     setIsOpen(false);
@@ -75,13 +86,13 @@ export default function Photos({ photos }) {
         if (!loadedImages.has(index)) {
           const img = typeof window !== 'undefined' ? new window.Image() : null;
           if (!img) return;
-          
+
           // Use small format for gallery (fast loading)
           const galleryUrl = getOptimalImageUrl(photo, false);
-          
+
           img.src = galleryUrl;
           img.onload = () => {
-            setLoadedImages(prev => new Set([...prev, index]));
+            setLoadedImages((prev) => new Set([...prev, index]));
           };
         }
       });
@@ -100,7 +111,7 @@ export default function Photos({ photos }) {
       const { photo: photoSlug, image: imageIndex } = router.query || {};
       // Prefer slug
       if (typeof photoSlug === 'string') {
-        const idx = photos.findIndex(p => p?.slug === photoSlug);
+        const idx = photos.findIndex((p) => p?.slug === photoSlug);
         if (idx >= 0) {
           setCurrentIndex(idx);
           setIsOpen(true);
@@ -127,7 +138,7 @@ export default function Photos({ photos }) {
 
     // Handle route changes (browser back/forward)
     router.events.on('routeChangeComplete', handleRouteChange);
-    
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
@@ -219,7 +230,11 @@ export default function Photos({ photos }) {
       {gallerySchema && <StructuredData data={gallerySchema} />}
       {preconnectOrigin && (
         <Head>
-          <link rel="preconnect" href={preconnectOrigin} crossOrigin="anonymous" />
+          <link
+            rel="preconnect"
+            href={preconnectOrigin}
+            crossOrigin="anonymous"
+          />
           <link rel="dns-prefetch" href={preconnectOrigin} />
         </Head>
       )}
@@ -228,7 +243,8 @@ export default function Photos({ photos }) {
         <div className="w-full px-2 md:px-4 lg:px-6">
           <h1 className="sr-only">Photos</h1>
           <div className="w-full mx-auto max-w-none">
-            <div className="masonry">{/* masonry container */}
+            <div className="masonry">
+              {/* masonry container */}
               {photos.map((photo, index) => (
                 <button
                   key={`${photo.image.url}-${index}`}
@@ -254,14 +270,16 @@ export default function Photos({ photos }) {
                       placeholder="blur"
                       blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                       onLoad={() => {
-                        setLoadedImages(prev => new Set([...prev, index]));
+                        setLoadedImages((prev) => new Set([...prev, index]));
                       }}
                     />
                     {!loadedImages.has(index) && (
                       <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 animate-pulse">
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer"></div>
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-sm text-gray-400 dark:text-gray-500">Loading...</div>
+                          <div className="text-sm text-gray-400 dark:text-gray-500">
+                            Loading...
+                          </div>
                         </div>
                       </div>
                     )}
@@ -281,12 +299,21 @@ export default function Photos({ photos }) {
         >
           {/* Keep gallery visible in the background via backdrop; allow outside clicks to pass through */}
           <div className="relative z-50 flex flex-col items-center justify-center w-full h-full mx-auto pointer-events-none max-w-none">
-            <div className={`relative pointer-events-auto lightbox-container ${((photos[currentIndex]?.image?.height || 0) > (photos[currentIndex]?.image?.width || 0)) ? 'portrait' : 'landscape'}`}>
+            <div
+              className={`relative pointer-events-auto lightbox-container ${
+                (photos[currentIndex]?.image?.height || 0) >
+                (photos[currentIndex]?.image?.width || 0)
+                  ? 'portrait'
+                  : 'landscape'
+              }`}
+            >
               {!lightboxImageLoaded && (
                 <div className="absolute inset-0 z-10 flex items-center justify-center">
                   <div className="text-center">
                     <div className="w-8 h-8 mx-auto mb-4 border-b-2 border-gray-200 rounded-full animate-spin dark:border-gray-700"></div>
-                    <div className="text-lg text-gray-700 dark:text-gray-300">Loading image...</div>
+                    <div className="text-lg text-gray-700 dark:text-gray-300">
+                      Loading image...
+                    </div>
                   </div>
                 </div>
               )}
@@ -308,19 +335,26 @@ export default function Photos({ photos }) {
               />
             </div>
 
-            <PhotoMetadata 
-              metadata={photos[currentIndex].metadata} 
-              photoTitle={photos[currentIndex].title} 
+            <PhotoMetadata
+              metadata={photos[currentIndex].metadata}
+              photoTitle={photos[currentIndex].title}
               isFixed
             />
 
             {/* Controls: fixed at bottom on all screens */}
-            <div className="fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center text-black pointer-events-auto dark:text-white lightbox-controls" onClick={(e) => e.stopPropagation()} onTouchStart={(e) => e.stopPropagation()}>
+            <div
+              className="fixed bottom-0 left-0 right-0 z-50 flex flex-col items-center justify-center text-black pointer-events-auto dark:text-white lightbox-controls"
+              onClick={(e) => e.stopPropagation()}
+              onTouchStart={(e) => e.stopPropagation()}
+            >
               {photos[currentIndex].title && (
-                <div className="max-w-3xl mb-4 text-sm text-center opacity-90">{photos[currentIndex].title}</div>
+                <div className="max-w-3xl mb-4 text-sm text-center opacity-90">
+                  {photos[currentIndex].title}
+                </div>
               )}
               <div className="flex items-center gap-3 px-4 pb-8">
-                <button data-lightbox-control="true"
+                <button
+                  data-lightbox-control="true"
                   type="button"
                   onClick={showPrev}
                   className="px-4 py-2 text-sm border rounded bg-white/10 hover:bg-white/20 border-white/30"
@@ -328,7 +362,8 @@ export default function Photos({ photos }) {
                 >
                   Prev
                 </button>
-                <button data-lightbox-control="true"
+                <button
+                  data-lightbox-control="true"
                   type="button"
                   onClick={close}
                   className="flex items-center justify-center p-2 mx-10 text-sm border rounded bg-white/10 hover:bg-white/20 border-white/30"
@@ -350,7 +385,8 @@ export default function Photos({ photos }) {
                     <line x1="6" y1="6" x2="18" y2="18" />
                   </svg>
                 </button>
-                <button data-lightbox-control="true"
+                <button
+                  data-lightbox-control="true"
                   type="button"
                   onClick={showNext}
                   className="px-4 py-2 text-sm border rounded bg-white/10 hover:bg-white/20 border-white/30"
@@ -358,7 +394,6 @@ export default function Photos({ photos }) {
                 >
                   Next
                 </button>
-                
               </div>
             </div>
           </div>
@@ -372,21 +407,23 @@ export async function getStaticProps() {
   try {
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
     const allPhotos = await getAllPhotos(isBuildTime);
-    
+
     // During revalidation (not build time), if we get empty photos, throw an error
     // This ensures Next.js serves the stale cached page instead of updating with empty data
     if (!isBuildTime && (!allPhotos || allPhotos.length === 0)) {
-      throw new Error('Failed to fetch photos during revalidation - keeping stale cache');
+      throw new Error(
+        'Failed to fetch photos during revalidation - keeping stale cache'
+      );
     }
-    
+
     return {
       props: { photos: allPhotos || [] },
       // Revalidate every hour, but serve cached page if revalidation fails
-      revalidate: 3600, // 1 hour
+      revalidate: 3600 // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch photos:', error.message);
-    
+
     // During build time, return empty array (we need to build the page)
     // During revalidation, throw error to keep stale cache
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
@@ -394,12 +431,10 @@ export async function getStaticProps() {
       // Re-throw error during revalidation so Next.js serves stale cached page
       throw error;
     }
-    
+
     return {
       props: { photos: [] },
-      revalidate: 60,
+      revalidate: 60
     };
   }
 }
-
-

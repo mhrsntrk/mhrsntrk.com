@@ -1,7 +1,11 @@
 import ErrorPage from 'next/error';
 import { useRouter } from 'next/router';
 
-import { getAllPostsWithSlug, getPostAndMorePosts, wakeUpStrapi } from '@/lib/strapi';
+import {
+  getAllPostsWithSlug,
+  getPostAndMorePosts,
+  wakeUpStrapi
+} from '@/lib/strapi';
 import { relatedInCluster } from '@/lib/clusters';
 import markdownToHtml from '@/lib/markdownToHtml';
 import BlogPost from '@/components/BlogPost';
@@ -53,23 +57,29 @@ export async function getStaticPaths() {
   try {
     // Explicitly wake up Strapi before fetching all posts
     // This ensures Strapi is ready before we start the build process
-    console.log('[getStaticPaths] Waking up Strapi before fetching post slugs...');
+    console.log(
+      '[getStaticPaths] Waking up Strapi before fetching post slugs...'
+    );
     try {
       await wakeUpStrapi(true);
     } catch (wakeError) {
-      console.warn('[getStaticPaths] Wake-up failed, but continuing with fetch:', wakeError.message);
+      console.warn(
+        '[getStaticPaths] Wake-up failed, but continuing with fetch:',
+        wakeError.message
+      );
       // Continue anyway - the fetch will also try to wake up Strapi
     }
-    
+
     // Pass isBuildTime=true to enable wake-up retry logic and longer timeouts
     const allPosts = await getAllPostsWithSlug(true);
     // getAllPostsWithSlug returns an array of slug strings, not objects
-    const paths = allPosts?.map((slug) => ({
-      params: { slug }
-    })) || [];
-    
+    const paths =
+      allPosts?.map((slug) => ({
+        params: { slug }
+      })) || [];
+
     console.log(`[getStaticPaths] Generated ${paths.length} blog post paths`);
-    
+
     // Use fallback: false to ensure all posts are generated at build time
     // Any post not in this list will return 404
     return {
@@ -77,10 +87,15 @@ export async function getStaticPaths() {
       paths
     };
   } catch (error) {
-    console.error('[getStaticPaths] Failed to fetch post slugs during build:', error.message);
+    console.error(
+      '[getStaticPaths] Failed to fetch post slugs during build:',
+      error.message
+    );
     console.error('[getStaticPaths] Stack:', error.stack);
     // Fail the build if we can't fetch posts - this ensures we don't deploy with missing posts
-    throw new Error(`Failed to fetch blog posts during build: ${error.message}`);
+    throw new Error(
+      `Failed to fetch blog posts during build: ${error.message}`
+    );
   }
 }
 
@@ -89,7 +104,7 @@ export async function getStaticProps({ params }) {
     // All pages are generated at build time only
     // We detect build time by checking if we're in a build context
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-const data = await getPostAndMorePosts(params.slug, isBuildTime);
+    const data = await getPostAndMorePosts(params.slug, isBuildTime);
 
     // At this point, if we get here, the post exists (function throws if not found)
     const rawContent = data.posts[0].content || '';
@@ -103,26 +118,36 @@ const data = await getPostAndMorePosts(params.slug, isBuildTime);
           rawContent
         },
         morePosts: data?.morePosts || []
-      },
+      }
       // No revalidate - pages are fully static and never regenerate after build
     };
   } catch (error) {
-    console.error(`[getStaticProps] Failed to fetch blog post "${params.slug}":`, error.message);
-    
+    console.error(
+      `[getStaticProps] Failed to fetch blog post "${params.slug}":`,
+      error.message
+    );
+
     // Check if it's a "not found" error (post doesn't exist)
-    if (error.message?.includes('not found') || error.message?.includes('404')) {
-      console.log(`[getStaticProps] Post "${params.slug}" does not exist, returning 404`);
+    if (
+      error.message?.includes('not found') ||
+      error.message?.includes('404')
+    ) {
+      console.log(
+        `[getStaticProps] Post "${params.slug}" does not exist, returning 404`
+      );
       return {
-        notFound: true,
+        notFound: true
       };
     }
-    
+
     // For other errors (network, timeout, API down), log but still return 404
     // The retry logic in secureFetch should have already retried
     // Since we're using static generation, build will fail if posts can't be fetched
-    console.error(`[getStaticProps] API error for "${params.slug}" during build`);
+    console.error(
+      `[getStaticProps] API error for "${params.slug}" during build`
+    );
     return {
-      notFound: true,
+      notFound: true
     };
   }
 }

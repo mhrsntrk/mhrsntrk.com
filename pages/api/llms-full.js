@@ -22,7 +22,7 @@ function buildHeader(posts) {
     '',
     'This file contains the full text of every blog post. Each post is delimited by',
     'a horizontal rule and carries its own canonical URL, publish date, and update date.',
-    '',
+    ''
   ].join('\n');
 }
 
@@ -52,7 +52,7 @@ function buildPost(post) {
     post.excerpt ? `\nSummary: ${post.excerpt}` : '',
     '',
     (post.content || '').trim(),
-    '',
+    ''
   ].join('\n');
 }
 
@@ -63,7 +63,9 @@ export default async function handler(req, res) {
     // Cold-start guard: don't ship an empty export if Strapi failed to respond.
     if (!posts.length) {
       res.setHeader('Cache-Control', 'no-store');
-      return res.status(503).send('# Temporarily unavailable\n\nRetry shortly.');
+      return res
+        .status(503)
+        .send('# Temporarily unavailable\n\nRetry shortly.');
     }
 
     const body =
@@ -80,6 +82,8 @@ export default async function handler(req, res) {
     return res.status(200).send(body);
   } catch (error) {
     console.error('llms-full.txt error:', error);
-    return res.status(500).send('# Error\n\nCould not generate full content export.');
+    return res
+      .status(500)
+      .send('# Error\n\nCould not generate full content export.');
   }
 }

@@ -34,15 +34,30 @@ export default function Gate({ mode = 'wall' }) {
 
   const body = (
     <>
-      <p lang="en" style={{ fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', opacity: 0.55, margin: 0 }}>
+      <p
+        lang="en"
+        style={{
+          fontSize: 12,
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
+          opacity: 0.55,
+          margin: 0
+        }}
+      >
         Content advisory
       </p>
-      <p lang="en" style={{ fontSize: 18, lineHeight: '27px', margin: '18px 0 0' }}>
+      <p
+        lang="en"
+        style={{ fontSize: 18, lineHeight: '27px', margin: '18px 0 0' }}
+      >
         This collection documents vulgar Turkish folk speech. Entries are
         reproduced unexpurgated in their original register for philological
         accuracy. No euphemism has been applied.
       </p>
-      <p lang="en" style={{ fontSize: 18, lineHeight: '27px', margin: '9px 0 0' }}>
+      <p
+        lang="en"
+        style={{ fontSize: 18, lineHeight: '27px', margin: '9px 0 0' }}
+      >
         Proceed only if you are over 16.
       </p>
       <button

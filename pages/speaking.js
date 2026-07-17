@@ -22,7 +22,8 @@ export default function Speaking() {
         </h1>
         <div className="mb-16">
           <p className="text-gray-600 dark:text-gray-400">
-            Conferences, podcasts, and events where I've spoken about web3, self-sovereign identity, and energy markets.
+            Conferences, podcasts, and events where I've spoken about web3,
+            self-sovereign identity, and energy markets.
           </p>
         </div>
         <div className="w-full mb-4">

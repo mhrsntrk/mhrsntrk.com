@@ -32,18 +32,35 @@ export default function handler(req) {
           flexDirection: 'column',
           justifyContent: 'space-between',
           backgroundColor: BG,
-          padding: '70px',
+          padding: '70px'
         }}
       >
         {/* top: wordmark */}
-        <div style={{ display: 'flex', alignItems: 'center', fontSize: 34, fontWeight: 700, letterSpacing: 2, color: FG }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            fontSize: 34,
+            fontWeight: 700,
+            letterSpacing: 2,
+            color: FG
+          }}
+        >
           <div style={{ display: 'flex' }}>mhrsntrk</div>
           <div style={{ display: 'flex', color: ACCENT }}>.</div>
         </div>
 
         {/* middle: title with an accent rule */}
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <div style={{ display: 'flex', width: 90, height: 8, backgroundColor: ACCENT, marginBottom: 34 }} />
+          <div
+            style={{
+              display: 'flex',
+              width: 90,
+              height: 8,
+              backgroundColor: ACCENT,
+              marginBottom: 34
+            }}
+          />
           <div
             style={{
               display: 'flex',
@@ -51,7 +68,7 @@ export default function handler(req) {
               fontWeight: 800,
               lineHeight: 1.1,
               color: FG,
-              maxWidth: 1040,
+              maxWidth: 1040
             }}
           >
             {title}
@@ -59,7 +76,15 @@ export default function handler(req) {
         </div>
 
         {/* bottom: handle + domain */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 30, color: MUTED }}>
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            fontSize: 30,
+            color: MUTED
+          }}
+        >
           <div style={{ display: 'flex' }}>@mhrsntrk</div>
           <div style={{ display: 'flex' }}>mhrsntrk.com</div>
         </div>

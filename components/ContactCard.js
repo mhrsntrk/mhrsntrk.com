@@ -1,4 +1,4 @@
-export default function Card({ title, description, href}) {
+export default function Card({ title, description, href }) {
   return (
     <a
       className="mb-4 hover:shadow"

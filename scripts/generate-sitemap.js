@@ -49,7 +49,7 @@ function safeISO(value) {
                 // Set priority and changefreq based on page type
                 let priority = '0.8';
                 let changefreq = 'monthly';
-                
+
                 if (route === '' || route === '/') {
                   priority = '1.0';
                   changefreq = 'weekly';
@@ -75,8 +75,7 @@ function safeISO(value) {
               .join('')}
             ${blogPosts
               .map((post) => {
-                const lastmod =
-                  safeISO(post.updatedAt) || safeISO(post.date);
+                const lastmod = safeISO(post.updatedAt) || safeISO(post.date);
                 return `
                         <url>
                             <loc>${`https://mhrsntrk.com/blog/${post.slug}`}</loc>
@@ -97,5 +96,9 @@ function safeISO(value) {
 
   // eslint-disable-next-line no-sync
   fs.writeFileSync('public/sitemap.xml', formatted);
-  console.log('Sitemap generated successfully with', blogPosts.length, 'blog posts');
+  console.log(
+    'Sitemap generated successfully with',
+    blogPosts.length,
+    'blog posts'
+  );
 })();

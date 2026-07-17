@@ -4,7 +4,10 @@ import SwissKnifeCard from '@/components/SwissKnifeCard';
 import PodcastCard from '@/components/PodcastCard';
 import ContactCard from '@/components/ContactCard';
 import ContactInfo from '@/components/ContactInfo';
-import StructuredData, { PersonSchema, WebsiteSchema } from '@/components/StructuredData';
+import StructuredData, {
+  PersonSchema,
+  WebsiteSchema
+} from '@/components/StructuredData';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
@@ -22,196 +25,208 @@ export default function Home({ allPosts, totalPosts }) {
       <StructuredData data={PersonSchema} />
       <StructuredData data={WebsiteSchema} />
       <Container>
-      <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
-        <PixelAnimation />
-        <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
-          hello, world.
-        </h1>
-        <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
-          <p>
-            <strong>product + engineering.</strong> I work on self-sovereign identity at The Hashgraph Group, building an SSI system on Hedera. Before that: Energy Web, where I led Switchboard — one of the early production SSI deployments.
-          </p>
-          <p>
-            A decade of trying to make decentralized identity work in production has convinced me of one thing: verified identity should belong to the person it describes, not the institutions that check it.
-          </p>
-          <p>
-            This is where I keep notes for my future self — on identity, web3, the tools I build, and what I'm learning along the way.
-          </p>
-        </div>
-        <Link
-          href="/blog"
-          className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white group"
-        >
-          <h3>
-            <span className="hover:underline">Recent Posts</span>
-            {' '}
-            <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
-              [{totalPosts} posts]
-            </span>
-          </h3>
-        </Link>
+        <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
+          <PixelAnimation />
+          <h1 className="mb-4 text-4xl font-bold text-black md:text-6xl dark:text-white">
+            hello, world.
+          </h1>
+          <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
+            <p>
+              <strong>product + engineering.</strong> I work on self-sovereign
+              identity at The Hashgraph Group, building an SSI system on Hedera.
+              Before that: Energy Web, where I led Switchboard — one of the
+              early production SSI deployments.
+            </p>
+            <p>
+              A decade of trying to make decentralized identity work in
+              production has convinced me of one thing: verified identity should
+              belong to the person it describes, not the institutions that check
+              it.
+            </p>
+            <p>
+              This is where I keep notes for my future self — on identity, web3,
+              the tools I build, and what I'm learning along the way.
+            </p>
+          </div>
+          <Link
+            href="/blog"
+            className="flex mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white group"
+          >
+            <h3>
+              <span className="hover:underline">Recent Posts</span>{' '}
+              <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+                [{totalPosts} posts]
+              </span>
+            </h3>
+          </Link>
 
-        {allPosts.map((post) => (
-          <BlogPost
-            key={post.slug}
-            title={post.title}
-            excerpt={post.excerpt}
-            slug={post.slug}
+          {allPosts.map((post) => (
+            <BlogPost
+              key={post.slug}
+              title={post.title}
+              excerpt={post.excerpt}
+              slug={post.slug}
+            />
+          ))}
+
+          <Link
+            href="/speaking"
+            className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+          >
+            <h3 className="hover:underline">Speaking</h3>
+          </Link>
+          <PodcastCard
+            title="Next-Gen Tech for Health Data Privacy 2025"
+            description="Speaking on next-generation technologies shaping health data privacy and decentralized identity in healthcare."
+            icon="health-privacy"
+            width={80}
+            height={80}
           />
-        ))}
-
-        <Link
-          href="/speaking"
-          className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
-        >
-          <h3 className="hover:underline">Speaking</h3>
-        </Link>
-        <PodcastCard
-          title="Next-Gen Tech for Health Data Privacy 2025"
-          description="Speaking on next-generation technologies shaping health data privacy and decentralized identity in healthcare."
-          icon="health-privacy"
-          width={80}
-          height={80}
-        />
-        <PodcastCard
-          title="London Blockchain Conference 2025"
-          description="The UK's biggest enterprise blockchain event. Shared insights on SSI and digital trust."
-          icon="london-blockchain"
-          width={120}
-          height={120}
-        />
-        <PodcastCard
-          title="DID:UNCONF Africa 2026"
-          description="Unconference in Stellenbosch on digital identity and SSI in Africa."
-          icon="did-unconf-africa"
-          width={120}
-          height={120}
-        />
-        <PodcastCard
-          title="Üretim Bandı Podcast"
-          description="Bu bölümde, Mahir Senturk ile birlikte Energy Web'i keşfediyoruz."
-          href="https://uretimbandi.com/podcast/mahir-senturk-energy-web-blockchainle-enerji-problemini-cozmek/"
-          icon="uretimbandi"
-          width={120}
-          height={120}
-        />
-        <PodcastCard
-          title="Üretim Bandı Podcast"
-          description="Mahir Senturk ile birlikte Self Sovereign Identity (Öz Kimlik) konusunu konuştuk."
-          href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
-          icon="uretimbandi"
-          width={120}
-          height={120}
-        />
-        <Link
-          href="/swissknife"
-          className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
-        >
-          <h3 className="hover:underline">Swiss Knife </h3>
-        </Link>
-        <SwissKnifeCard
-          title="Bino — Kids Safe Image Search"
-          description="A native iOS app for kids ages 4–9: a safe, Camera Roll-style image browser with SafeSearch permanently enforced. Tap to view on the App Store."
-          href="https://apps.apple.com/us/app/bino-kids-safe-image-search/id6764813350"
-          icon="bino"
-          target="_blank"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="Bino — Kids Read Along"
-          description="An iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
-          href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
-          icon="bino-reader"
-          target="_blank"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="Light Wallet — SSI Developer Wallet"
-          description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
-          href="https://apps.apple.com/app/id6755690506"
-          icon="lightwallet"
-          target="_blank"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="Fortune Cookie VC"
-          description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
-          href="swissknife/fortune-cookie"
-          icon="fortune-cookie"
-          width="120"
-          height="106"
-        />
-        <SwissKnifeCard
-          title="DID Resolver"
-          description="This tool will allow you to fetch the DID document of the given a DID."
-          href="swissknife/did-resolver"
-          icon="fingerprint"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="qroxy - Dynamic QR Code Tool"
-          description="Create dynamic QR codes using the connected REST API and mongoDB"
-          href="swissknife/qroxy"
-          icon="qrcode"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="ENS Resolver"
-          description="This tool will allow you to resolve an Ethereum Name Service (ENS) domain."
-          href="swissknife/ens-resolver"
-          icon="ens"
-          width="120"
-          height="120"
-        />
-        <SwissKnifeCard
-          title="Crypto Ticker"
-          description="View the cryptocurrencies that I currently track on this page."
-          href="swissknife/crypto"
-          icon="crypto"
-          width="120"
-          height="120"
-        />
-        <div id="contact">
-            <h3 className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">Contact me </h3>
-          <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
-            <ContactInfo
-              icon="linkedin"
-              title="Linkedin"
-              href="https://www.linkedin.com/in/mahirsenturk"
-            />
-            <ContactInfo
-              icon="github"
-              title="Github"
-              href="https://github.com/mhrsntrk"
-            />
-          </div>
-          <div className="grid w-full grid-cols-1 gap-4 my-2 mb-4 sm:grid-cols-2">
-            <ContactInfo
-              icon="twitter"
-              title="Twitter"
-              href="https://twitter.com/mhrsntrk"
-            />
-            <ContactInfo icon="telegram" title="Telegram" href="https://t.me/mhrsntrk" />
-          </div>
-          <div className="grid w-full grid-cols-1 gap-0 mb-6 sm:gap-4 sm:grid-cols-2">
-            <ContactCard
-              title="Meet me!"
-              description="You can use this link to book a meeting with me at the time you choose."
-              href="https://cal.com/mhrsntrk"
-            />
-            <ContactCard
-              title="Drop me an email!"
-              description="m@mhrsntrk.com"
-              href="mailto:m@mhrsntrk.com?subject=Website Contact"
-            />
+          <PodcastCard
+            title="London Blockchain Conference 2025"
+            description="The UK's biggest enterprise blockchain event. Shared insights on SSI and digital trust."
+            icon="london-blockchain"
+            width={120}
+            height={120}
+          />
+          <PodcastCard
+            title="DID:UNCONF Africa 2026"
+            description="Unconference in Stellenbosch on digital identity and SSI in Africa."
+            icon="did-unconf-africa"
+            width={120}
+            height={120}
+          />
+          <PodcastCard
+            title="Üretim Bandı Podcast"
+            description="Bu bölümde, Mahir Senturk ile birlikte Energy Web'i keşfediyoruz."
+            href="https://uretimbandi.com/podcast/mahir-senturk-energy-web-blockchainle-enerji-problemini-cozmek/"
+            icon="uretimbandi"
+            width={120}
+            height={120}
+          />
+          <PodcastCard
+            title="Üretim Bandı Podcast"
+            description="Mahir Senturk ile birlikte Self Sovereign Identity (Öz Kimlik) konusunu konuştuk."
+            href="https://uretimbandi.com/podcast/mahir-senturk-edevlet-blokzincirinde-olsaydi/"
+            icon="uretimbandi"
+            width={120}
+            height={120}
+          />
+          <Link
+            href="/swissknife"
+            className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+          >
+            <h3 className="hover:underline">Swiss Knife </h3>
+          </Link>
+          <SwissKnifeCard
+            title="Bino — Kids Safe Image Search"
+            description="A native iOS app for kids ages 4–9: a safe, Camera Roll-style image browser with SafeSearch permanently enforced. Tap to view on the App Store."
+            href="https://apps.apple.com/us/app/bino-kids-safe-image-search/id6764813350"
+            icon="bino"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="Bino — Kids Read Along"
+            description="An iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
+            href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
+            icon="bino-reader"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="Light Wallet — SSI Developer Wallet"
+            description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
+            href="https://apps.apple.com/app/id6755690506"
+            icon="lightwallet"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="Fortune Cookie VC"
+            description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune."
+            href="swissknife/fortune-cookie"
+            icon="fortune-cookie"
+            width="120"
+            height="106"
+          />
+          <SwissKnifeCard
+            title="DID Resolver"
+            description="This tool will allow you to fetch the DID document of the given a DID."
+            href="swissknife/did-resolver"
+            icon="fingerprint"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="qroxy - Dynamic QR Code Tool"
+            description="Create dynamic QR codes using the connected REST API and mongoDB"
+            href="swissknife/qroxy"
+            icon="qrcode"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="ENS Resolver"
+            description="This tool will allow you to resolve an Ethereum Name Service (ENS) domain."
+            href="swissknife/ens-resolver"
+            icon="ens"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
+            title="Crypto Ticker"
+            description="View the cryptocurrencies that I currently track on this page."
+            href="swissknife/crypto"
+            icon="crypto"
+            width="120"
+            height="120"
+          />
+          <div id="contact">
+            <h3 className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
+              Contact me{' '}
+            </h3>
+            <div className="grid w-full grid-cols-1 gap-4 my-2 sm:grid-cols-2">
+              <ContactInfo
+                icon="linkedin"
+                title="Linkedin"
+                href="https://www.linkedin.com/in/mahirsenturk"
+              />
+              <ContactInfo
+                icon="github"
+                title="Github"
+                href="https://github.com/mhrsntrk"
+              />
+            </div>
+            <div className="grid w-full grid-cols-1 gap-4 my-2 mb-4 sm:grid-cols-2">
+              <ContactInfo
+                icon="twitter"
+                title="Twitter"
+                href="https://twitter.com/mhrsntrk"
+              />
+              <ContactInfo
+                icon="telegram"
+                title="Telegram"
+                href="https://t.me/mhrsntrk"
+              />
+            </div>
+            <div className="grid w-full grid-cols-1 gap-0 mb-6 sm:gap-4 sm:grid-cols-2">
+              <ContactCard
+                title="Meet me!"
+                description="You can use this link to book a meeting with me at the time you choose."
+                href="https://cal.com/mhrsntrk"
+              />
+              <ContactCard
+                title="Drop me an email!"
+                description="m@mhrsntrk.com"
+                href="mailto:m@mhrsntrk.com?subject=Website Contact"
+              />
+            </div>
           </div>
         </div>
-      </div>
       </Container>
     </>
   );
@@ -226,25 +241,27 @@ export async function getStaticProps() {
       getAllPostsForHome(isBuildTime),
       getAllPostsForBlog(isBuildTime)
     ]);
-    
+
     // During revalidation (not build time), if we get empty posts, throw an error
     // This ensures Next.js serves the stale cached page instead of updating with empty data
     if (!isBuildTime && (!allPosts || allPosts.length === 0)) {
-      throw new Error('Failed to fetch posts during revalidation - keeping stale cache');
+      throw new Error(
+        'Failed to fetch posts during revalidation - keeping stale cache'
+      );
     }
-    
+
     return {
-      props: { 
+      props: {
         allPosts: allPosts || [],
         totalPosts: allBlogPosts?.length || 0
       },
       // Revalidate every hour, but serve cached page if revalidation fails
       // Longer interval reduces wake-up frequency for sleeping Strapi
-      revalidate: 3600, // 1 hour
+      revalidate: 3600 // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch blog posts:', error.message);
-    
+
     // During build time, return empty arrays (we need to build the page)
     // During revalidation, throw error to keep stale cache
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
@@ -252,13 +269,13 @@ export async function getStaticProps() {
       // Re-throw error during revalidation so Next.js serves stale cached page
       throw error;
     }
-    
+
     return {
-      props: { 
+      props: {
         allPosts: [],
         totalPosts: 0
       },
-      revalidate: 60,
+      revalidate: 60
     };
   }
 }

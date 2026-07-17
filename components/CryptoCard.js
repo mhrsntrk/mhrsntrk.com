@@ -30,7 +30,7 @@ export default function CryptoCard({ name, symbol, price, change, ath }) {
         </span>
       </p>
       <p className="mt-4 text-sm text-black spacing-sm dark:text-white overflow-hidden truncate">
-        <span >
+        <span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"

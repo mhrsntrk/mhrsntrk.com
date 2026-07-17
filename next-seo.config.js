@@ -9,7 +9,8 @@ const SEO = {
   additionalMetaTags: [
     {
       name: 'keywords',
-      content: 'Mahir Senturk, digital identity, self-sovereign identity, SSI, eIDAS, EUDI wallet, verifiable credentials, decentralized identity, identity policy, product manager'
+      content:
+        'Mahir Senturk, digital identity, self-sovereign identity, SSI, eIDAS, EUDI wallet, verifiable credentials, decentralized identity, identity policy, product manager'
     },
     {
       name: 'author',
@@ -17,7 +18,8 @@ const SEO = {
     },
     {
       name: 'robots',
-      content: 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+      content:
+        'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
     },
     {
       name: 'googlebot',

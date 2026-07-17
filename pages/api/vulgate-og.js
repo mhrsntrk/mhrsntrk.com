@@ -34,12 +34,12 @@ export default async function handler(req) {
   const label = n ? `Entry ${String(n).padStart(3, '0')}` : 'The Vulgate';
 
   const [regular, bold] = await Promise.all([
-    fetch(new URL('/static/fonts/vulgate/PlexMono-Regular-subset.ttf', origin)).then((r) =>
-      r.arrayBuffer()
-    ),
-    fetch(new URL('/static/fonts/vulgate/PlexMono-Bold-subset.ttf', origin)).then((r) =>
-      r.arrayBuffer()
-    )
+    fetch(
+      new URL('/static/fonts/vulgate/PlexMono-Regular-subset.ttf', origin)
+    ).then((r) => r.arrayBuffer()),
+    fetch(
+      new URL('/static/fonts/vulgate/PlexMono-Bold-subset.ttf', origin)
+    ).then((r) => r.arrayBuffer())
   ]);
 
   return new ImageResponse(

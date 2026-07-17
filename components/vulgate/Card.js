@@ -72,7 +72,12 @@ export default function Card({ entry, number, defaultRevealed = false }) {
       {/* Specimen */}
       <p
         lang="tr"
-        style={{ fontSize: S.specimen, lineHeight: '36px', fontWeight: 700, margin: 0 }}
+        style={{
+          fontSize: S.specimen,
+          lineHeight: '36px',
+          fontWeight: 700,
+          margin: 0
+        }}
       >
         {entry.tr}
       </p>
@@ -84,7 +89,12 @@ export default function Card({ entry, number, defaultRevealed = false }) {
             <p
               key={i}
               lang="tr"
-              style={{ fontSize: S.body, lineHeight: '27px', margin: 0, opacity: 0.7 }}
+              style={{
+                fontSize: S.body,
+                lineHeight: '27px',
+                margin: 0,
+                opacity: 0.7
+              }}
             >
               {v}
             </p>
@@ -95,7 +105,13 @@ export default function Card({ entry, number, defaultRevealed = false }) {
       {/* Clumsy literal */}
       <p
         lang="en"
-        style={{ fontSize: S.body, lineHeight: '27px', marginTop: 18, marginBottom: 0, opacity: 0.85 }}
+        style={{
+          fontSize: S.body,
+          lineHeight: '27px',
+          marginTop: 18,
+          marginBottom: 0,
+          opacity: 0.85
+        }}
       >
         {entry.literal_en}
       </p>
@@ -121,11 +137,24 @@ export default function Card({ entry, number, defaultRevealed = false }) {
           Annotate ↓
         </button>
       ) : (
-        <div style={{ marginTop: 27, borderTop: '1px solid var(--vg-line)', paddingTop: 27 }}>
+        <div
+          style={{
+            marginTop: 27,
+            borderTop: '1px solid var(--vg-line)',
+            paddingTop: 27
+          }}
+        >
           {/* Meaning */}
           <div style={{ marginBottom: 27 }}>
             <Label>Meaning</Label>
-            <p lang="en" style={{ fontSize: S.body, lineHeight: '27px', margin: '9px 0 0' }}>
+            <p
+              lang="en"
+              style={{
+                fontSize: S.body,
+                lineHeight: '27px',
+                margin: '9px 0 0'
+              }}
+            >
               {entry.meaning_en}
             </p>
           </div>
@@ -133,7 +162,14 @@ export default function Card({ entry, number, defaultRevealed = false }) {
           {/* Anlam */}
           <div style={{ marginBottom: 27 }}>
             <Label>Anlam</Label>
-            <p lang="tr" style={{ fontSize: S.body, lineHeight: '27px', margin: '9px 0 0' }}>
+            <p
+              lang="tr"
+              style={{
+                fontSize: S.body,
+                lineHeight: '27px',
+                margin: '9px 0 0'
+              }}
+            >
               {entry.meaning_tr}
             </p>
           </div>
@@ -142,7 +178,15 @@ export default function Card({ entry, number, defaultRevealed = false }) {
           {entry.usage && (
             <div style={{ marginBottom: 27 }}>
               <Label>Usage</Label>
-              <p lang="en" style={{ fontSize: S.body, lineHeight: '27px', margin: '9px 0 0', opacity: 0.85 }}>
+              <p
+                lang="en"
+                style={{
+                  fontSize: S.body,
+                  lineHeight: '27px',
+                  margin: '9px 0 0',
+                  opacity: 0.85
+                }}
+              >
                 {entry.usage}
               </p>
             </div>
@@ -161,9 +205,14 @@ export default function Card({ entry, number, defaultRevealed = false }) {
               {entry.equivalents?.length > 0 && (
                 <div>
                   <Label>Equivalents</Label>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '9px 0 0' }}>
+                  <ul
+                    style={{ listStyle: 'none', padding: 0, margin: '9px 0 0' }}
+                  >
                     {entry.equivalents.map((eq, i) => (
-                      <li key={i} style={{ fontSize: S.body, lineHeight: '27px' }}>
+                      <li
+                        key={i}
+                        style={{ fontSize: S.body, lineHeight: '27px' }}
+                      >
                         {eq}
                       </li>
                     ))}
@@ -173,9 +222,14 @@ export default function Card({ entry, number, defaultRevealed = false }) {
               {entry.cross_refs?.length > 0 && (
                 <div>
                   <Label>Cross-references</Label>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: '9px 0 0' }}>
+                  <ul
+                    style={{ listStyle: 'none', padding: 0, margin: '9px 0 0' }}
+                  >
                     {entry.cross_refs.map((c, i) => (
-                      <li key={i} style={{ fontSize: S.body, lineHeight: '27px' }}>
+                      <li
+                        key={i}
+                        style={{ fontSize: S.body, lineHeight: '27px' }}
+                      >
                         {c}
                       </li>
                     ))}
@@ -200,10 +254,16 @@ export default function Card({ entry, number, defaultRevealed = false }) {
               opacity: 0.55
             }}
           >
-            <span lang="en" style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <span
+              lang="en"
+              style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}
+            >
               Origin: {entry.origin}
             </span>
-            <span lang="en" style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}>
+            <span
+              lang="en"
+              style={{ letterSpacing: '0.1em', textTransform: 'uppercase' }}
+            >
               {entry.themes.join(' · ')}
             </span>
           </footer>

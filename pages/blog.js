@@ -37,15 +37,17 @@ export default function Blog({ allPosts }) {
     }
   }, [router?.isReady, router?.query?.page]);
 
-  const filteredBlogPosts = allPosts
-    .filter((post) => {
-      const title = (post && post.title) ? String(post.title) : '';
-      return title.toLowerCase().includes(searchValue.toLowerCase());
-    });
+  const filteredBlogPosts = allPosts.filter((post) => {
+    const title = post && post.title ? String(post.title) : '';
+    return title.toLowerCase().includes(searchValue.toLowerCase());
+  });
   const totalFiltered = filteredBlogPosts.length;
   const totalPages = Math.max(1, Math.ceil(totalFiltered / pageSize));
   const pageStart = (currentPage - 1) * pageSize;
-  const currentPagePosts = filteredBlogPosts.slice(pageStart, pageStart + pageSize);
+  const currentPagePosts = filteredBlogPosts.slice(
+    pageStart,
+    pageStart + pageSize
+  );
   const canPrev = currentPage > 1;
   const canNext = currentPage < totalPages;
 
@@ -55,7 +57,8 @@ export default function Blog({ allPosts }) {
     // Scroll to top of list on page change for better UX
     if (typeof window !== 'undefined') {
       const listAnchor = document.getElementById('blog-list-top');
-      if (listAnchor) listAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (listAnchor)
+        listAnchor.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     // Update URL query for back/forward navigation; avoid full reload
     if (router && router.isReady) {
@@ -116,7 +119,10 @@ export default function Blog({ allPosts }) {
               />
             </svg>
           </div>
-          <h2 className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white" id="blog-list-top">
+          <h2
+            className="mt-8 mb-4 text-2xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+            id="blog-list-top"
+          >
             All Posts <span className="inline text-3xl font-normal">↴</span>
           </h2>
           {!filteredBlogPosts.length && 'No posts found.'}
@@ -143,7 +149,8 @@ export default function Blog({ allPosts }) {
                 )}
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Page {currentPage} of {totalPages} · {totalFiltered} result{totalFiltered === 1 ? '' : 's'}
+                Page {currentPage} of {totalPages} · {totalFiltered} result
+                {totalFiltered === 1 ? '' : 's'}
               </div>
               <div>
                 {canNext && (
@@ -171,22 +178,24 @@ export async function getStaticProps() {
     // During ISR revalidation, use shorter timeouts (cached page served if fails)
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
     const allPosts = await getAllPostsForBlog(isBuildTime);
-    
+
     // During revalidation (not build time), if we get empty posts, throw an error
     // This ensures Next.js serves the stale cached page instead of updating with empty data
     if (!isBuildTime && (!allPosts || allPosts.length === 0)) {
-      throw new Error('Failed to fetch posts during revalidation - keeping stale cache');
+      throw new Error(
+        'Failed to fetch posts during revalidation - keeping stale cache'
+      );
     }
-    
+
     return {
       props: { allPosts: allPosts || [] },
       // Revalidate every hour, but serve cached page if revalidation fails
       // Longer interval reduces wake-up frequency for sleeping Strapi
-      revalidate: 3600, // 1 hour
+      revalidate: 3600 // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch blog posts:', error.message);
-    
+
     // During build time, return empty array (we need to build the page)
     // During revalidation, throw error to keep stale cache
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
@@ -194,10 +203,10 @@ export async function getStaticProps() {
       // Re-throw error during revalidation so Next.js serves stale cached page
       throw error;
     }
-    
+
     return {
       props: { allPosts: [] },
-      revalidate: 60,
+      revalidate: 60
     };
   }
 }

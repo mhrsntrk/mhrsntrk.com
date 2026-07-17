@@ -28,7 +28,8 @@ export const PersonSchema = {
       name: 'Energy Web'
     }
   ],
-  description: 'Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.',
+  description:
+    'Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.',
   url: 'https://mhrsntrk.com',
   sameAs: [
     'https://twitter.com/mhrsntrk',
@@ -49,7 +50,8 @@ export const PersonSchema = {
   hasOccupation: {
     '@type': 'Occupation',
     name: 'Senior Product Manager',
-    description: 'Leading product development for self-sovereign identity solutions on Hedera blockchain',
+    description:
+      'Leading product development for self-sovereign identity solutions on Hedera blockchain',
     skills: [
       'Product Management',
       'Blockchain Development',
@@ -65,7 +67,8 @@ export const WebsiteSchema = {
   '@type': 'WebSite',
   name: 'Mahir Senturk - Personal Website',
   url: 'https://mhrsntrk.com',
-  description: 'Personal website of Mahir Senturk, Senior Product Manager at The Hashgraph Group specializing in blockchain and self-sovereign identity solutions.',
+  description:
+    'Personal website of Mahir Senturk, Senior Product Manager at The Hashgraph Group specializing in blockchain and self-sovereign identity solutions.',
   author: {
     '@type': 'Person',
     name: 'Mahir Senturk'
@@ -82,12 +85,13 @@ export const BlogSchema = (posts) => ({
   '@type': 'Blog',
   name: 'Mahir Senturk Blog',
   url: 'https://mhrsntrk.com/blog',
-  description: 'Blog posts about blockchain, self-sovereign identity, web3, and technology by Mahir Senturk.',
+  description:
+    'Blog posts about blockchain, self-sovereign identity, web3, and technology by Mahir Senturk.',
   author: {
     '@type': 'Person',
     name: 'Mahir Senturk'
   },
-  blogPost: posts.map(post => ({
+  blogPost: posts.map((post) => ({
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,

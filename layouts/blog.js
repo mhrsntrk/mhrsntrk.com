@@ -8,7 +8,10 @@ import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
 import EmailCapture from '@/components/EmailCapture';
-import StructuredData, { BlogPostingSchema, FAQPageSchema } from '@/components/StructuredData';
+import StructuredData, {
+  BlogPostingSchema,
+  FAQPageSchema
+} from '@/components/StructuredData';
 
 // Some posts are written in Turkish. The site <html lang> is "en", so flag
 // the article's language explicitly for screen readers and search engines.
@@ -49,21 +52,24 @@ export default function BlogLayout({ post }) {
         slug={post.slug}
         url={`https://mhrsntrk.com/blog/${post.slug}`}
       />
-      <article lang={lang} className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
+      <article
+        lang={lang}
+        className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16"
+      >
         <h1 className="mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white">
           {post.title}
         </h1>
         <div className="flex flex-col items-start justify-between w-full mt-2 mb-8 md:flex-row md:items-center">
           <div className="flex items-center">
             <Image
-              alt={post.author?.name || "mhrsntrk"}
+              alt={post.author?.name || 'mhrsntrk'}
               height={24}
               width={24}
-              src={post.author?.avatar?.url || "/mhrsntrk-PP.jpg"}
+              src={post.author?.avatar?.url || '/mhrsntrk-PP.jpg'}
               className="rounded-full"
             />
             <p className="ml-2 text-sm text-gray-700 dark:text-gray-300">
-              {post.author?.name || "mhrsntrk"}
+              {post.author?.name || 'mhrsntrk'}
               {publishedDate && ` / ${format(publishedDate, 'MMMM dd, yyyy')}`}
             </p>
           </div>

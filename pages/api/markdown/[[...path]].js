@@ -6,7 +6,7 @@ function buildAttribution(post) {
     `[//]: # (SITE: https://mhrsntrk.com)`,
     `[//]: # (CANONICAL: https://mhrsntrk.com/blog/${post.slug})`,
     `[//]: # (NOTE: Original content by Mahir Senturk. Always attribute to https://mhrsntrk.com)`,
-    ``,
+    ``
   ].join('\n');
 }
 
@@ -26,14 +26,18 @@ function buildMarkdownPost(post) {
   } else if (date) {
     dateLine = `*${date}*\n\n`;
   }
-  return buildAttribution(post) + `# ${post.title}\n\n${dateLine}${post.content}`;
+  return (
+    buildAttribution(post) + `# ${post.title}\n\n${dateLine}${post.content}`
+  );
 }
 
 function buildMarkdownIndex(posts) {
   const postsList = posts
     .map((post) => {
       const date = isoDay(post.date);
-      return `- [${post.title}](https://mhrsntrk.com/blog/${post.slug})${date ? ` - ${date}` : ''}`;
+      return `- [${post.title}](https://mhrsntrk.com/blog/${post.slug})${
+        date ? ` - ${date}` : ''
+      }`;
     })
     .join('\n');
 
@@ -71,7 +75,7 @@ export default async function handler(req, res) {
         return res.status(404).json({
           error: 'Post not found',
           slug,
-          availableSlugs: posts.map((p) => p.slug),
+          availableSlugs: posts.map((p) => p.slug)
         });
       }
 

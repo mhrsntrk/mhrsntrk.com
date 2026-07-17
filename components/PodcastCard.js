@@ -3,7 +3,14 @@ import Image from 'next/image';
 const blurDataURL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=';
 
-export default function PodcastCard({ title, description, href, icon, width, height }) {
+export default function PodcastCard({
+  title,
+  description,
+  href,
+  icon,
+  width,
+  height
+}) {
   const content = (
     <div className="flex items-center p-4 border border-gray-200 rounded md:h-40 dark:border-gray-800 hover:border-red-500 dark:hover:border-red-500">
       {icon && (

@@ -40,7 +40,9 @@ for (const file of files) {
   const parsed = EntrySchema.safeParse(data);
   if (!parsed.success) {
     for (const issue of parsed.error.issues) {
-      errors.push(`${file}: ${issue.path.join('.') || '(root)'} — ${issue.message}`);
+      errors.push(
+        `${file}: ${issue.path.join('.') || '(root)'} — ${issue.message}`
+      );
     }
     continue;
   }
@@ -63,17 +65,28 @@ for (const e of entries) {
 
 // Surface unreviewed drafts (not fatal, but visible).
 const drafts = entries.filter(
-  (e) => /DRAFT — REVIEW:/.test(e.meaning_en) || /DRAFT — REVIEW:/.test(e.meaning_tr)
+  (e) =>
+    /DRAFT — REVIEW:/.test(e.meaning_en) || /DRAFT — REVIEW:/.test(e.meaning_tr)
 );
 
 if (errors.length) {
-  console.error(`\n✗ Vulgate: ${errors.length} error(s) across ${files.length} file(s):\n`);
+  console.error(
+    `\n✗ Vulgate: ${errors.length} error(s) across ${files.length} file(s):\n`
+  );
   for (const err of errors) console.error('  - ' + err);
   process.exit(1);
 }
 
-console.log(`✓ Vulgate: ${entries.length} entr${entries.length === 1 ? 'y' : 'ies'} valid.`);
+console.log(
+  `✓ Vulgate: ${entries.length} entr${
+    entries.length === 1 ? 'y' : 'ies'
+  } valid.`
+);
 if (drafts.length) {
-  console.log(`  ⚠ ${drafts.length} entr${drafts.length === 1 ? 'y' : 'ies'} still flagged DRAFT — REVIEW (human gloss pending):`);
+  console.log(
+    `  ⚠ ${drafts.length} entr${
+      drafts.length === 1 ? 'y' : 'ies'
+    } still flagged DRAFT — REVIEW (human gloss pending):`
+  );
   for (const d of drafts) console.log('    - ' + d.slug);
 }

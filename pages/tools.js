@@ -14,7 +14,8 @@ export default function Uses({ allGears }) {
         openGraph={{
           url: 'https://mhrsntrk.com/tools',
           title: 'Tools – mhrsntrk',
-          description: 'The productivity tools and applications Mahir Senturk uses every day.'
+          description:
+            'The productivity tools and applications Mahir Senturk uses every day.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">
@@ -36,20 +37,23 @@ export async function getStaticProps() {
   try {
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
     const allGears = await getAllGears(isBuildTime);
-    
+
     // Check if we have valid gear data (need at least 2 items for tools page)
-    const second = Array.isArray(allGears) && allGears.length > 1 ? allGears[1] : null;
-    
+    const second =
+      Array.isArray(allGears) && allGears.length > 1 ? allGears[1] : null;
+
     // During revalidation (not build time), if we get empty gear data, throw an error
     // This ensures Next.js serves the stale cached page instead of updating with empty data
     if (!isBuildTime && !second) {
-      throw new Error('Failed to fetch tools data during revalidation - keeping stale cache');
+      throw new Error(
+        'Failed to fetch tools data during revalidation - keeping stale cache'
+      );
     }
-    
+
     // If no gear data at build time, use empty content
     const gearData = second || { content: '' };
     const content = await markdownToHtml(gearData.content || '');
-    
+
     return {
       props: {
         allGears: {
@@ -58,11 +62,11 @@ export async function getStaticProps() {
         }
       },
       // Revalidate every hour, but serve cached page if revalidation fails
-      revalidate: 3600, // 1 hour
+      revalidate: 3600 // 1 hour
     };
   } catch (error) {
     console.warn('Failed to fetch tools data:', error.message);
-    
+
     // During build time, return empty content (we need to build the page)
     // During revalidation, throw error to keep stale cache
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
@@ -70,14 +74,14 @@ export async function getStaticProps() {
       // Re-throw error during revalidation so Next.js serves stale cached page
       throw error;
     }
-    
+
     return {
       props: {
         allGears: {
           content: ''
         }
       },
-      revalidate: 60,
+      revalidate: 60
     };
   }
 }

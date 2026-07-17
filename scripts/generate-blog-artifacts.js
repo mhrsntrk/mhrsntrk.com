@@ -41,7 +41,10 @@ function toUTC(value) {
 
 // CDATA-safe wrap: split any literal ]]> so it cannot close the section early.
 function cdata(value) {
-  return `<![CDATA[${String(value || '').replace(/]]>/g, ']]]]><![CDATA[>')}]]>`;
+  return `<![CDATA[${String(value || '').replace(
+    /]]>/g,
+    ']]]]><![CDATA[>'
+  )}]]>`;
 }
 
 // remark is ESM-only; this script is CommonJS (required by webpack). Load the
@@ -76,7 +79,7 @@ function buildMarkdownPost(post) {
     `[//]: # (SITE: ${SITE})`,
     `[//]: # (CANONICAL: ${SITE}/blog/${post.slug})`,
     `[//]: # (NOTE: Original content by Mahir Senturk. Always attribute to ${SITE})`,
-    ``,
+    ``
   ].join('\n');
 
   return attribution + `# ${post.title}\n\n${dateLine}${post.content || ''}`;
@@ -86,7 +89,9 @@ function buildMarkdownIndex(posts) {
   const list = posts
     .map((post) => {
       const date = isoDay(post.date);
-      return `- [${post.title}](${SITE}/blog/${post.slug})${date ? ` - ${date}` : ''}`;
+      return `- [${post.title}](${SITE}/blog/${post.slug})${
+        date ? ` - ${date}` : ''
+      }`;
     })
     .join('\n');
 
@@ -147,7 +152,9 @@ function buildRSS(posts, htmlBySlug) {
   if (!posts.length) {
     // Do NOT overwrite existing good artifacts with empty ones. Leaving the
     // previous build's files in place is strictly better than shipping a stub.
-    console.warn('[blog-artifacts] No posts fetched; leaving existing artifacts untouched.');
+    console.warn(
+      '[blog-artifacts] No posts fetched; leaving existing artifacts untouched.'
+    );
     return;
   }
 
@@ -157,13 +164,19 @@ function buildRSS(posts, htmlBySlug) {
     try {
       htmlBySlug[post.slug] = await render(post.content);
     } catch (error) {
-      console.warn(`[blog-artifacts] Failed to render "${post.slug}":`, error.message);
+      console.warn(
+        `[blog-artifacts] Failed to render "${post.slug}":`,
+        error.message
+      );
       htmlBySlug[post.slug] = '';
     }
   }
 
   // RSS feed (full content).
-  fs.writeFileSync(path.join(PUBLIC_DIR, 'rss.xml'), buildRSS(posts, htmlBySlug));
+  fs.writeFileSync(
+    path.join(PUBLIC_DIR, 'rss.xml'),
+    buildRSS(posts, htmlBySlug)
+  );
 
   // Per-post raw markdown + index. Rebuild the dir from scratch so deleted
   // posts don't leave stale .md files behind.

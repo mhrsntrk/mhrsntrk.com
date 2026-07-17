@@ -18,7 +18,9 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
     : null;
 
   // Per-post OG image rendered on the fly (title + handle, brand template).
-  const ogImage = `https://mhrsntrk.com/api/og?title=${encodeURIComponent(title)}`;
+  const ogImage = `https://mhrsntrk.com/api/og?title=${encodeURIComponent(
+    title
+  )}`;
 
   const article = {
     authors: ['https://mhrsntrk.com'],

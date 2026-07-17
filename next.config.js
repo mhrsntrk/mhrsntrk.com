@@ -12,27 +12,27 @@ module.exports = {
     return [
       {
         source: '/.well-known/api-catalog',
-        destination: '/api/.well-known/api-catalog',
+        destination: '/api/.well-known/api-catalog'
       },
       {
         source: '/llms-full.txt',
-        destination: '/api/llms-full',
+        destination: '/api/llms-full'
       },
       {
         source: '/rss.xml',
-        destination: '/api/rss.xml',
+        destination: '/api/rss.xml'
       },
       // Raw .md URLs. Static files (public/blog/<slug>.md, public/blog.md) are
       // baked at build and served directly; these afterFiles rewrites are the
       // runtime fallback (e.g. a post published between rebuilds).
       {
         source: '/blog/:slug.md',
-        destination: '/api/markdown/blog/:slug',
+        destination: '/api/markdown/blog/:slug'
       },
       {
         source: '/blog.md',
-        destination: '/api/markdown',
-      },
+        destination: '/api/markdown'
+      }
     ];
   },
   images: {
@@ -42,13 +42,13 @@ module.exports = {
         protocol: 'http',
         hostname: 'localhost',
         port: '1337',
-        pathname: '/uploads/**',
+        pathname: '/uploads/**'
       },
       {
         protocol: 'https',
         hostname: '**',
-        pathname: '/uploads/**',
-      },
+        pathname: '/uploads/**'
+      }
     ],
     formats: ['image/avif', 'image/webp'], // AVIF first for better compression
     minimumCacheTTL: 31536000, // 1 year cache
@@ -57,7 +57,7 @@ module.exports = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     loader: 'default',
-    unoptimized: false,
+    unoptimized: false
   },
   compress: true,
   poweredByHeader: false,
@@ -76,8 +76,8 @@ module.exports = {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
-          chunks: 'all',
-        },
+          chunks: 'all'
+        }
       };
     }
 
@@ -90,108 +90,109 @@ module.exports = {
         headers: [
           {
             key: 'Link',
-            value: '</.well-known/api-catalog>; rel="api-catalog"',
+            value: '</.well-known/api-catalog>; rel="api-catalog"'
           },
           {
             key: 'Link',
-            value: '</llms.txt>; rel="service-doc"',
+            value: '</llms.txt>; rel="service-doc"'
           },
           {
             key: 'Link',
-            value: '</llms-full.txt>; rel="service-doc"; type="text/plain"',
+            value: '</llms-full.txt>; rel="service-doc"; type="text/plain"'
           },
           {
             key: 'Link',
-            value: '</api/markdown>; rel="service-desc"; type="text/markdown"',
+            value: '</api/markdown>; rel="service-desc"; type="text/markdown"'
           },
           {
             key: 'Link',
-            value: '</rss.xml>; rel="alternate"',
+            value: '</rss.xml>; rel="alternate"'
           },
           {
             key: 'Link',
-            value: '</.well-known/did.json>; rel="describedby"',
+            value: '</.well-known/did.json>; rel="describedby"'
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'DENY'
           },
           {
             key: 'X-Content-Type-Options',
-            value: 'nosniff',
+            value: 'nosniff'
           },
           {
             key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
+            value: 'origin-when-cross-origin'
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            value: 'camera=(), microphone=(), geolocation=()'
           },
           {
             key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-        ],
+            value: 'on'
+          }
+        ]
       },
       {
         source: '/static/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       },
       {
         source: '/_next/static/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       },
       {
         source: '/_next/image(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       },
       {
         source: '/api/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, s-maxage=3600',
-          },
-        ],
+            value: 'public, max-age=3600, s-maxage=3600'
+          }
+        ]
       },
       {
-        source: '/:path*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)',
+        source:
+          '/:path*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
       },
       {
         source: '/uploads/(.*)',
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
+            value: 'public, max-age=31536000, immutable'
           },
           {
             key: 'Access-Control-Allow-Origin',
-            value: '*',
-          },
-        ],
-      },
+            value: '*'
+          }
+        ]
+      }
     ];
-  },
+  }
 };

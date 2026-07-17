@@ -16,19 +16,34 @@
 }
 
 @layer base {
-  html, body {
-    font-family: "lores-9-plus-narrow", system-ui, sans-serif !important;
+  html,
+  body {
+    font-family: 'lores-9-plus-narrow', system-ui, sans-serif !important;
     font-display: swap;
   }
-  
+
   /* Apply font to all text elements using Typekit class */
-  h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select, label {
-    font-family: "lores-9-plus-narrow", system-ui, sans-serif !important;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    font-family: 'lores-9-plus-narrow', system-ui, sans-serif !important;
   }
-  
+
   /* Use Typekit class for better compatibility */
   .tk-lores-9-plus-narrow {
-    font-family: "lores-9-plus-narrow", sans-serif !important;
+    font-family: 'lores-9-plus-narrow', sans-serif !important;
   }
 }
 
@@ -132,8 +147,13 @@ html {
 }
 
 /* Hide scrollbars for inner scroll area of code blocks */
-.prose pre > code::-webkit-scrollbar { display: none; }
-.prose pre > code { -ms-overflow-style: none; scrollbar-width: none; }
+.prose pre > code::-webkit-scrollbar {
+  display: none;
+}
+.prose pre > code {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
 .mdx-marker {
   @apply block px-4 -mx-4 bg-gray-100 border-l-4 border-blue-500 dark:bg-gray-800;
@@ -226,33 +246,99 @@ input[type='email'] {
 
 /* Teal ghost: mostly rests at -3px, twitches left in short bursts */
 @keyframes glitchTeal {
-  0%, 8%   { transform: translateX(-3px); opacity: 0.5; }
-  9%       { transform: translateX(-8px); opacity: 0.7; }
-  10%      { transform: translateX(-1px); opacity: 0.4; }
-  11%, 29% { transform: translateX(-3px); opacity: 0.5; }
-  30%      { transform: translateX(-9px); opacity: 0.75; }
-  31%      { transform: translateX(-2px); opacity: 0.45; }
-  32%, 66% { transform: translateX(-3px); opacity: 0.5; }
-  67%      { transform: translateX(-6px); opacity: 0.65; }
-  68%, 100%{ transform: translateX(-3px); opacity: 0.5; }
+  0%,
+  8% {
+    transform: translateX(-3px);
+    opacity: 0.5;
+  }
+  9% {
+    transform: translateX(-8px);
+    opacity: 0.7;
+  }
+  10% {
+    transform: translateX(-1px);
+    opacity: 0.4;
+  }
+  11%,
+  29% {
+    transform: translateX(-3px);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateX(-9px);
+    opacity: 0.75;
+  }
+  31% {
+    transform: translateX(-2px);
+    opacity: 0.45;
+  }
+  32%,
+  66% {
+    transform: translateX(-3px);
+    opacity: 0.5;
+  }
+  67% {
+    transform: translateX(-6px);
+    opacity: 0.65;
+  }
+  68%,
+  100% {
+    transform: translateX(-3px);
+    opacity: 0.5;
+  }
 }
 
 /* Red ghost: mirrors right, desynced timing for a torn look */
 @keyframes glitchRed {
-  0%, 14%  { transform: translateX(3px); opacity: 0.5; }
-  15%      { transform: translateX(9px); opacity: 0.75; }
-  16%      { transform: translateX(1px); opacity: 0.4; }
-  17%, 44% { transform: translateX(3px); opacity: 0.5; }
-  45%      { transform: translateX(7px); opacity: 0.7; }
-  46%      { transform: translateX(2px); opacity: 0.45; }
-  47%, 79% { transform: translateX(3px); opacity: 0.5; }
-  80%      { transform: translateX(8px); opacity: 0.7; }
-  81%, 100%{ transform: translateX(3px); opacity: 0.5; }
+  0%,
+  14% {
+    transform: translateX(3px);
+    opacity: 0.5;
+  }
+  15% {
+    transform: translateX(9px);
+    opacity: 0.75;
+  }
+  16% {
+    transform: translateX(1px);
+    opacity: 0.4;
+  }
+  17%,
+  44% {
+    transform: translateX(3px);
+    opacity: 0.5;
+  }
+  45% {
+    transform: translateX(7px);
+    opacity: 0.7;
+  }
+  46% {
+    transform: translateX(2px);
+    opacity: 0.45;
+  }
+  47%,
+  79% {
+    transform: translateX(3px);
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateX(8px);
+    opacity: 0.7;
+  }
+  81%,
+  100% {
+    transform: translateX(3px);
+    opacity: 0.5;
+  }
 }
 
 @media (max-width: 768px) {
-  .glitch-teal { transform: translateX(-2px); }
-  .glitch-red { transform: translateX(2px); }
+  .glitch-teal {
+    transform: translateX(-2px);
+  }
+  .glitch-red {
+    transform: translateX(2px);
+  }
 }
 
 .pixel-grid {
@@ -299,9 +385,15 @@ input[type='email'] {
 }
 
 @keyframes simplePop {
-  0% { transform: scale(1) translateZ(0); }
-  50% { transform: scale(1.2) translateZ(0); }
-  100% { transform: scale(1) translateZ(0); }
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    transform: scale(1.2) translateZ(0);
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+  }
 }
 
 /* Simplified ripple effect */
@@ -310,9 +402,15 @@ input[type='email'] {
 }
 
 @keyframes simpleRipple {
-  0% { transform: scale(1) translateZ(0); }
-  50% { transform: scale(1.05) translateZ(0); }
-  100% { transform: scale(1) translateZ(0); }
+  0% {
+    transform: scale(1) translateZ(0);
+  }
+  50% {
+    transform: scale(1.05) translateZ(0);
+  }
+  100% {
+    transform: scale(1) translateZ(0);
+  }
 }
 
 /* Responsive adjustments */
@@ -329,14 +427,23 @@ input[type='email'] {
   column-fill: balance;
   contain: layout;
 }
-@media (min-width: 640px) { /* sm */
-  .masonry { column-count: 2; }
+@media (min-width: 640px) {
+  /* sm */
+  .masonry {
+    column-count: 2;
+  }
 }
-@media (min-width: 1024px) { /* lg */
-  .masonry { column-count: 3; }
+@media (min-width: 1024px) {
+  /* lg */
+  .masonry {
+    column-count: 3;
+  }
 }
-@media (min-width: 1280px) { /* xl */
-  .masonry { column-count: 4; }
+@media (min-width: 1280px) {
+  /* xl */
+  .masonry {
+    column-count: 4;
+  }
 }
 .masonry-item {
   break-inside: avoid;
@@ -398,7 +505,7 @@ input[type='email'] {
     align-items: center !important;
     justify-content: center !important;
   }
-  
+
   .lightbox-container .lightbox-image {
     width: 100% !important;
     height: 100% !important;

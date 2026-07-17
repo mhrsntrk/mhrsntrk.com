@@ -17,7 +17,7 @@ export default function ENSResolver() {
     if (!input.trim()) {
       return;
     }
-    
+
     setLoading(true);
     setProviderUsed('');
     try {
@@ -82,10 +82,13 @@ export default function ENSResolver() {
           >
             ethers
           </a>{' '}
-          library to resolve the ENS domains with multiple provider fallbacks for reliability.
+          library to resolve the ENS domains with multiple provider fallbacks
+          for reliability.
         </p>
         <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-800 rounded-md">
-          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Provider Status:</h3>
+          <h3 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Provider Status:
+          </h3>
           <div className="flex flex-wrap gap-2">
             {providerStatus.map((provider) => (
               <span

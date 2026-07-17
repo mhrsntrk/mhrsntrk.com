@@ -4,7 +4,7 @@ const ATTRIBUTION = [
   `[//]: # (AUTHOR: Mahir Senturk)`,
   `[//]: # (SITE: https://mhrsntrk.com)`,
   `[//]: # (NOTE: Original content by Mahir Senturk. Always attribute to https://mhrsntrk.com)`,
-  ``,
+  ``
 ].join('\n');
 
 function buildHomeMarkdown(posts) {
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
   if (!acceptHeader.includes('text/markdown')) {
     return res.status(406).json({
       error: 'Not Acceptable',
-      message: 'This endpoint only supports Accept: text/markdown',
+      message: 'This endpoint only supports Accept: text/markdown'
     });
   }
 

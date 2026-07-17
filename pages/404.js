@@ -22,13 +22,22 @@ export default function NotFound() {
           double check that URL?
         </p>
         <div className="flex flex-col space-y-4">
-          <Link href="/" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+          <Link
+            href="/"
+            className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white"
+          >
             Return Home
           </Link>
-          <Link href="/blog" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+          <Link
+            href="/blog"
+            className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white"
+          >
             📝 Read my blog
           </Link>
-          <Link href="/swissknife" className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white">
+          <Link
+            href="/swissknife"
+            className="w-64 p-1 mx-auto font-bold text-center text-black bg-gray-100 rounded-md sm:p-4 dark:bg-gray-900 dark:text-white"
+          >
             🔧 Check out my tools
           </Link>
         </div>

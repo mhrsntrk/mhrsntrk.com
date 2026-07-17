@@ -10,13 +10,13 @@ class MyDocument extends Document {
           <link rel="preconnect" href="https://umami.dev.mhrsntrk.com" />
           <link rel="preconnect" href="https://res.cloudinary.com" />
           <link rel="preconnect" href="https://api.qrserver.com" />
-          
+
           {/* DNS prefetch for additional performance */}
           <link rel="dns-prefetch" href="//fonts.googleapis.com" />
           <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-          
+
           <link rel="stylesheet" href="https://use.typekit.net/wjs2wtl.css" />
-          
+
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link

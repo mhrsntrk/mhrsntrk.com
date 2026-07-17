@@ -96,9 +96,9 @@ export default function Qroxy() {
           .
         </p>
         <p className="mb-4 text-gray-600 dark:text-gray-400">
-          Unlike a regular (static) QR code, a dynamic QR code points to a
-          short redirect URL—so you can change where it leads anytime, even
-          after the code is printed on packaging, posters or business cards.
+          Unlike a regular (static) QR code, a dynamic QR code points to a short
+          redirect URL—so you can change where it leads anytime, even after the
+          code is printed on packaging, posters or business cards.
         </p>
         <ul className="flex w-full border-b">
           <li className="w-1/2 mr-1">

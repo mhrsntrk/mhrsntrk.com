@@ -23,15 +23,11 @@ function App({ Component, pageProps }) {
 
       console.log(asciiArt);
       console.log(
-        '%cHey there 👋🏻 Let\'s connect:',
+        "%cHey there 👋🏻 Let's connect:",
         'color: #ef4444; font-size: 14px; font-weight: bold;'
       );
-      console.log(
-        '   LinkedIn: https://linkedin.com/in/mahirsenturk'
-      );
-      console.log(
-        '   Twitter: https://x.com/mhrsntrk'
-      )
+      console.log('   LinkedIn: https://linkedin.com/in/mahirsenturk');
+      console.log('   Twitter: https://x.com/mhrsntrk');
     }
   }, []);
 

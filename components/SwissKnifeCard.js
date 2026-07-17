@@ -4,10 +4,22 @@ const blurDataURL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k=';
 
 const icons = {
-  crypto: { src: '/static/icons/coinpaprika.png', alt: 'Crypto ticker tool icon' },
-  starmap: { src: '/static/icons/starmap.png', alt: 'Starmap generator tool icon' },
-  qrcode: { src: '/static/icons/qrcode.png', alt: 'QR code generator tool icon' },
-  fingerprint: { src: '/static/icons/fingerprint.png', alt: 'DID resolver tool icon' },
+  crypto: {
+    src: '/static/icons/coinpaprika.png',
+    alt: 'Crypto ticker tool icon'
+  },
+  starmap: {
+    src: '/static/icons/starmap.png',
+    alt: 'Starmap generator tool icon'
+  },
+  qrcode: {
+    src: '/static/icons/qrcode.png',
+    alt: 'QR code generator tool icon'
+  },
+  fingerprint: {
+    src: '/static/icons/fingerprint.png',
+    alt: 'DID resolver tool icon'
+  },
   ens: { src: '/static/icons/ens.png', alt: 'ENS resolver tool icon' },
   'fortune-cookie': {
     src: '/static/icons/fortunecookie.png',
@@ -62,7 +74,9 @@ export default function SwissKnifeCard({
               height={height}
               width={width}
               src={iconConfig.src}
-              className={`object-contain w-full h-full ${iconConfig.className || ''}`}
+              className={`object-contain w-full h-full ${
+                iconConfig.className || ''
+              }`}
               priority={false}
               loading="lazy"
               placeholder="blur"

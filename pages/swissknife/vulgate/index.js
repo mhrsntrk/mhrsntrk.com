@@ -145,7 +145,9 @@ export default function VulgateIndex({ entries, themes }) {
               key={t.name}
               type="button"
               onClick={() => pickTheme(t.name)}
-              className={`${plexMono.className} px-3 py-1 text-xs tracking-wider uppercase border ${
+              className={`${
+                plexMono.className
+              } px-3 py-1 text-xs tracking-wider uppercase border ${
                 activeTheme === t.name
                   ? 'border-red-500 text-red-500'
                   : 'border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400'
