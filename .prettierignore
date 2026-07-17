@@ -1,2 +1,19 @@
+# Build output
 .next
 .vercel
+
+# Dependencies & lockfiles
+node_modules
+package-lock.json
+
+# Generated artifacts & static data
+public/sitemap.xml
+public/rss.xml
+public/blog.md
+public/blog/
+public/**/*.json
+public/**/*.webmanifest
+
+# Authored content (markdown/data — leave formatting to the author)
+content
+blog-backup

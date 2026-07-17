@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
@@ -36,9 +37,9 @@ export default function SwissKnife() {
             try to add what I learn while I am building to test them on live. I
             also write blog posts about how to use and how to implement them on
             my{' '}
-            <a href="/blog" className="hover:underline">
+            <Link href="/blog" className="hover:underline">
               blog
-            </a>
+            </Link>
             .
           </p>
         </div>

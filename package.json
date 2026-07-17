@@ -16,6 +16,9 @@
     "build": "npm run validate:vulgate && next build",
     "dev": "next",
     "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write . --ignore-path .prettierignore",
+    "format:check": "prettier --check . --ignore-path .prettierignore",
     "validate:vulgate": "node scripts/vulgate-validate.mjs",
     "vulgate:new": "node scripts/vulgate-new-entry.mjs"
   },
@@ -49,6 +52,8 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.3.1",
     "autoprefixer": "^10.0.4",
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^13.5.7",
     "globby": "11.0.1",
     "image-size": "0.9.3",
     "postcss": "^8.5.15",

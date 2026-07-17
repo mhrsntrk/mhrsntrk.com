@@ -3,7 +3,7 @@ import Container from '@/components/Container';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 
-export default function qroxy() {
+export default function Qroxy() {
   const [activeTab, setActiveTab] = useState(1);
   const [checked, setChecked] = useState(false);
   const [generationName, setGenerationName] = useState('');
@@ -42,7 +42,6 @@ export default function qroxy() {
       method: 'POST'
     });
     const response = await res.json();
-    console.log(response.url);
     setGeneratedURL(response.url);
     setGeneratedQR(response.qr);
   };
@@ -53,7 +52,6 @@ export default function qroxy() {
       updateUUID,
       updateTarget
     };
-    console.log(qroxyBase);
     const res = await fetch(`${qroxyBase}/update`, {
       body: JSON.stringify(data),
       headers: {
@@ -62,7 +60,6 @@ export default function qroxy() {
       method: 'POST'
     });
     const response = await res.json();
-    console.log(response.message);
     setUpdatedMessage(response.message);
   };
 
