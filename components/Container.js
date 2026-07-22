@@ -74,6 +74,12 @@ export default function Container({ children }) {
               Swiss Knife
             </Link>
             <Link
+              href="/reports"
+              className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+            >
+              Reports
+            </Link>
+            <Link
               href="/blog"
               className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
             >

@@ -13,6 +13,16 @@ export default function handler(req, res) {
             href: 'https://mhrsntrk.com/api/markdown',
             type: 'text/markdown',
             title: 'Markdown API'
+          },
+          {
+            href: 'https://mhrsntrk.com/reports/rss.xml',
+            type: 'application/rss+xml',
+            title: 'Reports Feed'
+          },
+          {
+            href: 'https://mhrsntrk.com/reports.md',
+            type: 'text/markdown',
+            title: 'Reports Index (markdown)'
           }
         ],
         'service-doc': [
@@ -20,6 +30,11 @@ export default function handler(req, res) {
             href: 'https://mhrsntrk.com/blog',
             type: 'text/html',
             title: 'Blog'
+          },
+          {
+            href: 'https://mhrsntrk.com/reports',
+            type: 'text/html',
+            title: 'Reports'
           }
         ],
         'service-desc': [
@@ -27,6 +42,11 @@ export default function handler(req, res) {
             href: 'https://mhrsntrk.com/llms.txt',
             type: 'text/plain',
             title: 'LLM-friendly site description'
+          },
+          {
+            href: 'https://mhrsntrk.com/reports-full.txt',
+            type: 'text/plain',
+            title: 'Full text of every report'
           }
         ]
       }

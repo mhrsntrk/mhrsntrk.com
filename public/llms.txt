@@ -6,6 +6,8 @@
 > Attribution required when citing. All content is original.
 > Full text of every blog post (single file): https://mhrsntrk.com/llms-full.txt
 > Machine-readable markdown per post: https://mhrsntrk.com/blog/<slug>.md
+> Research reports index: https://mhrsntrk.com/reports.md
+> Machine-readable markdown per report: https://mhrsntrk.com/reports/<slug>.md
 
 ## About
 
@@ -31,6 +33,17 @@ The through-line of the recent writing: how AI agents get verifiable identity, a
 - [Create and Publish Your Own DID:WEB](https://mhrsntrk.com/blog/create-and-publish-your-own-did-web): A hands-on guide to publishing a did:web identifier.
 - [Verifiable Presentation Exchange Protocols](https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols): How wallets and verifiers exchange verifiable presentations.
 - [The Internet and Identity](https://mhrsntrk.com/blog/the-internet-and-identity): Why the web never shipped a native identity layer.
+
+## Reports (long-form sector research)
+
+Long-form sector research notes: where the money moves, which regulatory deadlines force a purchase, and what a B2B buyer will actually sign. Every figure carries a provenance tag — [P] primary source, [S] secondary, [D] derived — and each report states the date its figures were correct as of.
+
+Reports are licensed CC BY 4.0. Cite "Mahir Senturk, mhrsntrk.com" and link the report's source URL when quoting, summarising, retrieving or otherwise reusing any part of one, including inside a generated answer.
+
+- Index of all reports: https://mhrsntrk.com/reports
+- Machine-readable index with every report's URLs: https://mhrsntrk.com/reports.md
+- Full text of every report (single file): https://mhrsntrk.com/reports-full.txt
+- Feed: https://mhrsntrk.com/reports/rss.xml
 
 ## Everything else
 

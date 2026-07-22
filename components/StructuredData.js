@@ -104,6 +104,77 @@ export const BlogSchema = (posts) => ({
   }))
 });
 
+// Reports are long-form sector research notes, not blog posts. Each published
+// document already carries its own JSON-LD Report block; this mirrors it at the
+// canonical URL, which is what crawlers actually fetch.
+export const ReportSchema = (report) => {
+  const url = `https://mhrsntrk.com${report.page}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Report',
+    headline: report.title,
+    description: report.description,
+    url,
+    image: `https://mhrsntrk.com${report.og}`,
+    datePublished: report.date,
+    dateModified: report.updated || report.date,
+    inLanguage: 'en',
+    isAccessibleForFree: true,
+    keywords: report.tags,
+    license: 'https://creativecommons.org/licenses/by/4.0/',
+    author: {
+      '@type': 'Person',
+      name: 'Mahir Senturk',
+      url: 'https://mhrsntrk.com'
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Mahir Senturk',
+      url: 'https://mhrsntrk.com'
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url
+    }
+  };
+};
+
+export const BreadcrumbSchema = (trail) => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: trail.map((crumb, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: crumb.name,
+    item: `https://mhrsntrk.com${crumb.path}`
+  }))
+});
+
+export const ReportsCollectionSchema = (reports) => ({
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Reports',
+  url: 'https://mhrsntrk.com/reports',
+  description:
+    'Long-form sector research notes: where the money moves, what regulation forces, and what a buyer will actually sign.',
+  author: {
+    '@type': 'Person',
+    name: 'Mahir Senturk'
+  },
+  hasPart: reports.map((report) => ({
+    '@type': 'Report',
+    headline: report.title,
+    description: report.description,
+    url: `https://mhrsntrk.com${report.page}`,
+    datePublished: report.date,
+    author: {
+      '@type': 'Person',
+      name: 'Mahir Senturk'
+    }
+  }))
+});
+
 export const BlogPostingSchema = (post) => {
   const url = `https://mhrsntrk.com/blog/${post.slug}`;
   const wordCount = post.rawContent

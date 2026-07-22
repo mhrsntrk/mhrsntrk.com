@@ -32,6 +32,16 @@ module.exports = {
       {
         source: '/blog.md',
         destination: '/api/markdown'
+      },
+      // Reports are published as static HTML: the authored document with the
+      // reader controls appended at build time (scripts/generate-report-
+      // artifacts.js). Serving the file itself, rather than rendering it
+      // through a React page, is what makes the full text indexable at the
+      // canonical URL. This runs afterFiles, so /reports (the index page),
+      // /reports/rss.xml and /reports/<slug>.md all still win.
+      {
+        source: '/reports/:slug',
+        destination: '/reports/:slug/index.html'
       }
     ];
   },
@@ -67,6 +77,7 @@ module.exports = {
     if (isServer) {
       require('./scripts/generate-sitemap');
       require('./scripts/generate-blog-artifacts');
+      require('./scripts/generate-report-artifacts');
     }
 
     // Simple bundle optimization
@@ -140,6 +151,19 @@ module.exports = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        // The as-authored copy of a report, kept for anyone who wants to diff
+        // what was published against what was written. It is the same content
+        // as /reports/<slug>, so keep it out of the index and let the
+        // canonical URL carry the report on its own.
+        source: '/reports/:slug/source.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, follow'
           }
         ]
       },

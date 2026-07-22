@@ -7,6 +7,13 @@ public/sitemap.xml
 public/rss.xml
 public/blog.md
 public/blog/
+# Report artifacts baked by scripts/generate-report-artifacts.js at build time.
+# The authored files (source.html, og.png, <slug>.md) ARE tracked — they are
+# the inputs. Everything below is regenerated from them on every build.
+public/reports.md
+public/reports-full.txt
+public/reports/rss.xml
+public/reports/*/index.html
 .vercel
 .playwright-cli
 .codex/
@@ -16,6 +23,7 @@ blog-backup/
 scripts/*
 !scripts/generate-sitemap.js
 !scripts/generate-blog-artifacts.js
+!scripts/generate-report-artifacts.js
 !scripts/vulgate-validate.mjs
 !scripts/vulgate-new-entry.mjs
 

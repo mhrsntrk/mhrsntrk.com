@@ -8,6 +8,7 @@ Disallow: /admin/
 
 # Allow important pages
 Allow: /blog/
+Allow: /reports/
 Allow: /agent-identity
 Allow: /swissknife/
 Allow: /speaking/
@@ -15,6 +16,9 @@ Allow: /gear/
 Allow: /tools/
 Allow: /llms.txt
 Allow: /llms-full.txt
+# Machine-readable report surfaces (index, full text, per-report markdown)
+Allow: /reports.md
+Allow: /reports-full.txt
 
 # Allow AI-readable markdown endpoint (clean content for LLM fetchers)
 Allow: /api/markdown/

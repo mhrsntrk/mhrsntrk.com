@@ -17,6 +17,16 @@ class MyDocument extends Document {
 
           <link rel="stylesheet" href="https://use.typekit.net/wjs2wtl.css" />
 
+          {/* Reports are a separate content type with their own feed, so it is
+              discoverable site-wide rather than only from /reports. The blog
+              feed is declared in next-seo.config.js. */}
+          <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="mhrsntrk Reports"
+            href="https://mhrsntrk.com/reports/rss.xml"
+          />
+
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link

@@ -22,6 +22,10 @@ function buildHeader(posts) {
     '',
     'This file contains the full text of every blog post. Each post is delimited by',
     'a horizontal rule and carries its own canonical URL, publish date, and update date.',
+    '',
+    'Long-form research reports are a separate content type and are not included',
+    'here. Their full text is at https://mhrsntrk.com/reports-full.txt, with an',
+    'index at https://mhrsntrk.com/reports.md',
     ''
   ].join('\n');
 }

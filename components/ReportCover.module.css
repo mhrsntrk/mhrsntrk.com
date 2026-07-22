@@ -1,0 +1,119 @@
+/*
+ * Generated cover for a report in the /reports list.
+ *
+ * Deliberately not the OG card: that one leads with the title, which already
+ * sits directly below it in the list. This one carries the signal instead —
+ * sector, horizon, and the report's headline figures — in the report's own
+ * visual language, so a row reads as "a document" at a glance.
+ *
+ * Always dark, in both site themes: it is a thumbnail of a dark-only document,
+ * and flipping it would misrepresent what the reader is about to open.
+ */
+
+.cover {
+  --paper: #161616;
+  --mast: #0d0d0d;
+  --ink: #ededed;
+  --mute: #a6a6a6;
+  --hair: #383838;
+  --red: #ef4444;
+  /* Kept quiet on purpose: the grid is texture behind the figures, not a
+     pattern competing with them. */
+  --grid: #2a2a2a;
+
+  position: relative;
+  overflow: hidden;
+  padding: 18px 20px 16px;
+  background-color: var(--paper);
+  /* The pixel-grid motif, same 8px cell the report uses. */
+  background-image: radial-gradient(var(--grid) 1px, transparent 1px);
+  background-size: 8px 8px;
+  color: var(--ink);
+}
+
+/* Red rule along the top edge, mirroring the report masthead. */
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 3px;
+  background: var(--red);
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.sector {
+  color: var(--red);
+}
+
+.period {
+  color: var(--mute);
+  white-space: nowrap;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 12px 18px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.value {
+  font-size: 20px;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  overflow-wrap: break-word;
+}
+
+.label {
+  font-size: 10.5px;
+  line-height: 1.4;
+  color: var(--mute);
+  letter-spacing: 0.02em;
+}
+
+/* Fallback when a report declares no stats: the tag row carries the strip so
+   the cover never renders as an empty band. */
+.quiet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11px;
+  color: var(--mute);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.quiet span {
+  padding: 2px 7px;
+  border: 1px solid var(--hair);
+}
+
+@media (max-width: 520px) {
+  .cover {
+    padding: 14px 14px 12px;
+  }
+
+  .value {
+    font-size: 17px;
+  }
+}

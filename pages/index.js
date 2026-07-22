@@ -1,6 +1,7 @@
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
+import ReportCard from '@/components/ReportCard';
 import PodcastCard from '@/components/PodcastCard';
 import ContactCard from '@/components/ContactCard';
 import ContactInfo from '@/components/ContactInfo';
@@ -12,6 +13,11 @@ import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
 import { getAllPostsForHome, getAllPostsForBlog } from '@/lib/strapi';
+import { getAllReports } from '@/lib/reports';
+
+// Reports shown on the homepage. The registry is the source of truth, so a new
+// report appears here automatically and the oldest drops off.
+const HOME_REPORT_COUNT = 4;
 
 // Dynamically import the animation component for better performance
 const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
@@ -19,7 +25,7 @@ const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
   loading: () => <div className="h-32" /> // Placeholder while loading
 });
 
-export default function Home({ allPosts, totalPosts }) {
+export default function Home({ allPosts, totalPosts, reports, totalReports }) {
   return (
     <>
       <StructuredData data={PersonSchema} />
@@ -112,9 +118,31 @@ export default function Home({ allPosts, totalPosts }) {
             width={120}
             height={120}
           />
+          {reports.length > 0 && (
+            <>
+              <Link
+                href="/reports"
+                className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white group"
+              >
+                <h3>
+                  <span className="hover:underline">Reports</span>{' '}
+                  <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+                    [{totalReports} report{totalReports === 1 ? '' : 's'}]
+                  </span>
+                </h3>
+              </Link>
+
+              <div className="w-full mb-8 space-y-10">
+                {reports.map((report) => (
+                  <ReportCard key={report.slug} report={report} />
+                ))}
+              </div>
+            </>
+          )}
+
           <Link
             href="/swissknife"
-            className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
+            className="flex mt-2 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white"
           >
             <h3 className="hover:underline">Swiss Knife </h3>
           </Link>
@@ -161,30 +189,9 @@ export default function Home({ allPosts, totalPosts }) {
             width="120"
             height="120"
           />
-          <SwissKnifeCard
-            title="qroxy - Dynamic QR Code Tool"
-            description="Create dynamic QR codes using the connected REST API and mongoDB"
-            href="swissknife/qroxy"
-            icon="qrcode"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="ENS Resolver"
-            description="This tool will allow you to resolve an Ethereum Name Service (ENS) domain."
-            href="swissknife/ens-resolver"
-            icon="ens"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Crypto Ticker"
-            description="View the cryptocurrencies that I currently track on this page."
-            href="swissknife/crypto"
-            icon="crypto"
-            width="120"
-            height="120"
-          />
+          {/* qroxy, ENS Resolver and Crypto Ticker live on /swissknife. They
+              were dropped from this page to keep it short; the section heading
+              above links to the full set. */}
           <div id="contact">
             <h3 className="flex mt-8 mb-6 text-3xl font-bold tracking-tight text-black md:text-4xl dark:text-white">
               Contact me{' '}
@@ -232,6 +239,16 @@ export default function Home({ allPosts, totalPosts }) {
   );
 }
 
+// Shared by both return paths below so the homepage never loses its reports
+// just because the CMS was unreachable.
+function reportProps() {
+  const all = getAllReports();
+  return {
+    reports: all.slice(0, HOME_REPORT_COUNT),
+    totalReports: all.length
+  };
+}
+
 export async function getStaticProps() {
   try {
     // During initial build, wait for Strapi to wake up
@@ -253,7 +270,8 @@ export async function getStaticProps() {
     return {
       props: {
         allPosts: allPosts || [],
-        totalPosts: allBlogPosts?.length || 0
+        totalPosts: allBlogPosts?.length || 0,
+        ...reportProps()
       },
       // Revalidate every hour, but serve cached page if revalidation fails
       // Longer interval reduces wake-up frequency for sleeping Strapi
@@ -270,10 +288,12 @@ export async function getStaticProps() {
       throw error;
     }
 
+    // Reports are local, so they still render even when Strapi is asleep.
     return {
       props: {
         allPosts: [],
-        totalPosts: 0
+        totalPosts: 0,
+        ...reportProps()
       },
       revalidate: 60
     };

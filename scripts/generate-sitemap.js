@@ -5,6 +5,8 @@ const prettier = require('prettier');
 
 // Import the Strapi functions
 const { getAllPostsForBlog } = require('../lib/strapi');
+// Reports come from the static registry, not from a CMS.
+const { getAllReports } = require('../lib/reports');
 
 // Returns a valid ISO string for a parseable date, or null.
 function safeISO(value) {
@@ -81,6 +83,24 @@ function safeISO(value) {
                             <loc>${`https://mhrsntrk.com/blog/${post.slug}`}</loc>
                             ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
                             <changefreq>monthly</changefreq>
+                            <priority>0.8</priority>
+                        </url>
+                    `;
+              })
+              .join('')}
+            <url>
+                <loc>https://mhrsntrk.com/reports</loc>
+                <changefreq>monthly</changefreq>
+                <priority>0.9</priority>
+            </url>
+            ${getAllReports()
+              .map((report) => {
+                const lastmod = safeISO(report.updated) || safeISO(report.date);
+                return `
+                        <url>
+                            <loc>${`https://mhrsntrk.com${report.page}`}</loc>
+                            ${lastmod ? `<lastmod>${lastmod}</lastmod>` : ''}
+                            <changefreq>yearly</changefreq>
                             <priority>0.8</priority>
                         </url>
                     `;
