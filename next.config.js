@@ -159,7 +159,22 @@ module.exports = {
         // what was published against what was written. It is the same content
         // as /reports/<slug>, so keep it out of the index and let the
         // canonical URL carry the report on its own.
+        //
+        // Both paths are listed because Vercel's clean URLs 308 the .html away
+        // (/source.html -> /source) and headers matched on the pre-redirect
+        // path do not carry over to the destination. Matching only the .html
+        // form left the served copy indexable in production while looking
+        // correct locally, where no such redirect happens.
         source: '/reports/:slug/source.html',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'noindex, follow'
+          }
+        ]
+      },
+      {
+        source: '/reports/:slug/source',
         headers: [
           {
             key: 'X-Robots-Tag',
