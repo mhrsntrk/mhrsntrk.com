@@ -8,11 +8,12 @@ export default function Speaking() {
   return (
     <Container>
       <NextSeo
-        title="Speaking – mhrsntrk"
+        title="Speaking: Talks, Panels and Podcasts – mhrsntrk"
+        description="Conferences, panels and podcasts where I have spoken about digital identity, self-sovereign identity, web3 and energy markets, with links to each recording."
         canonical="https://mhrsntrk.com/speaking"
         openGraph={{
           url: 'https://mhrsntrk.com/speaking',
-          title: 'Speaking – mhrsntrk',
+          title: 'Speaking: Talks, Panels and Podcasts – mhrsntrk',
           description: `Conferences, podcasts, and events where I've spoken about web3, self-sovereign identity, and energy markets.`
         }}
       />

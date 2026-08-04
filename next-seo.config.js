@@ -1,4 +1,7 @@
-const title = 'Mahir Senturk';
+// Doubles as the homepage <title>, so it carries what the page is about, not
+// only who it belongs to. "Mahir Senturk" alone is 13 characters of a 60
+// character slot and matches nothing anyone searches for.
+const title = 'Mahir Senturk — Digital Identity, SSI and eIDAS';
 const description =
   'Senior Product Manager at The Hashgraph Group, building self-sovereign identity (SSI) and decentralized systems on blockchain. Notes on identity and web3.';
 

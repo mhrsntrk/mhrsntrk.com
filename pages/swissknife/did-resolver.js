@@ -60,13 +60,14 @@ export default function DIDResolver() {
   return (
     <Container>
       <NextSeo
-        title="DID Resolver – mhrsntrk"
-        description={`You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web, did:ethr, and did:key. Includes comprehensive analysis and caching.`}
+        title="DID Resolver: did:web, did:key, did:ethr – mhrsntrk"
+        description="Fetch the DID document behind any Decentralized Identifier. Supports did:web, did:ethr and did:key, with a breakdown of the keys and services it declares."
         canonical="https://mhrsntrk.com/swissknife/did-resolver"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/did-resolver',
-          title: 'DID Resolver – mhrsntrk',
-          description: `You can use this tool to fetch the Decentralized Identifier (DID) document of the given DID. Currently supported methods are did:web, did:ethr, and did:key. Includes comprehensive analysis and caching.`
+          title: 'DID Resolver: did:web, did:key, did:ethr – mhrsntrk',
+          description:
+            'Fetch the DID document behind any Decentralized Identifier. Supports did:web, did:ethr and did:key, with a breakdown of the keys and services it declares.'
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">

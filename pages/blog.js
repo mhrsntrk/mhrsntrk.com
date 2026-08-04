@@ -1,5 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
 import Container from '@/components/Container';
@@ -8,7 +9,7 @@ import StructuredData, { BlogSchema } from '@/components/StructuredData';
 import { getAllPostsForBlog } from '@/lib/strapi';
 
 const url = 'https://mhrsntrk.com/blog';
-const title = 'Blog – mhrsntrk';
+const title = 'Blog: Digital Identity, eIDAS and SSI – mhrsntrk';
 const description =
   'Essays and tutorials on digital identity, eIDAS, self-sovereign identity and the systems behind them — along with code snippets and notes from things I build.';
 
@@ -50,6 +51,23 @@ export default function Blog({ allPosts }) {
   );
   const canPrev = currentPage > 1;
   const canNext = currentPage < totalPages;
+
+  // The archive below the pager, newest year first. The pager moves through
+  // the list in JavaScript, so a crawler only ever sees the first five posts
+  // and everything older ends up with no incoming link anywhere on the site.
+  const postsByYear = useMemo(() => {
+    const years = new Map();
+    allPosts.forEach((post) => {
+      const parsed = post.date ? new Date(post.date) : null;
+      const year =
+        parsed && !Number.isNaN(parsed.getTime())
+          ? String(parsed.getFullYear())
+          : 'Undated';
+      if (!years.has(year)) years.set(year, []);
+      years.get(year).push(post);
+    });
+    return [...years.entries()].sort((a, b) => b[0].localeCompare(a[0]));
+  }, [allPosts]);
 
   const goToPage = (page) => {
     if (page < 1 || page > totalPages) return;
@@ -166,6 +184,33 @@ export default function Blog({ allPosts }) {
               </div>
             </div>
           )}
+
+          {allPosts.length > 0 && (
+            <nav aria-label="Post archive" className="w-full mt-16">
+              <h2 className="mb-6 text-2xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
+                Archive
+              </h2>
+              {postsByYear.map(([year, posts]) => (
+                <div key={year} className="mb-8">
+                  <h3 className="mb-2 text-xs font-bold tracking-widest text-gray-400 uppercase dark:text-gray-500">
+                    {year}
+                  </h3>
+                  <ul className="space-y-1">
+                    {posts.map((post) => (
+                      <li key={post.slug}>
+                        <Link
+                          href={`/blog/${post.slug}`}
+                          className="text-gray-700 dark:text-gray-300 hover:underline hover:text-black dark:hover:text-white"
+                        >
+                          {post.title}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </nav>
+          )}
         </div>
       </Container>
     </div>
@@ -177,7 +222,17 @@ export async function getStaticProps() {
     // During initial build, wait for Strapi to wake up
     // During ISR revalidation, use shorter timeouts (cached page served if fails)
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-    const allPosts = await getAllPostsForBlog(isBuildTime);
+    const posts = await getAllPostsForBlog(isBuildTime);
+
+    // The index shows a title, an excerpt and a date. Shipping every post's
+    // full body with it put half a megabyte of markdown in the page payload
+    // for content this page never renders.
+    const allPosts = posts.map(({ title, slug, excerpt, date }) => ({
+      title,
+      slug,
+      excerpt,
+      date
+    }));
 
     // During revalidation (not build time), if we get empty posts, throw an error
     // This ensures Next.js serves the stale cached page instead of updating with empty data

@@ -8,14 +8,14 @@ export default function Uses({ allGears }) {
   return (
     <Container>
       <NextSeo
-        title="Tools – mhrsntrk"
-        description="The productivity tools and applications Mahir Senturk uses every day."
+        title="Tools: The Software I Use Every Day – mhrsntrk"
+        description="The software I keep coming back to: the apps, command line utilities and services I use every day for writing, building and running things."
         canonical="https://mhrsntrk.com/tools"
         openGraph={{
           url: 'https://mhrsntrk.com/tools',
-          title: 'Tools – mhrsntrk',
+          title: 'Tools: The Software I Use Every Day – mhrsntrk',
           description:
-            'The productivity tools and applications Mahir Senturk uses every day.'
+            'The software I keep coming back to: the apps, command line utilities and services I use every day for writing, building and running things.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">

@@ -8,13 +8,14 @@ export default function Uses({ allGears }) {
   return (
     <Container>
       <NextSeo
-        title="Gear – mhrsntrk"
-        description={` `}
+        title="Gear: The Hardware and Desk Setup I Use – mhrsntrk"
+        description="The hardware I actually work on every day: laptop, desk setup, peripherals, camera and the everyday carry that survived long enough to stay on the list."
         canonical="https://mhrsntrk.com/gear"
         openGraph={{
           url: 'https://mhrsntrk.com/gear',
-          title: 'Gear – mhrsntrk',
-          description: `Welcome to my personal blog. You can find all of my gear and setup that I am currently using.`
+          title: 'Gear: The Hardware and Desk Setup I Use – mhrsntrk',
+          description:
+            'The hardware I actually work on every day: laptop, desk setup, peripherals, camera and the everyday carry that survived long enough to stay on the list.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-8">

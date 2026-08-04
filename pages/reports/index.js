@@ -11,7 +11,7 @@ import StructuredData, {
 import { getAllReports, SITE_URL } from '@/lib/reports';
 
 const url = `${SITE_URL}/reports`;
-const title = 'Reports – mhrsntrk';
+const title = 'Reports: Long-Form Sector Research – mhrsntrk';
 const description =
   'Long-form sector research notes: where the money moves, what regulation forces, and what a B2B buyer will actually sign. Every figure source-tagged.';
 

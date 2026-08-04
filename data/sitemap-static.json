@@ -1,0 +1,826 @@
+{
+  "static": [
+    {
+      "loc": "https://mhrsntrk.com/agent-identity",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog",
+      "priority": "0.9",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/gear",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com",
+      "priority": "1.0",
+      "changefreq": "weekly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/photos",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/privacy",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/speaking",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/tools",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/reports",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/crypto",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/did-resolver",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/ens-resolver",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/fortune-cookie",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/qroxy",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/reports/cybersecurity-2027",
+      "lastmod": "2026-07-17T00:00:00.000Z",
+      "changefreq": "yearly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/acima-yetime",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/adam-sandik-esegi",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/alismadik-gotte-don-durmaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/ami-olanin-gami-olmaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/armudun-iyisini-ayilar-yer",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/at-yarragina-kelebek-konmus-gibi",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/ayagini-yorganina-gore-uzat",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/ayrani-yok-icmeye",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/azimle-sican-mermeri-deler",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bag-benim-belletirim",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bahtsiz-bedeviyi-kutup-ayisi-siker",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/baltaya-sap-olamamak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bilmiyorsan-gotunun-huyunu",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bir-sikilmedik-kulagimizin-arkasi-kaldi",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/biyik-bukule-bukule",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bok-boku-kenefte-bulur",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bos-kalan-bakkal-tasaklarini-tartar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/bugun-yedigin-hurmalar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/butun-kuslari-sikmissin-bi-kalmis-leylek",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/damlaya-damlaya-gol-olur",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/dert-sik-gibidir",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/deveyi-diken-insani-siken",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/dunya-sikime-minare-gotume",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/el-sikini-gormeyen",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/el-sikiyle-gerdege-girilmez",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/esegin-amina-su-kacirmak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/esek-olecek-siki-gunes-gorecek",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/fakirin-karni-doyunca",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/gamsizi-sikmisler",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/gonul-bu-ota-da-konar-boka-da",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/gonulsuz-sikisten",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/got-kispetten-cikinca",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/gote-kacan-semsiye-acilmaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/gotuyle-inatlasan-donuna-sicar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/hem-ayranim-dokulmesin",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/hesabini-bilmeyen-cavuslar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/hizli-giden-atin",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/iki-cambaz-bir-ipte-oynamaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/imam-osurursa-cemaat-sicar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/istemem-yan-cebime-koy",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kedi-her-zaman-kaymak-mi-yer",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kel-basa-simsir-tarak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kicini-tavana-vurmak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kizini-dovmeyen-dizini-dover",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/konya-ovasinda-sicacak-yer-bulamamak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kopruyu-gecene-kadar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/kuru-bok-gote-yapismaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/meyve-veren-agac-taslanir",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/oluyu-cok-yikarsan",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/osurukla-boya-boyamak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sadrazamin-sol-tasagindan-olma",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sakinilan-goze-cop-batar",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/saskin-ordek",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/senin-koyun-gutmuslugun",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/seytanin-sikini-bileyledigi-yer",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/siki-tasagina-denk-olmak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sikilmis-gotun-davasi-olmaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sikim-hiyar-diyene-tuzlukla-kosmak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sikinde-iki-damla-sut",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sikmeyecegin-esegin-onune-ot-atilmaz",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/sinek-avlamak",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/tay-sikildigi-cayiri-ozlermis",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/tedbirsiz-abdest-bozmaya-oturan",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    },
+    {
+      "loc": "https://mhrsntrk.com/swissknife/vulgate/tuzu-kuru",
+      "changefreq": "yearly",
+      "priority": "0.5"
+    }
+  ],
+  "blogSnapshot": [
+    {
+      "loc": "https://mhrsntrk.com/blog/boring-identity",
+      "lastmod": "2026-07-27T11:03:59.347Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/cash-is-the-offline-technology-nobody-replaced",
+      "lastmod": "2026-07-21T09:28:47.213Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/a-didweb-in-five-minutes",
+      "lastmod": "2026-07-20T06:30:18.126Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-age-verification-proof-you-can-lend-to-a-friend",
+      "lastmod": "2026-07-16T08:29:40.150Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/m-pesa-boring-technology-won",
+      "lastmod": "2026-07-15T07:14:20.745Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/remove-exif-from-iphone-photos-shortcut",
+      "lastmod": "2026-07-14T15:33:15.426Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/agent-identity-standards-map",
+      "lastmod": "2026-07-13T17:34:14.285Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/agents-are-doing-did-methods-all-over-again",
+      "lastmod": "2026-07-14T06:26:13.283Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/agent-privacy-liability-paradox",
+      "lastmod": "2026-07-10T04:13:07.247Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-2-fortune-cookie-issuer",
+      "lastmod": "2026-07-09T07:24:28.937Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
+      "lastmod": "2026-07-09T07:24:29.309Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/delegation-chain-accountability",
+      "lastmod": "2026-07-09T06:31:41.525Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/agent-authority-derives-from-owner",
+      "lastmod": "2026-07-08T09:09:13.478Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-workload-identity-trap",
+      "lastmod": "2026-07-07T09:43:38.180Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/why-api-keys-fail-agent-identity",
+      "lastmod": "2026-07-06T08:59:36.902Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/when-your-agent-dies",
+      "lastmod": "2026-06-30T14:08:09.354Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/ai-is-a-remake-machine",
+      "lastmod": "2026-06-25T12:57:17.971Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/chinas-realdid-is-the-biggest-did-deployment-on-earth",
+      "lastmod": "2026-06-18T14:07:03.911Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-bino-kids-safe-image-search",
+      "lastmod": "2026-06-18T12:40:18.926Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/what-is-know-your-agent-kya",
+      "lastmod": "2026-06-16T14:57:16.316Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/payment-networks-are-quietly-becoming-identity-networks",
+      "lastmod": "2026-06-13T22:18:52.882Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/proof-of-personhood-is-answering-the-wrong-question",
+      "lastmod": "2026-07-09T06:40:09.599Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/your-agent-needs-a-mandate-not-a-name",
+      "lastmod": "2026-06-10T18:37:12.488Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/ssi-swapped-dids-for-x509",
+      "lastmod": "2026-08-04T06:00:31.891Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/oid4vc-oid4vp-in-plain-english",
+      "lastmod": "2026-06-08T09:57:23.650Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-agent-web-stack",
+      "lastmod": "2026-06-04T09:41:31.219Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-eus-anonymous-age-verification-app-is-not-anonymous",
+      "lastmod": "2026-06-02T18:39:14.521Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/eidas2-in-plain-english",
+      "lastmod": "2026-06-01T19:16:43.602Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/why-i-gave-my-ai-agent-a-physical-body",
+      "lastmod": "2026-05-27T13:10:29.855Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/hetzner-deployment-end-to-end-2026",
+      "lastmod": "2026-05-25T10:07:31.715Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/modern-cli-toolchain-2026",
+      "lastmod": "2026-05-22T22:28:27.282Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-1-introduction",
+      "lastmod": "2026-07-09T07:09:43.168Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/open-id-for-verifiable-credential-issuance-oidc-4-vci-1-0-is-here",
+      "lastmod": "2026-06-10T13:36:21.906Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-hidden-identity-verification-tax",
+      "lastmod": "2026-05-22T13:04:51.042Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/secure-remote-access-to-your-raspberry-pi-in-2025-updated-cloudflare-tunnel-guide",
+      "lastmod": "2026-08-04T06:00:30.104Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/how-to-use-cloudflare-email-routing-with-gmail-smtp",
+      "lastmod": "2026-07-08T15:41:20.986Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/rise-and-fall-of-the-digital-identity",
+      "lastmod": "2026-05-22T13:04:50.715Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/beyond-the-did-resolver",
+      "lastmod": "2026-05-22T13:04:48.618Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/fare-dodging-insurance",
+      "lastmod": "2026-05-22T13:04:49.402Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/you-can-t-spell-identity-without-i",
+      "lastmod": "2026-05-22T13:04:51.430Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/evil-web-and-the-consent-trap",
+      "lastmod": "2026-05-22T13:04:49.319Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/enabling-a-sustainable-future-through-self-sovereign-identity",
+      "lastmod": "2026-05-22T13:04:49.145Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-decentralization-utopia",
+      "lastmod": "2026-05-22T13:04:50.966Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/a-blockchain-maximalist-disorder-on-chain-overpublishing",
+      "lastmod": "2026-05-22T13:04:48.441Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/tuerkiye-nin-veri-sizintisi-krizi-ve-oez-kimlik-ssi-ile-coezuem-yolu",
+      "lastmod": "2026-05-22T13:04:51.200Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/dijital-kimlik-yoenetiminin-gelecegi-oez-kimlik-self-sovereign-identity",
+      "lastmod": "2026-05-22T13:04:49.052Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/ai-social-graphs-and-the-rise-of-agent-societies",
+      "lastmod": "2026-05-22T13:04:48.530Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/know-your-agent-kya-in-action-mcp-servers-as-ai-identity-wallets",
+      "lastmod": "2026-05-22T13:04:50.060Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/how-did-scid-addresses-the-limitations-of-legacy-did-methods",
+      "lastmod": "2026-05-22T13:04:49.490Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/open-id-for-verifiable-presentations-oidc-4-vp-1-0-is-here",
+      "lastmod": "2026-07-08T15:41:21.844Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/know-your-agent-kya",
+      "lastmod": "2026-07-06T08:52:28.228Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/why-we-need-a-better-identity-solution-for-the-internet",
+      "lastmod": "2026-05-22T13:04:51.356Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols",
+      "lastmod": "2026-05-22T13:04:51.278Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/self-sovereign-identity-glossary",
+      "lastmod": "2026-05-22T13:04:50.886Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/mac-os-setup-guide",
+      "lastmod": "2026-05-22T13:04:50.230Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/nft-proof-of-authenticity",
+      "lastmod": "2026-05-22T13:04:50.318Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/blockchain-use-cases-in-the-enterprise-world",
+      "lastmod": "2026-06-10T13:36:22.755Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/raspberry-pi-cloudflare",
+      "lastmod": "2026-05-22T13:04:50.564Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/a-better-did-resolver",
+      "lastmod": "2026-05-22T13:04:48.316Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/comparing-the-most-popular-decentralized-identifier-did-methods",
+      "lastmod": "2026-07-08T15:41:22.144Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/how-to-set-nft-as-ens-avatar",
+      "lastmod": "2026-05-22T13:04:49.736Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/create-and-publish-your-own-did-web",
+      "lastmod": "2026-07-08T15:41:22.427Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/how-to-add-ssh-public-key-to-server",
+      "lastmod": "2026-05-22T13:04:49.581Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-the-qroxy-project",
+      "lastmod": "2026-05-22T13:04:49.896Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-internet-and-identity",
+      "lastmod": "2026-05-22T13:04:51.118Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/re-publishing-nedir-bu-ethereum",
+      "lastmod": "2026-05-22T13:04:50.640Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/light-nodes-light-clients-research",
+      "lastmod": "2026-08-04T06:00:30.814Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/how-to-install-and-use-mosh-on-a-vps",
+      "lastmod": "2026-05-22T13:04:49.662Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/enerji-sistemlerinde-esneklik-nedir",
+      "lastmod": "2026-05-22T13:04:49.232Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    }
+  ]
+}

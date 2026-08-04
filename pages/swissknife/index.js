@@ -17,14 +17,14 @@ export default function SwissKnife() {
   return (
     <Container>
       <NextSeo
-        title="Swiss Knife – mhrsntrk"
+        title="Swiss Knife: Tools and Side Projects – mhrsntrk"
+        description="The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS apps I ship."
         canonical="https://mhrsntrk.com/swissknife"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife',
-          title: 'Swiss Knife – mhrsntrk',
-          description: `You can find the collection of my past projects below. I add what I
-          learn in the building stage to this page to test them. I also write
-          blog posts how to use and how to implement them on my blog.`
+          title: 'Swiss Knife: Tools and Side Projects – mhrsntrk',
+          description:
+            'The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS apps I ship.'
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">

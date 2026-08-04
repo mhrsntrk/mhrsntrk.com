@@ -13,7 +13,7 @@
     "url": "git+https://github.com/mhrsntrk/mhrsntrk.com.git"
   },
   "scripts": {
-    "build": "npm run validate:vulgate && next build",
+    "build": "npm run validate:vulgate && node scripts/generate-sitemap-data.js && next build",
     "dev": "next",
     "start": "next start",
     "lint": "next lint",

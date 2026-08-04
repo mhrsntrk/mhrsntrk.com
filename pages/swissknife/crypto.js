@@ -23,17 +23,14 @@ export default function Crypto({
   return (
     <Container>
       <NextSeo
-        title="Crypto – mhrsntrk"
-        description={`You can find the cryptocurrencies that
-        I currently follow and hold below. I have used coinpaprika's API to
-        get current prices, 24 hour change and ATH data.`}
+        title="Crypto: The Coins I Follow and Hold – mhrsntrk"
+        description="The cryptocurrencies I follow and hold, with live prices, 24 hour change and all-time high data pulled from the coinpaprika API. Not investment advice."
         canonical="https://mhrsntrk.com/swissknife/crypto"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/crypto',
-          title: 'Crypto – mhrsntrk',
-          description: `You can find the cryptocurrencies that
-          I currently follow and hold below. I have used coinpaprika's API to
-          get current prices, 24 hour change and ATH data.`
+          title: 'Crypto: The Coins I Follow and Hold – mhrsntrk',
+          description:
+            'The cryptocurrencies I follow and hold, with live prices, 24 hour change and all-time high data pulled from the coinpaprika API. Not investment advice.'
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">

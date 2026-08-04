@@ -39,8 +39,16 @@ function pad(n) {
   return String(n).padStart(3, '0');
 }
 
-export default function Card({ entry, number, defaultRevealed = false }) {
+export default function Card({
+  entry,
+  number,
+  defaultRevealed = false,
+  // On a permalink the specimen IS the page heading; on the shuffle index it
+  // is one of many cards and the page has its own h1. Same styles either way.
+  asHeading = false
+}) {
   const [revealed, setRevealed] = useState(defaultRevealed);
+  const Specimen = asHeading ? 'h1' : 'p';
 
   return (
     <article
@@ -70,7 +78,7 @@ export default function Card({ entry, number, defaultRevealed = false }) {
       </header>
 
       {/* Specimen */}
-      <p
+      <Specimen
         lang="tr"
         style={{
           fontSize: S.specimen,
@@ -80,7 +88,7 @@ export default function Card({ entry, number, defaultRevealed = false }) {
         }}
       >
         {entry.tr}
-      </p>
+      </Specimen>
 
       {entry.variants && entry.variants.length > 0 && (
         <div style={{ marginTop: 9 }}>

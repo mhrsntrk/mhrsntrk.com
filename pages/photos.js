@@ -214,12 +214,12 @@ export default function Photos({ photos }) {
   return (
     <>
       <NextSeo
-        title="Photos – mhrsntrk"
-        description="A full-width photo gallery with a masonry layout."
+        title="Photos: Travel, Street and Everyday Frames – mhrsntrk"
+        description="A gallery of photographs I have taken: travel, street and everyday frames, shot mostly on a Fujifilm body, with the camera, lens and settings behind each one."
         canonical="https://mhrsntrk.com/photos"
         openGraph={{
           url: 'https://mhrsntrk.com/photos',
-          title: 'Photos – mhrsntrk',
+          title: 'Photos: Travel, Street and Everyday Frames – mhrsntrk',
           type: 'website',
           images: seoImages
         }}

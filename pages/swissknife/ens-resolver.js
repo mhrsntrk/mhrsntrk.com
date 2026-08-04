@@ -45,15 +45,14 @@ export default function ENSResolver() {
   return (
     <Container>
       <NextSeo
-        title="ENS Resolver – mhrsntrk"
-        description={`You can use this tool to resolve an Ethereum Name Service (ENS)
-        domain.`}
-        canonical="https://mhrsntrk.com/swissknife/web-did-resolver"
+        title="ENS Resolver: Look Up Any .eth Domain – mhrsntrk"
+        description="Resolve an Ethereum Name Service (ENS) domain to its address, avatar and text records in the browser. Free, no wallet connection and no account required."
+        canonical="https://mhrsntrk.com/swissknife/ens-resolver"
         openGraph={{
-          url: 'https://mhrsntrk.com/swissknife/web-did-resolver',
-          title: 'ENS Resolver – mhrsntrk',
-          description: `You can use this tool to resolve an Ethereum Name Service (ENS)
-          domain.`
+          url: 'https://mhrsntrk.com/swissknife/ens-resolver',
+          title: 'ENS Resolver: Look Up Any .eth Domain – mhrsntrk',
+          description:
+            'Resolve an Ethereum Name Service (ENS) domain to its address, avatar and text records in the browser. Free, no wallet connection and no account required.'
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-8">

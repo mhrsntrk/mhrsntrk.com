@@ -36,12 +36,12 @@ export default function AgentIdentity() {
   return (
     <Container>
       <NextSeo
-        title="Agent Identity – mhrsntrk"
+        title="Agent Identity: Recognition and Authority – mhrsntrk"
         description={AGENT_IDENTITY.tagline}
         canonical={URL}
         openGraph={{
           url: URL,
-          title: 'Agent Identity – mhrsntrk',
+          title: 'Agent Identity: Recognition and Authority – mhrsntrk',
           description: AGENT_IDENTITY.tagline,
           images: [
             {

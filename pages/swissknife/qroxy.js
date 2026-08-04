@@ -66,12 +66,12 @@ export default function Qroxy() {
   return (
     <Container>
       <NextSeo
-        title="qroxy – mhrsntrk"
-        description={`qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL anytime without reprinting the code.`}
+        title="qroxy: Free Dynamic QR Code Generator – mhrsntrk"
+        description={`qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL whenever you like without reprinting the code.`}
         canonical="https://mhrsntrk.com/swissknife/qroxy"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/qroxy',
-          title: 'qroxy – mhrsntrk',
+          title: 'qroxy: Free Dynamic QR Code Generator – mhrsntrk',
           description: `qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL anytime without reprinting the code.`
         }}
       />

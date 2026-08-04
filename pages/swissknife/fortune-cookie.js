@@ -66,12 +66,12 @@ export default function FortuneCookie() {
   return (
     <Container>
       <NextSeo
-        title="Fortune Cookie VC – mhrsntrk"
-        description="Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI version 1.0 compatible wallet to receive a random fortune as a verifiable credential."
+        title="Fortune Cookie Verifiable Credential – mhrsntrk"
+        description="Get a fortune cookie as a Verifiable Credential. Scan the QR code with any OID4VCI 1.0 wallet and a random fortune is issued straight into it. Free, no signup."
         canonical="https://mhrsntrk.com/swissknife/fortune-cookie"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife/fortune-cookie',
-          title: 'Fortune Cookie VC – mhrsntrk',
+          title: 'Fortune Cookie Verifiable Credential – mhrsntrk',
           description:
             'Get your fortune cookie Verifiable Credential! Scan the QR code with an OIDC4VCI-compatible wallet to receive a random fortune as a verifiable credential.'
         }}

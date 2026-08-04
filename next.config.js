@@ -75,7 +75,8 @@ module.exports = {
   swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
-      require('./scripts/generate-sitemap');
+      // The sitemap is served from pages/sitemap.xml.js; its build-time data
+      // is written by scripts/generate-sitemap-data.js, before next build.
       require('./scripts/generate-blog-artifacts');
       require('./scripts/generate-report-artifacts');
     }
@@ -181,6 +182,38 @@ module.exports = {
             value: 'noindex, follow'
           }
         ]
+      },
+      // Machine-readable mirrors of pages that already exist in HTML: the
+      // markdown copies of posts and reports, the llms.txt surfaces and the
+      // plain-text report bundle. They are for agents and answer engines, not
+      // for the index — left indexable a crawler treats each one as a page in
+      // its own right, and reports it as a page with no title, no description
+      // and no outgoing links, because that is exactly what a .md file is.
+      // noindex, follow: keep them fetchable, keep the links live, keep them
+      // out of the SERP where the HTML page is the canonical surface.
+      {
+        source: '/:path*\\.md',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/llms.txt',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/llms-full.txt',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/reports-full.txt',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/api/markdown/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
+      },
+      {
+        source: '/api/llms-full',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, follow' }]
       },
       {
         source: '/_next/static/(.*)',

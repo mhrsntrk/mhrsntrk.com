@@ -8,11 +8,12 @@ export default function Privacy() {
   return (
     <Container>
       <NextSeo
-        title="Privacy – mhrsntrk"
+        title="Privacy Policy: What This Site Collects – mhrsntrk"
+        description="How mhrsntrk.com handles your data: what the newsletter stores, which privacy-preserving analytics run, how long anything is kept, and how to have it deleted."
         canonical="https://mhrsntrk.com/privacy"
         openGraph={{
           url: 'https://mhrsntrk.com/privacy',
-          title: 'Privacy – mhrsntrk',
+          title: 'Privacy Policy: What This Site Collects – mhrsntrk',
           description:
             'How mhrsntrk.com handles your data: newsletter subscriptions, analytics, and your rights.'
         }}

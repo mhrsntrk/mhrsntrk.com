@@ -172,6 +172,37 @@ export default function VulgateIndex({ entries, themes }) {
             </p>
           </div>
         )}
+
+        {/* The corpus, listed. The shuffle above reaches one entry at a time
+            in JavaScript, which leaves every other permalink unreachable to a
+            crawler — and a catalogue that cannot be read as a catalogue is
+            not one. */}
+        <section id="index" className="w-full mt-16">
+          <h2 className="mb-4 text-2xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
+            Index
+          </h2>
+          <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
+            Every entry in the corpus, in catalogue order.
+          </p>
+          <ol className="w-full space-y-1">
+            {entries.map((entry, i) => (
+              <li key={entry.slug} className="flex gap-3 text-sm">
+                <span
+                  className={`${plexMono.className} tabular-nums text-gray-400 dark:text-gray-600`}
+                >
+                  {String(i + 1).padStart(3, '0')}
+                </span>
+                <Link
+                  href={`/swissknife/vulgate/${entry.slug}`}
+                  lang="tr"
+                  className="text-gray-700 dark:text-gray-300 hover:underline hover:text-black dark:hover:text-white"
+                >
+                  {entry.tr}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
       </div>
     </Container>
   );
