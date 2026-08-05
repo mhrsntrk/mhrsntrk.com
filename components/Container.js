@@ -15,11 +15,11 @@ export default function Container({ children }) {
   return (
     <div className="bg-white dark:bg-black">
       <nav className="sticky-nav w-full bg-white dark:bg-black bg-opacity-60">
-        <div className="flex items-center justify-between w-full max-w-4xl p-8 mx-auto my-0 md:my-8">
+        <div className="flex items-center justify-between w-full max-w-4xl gap-2 px-3 py-4 mx-auto my-0 sm:gap-3 sm:p-8 md:my-8">
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-10 h-10 p-3 bg-gray-200 rounded dark:bg-gray-800"
+            className="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             {mounted && (
@@ -66,28 +66,28 @@ export default function Container({ children }) {
               )}
             </Link>
           </div>
-          <div>
+          <div className="flex items-center flex-nowrap">
             <Link
               href="/swissknife"
-              className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+              className="px-1.5 py-2 text-xs text-gray-900 whitespace-nowrap xs:px-2 xs:text-sm sm:text-base sm:px-4 dark:text-gray-100 hover:underline"
             >
               Swiss Knife
             </Link>
             <Link
               href="/reports"
-              className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+              className="px-1.5 py-2 text-xs text-gray-900 whitespace-nowrap xs:px-2 xs:text-sm sm:text-base sm:px-4 dark:text-gray-100 hover:underline"
             >
               Reports
             </Link>
             <Link
               href="/blog"
-              className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+              className="px-1.5 py-2 text-xs text-gray-900 whitespace-nowrap xs:px-2 xs:text-sm sm:text-base sm:px-4 dark:text-gray-100 hover:underline"
             >
               Blog
             </Link>
             <Link
               href="/"
-              className="p-2 text-gray-900 sm:p-4 dark:text-gray-100 hover:underline"
+              className="px-1.5 py-2 text-xs text-gray-900 whitespace-nowrap xs:px-2 xs:text-sm sm:text-base sm:px-4 dark:text-gray-100 hover:underline"
             >
               Home
             </Link>
