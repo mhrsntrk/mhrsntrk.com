@@ -5,6 +5,35 @@ module.exports = {
         source: '/podcasts',
         destination: '/speaking',
         permanent: true
+      },
+      // Consolidated posts. Each source duplicated its destination's topic and
+      // split the ranking signal with it: the KYA explainer was a strict
+      // subset of the canonical definition (same section structure, no FAQ),
+      // and the old Raspberry Pi post covered what the 2026 tunnel guide
+      // covers in a quarter of the depth. Both are unpublished in Strapi; the
+      // redirects keep every inbound link and cross-reference working.
+      {
+        source: '/blog/what-is-know-your-agent-kya',
+        destination: '/blog/know-your-agent-kya',
+        permanent: true
+      },
+      {
+        source: '/blog/raspberry-pi-cloudflare',
+        destination:
+          '/blog/secure-remote-access-to-your-raspberry-pi-in-2025-updated-cloudflare-tunnel-guide',
+        permanent: true
+      },
+      // Their machine-readable markdown twins follow the same consolidation.
+      {
+        source: '/blog/what-is-know-your-agent-kya.md',
+        destination: '/blog/know-your-agent-kya.md',
+        permanent: true
+      },
+      {
+        source: '/blog/raspberry-pi-cloudflare.md',
+        destination:
+          '/blog/secure-remote-access-to-your-raspberry-pi-in-2025-updated-cloudflare-tunnel-guide.md',
+        permanent: true
       }
     ];
   },

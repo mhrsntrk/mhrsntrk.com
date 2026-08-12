@@ -17,8 +17,7 @@ Product lead working on digital identity, with a B.Sc. in Electrical and Electro
 
 The through-line of the recent writing: how AI agents get verifiable identity, and why recognition (which agent is this) is the easy half while authority (what is it allowed to do, for whom, until when) is the hard half.
 
-- [Know Your Agent (KYA)](https://mhrsntrk.com/blog/know-your-agent-kya): The canonical KYA definition, splitting agent identity into recognition and authority. Includes an FAQ.
-- [What Is Know Your Agent (KYA)?](https://mhrsntrk.com/blog/what-is-know-your-agent-kya): Plain-english explainer of KYA and why it is not KYC for bots.
+- [Know Your Agent (KYA)](https://mhrsntrk.com/blog/know-your-agent-kya): The canonical KYA definition, splitting agent identity into recognition and authority. Explains why KYA is not KYC for bots. Includes an FAQ.
 - [Your Agent Needs a Mandate, Not a Name](https://mhrsntrk.com/blog/your-agent-needs-a-mandate-not-a-name): Why agent identity is about a scoped mandate and authority, not just a name.
 - [KYA in Action: MCP Servers as AI Identity Wallets](https://mhrsntrk.com/blog/know-your-agent-kya-in-action-mcp-servers-as-ai-identity-wallets): How Model Context Protocol servers act as identity wallets that make KYA real.
 - [The Agent Web Stack](https://mhrsntrk.com/blog/the-agent-web-stack): The stack an agent uses to work the open web: search, extract, interact.

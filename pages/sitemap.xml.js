@@ -15,6 +15,16 @@ import { getAllPostsForBlog } from '@/lib/strapi';
 
 const SITE_URL = 'https://mhrsntrk.com';
 
+// Posts consolidated into another post (301s in next.config.js). Filtered here
+// because the live Strapi fetch would otherwise re-add them: a sitemap must
+// not advertise URLs that answer with a redirect, and unpublishing in Strapi
+// is a manual admin step that should not be load-bearing for sitemap
+// correctness.
+const CONSOLIDATED_SLUGS = new Set([
+  'what-is-know-your-agent-kya',
+  'raspberry-pi-cloudflare'
+]);
+
 const safeISO = (value) => {
   if (!value) return null;
   const d = new Date(value);
@@ -31,14 +41,16 @@ const escapeXml = (value) =>
         '&': '&amp;',
         "'": '&apos;',
         '"': '&quot;'
-      })[c]
+      }[c])
   );
 
 function toXml(urls) {
   const body = urls
     .map(
       ({ loc, lastmod, changefreq, priority }) => `  <url>
-    <loc>${escapeXml(loc)}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''}
+    <loc>${escapeXml(loc)}</loc>${
+        lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ''
+      }
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`
@@ -60,12 +72,14 @@ export async function getServerSideProps({ res }) {
     console.warn('Sitemap: live post fetch failed:', error.message);
   }
 
-  const blogUrls = livePosts.map((post) => ({
-    loc: `${SITE_URL}/blog/${post.slug}`,
-    lastmod: safeISO(post.updatedAt) || safeISO(post.date),
-    changefreq: 'monthly',
-    priority: '0.8'
-  }));
+  const blogUrls = livePosts
+    .filter((post) => !CONSOLIDATED_SLUGS.has(post.slug))
+    .map((post) => ({
+      loc: `${SITE_URL}/blog/${post.slug}`,
+      lastmod: safeISO(post.updatedAt) || safeISO(post.date),
+      changefreq: 'monthly',
+      priority: '0.8'
+    }));
 
   // Union, live entry wins: the snapshot only fills gaps left by a failed or
   // partial fetch, and never resurrects a URL the live list has dropped
