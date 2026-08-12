@@ -90,7 +90,7 @@ export default async function handler(req, res) {
     if (resp.ok) {
       return res.status(200).json({
         ok: true,
-        message: 'Almost there — check your inbox to confirm your subscription.'
+        message: 'Almost there. Check your inbox to confirm your subscription.'
       });
     }
 
@@ -105,22 +105,18 @@ export default async function handler(req, res) {
     ) {
       return res.status(200).json({
         ok: true,
-        message: "You're already on the list — thanks!"
+        message: "You're already on the list, thanks!"
       });
     }
 
     console.error(`[subscribe] Listmonk error ${resp.status}: ${detail}`);
-    return res
-      .status(502)
-      .json({
-        error: 'Could not subscribe right now. Please try again later.'
-      });
+    return res.status(502).json({
+      error: 'Could not subscribe right now. Please try again later.'
+    });
   } catch (error) {
     console.error('[subscribe] Request failed:', error.message);
-    return res
-      .status(502)
-      .json({
-        error: 'Could not subscribe right now. Please try again later.'
-      });
+    return res.status(502).json({
+      error: 'Could not subscribe right now. Please try again later.'
+    });
   }
 }

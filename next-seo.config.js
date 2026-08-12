@@ -3,7 +3,7 @@ import ROBOTS_PROPS from './lib/robots';
 // Doubles as the homepage <title>, so it carries what the page is about, not
 // only who it belongs to. "Mahir Senturk" alone is 13 characters of a 60
 // character slot and matches nothing anyone searches for.
-const title = 'Mahir Senturk — Digital Identity, SSI and eIDAS';
+const title = 'Mahir Senturk: Digital Identity, SSI and eIDAS';
 // Employer deliberately absent, here and everywhere else on the site. The
 // credibility has to come from the work, so the specifics carry it instead.
 const description =
