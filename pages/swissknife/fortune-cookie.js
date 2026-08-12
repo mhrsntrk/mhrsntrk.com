@@ -1,6 +1,8 @@
 import { useState, useEffect, useCallback } from 'react';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 
 const ISSUER_BASE_URL = 'https://issuer.mhrsntrk.com';
@@ -66,6 +68,7 @@ export default function FortuneCookie() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Fortune Cookie Verifiable Credential – mhrsntrk"
         description="Get a fortune cookie as a Verifiable Credential. Scan the QR code with any OID4VCI 1.0 wallet and a random fortune is issued straight into it. Free, no signup."
         canonical="https://mhrsntrk.com/swissknife/fortune-cookie"

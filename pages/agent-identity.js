@@ -1,6 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import EmailCapture from '@/components/EmailCapture';
@@ -36,6 +38,7 @@ export default function AgentIdentity() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Agent Identity: Recognition and Authority – mhrsntrk"
         description={AGENT_IDENTITY.tagline}
         canonical={URL}

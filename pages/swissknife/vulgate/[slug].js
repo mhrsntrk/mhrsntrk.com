@@ -55,7 +55,12 @@ export default function VulgateEntry({ entry, number, related }) {
 
   return (
     <Container>
+      {/* noindex, follow — see the note on the corpus index page. Titles and
+          descriptions are kept because they still drive link previews when an
+          entry is shared, which is how these pages are actually reached. */}
       <NextSeo
+        noindex
+        nofollow={false}
         title={entryTitle(entry)}
         description={entryDescription(entry)}
         canonical={url}

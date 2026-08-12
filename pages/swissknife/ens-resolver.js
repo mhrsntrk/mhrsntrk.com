@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import { ensResolver, getProviderStatus } from '@/lib/ensResolver';
 
@@ -45,6 +47,7 @@ export default function ENSResolver() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="ENS Resolver: Look Up Any .eth Domain – mhrsntrk"
         description="Resolve an Ethereum Name Service (ENS) domain to its address, avatar and text records in the browser. Free, no wallet connection and no account required."
         canonical="https://mhrsntrk.com/swissknife/ens-resolver"

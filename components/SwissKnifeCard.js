@@ -8,10 +8,6 @@ const icons = {
     src: '/static/icons/coinpaprika.png',
     alt: 'Crypto ticker tool icon'
   },
-  starmap: {
-    src: '/static/icons/starmap.png',
-    alt: 'Starmap generator tool icon'
-  },
   qrcode: {
     src: '/static/icons/qrcode.png',
     alt: 'QR code generator tool icon'

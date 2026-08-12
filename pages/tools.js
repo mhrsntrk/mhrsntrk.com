@@ -1,6 +1,8 @@
 import Container from '../components/Container';
 import { getAllGears } from '@/lib/strapi';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import Tools from '@/components/Tools';
 import markdownToHtml from '@/lib/markdownToHtml';
 
@@ -8,6 +10,7 @@ export default function Uses({ allGears }) {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Tools: The Software I Use Every Day – mhrsntrk"
         description="The software I keep coming back to: the apps, command line utilities and services I use every day for writing, building and running things."
         canonical="https://mhrsntrk.com/tools"

@@ -1,6 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import PodcastCard from '@/components/PodcastCard';
 
@@ -8,6 +10,7 @@ export default function Speaking() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Speaking: Talks, Panels and Podcasts – mhrsntrk"
         description="Conferences, panels and podcasts where I have spoken about digital identity, self-sovereign identity, web3 and energy markets, with links to each recording."
         canonical="https://mhrsntrk.com/speaking"

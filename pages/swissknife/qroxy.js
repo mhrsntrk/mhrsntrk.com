@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Container from '@/components/Container';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import Image from 'next/image';
 
 export default function Qroxy() {
@@ -66,6 +68,7 @@ export default function Qroxy() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="qroxy: Free Dynamic QR Code Generator – mhrsntrk"
         description={`qroxy is a free dynamic QR code generator. Create a QR code once, then change its target URL whenever you like without reprinting the code.`}
         canonical="https://mhrsntrk.com/swissknife/qroxy"

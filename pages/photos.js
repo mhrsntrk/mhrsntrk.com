@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import Head from 'next/head';
 import NextImage from 'next/image';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import { useRouter } from 'next/router';
 
 import Container from '@/components/Container';
@@ -214,6 +216,7 @@ export default function Photos({ photos }) {
   return (
     <>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Photos: Travel, Street and Everyday Frames – mhrsntrk"
         description="A gallery of photographs I have taken: travel, street and everyday frames, shot mostly on a Fujifilm body, with the camera, lens and settings behind each one."
         canonical="https://mhrsntrk.com/photos"
@@ -223,9 +226,6 @@ export default function Photos({ photos }) {
           type: 'website',
           images: seoImages
         }}
-        additionalMetaTags={[
-          { name: 'robots', content: 'index,follow,max-image-preview:large' }
-        ]}
       />
       {gallerySchema && <StructuredData data={gallerySchema} />}
       {preconnectOrigin && (

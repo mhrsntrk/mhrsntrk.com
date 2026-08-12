@@ -1,5 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import Link from 'next/link';
 
 import Container from '@/components/Container';
@@ -8,6 +10,7 @@ export default function Privacy() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Privacy Policy: What This Site Collects – mhrsntrk"
         description="How mhrsntrk.com handles your data: what the newsletter stores, which privacy-preserving analytics run, how long anything is kept, and how to have it deleted."
         canonical="https://mhrsntrk.com/privacy"

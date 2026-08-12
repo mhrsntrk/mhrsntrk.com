@@ -1,6 +1,8 @@
 import Container from '../components/Container';
 import { getAllGears } from '@/lib/strapi';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import Gear from '@/components/Gear';
 import markdownToHtml from '@/lib/markdownToHtml';
 
@@ -8,6 +10,7 @@ export default function Uses({ allGears }) {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Gear: The Hardware and Desk Setup I Use – mhrsntrk"
         description="The hardware I actually work on every day: laptop, desk setup, peripherals, camera and the everyday carry that survived long enough to stay on the list."
         canonical="https://mhrsntrk.com/gear"

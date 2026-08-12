@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import { didResolver } from '@/lib/didResolver';
 
@@ -60,6 +62,7 @@ export default function DIDResolver() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="DID Resolver: did:web, did:key, did:ethr – mhrsntrk"
         description="Fetch the DID document behind any Decentralized Identifier. Supports did:web, did:ethr and did:key, with a breakdown of the keys and services it declares."
         canonical="https://mhrsntrk.com/swissknife/did-resolver"

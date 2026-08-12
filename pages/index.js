@@ -39,9 +39,9 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
           <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
             <p>
               <strong>product + engineering.</strong> I work on self-sovereign
-              identity at The Hashgraph Group, building an SSI system on Hedera.
-              Before that: Energy Web, where I led Switchboard — one of the
-              early production SSI deployments.
+              identity and the identity layer for AI agents. Before that: Energy
+              Web, where I led Switchboard, one of the early production SSI
+              deployments.
             </p>
             <p>
               A decade of trying to make decentralized identity work in

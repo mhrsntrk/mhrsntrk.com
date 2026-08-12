@@ -1,5 +1,7 @@
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import SEO_TITLES from '@/lib/seoTitles';
 
 // Article JSON-LD is emitted by BlogPostingSchema (components/StructuredData.js),
@@ -75,6 +77,7 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
 
   return (
     <NextSeo
+      robotsProps={ROBOTS_PROPS}
       title={pageTitle(title, slug)}
       description={description}
       canonical={url}

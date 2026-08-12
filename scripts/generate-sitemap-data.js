@@ -31,7 +31,6 @@ const { getAllReports } = require('../lib/reports');
 
 const SITE_URL = 'https://mhrsntrk.com';
 const OUT_FILE = path.join(process.cwd(), 'data', 'sitemap-static.json');
-const ENTRIES_DIR = path.join(process.cwd(), 'content', 'entries');
 
 // Returns a valid ISO string for a parseable date, or null.
 function safeISO(value) {
@@ -58,7 +57,12 @@ function priorityFor(route) {
     '!pages/api/**',
     '!pages/404.js',
     '!pages/sitemap.xml.js',
-    '!pages/**/[[]*[]].js'
+    '!pages/**/[[]*[]].js',
+    // The Vulgate is noindex (see pages/swissknife/vulgate/index.js). Listing a
+    // noindex URL in the sitemap asks a crawler to index what the page then
+    // refuses, which is how "Excluded by noindex" reports fill up with URLs you
+    // put there yourself.
+    '!pages/swissknife/vulgate/**'
   ]);
 
   const staticUrls = pageFiles
@@ -73,20 +77,8 @@ function priorityFor(route) {
     .filter((route, i, all) => all.indexOf(route) === i)
     .map((route) => ({ loc: `${SITE_URL}${route}`, ...priorityFor(route) }));
 
-  // Vulgate entries. The slug is the filename — scripts/vulgate-validate.mjs
-  // fails the build if the two ever disagree, so no YAML parsing is needed.
-  const vulgateUrls = fs.existsSync(ENTRIES_DIR)
-    ? fs
-        .readdirSync(ENTRIES_DIR)
-        .filter((f) => f.endsWith('.yml') || f.endsWith('.yaml'))
-        .map((f) => f.replace(/\.ya?ml$/, ''))
-        .sort()
-        .map((slug) => ({
-          loc: `${SITE_URL}/swissknife/vulgate/${slug}`,
-          changefreq: 'yearly',
-          priority: '0.5'
-        }))
-    : [];
+  // Vulgate entry permalinks are deliberately absent: the corpus is noindex, so
+  // the sitemap must not advertise it. The entries remain live and linkable.
 
   const reportUrls = getAllReports().map((report) => ({
     loc: `${SITE_URL}${report.page}`,
@@ -111,7 +103,7 @@ function priorityFor(route) {
   }
 
   const payload = {
-    static: [...staticUrls, ...reportUrls, ...vulgateUrls],
+    static: [...staticUrls, ...reportUrls],
     blogSnapshot: blogUrls
   };
 

@@ -1,34 +1,38 @@
 User-agent: *
 Allow: /
 
-# Disallow admin and private areas
-Disallow: /api/
-Disallow: /_next/
+# Private surfaces. /_next/static is deliberately NOT blocked: it holds the CSS
+# and fonts, and a crawler that cannot fetch them cannot render or judge the
+# page. Only the data and admin paths are withheld.
+Disallow: /_next/data/
 Disallow: /admin/
+Disallow: /api/
 
-# Allow important pages
-Allow: /blog/
-Allow: /reports/
-Allow: /agent-identity
-Allow: /swissknife/
-Allow: /speaking/
-Allow: /gear/
-Allow: /tools/
-Allow: /llms.txt
-Allow: /llms-full.txt
-# Machine-readable report surfaces (index, full text, per-report markdown)
-Allow: /reports.md
-Allow: /reports-full.txt
-
-# Allow AI-readable markdown endpoint (clean content for LLM fetchers)
+# Machine-readable surfaces under /api that are meant to be fetched.
+Allow: /_next/static/
 Allow: /api/markdown/
 Allow: /api/llms-full
-# Allow dynamic OpenGraph images (social/link-preview fetchers)
 Allow: /api/og
+Allow: /api/vulgate-og
 
-# Bing / search engines (citation + classic search)
+# Content Signals - AI content usage preferences
+# https://contentsignals.org/
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+# Bing is the largest single source of search traffic to this site, so its
+# group mirrors the rules above rather than opening everything. No Crawl-delay:
+# Google ignores the directive and Bing obeys it, so setting it only throttled
+# the crawler that matters most here.
 User-agent: Bingbot
 Allow: /
+Disallow: /_next/data/
+Disallow: /admin/
+Disallow: /api/
+Allow: /_next/static/
+Allow: /api/markdown/
+Allow: /api/llms-full
+Allow: /api/og
+Allow: /api/vulgate-og
 
 # --- AI search & citation crawlers (live answers / RAG) — ALLOWED ---
 # These fetch pages to cite you in answers, not to train models.
@@ -69,12 +73,5 @@ Disallow: /
 User-agent: Bytespider
 Disallow: /
 
-# Content Signals - AI content usage preferences
-# https://contentsignals.org/
-Content-Signal: ai-train=no, search=yes, ai-input=yes
-
 # Sitemap location
 Sitemap: https://mhrsntrk.com/sitemap.xml
-
-# Crawl delay (optional)
-Crawl-delay: 1

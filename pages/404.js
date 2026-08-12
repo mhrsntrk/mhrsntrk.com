@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 
 export default function NotFound() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="404 - Page Not Found | Mahir Senturk"
         description="The page you're looking for doesn't exist. Return to the homepage to explore my work in blockchain and self-sovereign identity."
         noindex={true}

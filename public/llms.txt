@@ -1,6 +1,6 @@
 # Mahir Senturk
 
-> Personal website of Mahir Senturk - Senior Product Manager at The Hashgraph Group, focusing on Self-Sovereign Identity (SSI), agent identity, and blockchain.
+> Personal website of Mahir Senturk. Writing, tools and research notes on agent identity, self-sovereign identity (SSI), and verifiable credentials.
 > Canonical source: https://mhrsntrk.com
 > Author: Mahir Senturk
 > Attribution required when citing. All content is original.
@@ -11,7 +11,7 @@
 
 ## About
 
-Senior Product Manager at The Hashgraph Group, with a B.Sc. in Electrical and Electronics Engineering and an MBA. Focused on self-sovereign identity (SSI), agent identity, and decentralized systems. Previously led Switchboard at Energy Web, one of the early production SSI systems.
+Product lead working on digital identity, with a B.Sc. in Electrical and Electronics Engineering and an MBA. Focused on self-sovereign identity (SSI), agent identity, and decentralized systems. Previously led Switchboard at Energy Web, one of the early production SSI systems.
 
 ## Agent Identity (core topic)
 

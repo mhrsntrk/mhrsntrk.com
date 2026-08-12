@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
 import StructuredData, { BlogSchema } from '@/components/StructuredData';
@@ -92,6 +94,7 @@ export default function Blog({ allPosts }) {
       <StructuredData data={BlogSchema(allPosts)} />
       <Container>
         <NextSeo
+          robotsProps={ROBOTS_PROPS}
           title={title}
           description={description}
           canonical={url}

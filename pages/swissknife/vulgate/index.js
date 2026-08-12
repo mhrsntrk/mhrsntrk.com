@@ -79,7 +79,17 @@ export default function VulgateIndex({ entries, themes }) {
 
   return (
     <Container>
+      {/* noindex, follow. The corpus earned 86 impressions and one click in a
+          quarter while the rest of the site earned 22,095, so there is nothing
+          to lose in search — but vulgar source text on the apex domain carries
+          a real tail risk of an adult classification that would suppress every
+          other page for SafeSearch users. The pages stay live, linkable and
+          shareable; only the index entry goes. Crawling is deliberately left
+          open in robots.txt, because a blocked page can never be read and a
+          noindex that is never read is never obeyed. */}
       <NextSeo
+        noindex
+        nofollow={false}
         title="The Vulgate — a corpus of vulgar Turkish folk proverbs"
         description="A curated corpus of vulgar Turkish folk proverbs, presented bilingually with a deliberately literal English translation and a flat scholarly annotation."
         canonical="https://mhrsntrk.com/swissknife/vulgate"

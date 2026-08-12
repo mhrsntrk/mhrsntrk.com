@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import Head from 'next/head';
 
 import Container from '@/components/Container';
@@ -87,6 +89,7 @@ export default function Reports({ reports }) {
           />
         </Head>
         <NextSeo
+          robotsProps={ROBOTS_PROPS}
           title={title}
           description={description}
           canonical={url}

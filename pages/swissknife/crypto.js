@@ -1,5 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
+
+import ROBOTS_PROPS from '@/lib/robots';
 import {
   getEthereum,
   getEnergyWeb,
@@ -23,6 +25,7 @@ export default function Crypto({
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Crypto: The Coins I Follow and Hold – mhrsntrk"
         description="The cryptocurrencies I follow and hold, with live prices, 24 hour change and all-time high data pulled from the coinpaprika API. Not investment advice."
         canonical="https://mhrsntrk.com/swissknife/crypto"

@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
 
+import ROBOTS_PROPS from '@/lib/robots';
+
 import Container from '@/components/Container';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
 
@@ -17,6 +19,7 @@ export default function SwissKnife() {
   return (
     <Container>
       <NextSeo
+        robotsProps={ROBOTS_PROPS}
         title="Swiss Knife: Tools and Side Projects – mhrsntrk"
         description="The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS apps I ship."
         canonical="https://mhrsntrk.com/swissknife"
@@ -93,14 +96,6 @@ export default function SwissKnife() {
             description="Create dynamic QR codes using the connected REST API and mongoDB"
             href="swissknife/qroxy"
             icon="qrcode"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Starmap Generator"
-            description="A tool for creating customized starmaps. Login required."
-            href="https://starmap.mhrsntrk.com"
-            icon="starmap"
             width="120"
             height="120"
           />

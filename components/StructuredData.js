@@ -17,11 +17,10 @@ export const PersonSchema = {
   name: 'Mahir Senturk',
   alternateName: 'mhrsntrk',
   jobTitle: 'Senior Product Manager',
-  worksFor: {
-    '@type': 'Organization',
-    name: 'The Hashgraph Group',
-    url: 'https://hashgraph.com'
-  },
+  // No worksFor. The current employer is deliberately absent from every public
+  // surface on this site; credibility here comes from named, shipped work
+  // rather than from a masthead. Past roles stay, because those are the
+  // verifiable part.
   alumniOf: [
     {
       '@type': 'Organization',
@@ -29,34 +28,45 @@ export const PersonSchema = {
     }
   ],
   description:
-    'Senior Product Manager at The Hashgraph Group specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.',
+    'Works on self-sovereign identity, verifiable credentials and the identity layer for AI agents. A decade of building decentralized identity systems in production, including Switchboard at Energy Web, one of the early production SSI deployments.',
   url: 'https://mhrsntrk.com',
   sameAs: [
+    'https://x.com/mhrsntrk',
     'https://twitter.com/mhrsntrk',
     'https://github.com/mhrsntrk',
     'https://www.linkedin.com/in/mahirsenturk',
     'https://t.me/mhrsntrk'
   ],
+  // Mirrors the through-line stated in public/llms.txt. Cryptocurrency and DeFi
+  // were dropped: nothing in the corpus supports either, and a knowsAbout list
+  // that claims topics the writing does not cover is a weaker entity signal
+  // than a shorter, honest one.
   knowsAbout: [
+    'Agent Identity',
+    'Know Your Agent (KYA)',
+    'Model Context Protocol (MCP)',
     'Self-Sovereign Identity',
-    'Blockchain Technology',
-    'Web3',
-    'Decentralized Identity',
-    'Product Management',
+    'Verifiable Credentials',
+    'Decentralized Identifiers (DID)',
+    'OpenID for Verifiable Presentations (OID4VP)',
+    'OpenID for Verifiable Credential Issuance (OID4VCI)',
+    'eIDAS 2.0',
+    'EUDI Wallet',
     'Digital Identity',
-    'Cryptocurrency',
-    'DeFi'
+    'Blockchain Technology',
+    'Product Management'
   ],
   hasOccupation: {
     '@type': 'Occupation',
     name: 'Senior Product Manager',
     description:
-      'Leading product development for self-sovereign identity solutions on Hedera blockchain',
+      'Product leadership for digital identity systems, covering self-sovereign identity, verifiable credentials and the identity layer for AI agents',
     skills: [
       'Product Management',
-      'Blockchain Development',
+      'Digital Identity',
       'Self-Sovereign Identity',
-      'Web3 Technologies',
+      'Verifiable Credentials',
+      'Agent Identity',
       'Strategic Planning'
     ]
   }
@@ -68,7 +78,7 @@ export const WebsiteSchema = {
   name: 'Mahir Senturk - Personal Website',
   url: 'https://mhrsntrk.com',
   description:
-    'Personal website of Mahir Senturk, Senior Product Manager at The Hashgraph Group specializing in blockchain and self-sovereign identity solutions.',
+    'Personal website of Mahir Senturk. Writing, tools and research notes on agent identity, self-sovereign identity and verifiable credentials.',
   author: {
     '@type': 'Person',
     name: 'Mahir Senturk'
@@ -198,7 +208,7 @@ export const BlogPostingSchema = (post) => {
       name: 'Mahir Senturk',
       url: 'https://mhrsntrk.com',
       sameAs: [
-        'https://twitter.com/mhrsntrk',
+        'https://x.com/mhrsntrk',
         'https://github.com/mhrsntrk',
         'https://www.linkedin.com/in/mahirsenturk'
       ]

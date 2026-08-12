@@ -17,7 +17,7 @@ function buildHomeMarkdown(posts) {
 
   return `# Mahir Senturk
 
-Personal website of Mahir Senturk - Senior Product Manager at The Hashgraph Group, focusing on Self-Sovereign Identity (SSI) and blockchain solutions.
+Personal website of Mahir Senturk. Writing, tools and research notes on agent identity, self-sovereign identity (SSI), and verifiable credentials.
 
 ## Recent Posts
 

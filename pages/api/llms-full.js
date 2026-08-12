@@ -12,8 +12,8 @@ function buildHeader(posts) {
   return [
     '# Mahir Senturk — Full Content Export',
     '',
-    '> Personal website of Mahir Senturk, Senior Product Manager at The Hashgraph Group,',
-    '> focusing on Self-Sovereign Identity (SSI), blockchain, and decentralized systems.',
+    '> Personal website of Mahir Senturk. Writing, tools and research notes on',
+    '> agent identity, self-sovereign identity (SSI), and verifiable credentials.',
     '> Canonical source: https://mhrsntrk.com',
     '> Author: Mahir Senturk',
     '> License: original content. Attribution to https://mhrsntrk.com required when citing.',

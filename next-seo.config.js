@@ -1,14 +1,28 @@
+import ROBOTS_PROPS from './lib/robots';
+
 // Doubles as the homepage <title>, so it carries what the page is about, not
 // only who it belongs to. "Mahir Senturk" alone is 13 characters of a 60
 // character slot and matches nothing anyone searches for.
 const title = 'Mahir Senturk — Digital Identity, SSI and eIDAS';
+// Employer deliberately absent, here and everywhere else on the site. The
+// credibility has to come from the work, so the specifics carry it instead.
 const description =
-  'Senior Product Manager at The Hashgraph Group, building self-sovereign identity (SSI) and decentralized systems on blockchain. Notes on identity and web3.';
+  'Notes on agent identity, self-sovereign identity (SSI) and verifiable credentials, from a decade of building decentralized identity systems in production.';
 
 const SEO = {
   title,
   description,
   canonical: 'https://mhrsntrk.com',
+  // next-seo emits the robots meta itself, so the snippet directives belong
+  // here rather than in additionalMetaTags. Declaring them by hand there
+  // produced a SECOND <meta name="robots"> on every page, which meant any page
+  // opting out via noindex shipped "index, follow" and "noindex, follow"
+  // together. Google resolves a conflict like that by taking the most
+  // restrictive value, so nothing was mis-indexed, but the page was arguing
+  // with itself and other crawlers are not obliged to break the tie the same
+  // way. The per-engine googlebot/bingbot copies went with it: they only
+  // repeated the generic directive.
+  robotsProps: ROBOTS_PROPS,
   additionalMetaTags: [
     {
       name: 'keywords',
@@ -18,19 +32,6 @@ const SEO = {
     {
       name: 'author',
       content: 'Mahir Senturk'
-    },
-    {
-      name: 'robots',
-      content:
-        'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
-    },
-    {
-      name: 'googlebot',
-      content: 'index, follow'
-    },
-    {
-      name: 'bingbot',
-      content: 'index, follow'
     }
   ],
   openGraph: {
