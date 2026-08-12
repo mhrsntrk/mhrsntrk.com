@@ -40,7 +40,7 @@ export default function EmailCapture({ location = 'unknown' }) {
         setStatus('success');
         setMessage(
           data.message ||
-            'Almost there — check your inbox to confirm your subscription.'
+            'Almost there. Check your inbox to confirm your subscription.'
         );
         setEmail('');
         setConsent(false);
@@ -72,7 +72,7 @@ export default function EmailCapture({ location = 'unknown' }) {
         Agent identity, in your inbox
       </h3>
       <p className="mb-3 text-sm text-gray-700 dark:text-gray-300">
-        I write about how AI agents get verifiable identity — KYA, mandates,
+        I write about how AI agents get verifiable identity: KYA, mandates,
         DIDs, and the standards forming around them. New posts and working
         notes, a few times a month. No spam, unsubscribe anytime.
       </p>

@@ -50,7 +50,7 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
               it.
             </p>
             <p>
-              This is where I keep notes for my future self — on identity, web3,
+              This is where I keep notes for my future self: on identity, web3,
               the tools I build, and what I'm learning along the way.
             </p>
           </div>

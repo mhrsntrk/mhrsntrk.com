@@ -115,7 +115,7 @@ export default function Reports({ reports }) {
           </h1>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             Long-form sector research notes. Where the money moves, which
-            deadlines force a purchase, and what a buyer will actually sign —
+            deadlines force a purchase, and what a buyer will actually sign,
             with the provenance of every figure attached.
           </p>
           <p className="mb-6 text-gray-600 dark:text-gray-400">

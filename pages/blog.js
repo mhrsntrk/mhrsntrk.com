@@ -13,7 +13,7 @@ import { getAllPostsForBlog } from '@/lib/strapi';
 const url = 'https://mhrsntrk.com/blog';
 const title = 'Blog: Digital Identity, eIDAS and SSI – mhrsntrk';
 const description =
-  'Essays and tutorials on digital identity, eIDAS, self-sovereign identity and the systems behind them — along with code snippets and notes from things I build.';
+  'Essays and tutorials on digital identity, eIDAS, self-sovereign identity and the systems behind them, along with code snippets and notes from things I build.';
 
 export default function Blog({ allPosts }) {
   const router = useRouter();
@@ -110,7 +110,7 @@ export default function Blog({ allPosts }) {
           </h1>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
             Essays and tutorials on digital identity, eIDAS, self-sovereign
-            identity and the systems behind them — along with code snippets and
+            identity and the systems behind them, along with code snippets and
             notes from things I build.
           </p>
           <p className="mb-4 text-gray-600 dark:text-gray-400">
