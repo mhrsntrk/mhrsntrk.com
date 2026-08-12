@@ -59,7 +59,7 @@ export default function SwissKnife() {
           />
           <SwissKnifeCard
             title="Bino — Kids Read Along"
-            description="An iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
+            description="An iPhone and iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
             href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
             icon="bino-reader"
             target="_blank"
