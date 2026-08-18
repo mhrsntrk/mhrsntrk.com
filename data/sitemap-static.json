@@ -41,6 +41,11 @@
       "changefreq": "monthly"
     },
     {
+      "loc": "https://mhrsntrk.com/blog/archive",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
       "loc": "https://mhrsntrk.com/reports",
       "priority": "0.9",
       "changefreq": "monthly"
@@ -89,6 +94,18 @@
     }
   ],
   "blogSnapshot": [
+    {
+      "loc": "https://mhrsntrk.com/blog/sosyal-medyada-yas-dogrulama-e-devlet-tokeni",
+      "lastmod": "2026-08-18T09:56:48.913Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-bino-read-along",
+      "lastmod": "2026-08-18T09:01:55.783Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
     {
       "loc": "https://mhrsntrk.com/blog/your-agent-knows-too-much",
       "lastmod": "2026-08-17T09:23:43.725Z",
@@ -156,14 +173,20 @@
       "priority": "0.8"
     },
     {
+      "loc": "https://mhrsntrk.com/blog/agent-privacy-liability-paradox",
+      "lastmod": "2026-07-10T04:13:07.247Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/agents-are-doing-did-methods-all-over-again",
       "lastmod": "2026-07-14T06:26:13.283Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/agent-privacy-liability-paradox",
-      "lastmod": "2026-07-10T04:13:07.247Z",
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
+      "lastmod": "2026-07-09T07:24:29.309Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -176,12 +199,6 @@
     {
       "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-2-fortune-cookie-issuer",
       "lastmod": "2026-07-09T07:24:28.937Z",
-      "changefreq": "monthly",
-      "priority": "0.8"
-    },
-    {
-      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
-      "lastmod": "2026-07-09T07:24:29.309Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -372,14 +389,14 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/dijital-kimlik-yoenetiminin-gelecegi-oez-kimlik-self-sovereign-identity",
-      "lastmod": "2026-05-22T13:04:49.052Z",
+      "loc": "https://mhrsntrk.com/blog/tuerkiye-nin-veri-sizintisi-krizi-ve-oez-kimlik-ssi-ile-coezuem-yolu",
+      "lastmod": "2026-08-12T10:09:17.176Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/tuerkiye-nin-veri-sizintisi-krizi-ve-oez-kimlik-ssi-ile-coezuem-yolu",
-      "lastmod": "2026-08-12T10:09:17.176Z",
+      "loc": "https://mhrsntrk.com/blog/dijital-kimlik-yoenetiminin-gelecegi-oez-kimlik-self-sovereign-identity",
+      "lastmod": "2026-05-22T13:04:49.052Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
