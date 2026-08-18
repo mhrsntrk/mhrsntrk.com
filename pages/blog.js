@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { NextSeo } from 'next-seo';
@@ -53,23 +53,6 @@ export default function Blog({ allPosts }) {
   );
   const canPrev = currentPage > 1;
   const canNext = currentPage < totalPages;
-
-  // The archive below the pager, newest year first. The pager moves through
-  // the list in JavaScript, so a crawler only ever sees the first five posts
-  // and everything older ends up with no incoming link anywhere on the site.
-  const postsByYear = useMemo(() => {
-    const years = new Map();
-    allPosts.forEach((post) => {
-      const parsed = post.date ? new Date(post.date) : null;
-      const year =
-        parsed && !Number.isNaN(parsed.getTime())
-          ? String(parsed.getFullYear())
-          : 'Undated';
-      if (!years.has(year)) years.set(year, []);
-      years.get(year).push(post);
-    });
-    return [...years.entries()].sort((a, b) => b[0].localeCompare(a[0]));
-  }, [allPosts]);
 
   const goToPage = (page) => {
     if (page < 1 || page > totalPages) return;
@@ -188,31 +171,16 @@ export default function Blog({ allPosts }) {
             </div>
           )}
 
+          {/* The pager above moves through the list in JavaScript, so a
+              crawler that stops here only sees the first five posts. The
+              archive page carries a static link to every one of them. */}
           {allPosts.length > 0 && (
-            <nav aria-label="Post archive" className="w-full mt-16">
-              <h2 className="mb-6 text-2xl font-bold tracking-tight text-black md:text-3xl dark:text-white">
-                Archive
-              </h2>
-              {postsByYear.map(([year, posts]) => (
-                <div key={year} className="mb-8">
-                  <h3 className="mb-2 text-xs font-bold tracking-widest text-gray-400 uppercase dark:text-gray-500">
-                    {year}
-                  </h3>
-                  <ul className="space-y-1">
-                    {posts.map((post) => (
-                      <li key={post.slug}>
-                        <Link
-                          href={`/blog/${post.slug}`}
-                          className="text-gray-700 dark:text-gray-300 hover:underline hover:text-black dark:hover:text-white"
-                        >
-                          {post.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </nav>
+            <Link
+              href="/blog/archive"
+              className="mt-10 text-sm text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:underline"
+            >
+              Browse the full archive →
+            </Link>
           )}
         </div>
       </Container>
