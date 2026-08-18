@@ -2,6 +2,8 @@ import { NextSeo } from 'next-seo';
 
 import ROBOTS_PROPS from '@/lib/robots';
 
+import { DEFAULT_LANG, ogLocaleFor } from '@/lib/postLanguage';
+
 import SEO_TITLES from '@/lib/seoTitles';
 
 // Article JSON-LD is emitted by BlogPostingSchema (components/StructuredData.js),
@@ -55,7 +57,15 @@ const clampDescription = (text) => {
   return `${trimmed}…`;
 };
 
-const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
+const BlogSeo = ({
+  title,
+  summary,
+  publishedAt,
+  modifiedAt,
+  url,
+  slug,
+  lang = DEFAULT_LANG
+}) => {
   const date = toISO(publishedAt);
   const modified = toISO(modifiedAt) || date;
   const markdownUrl = slug
@@ -85,6 +95,9 @@ const BlogSeo = ({ title, summary, publishedAt, modifiedAt, url, slug }) => {
         type: 'article',
         article,
         url,
+        // Default is en_US (next-seo.config.js). A Turkish post shipped under
+        // that locale tells every consumer the wrong thing about its language.
+        locale: ogLocaleFor(lang),
         title,
         description,
         images: [

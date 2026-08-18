@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { parseISO, format, isValid } from 'date-fns';
 
 import { clusterForSlug } from '@/lib/clusters';
+import { detectPostLang, langForSlug } from '@/lib/postLanguage';
 
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
@@ -12,14 +13,6 @@ import StructuredData, {
   BlogPostingSchema,
   FAQPageSchema
 } from '@/components/StructuredData';
-
-// Some posts are written in Turkish. The site <html lang> is "en", so flag
-// the article's language explicitly for screen readers and search engines.
-// Detected via Turkish-specific letters (ı, ğ, ş) which are absent in English.
-function detectLang(text = '') {
-  const turkishChars = (text.match(/[ığş]/gi) || []).length;
-  return turkishChars > 15 ? 'tr' : 'en';
-}
 
 // Parses a date string to a Date, or null if missing/invalid.
 function safeDate(value) {
@@ -36,7 +29,12 @@ export default function BlogLayout({ post }) {
     updatedDate &&
     format(updatedDate, 'yyyy-MM-dd') !== format(publishedDate, 'yyyy-MM-dd');
 
-  const lang = detectLang(`${post.title} ${post.rawContent || ''}`);
+  // The body is here, so detect from the text; fall back to the build-time
+  // slug map when a post arrives without its raw content. _document sets the
+  // matching <html lang> from that same map.
+  const lang = post.rawContent
+    ? detectPostLang(`${post.title} ${post.rawContent}`)
+    : langForSlug(post.slug);
   const faqSchema = FAQPageSchema(post);
   const cluster = clusterForSlug(post.slug);
 
@@ -50,6 +48,7 @@ export default function BlogLayout({ post }) {
         publishedAt={post.date}
         modifiedAt={post.updatedAt}
         slug={post.slug}
+        lang={lang}
         url={`https://mhrsntrk.com/blog/${post.slug}`}
       />
       <article

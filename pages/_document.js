@@ -1,9 +1,24 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
+import { DEFAULT_LANG, langForPath } from '@/lib/postLanguage';
+
 class MyDocument extends Document {
+  // A handful of posts are written in Turkish. The shell only ever sees the
+  // route, so the language comes from the slug map built at build time
+  // (lib/postLanguage.js). Serving Turkish prose under lang="en" mislabels the
+  // page for screen readers and for anything that trusts the tag.
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);
+    return {
+      ...initialProps,
+      lang: langForPath(ctx.asPath || ctx.pathname, ctx.query)
+    };
+  }
+
   render() {
+    const { lang = DEFAULT_LANG } = this.props;
     return (
-      <Html lang="en">
+      <Html lang={lang}>
         <Head>
           {/* Preconnect to external domains for faster loading */}
           <link rel="preconnect" href="https://use.typekit.net" />

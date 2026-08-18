@@ -8,6 +8,10 @@
  * between deploys appears immediately, and a Strapi outage cannot empty the
  * sitemap.
  *
+ * Also writes data/post-languages.json, the slug-to-language map that
+ * pages/_document.js needs to put the right `lang` on <html>. See
+ * lib/postLanguage.js.
+ *
  * Runs before `next build` (see package.json), not from the webpack hook, so
  * the JSON exists before anything imports it.
  */
@@ -28,9 +32,11 @@ if (fs.existsSync(ENV_FILE)) {
 
 const { getAllPostsForBlog } = require('../lib/strapi');
 const { getAllReports } = require('../lib/reports');
+const { DEFAULT_LANG, detectPostLang } = require('../lib/detectLang');
 
 const SITE_URL = 'https://mhrsntrk.com';
 const OUT_FILE = path.join(process.cwd(), 'data', 'sitemap-static.json');
+const LANG_FILE = path.join(process.cwd(), 'data', 'post-languages.json');
 
 // Returns a valid ISO string for a parseable date, or null.
 function safeISO(value) {
@@ -90,6 +96,7 @@ function priorityFor(route) {
   // Snapshot of the posts, used only when Strapi cannot be reached at request
   // time. An empty list here is survivable; an empty sitemap is not.
   let blogUrls = [];
+  let postLanguages = null;
   try {
     const posts = await getAllPostsForBlog(true);
     blogUrls = posts.map((post) => ({
@@ -98,8 +105,34 @@ function priorityFor(route) {
       changefreq: 'monthly',
       priority: '0.8'
     }));
+
+    // Only the posts that are not in the default language. Every other slug
+    // falls through to English in lib/postLanguage.js.
+    postLanguages = {};
+    for (const post of posts) {
+      const lang = detectPostLang(
+        `${post.title} ${post.excerpt} ${post.content}`
+      );
+      if (lang !== DEFAULT_LANG) postLanguages[post.slug] = lang;
+    }
   } catch (error) {
     console.warn('Sitemap snapshot: could not fetch posts:', error.message);
+  }
+
+  // A failed fetch must not blank the map: an empty file would silently label
+  // every Turkish post English, which is the bug this file exists to prevent.
+  if (postLanguages) {
+    fs.mkdirSync(path.dirname(LANG_FILE), { recursive: true });
+    fs.writeFileSync(LANG_FILE, `${JSON.stringify(postLanguages, null, 2)}\n`);
+    console.log(
+      `Post languages written: ${
+        Object.keys(postLanguages).length
+      } non-${DEFAULT_LANG} posts`
+    );
+  } else {
+    console.warn(
+      `Post languages: keeping existing ${path.basename(LANG_FILE)}`
+    );
   }
 
   const payload = {

@@ -76,6 +76,12 @@
       "changefreq": "monthly"
     },
     {
+      "loc": "https://mhrsntrk.com/reports/identity-2027",
+      "lastmod": "2026-08-12T00:00:00.000Z",
+      "changefreq": "yearly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/reports/cybersecurity-2027",
       "lastmod": "2026-07-17T00:00:00.000Z",
       "changefreq": "yearly",
@@ -84,6 +90,30 @@
   ],
   "blogSnapshot": [
     {
+      "loc": "https://mhrsntrk.com/blog/your-agent-knows-too-much",
+      "lastmod": "2026-08-17T09:23:43.725Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/cloudflare-smtp-server-settings",
+      "lastmod": "2026-08-12T08:45:51.854Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/ai-abstinence-is-not-a-privacy-strategy",
+      "lastmod": "2026-08-12T09:40:19.587Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/walk-up-and-hit-the-ball",
+      "lastmod": "2026-08-06T08:38:00.501Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/boring-identity",
       "lastmod": "2026-07-27T11:03:59.347Z",
       "changefreq": "monthly",
@@ -91,7 +121,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/cash-is-the-offline-technology-nobody-replaced",
-      "lastmod": "2026-07-21T09:28:47.213Z",
+      "lastmod": "2026-08-12T10:04:14.900Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -103,7 +133,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-age-verification-proof-you-can-lend-to-a-friend",
-      "lastmod": "2026-07-16T08:29:40.150Z",
+      "lastmod": "2026-08-12T10:04:17.259Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -138,6 +168,12 @@
       "priority": "0.8"
     },
     {
+      "loc": "https://mhrsntrk.com/blog/delegation-chain-accountability",
+      "lastmod": "2026-07-09T06:31:41.525Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-2-fortune-cookie-issuer",
       "lastmod": "2026-07-09T07:24:28.937Z",
       "changefreq": "monthly",
@@ -146,12 +182,6 @@
     {
       "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
       "lastmod": "2026-07-09T07:24:29.309Z",
-      "changefreq": "monthly",
-      "priority": "0.8"
-    },
-    {
-      "loc": "https://mhrsntrk.com/blog/delegation-chain-accountability",
-      "lastmod": "2026-07-09T06:31:41.525Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -175,175 +205,169 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/when-your-agent-dies",
-      "lastmod": "2026-06-30T14:08:09.354Z",
+      "lastmod": "2026-08-12T10:09:15.698Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/ai-is-a-remake-machine",
-      "lastmod": "2026-06-25T12:57:17.971Z",
+      "lastmod": "2026-08-12T10:04:19.742Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/chinas-realdid-is-the-biggest-did-deployment-on-earth",
-      "lastmod": "2026-06-18T14:07:03.911Z",
+      "lastmod": "2026-08-12T10:09:12.068Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/introducing-bino-kids-safe-image-search",
-      "lastmod": "2026-06-18T12:40:18.926Z",
+      "lastmod": "2026-08-12T10:04:17.993Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/payment-networks-are-quietly-becoming-identity-networks",
-      "lastmod": "2026-06-13T22:18:52.882Z",
+      "lastmod": "2026-08-12T10:09:14.149Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/proof-of-personhood-is-answering-the-wrong-question",
-      "lastmod": "2026-07-09T06:40:09.599Z",
+      "lastmod": "2026-08-12T10:04:15.410Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/your-agent-needs-a-mandate-not-a-name",
-      "lastmod": "2026-06-10T18:37:12.488Z",
+      "lastmod": "2026-08-12T10:09:13.476Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/ssi-swapped-dids-for-x509",
-      "lastmod": "2026-08-04T06:00:31.891Z",
+      "lastmod": "2026-08-12T10:04:18.567Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/oid4vc-oid4vp-in-plain-english",
-      "lastmod": "2026-06-08T09:57:23.650Z",
+      "lastmod": "2026-08-12T10:04:15.877Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-agent-web-stack",
-      "lastmod": "2026-06-04T09:41:31.219Z",
+      "lastmod": "2026-08-12T10:09:13.231Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-eus-anonymous-age-verification-app-is-not-anonymous",
-      "lastmod": "2026-06-02T18:39:14.521Z",
+      "lastmod": "2026-08-12T10:04:14.632Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/eidas2-in-plain-english",
-      "lastmod": "2026-06-01T19:16:43.602Z",
+      "lastmod": "2026-08-12T10:04:19.258Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/why-i-gave-my-ai-agent-a-physical-body",
-      "lastmod": "2026-05-27T13:10:29.855Z",
+      "lastmod": "2026-08-12T10:09:13.868Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/hetzner-deployment-end-to-end-2026",
-      "lastmod": "2026-05-25T10:07:31.715Z",
+      "lastmod": "2026-08-12T10:04:16.155Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/modern-cli-toolchain-2026",
-      "lastmod": "2026-05-22T22:28:27.282Z",
+      "lastmod": "2026-08-12T10:09:11.198Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-1-introduction",
-      "lastmod": "2026-07-09T07:09:43.168Z",
+      "lastmod": "2026-08-12T10:04:16.950Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/open-id-for-verifiable-credential-issuance-oidc-4-vci-1-0-is-here",
-      "lastmod": "2026-06-10T13:36:21.906Z",
+      "lastmod": "2026-08-12T10:09:11.849Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-hidden-identity-verification-tax",
-      "lastmod": "2026-05-22T13:04:51.042Z",
+      "lastmod": "2026-08-12T10:04:23.254Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/secure-remote-access-to-your-raspberry-pi-in-2025-updated-cloudflare-tunnel-guide",
-      "lastmod": "2026-08-04T06:00:30.104Z",
+      "lastmod": "2026-08-12T10:09:12.752Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/how-to-use-cloudflare-email-routing-with-gmail-smtp",
-      "lastmod": "2026-07-08T15:41:20.986Z",
+      "lastmod": "2026-08-12T10:04:15.130Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/rise-and-fall-of-the-digital-identity",
-      "lastmod": "2026-05-22T13:04:50.715Z",
+      "lastmod": "2026-08-12T10:09:16.599Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/beyond-the-did-resolver",
-      "lastmod": "2026-05-22T13:04:48.618Z",
+      "lastmod": "2026-08-12T10:04:21.274Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/fare-dodging-insurance",
-      "lastmod": "2026-05-22T13:04:49.402Z",
+      "lastmod": "2026-08-12T10:04:17.488Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/you-can-t-spell-identity-without-i",
-      "lastmod": "2026-05-22T13:04:51.430Z",
+      "lastmod": "2026-08-12T10:09:12.544Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/evil-web-and-the-consent-trap",
-      "lastmod": "2026-05-22T13:04:49.319Z",
+      "lastmod": "2026-08-12T10:09:12.316Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/enabling-a-sustainable-future-through-self-sovereign-identity",
-      "lastmod": "2026-05-22T13:04:49.145Z",
+      "lastmod": "2026-08-12T10:09:14.867Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-decentralization-utopia",
-      "lastmod": "2026-05-22T13:04:50.966Z",
+      "lastmod": "2026-08-12T10:04:23.035Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/a-blockchain-maximalist-disorder-on-chain-overpublishing",
-      "lastmod": "2026-05-22T13:04:48.441Z",
-      "changefreq": "monthly",
-      "priority": "0.8"
-    },
-    {
-      "loc": "https://mhrsntrk.com/blog/tuerkiye-nin-veri-sizintisi-krizi-ve-oez-kimlik-ssi-ile-coezuem-yolu",
-      "lastmod": "2026-05-22T13:04:51.200Z",
+      "lastmod": "2026-08-12T10:09:14.398Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -354,20 +378,26 @@
       "priority": "0.8"
     },
     {
+      "loc": "https://mhrsntrk.com/blog/tuerkiye-nin-veri-sizintisi-krizi-ve-oez-kimlik-ssi-ile-coezuem-yolu",
+      "lastmod": "2026-08-12T10:09:17.176Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/ai-social-graphs-and-the-rise-of-agent-societies",
-      "lastmod": "2026-05-22T13:04:48.530Z",
+      "lastmod": "2026-08-12T10:09:15.323Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/know-your-agent-kya-in-action-mcp-servers-as-ai-identity-wallets",
-      "lastmod": "2026-05-22T13:04:50.060Z",
+      "lastmod": "2026-08-12T10:09:15.993Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/how-did-scid-addresses-the-limitations-of-legacy-did-methods",
-      "lastmod": "2026-05-22T13:04:49.490Z",
+      "lastmod": "2026-08-12T10:09:13.671Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -385,37 +415,37 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/why-we-need-a-better-identity-solution-for-the-internet",
-      "lastmod": "2026-05-22T13:04:51.356Z",
+      "lastmod": "2026-08-12T10:04:23.472Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/verifiable-presentation-exchange-protocols",
-      "lastmod": "2026-05-22T13:04:51.278Z",
+      "lastmod": "2026-08-12T10:09:17.359Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/self-sovereign-identity-glossary",
-      "lastmod": "2026-05-22T13:04:50.886Z",
+      "lastmod": "2026-08-12T10:09:16.808Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/mac-os-setup-guide",
-      "lastmod": "2026-05-22T13:04:50.230Z",
+      "lastmod": "2026-08-12T10:09:13.033Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/nft-proof-of-authenticity",
-      "lastmod": "2026-05-22T13:04:50.318Z",
+      "lastmod": "2026-08-12T10:04:22.199Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/blockchain-use-cases-in-the-enterprise-world",
-      "lastmod": "2026-06-10T13:36:22.755Z",
+      "lastmod": "2026-08-12T10:09:11.625Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -427,13 +457,13 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/comparing-the-most-popular-decentralized-identifier-did-methods",
-      "lastmod": "2026-07-08T15:41:22.144Z",
+      "lastmod": "2026-08-12T10:09:14.624Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/how-to-set-nft-as-ens-avatar",
-      "lastmod": "2026-05-22T13:04:49.736Z",
+      "lastmod": "2026-08-12T10:09:16.208Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -457,25 +487,25 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/the-internet-and-identity",
-      "lastmod": "2026-05-22T13:04:51.118Z",
+      "lastmod": "2026-08-12T10:09:16.999Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/re-publishing-nedir-bu-ethereum",
-      "lastmod": "2026-05-22T13:04:50.640Z",
+      "lastmod": "2026-08-12T10:04:22.410Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/light-nodes-light-clients-research",
-      "lastmod": "2026-08-04T06:00:30.814Z",
+      "lastmod": "2026-08-12T10:09:11.403Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
       "loc": "https://mhrsntrk.com/blog/how-to-install-and-use-mosh-on-a-vps",
-      "lastmod": "2026-05-22T13:04:49.662Z",
+      "lastmod": "2026-08-12T10:09:16.408Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
