@@ -111,6 +111,22 @@ export default function BlogLayout({ post }) {
           <PostBody content={post.content} />
         </div>
         <div className="w-full mt-8">
+          {/* Google's preferred sources tool takes a plain deeplink, so the
+              official news.google.com/swg button script stays off the page.
+              Only domain-level sites are eligible, hence the bare domain. */}
+          <p className="mb-6 text-sm text-gray-500 dark:text-gray-400">
+            Use Google?{' '}
+            <a
+              href="https://www.google.com/preferences/source?q=mhrsntrk.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-umami-event="preferred_source_click"
+              className="underline hover:text-gray-700 dark:hover:text-gray-200"
+            >
+              Add mhrsntrk.com as a preferred source
+            </a>{' '}
+            to see these posts more often in Top Stories.
+          </p>
           <EmailCapture location="post-end" />
         </div>
       </article>
