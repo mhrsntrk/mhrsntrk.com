@@ -165,6 +165,15 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
             height="120"
           />
           <SwissKnifeCard
+            title="Palmares — Car Service History"
+            description="An iPhone and iPad app for classic car owners: scan the binder of receipts, get an odometer-indexed service history, and export a PDF dossier for the next owner. On-device reading, no account. Tap to view on the App Store."
+            href="https://apps.apple.com/us/app/palmares-car-service-history/id6799980228"
+            icon="palmares"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
             title="Light Wallet — SSI Developer Wallet"
             description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
             href="https://apps.apple.com/app/id6755690506"

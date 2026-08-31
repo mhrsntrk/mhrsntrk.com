@@ -35,6 +35,11 @@ const icons = {
     alt: 'Bino Kids Read Along app icon',
     className: 'rounded-2xl'
   },
+  palmares: {
+    src: '/static/icons/palmares.png',
+    alt: 'Palmares car service history app icon',
+    className: 'rounded-2xl'
+  },
   lightwallet: {
     src: '/static/icons/lightwallet.png',
     alt: 'Light Wallet SSI developer wallet app icon',
