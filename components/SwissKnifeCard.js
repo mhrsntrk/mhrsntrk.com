@@ -21,6 +21,10 @@ const icons = {
     src: '/static/icons/fortunecookie.png',
     alt: 'Fortune cookie VC tool icon'
   },
+  'cipher-desk': {
+    src: '/static/icons/cipher-desk.png',
+    alt: 'Cipher Desk tool icon, the letter A above the letter D inside a ring'
+  },
   vulgate: {
     src: '/static/icons/vulgate.png',
     alt: 'The Vulgate corpus icon, a section sign on a catalogue card'

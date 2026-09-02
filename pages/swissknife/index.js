@@ -109,6 +109,14 @@ export default function SwissKnife() {
             height="120"
           />
           <SwissKnifeCard
+            title="Cipher Desk"
+            description="Encode and decode Caesar, Vigenere, Atbash, keyword, rail fence, A1Z26 and Morse in the browser, then break them with frequency analysis. Turn the wheel, watch the alphabet map, share a puzzle by link."
+            href="swissknife/cipher-desk"
+            icon="cipher-desk"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
             title="Crypto Ticker"
             description="You can find the cryptocurrencies that
           I currently follow and hold on the page."

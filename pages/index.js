@@ -191,6 +191,14 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
             height="106"
           />
           <SwissKnifeCard
+            title="Cipher Desk"
+            description="Encode and decode Caesar, Vigenere, Atbash, keyword, rail fence, A1Z26 and Morse in the browser, then break them with frequency analysis. Turn the wheel, watch the alphabet map, share a puzzle by link."
+            href="swissknife/cipher-desk"
+            icon="cipher-desk"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
             title="DID Resolver"
             description="This tool will allow you to fetch the DID document of the given a DID."
             href="swissknife/did-resolver"

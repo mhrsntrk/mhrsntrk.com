@@ -51,6 +51,11 @@
       "changefreq": "monthly"
     },
     {
+      "loc": "https://mhrsntrk.com/swissknife/cipher-desk",
+      "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
       "loc": "https://mhrsntrk.com/swissknife/crypto",
       "priority": "0.7",
       "changefreq": "monthly"
@@ -94,6 +99,48 @@
     }
   ],
   "blogSnapshot": [
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-palmares-service-history-for-classic-cars",
+      "lastmod": "2026-08-31T15:41:23.784Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/delegation-format-the-business-wallet-is-missing",
+      "lastmod": "2026-08-27T07:41:10.079Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/european-business-wallet-in-plain-english",
+      "lastmod": "2026-08-26T09:13:44.179Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/we-kept-the-tool-and-fired-the-crew",
+      "lastmod": "2026-08-25T09:39:45.703Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/see-which-servers-your-apps-contact",
+      "lastmod": "2026-08-25T10:50:31.838Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/encrypted-dns-on-iphone-without-an-app",
+      "lastmod": "2026-08-20T08:05:39.837Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/uploading-a-large-extension-to-edge-add-ons",
+      "lastmod": "2026-08-19T11:32:33.519Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
     {
       "loc": "https://mhrsntrk.com/blog/sosyal-medyada-yas-dogrulama-e-devlet-tokeni",
       "lastmod": "2026-08-18T09:56:48.913Z",
@@ -173,14 +220,14 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/agent-privacy-liability-paradox",
-      "lastmod": "2026-07-10T04:13:07.247Z",
+      "loc": "https://mhrsntrk.com/blog/agents-are-doing-did-methods-all-over-again",
+      "lastmod": "2026-07-14T06:26:13.283Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/agents-are-doing-did-methods-all-over-again",
-      "lastmod": "2026-07-14T06:26:13.283Z",
+      "loc": "https://mhrsntrk.com/blog/agent-privacy-liability-paradox",
+      "lastmod": "2026-07-10T04:13:07.247Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
