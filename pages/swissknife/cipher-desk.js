@@ -1,223 +1,14 @@
-import { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { useState, useEffect, useMemo, useCallback } from 'react';
 import { NextSeo } from 'next-seo';
 
 import ROBOTS_PROPS from '@/lib/robots';
 import Container from '@/components/Container';
 import StructuredData from '@/components/StructuredData';
-import {
-  ALPHABET,
-  CIPHERS,
-  cipherById,
-  crackCaesar,
-  letterCounts,
-  encodeShare,
-  decodeShare
-} from '@/lib/ciphers';
-
-const STEP = 360 / 26;
-const mod = (n, m) => ((n % m) + m) % m;
-const polar = (cx, cy, r, deg) => {
-  const rad = ((deg - 90) * Math.PI) / 180;
-  return [cx + r * Math.cos(rad), cy + r * Math.sin(rad)];
-};
-
-/* ------------------------------------------------------------ Caesar wheel */
-
-function CaesarWheel({ shift, onShift }) {
-  const svgRef = useRef(null);
-  const drag = useRef(null);
-
-  const angleAt = (event) => {
-    const box = svgRef.current.getBoundingClientRect();
-    const cx = box.left + box.width / 2;
-    const cy = box.top + box.height / 2;
-    return (Math.atan2(event.clientY - cy, event.clientX - cx) * 180) / Math.PI;
-  };
-
-  const onPointerDown = (event) => {
-    drag.current = { from: angleAt(event), shift };
-    event.currentTarget.setPointerCapture(event.pointerId);
-  };
-  const onPointerMove = (event) => {
-    if (!drag.current) return;
-    const delta = angleAt(event) - drag.current.from;
-    onShift(mod(Math.round(drag.current.shift - delta / STEP), 26));
-  };
-  const onPointerUp = () => {
-    drag.current = null;
-  };
-
-  return (
-    <svg
-      ref={svgRef}
-      viewBox="0 0 240 240"
-      role="img"
-      aria-label={`Caesar wheel set to shift ${shift}`}
-      className="w-full h-auto select-none cursor-move"
-      style={{ touchAction: 'none' }}
-      onPointerDown={onPointerDown}
-      onPointerMove={onPointerMove}
-      onPointerUp={onPointerUp}
-      onPointerCancel={onPointerUp}
-    >
-      <circle
-        cx="120"
-        cy="120"
-        r="114"
-        className="fill-current text-gray-100 dark:text-gray-900"
-      />
-      <circle
-        cx="120"
-        cy="120"
-        r="88"
-        className="fill-current text-white dark:text-black"
-      />
-      <circle
-        cx="120"
-        cy="120"
-        r="46"
-        className="fill-current text-gray-100 dark:text-gray-900"
-      />
-
-      {ALPHABET.split('').map((letter, i) => {
-        const [x, y] = polar(120, 120, 101, i * STEP);
-        const active = i === 0;
-        return (
-          <text
-            key={`outer-${letter}`}
-            x={x}
-            y={y}
-            textAnchor="middle"
-            dominantBaseline="central"
-            fontSize="11"
-            className={`font-mono fill-current ${
-              active ? 'text-red-500' : 'text-gray-500 dark:text-gray-400'
-            }`}
-          >
-            {letter}
-          </text>
-        );
-      })}
-
-      <g transform={`rotate(${-shift * STEP} 120 120)`}>
-        {ALPHABET.split('').map((letter, i) => {
-          const [x, y] = polar(120, 120, 67, i * STEP);
-          const active = i === shift;
-          return (
-            <text
-              key={`inner-${letter}`}
-              x={x}
-              y={y}
-              textAnchor="middle"
-              dominantBaseline="central"
-              fontSize="12"
-              transform={`rotate(${shift * STEP} ${x} ${y})`}
-              className={`font-mono fill-current ${
-                active ? 'text-red-500' : 'text-gray-900 dark:text-gray-100'
-              }`}
-            >
-              {letter}
-            </text>
-          );
-        })}
-      </g>
-
-      <text
-        x="120"
-        y="114"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize="26"
-        className="font-mono fill-current text-gray-900 dark:text-gray-100"
-      >
-        {shift}
-      </text>
-      <text
-        x="120"
-        y="136"
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize="8"
-        className="font-mono fill-current text-gray-500 dark:text-gray-400"
-      >
-        SHIFT
-      </text>
-    </svg>
-  );
-}
-
-/* --------------------------------------------------------- Alphabet strip */
-
-function AlphabetStrip({ cipherAlphabet }) {
-  return (
-    <div className="w-full overflow-x-auto">
-      <table className="w-full font-mono text-xs table-fixed sm:text-sm">
-        <tbody>
-          <tr>
-            {ALPHABET.split('').map((letter) => (
-              <td
-                key={`p-${letter}`}
-                className="py-1 text-center text-gray-500 dark:text-gray-400"
-              >
-                {letter}
-              </td>
-            ))}
-          </tr>
-          <tr>
-            {ALPHABET.split('').map((letter, i) => (
-              <td
-                key={`c-${letter}`}
-                className="py-1 text-center text-red-500 border-t border-gray-200 dark:border-gray-800"
-              >
-                {cipherAlphabet[i]}
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------- Frequency chart */
-
-function FrequencyChart({ text }) {
-  const { counts, percent, total } = letterCounts(text);
-  const peak = Math.max(...percent, 1);
-
-  return (
-    <div>
-      <div className="flex items-end w-full h-24 gap-px">
-        {percent.map((pct, i) => (
-          <div
-            key={ALPHABET[i]}
-            className="flex-1 bg-gray-300 dark:bg-gray-700"
-            style={{ height: `${Math.max((pct / peak) * 100, 1.5)}%` }}
-            title={`${ALPHABET[i]}: ${counts[i]} (${pct.toFixed(1)}%)`}
-          />
-        ))}
-      </div>
-      <div className="flex w-full gap-px mt-1">
-        {ALPHABET.split('').map((letter) => (
-          <div
-            key={letter}
-            className="flex-1 font-mono text-center text-gray-400 dark:text-gray-500"
-            style={{ fontSize: '9px' }}
-          >
-            {letter}
-          </div>
-        ))}
-      </div>
-      <p className="mt-3 text-sm text-gray-600 dark:text-gray-400">
-        {total
-          ? `${total} letters counted. English prose peaks hard at E, T and A. When a ciphertext keeps that shape, the cipher only moved the labels around and the letters underneath are still countable.`
-          : 'Type something to see its letter distribution.'}
-      </p>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------- Page */
+import CaesarWheel from '@/components/CaesarWheel';
+import AlphabetStrip from '@/components/AlphabetStrip';
+import FrequencyChart from '@/components/FrequencyChart';
+import { PANEL, BUTTON, FIELD, LABEL } from '@/lib/cipherStyles';
+import { CIPHERS, cipherById, crackCaesar, encodeShare } from '@/lib/ciphers';
 
 /**
  * The tool itself, and the trail back to the Swiss Knife index. Search engines
@@ -278,14 +69,7 @@ const BREADCRUMB_SCHEMA = {
   ]
 };
 
-const PANEL =
-  'w-full p-4 mb-4 bg-white border border-gray-300 rounded-md sm:p-6 dark:border-gray-900 dark:bg-gray-800';
-const BUTTON =
-  'px-3 py-2 text-sm text-gray-700 transition-colors duration-200 bg-gray-100 border border-gray-300 rounded-md dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 hover:bg-gray-200 dark:hover:bg-gray-600';
-const FIELD =
-  'w-full p-3 text-sm text-gray-900 bg-white border border-gray-300 rounded-md dark:bg-gray-900 dark:border-gray-700 dark:text-gray-100 focus:outline-none focus:border-red-500 dark:focus:border-red-500';
-const LABEL =
-  'block mb-2 text-xs font-bold tracking-widest text-gray-400 uppercase dark:text-gray-500';
+const SOLVE_PATH = '/swissknife/decode';
 
 export default function CipherDesk() {
   const [cipherId, setCipherId] = useState('caesar');
@@ -297,7 +81,6 @@ export default function CipherDesk() {
   const [source, setSource] = useState('plain');
   const [copied, setCopied] = useState('');
   const [shareUrl, setShareUrl] = useState('');
-  const [arrived, setArrived] = useState(null);
   const [breakOpen, setBreakOpen] = useState(false);
   const [showBreak, setShowBreak] = useState(false);
 
@@ -312,19 +95,12 @@ export default function CipherDesk() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cipherId, params, source, plain, cipher]);
 
-  // Read a shared message out of the fragment on first paint. The shift and
-  // the keyword are deliberately NOT read, because they are deliberately not
-  // sent: a link that carries the key is not a puzzle, it is just a message.
+  // Solving belongs on its own page now. Links minted before that split still
+  // point here, so hand them over rather than dropping them on the floor.
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const raw = window.location.hash.replace(/^#/, '');
-    if (!raw) return;
-    const state = decodeShare(raw);
-    if (!state || !state.t) return;
-    if (state.c) setCipherId(state.c);
-    setSource('cipher');
-    setCipher(state.t);
-    setArrived(cipherById(state.c).name);
+    if (raw) window.location.replace(`${SOLVE_PATH}#${raw}`);
   }, []);
 
   const copy = useCallback(async (value, tag) => {
@@ -340,7 +116,7 @@ export default function CipherDesk() {
   const makeShareLink = useCallback(() => {
     if (typeof window === 'undefined' || !cipher) return;
     const fragment = encodeShare({ c: cipherId, t: cipher });
-    const url = `${window.location.origin}${window.location.pathname}#${fragment}`;
+    const url = `${window.location.origin}${SOLVE_PATH}#${fragment}`;
     setShareUrl(url);
     copy(url, 'link');
   }, [copy, cipherId, cipher]);
@@ -392,31 +168,6 @@ export default function CipherDesk() {
             stored, and shared links carry the message in the URL fragment,
             which browsers never send to a server.
           </p>
-
-          {arrived && (
-            <div className="w-full p-4 mb-6 border border-red-300 rounded-md bg-red-50 dark:bg-red-900 dark:border-red-700">
-              <div className="flex items-start justify-between">
-                <div>
-                  <h2 className="mb-1 text-sm font-bold text-red-900 dark:text-red-100">
-                    A cipher arrived
-                  </h2>
-                  <p className="text-sm text-red-800 dark:text-red-100">
-                    Someone sent you a message enciphered with {arrived}. The
-                    key did not come with it. Turn the wheel until the message
-                    reads, or open Break it at the bottom of the page.
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setArrived(null)}
-                  aria-label="Dismiss"
-                  className="ml-4 text-sm text-red-800 dark:text-red-100 hover:underline"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
-          )}
 
           {/* Cipher picker */}
           <div className="w-full mb-4">
@@ -592,7 +343,8 @@ export default function CipherDesk() {
                 does not carry your shift or your keyword, so whoever opens it
                 sees the scrambled message and has to work it out. Tell them the
                 key some other way, or let them break it. That separation is the
-                whole idea behind a key.
+                whole idea behind a key. The link opens on a page built for
+                exactly one job: turning the wheel until the message reads.
               </p>
               <div className="flex flex-col gap-2 sm:flex-row">
                 <button

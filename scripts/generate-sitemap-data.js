@@ -68,7 +68,11 @@ function priorityFor(route) {
     // noindex URL in the sitemap asks a crawler to index what the page then
     // refuses, which is how "Excluded by noindex" reports fill up with URLs you
     // put there yourself.
-    '!pages/swissknife/vulgate/**'
+    '!pages/swissknife/vulgate/**',
+    // Same reason: /swissknife/decode is noindex. Its entire content arrives in
+    // the URL fragment, so the bare route has nothing to index and would only
+    // compete with the Cipher Desk itself.
+    '!pages/swissknife/decode.js'
   ]);
 
   const staticUrls = pageFiles
