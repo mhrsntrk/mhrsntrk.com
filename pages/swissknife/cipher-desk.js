@@ -296,6 +296,9 @@ export default function CipherDesk() {
   const [cipher, setCipher] = useState('ifmmp xpsme');
   const [source, setSource] = useState('plain');
   const [copied, setCopied] = useState('');
+  const [shareUrl, setShareUrl] = useState('');
+  const [arrived, setArrived] = useState(null);
+  const [breakOpen, setBreakOpen] = useState(false);
   const [showBreak, setShowBreak] = useState(false);
 
   const active = cipherById(cipherId);
@@ -309,7 +312,9 @@ export default function CipherDesk() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cipherId, params, source, plain, cipher]);
 
-  // Read a shared message out of the fragment on first paint.
+  // Read a shared message out of the fragment on first paint. The shift and
+  // the keyword are deliberately NOT read, because they are deliberately not
+  // sent: a link that carries the key is not a puzzle, it is just a message.
   useEffect(() => {
     if (typeof window === 'undefined') return;
     const raw = window.location.hash.replace(/^#/, '');
@@ -317,11 +322,9 @@ export default function CipherDesk() {
     const state = decodeShare(raw);
     if (!state || !state.t) return;
     if (state.c) setCipherId(state.c);
-    if (typeof state.s === 'number') setShift(state.s);
-    if (state.k) setKey(state.k);
-    if (typeof state.r === 'number') setRails(state.r);
     setSource('cipher');
     setCipher(state.t);
+    setArrived(cipherById(state.c).name);
   }, []);
 
   const copy = useCallback(async (value, tag) => {
@@ -334,18 +337,13 @@ export default function CipherDesk() {
     }
   }, []);
 
-  const copyShareLink = useCallback(() => {
+  const makeShareLink = useCallback(() => {
     if (typeof window === 'undefined' || !cipher) return;
-    const fragment = encodeShare({
-      c: cipherId,
-      s: shift,
-      k: key,
-      r: rails,
-      t: cipher
-    });
+    const fragment = encodeShare({ c: cipherId, t: cipher });
     const url = `${window.location.origin}${window.location.pathname}#${fragment}`;
+    setShareUrl(url);
     copy(url, 'link');
-  }, [copy, cipherId, shift, key, rails, cipher]);
+  }, [copy, cipherId, cipher]);
 
   const candidates = useMemo(
     () => (showBreak && cipher ? crackCaesar(cipher).slice(0, 26) : []),
@@ -394,6 +392,31 @@ export default function CipherDesk() {
             stored, and shared links carry the message in the URL fragment,
             which browsers never send to a server.
           </p>
+
+          {arrived && (
+            <div className="w-full p-4 mb-6 border border-red-300 rounded-md bg-red-50 dark:bg-red-900 dark:border-red-700">
+              <div className="flex items-start justify-between">
+                <div>
+                  <h2 className="mb-1 text-sm font-bold text-red-900 dark:text-red-100">
+                    A cipher arrived
+                  </h2>
+                  <p className="text-sm text-red-800 dark:text-red-100">
+                    Someone sent you a message enciphered with {arrived}. The
+                    key did not come with it. Turn the wheel until the message
+                    reads, or open Break it at the bottom of the page.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setArrived(null)}
+                  aria-label="Dismiss"
+                  className="ml-4 text-sm text-red-800 dark:text-red-100 hover:underline"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Cipher picker */}
           <div className="w-full mb-4">
@@ -562,92 +585,147 @@ export default function CipherDesk() {
               />
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 mt-4">
-              <button type="button" onClick={copyShareLink} className={BUTTON}>
-                {copied === 'link' ? 'Link copied' : 'Copy secret link'}
-              </button>
-              <span className="text-xs text-gray-500 dark:text-gray-400">
-                Sends the puzzle, not the answer. They will still have to turn
-                the wheel.
-              </span>
+            <div className="pt-4 mt-6 border-t border-gray-200 dark:border-gray-700">
+              <span className={LABEL}>Send it to someone</span>
+              <p className="mb-3 text-sm text-gray-600 dark:text-gray-400">
+                The link carries the cipher text and which cipher you picked. It
+                does not carry your shift or your keyword, so whoever opens it
+                sees the scrambled message and has to work it out. Tell them the
+                key some other way, or let them break it. That separation is the
+                whole idea behind a key.
+              </p>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={makeShareLink}
+                  className={`${BUTTON} sm:flex-shrink-0`}
+                >
+                  {copied === 'link' ? 'Copied' : 'Make link and copy'}
+                </button>
+                <input
+                  type="text"
+                  readOnly
+                  value={shareUrl}
+                  onFocus={(e) => e.target.select()}
+                  placeholder="Your link will appear here"
+                  aria-label="Shareable cipher link"
+                  className={`${FIELD} text-xs`}
+                />
+              </div>
+              <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                Everything after the # stays in the browser. It is never sent to
+                the server, so the message is not in any log.
+              </p>
             </div>
           </div>
 
           {/* Breaking it */}
           <div className={PANEL}>
-            <h2 className="mb-2 text-xl font-semibold text-gray-900 dark:text-gray-100">
-              Break it
-            </h2>
-            <p className="mb-6 text-sm text-gray-600 dark:text-gray-400">
-              Every cipher on this page was broken long ago, most of them by
-              counting. Here is the counting.
-            </p>
-
-            <span className={LABEL}>Letter frequency of the cipher text</span>
-            <FrequencyChart text={cipher} />
-
-            <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
-              <span className={LABEL}>Brute force the shift</span>
-              <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                A Caesar cipher has 25 useful keys, which a person can try by
-                hand in a minute. Ranking each one by how closely it matches
-                English letter frequencies picks the answer out on its own.
-              </p>
-              <button
-                type="button"
-                onClick={() => setShowBreak((v) => !v)}
-                className={BUTTON}
+            <button
+              type="button"
+              onClick={() => setBreakOpen((v) => !v)}
+              aria-expanded={breakOpen}
+              className="flex items-start justify-between w-full text-left"
+            >
+              <span className="pr-4">
+                <span className="block text-xl font-semibold text-gray-900 dark:text-gray-100">
+                  Break it
+                </span>
+                <span className="block mt-1 text-sm text-gray-600 dark:text-gray-400">
+                  Every cipher on this page was broken long ago, most of them by
+                  counting. Here is the counting.
+                </span>
+              </span>
+              <svg
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+                className={`flex-shrink-0 w-5 h-5 mt-1 text-gray-400 transition-transform duration-200 dark:text-gray-500 ${
+                  breakOpen ? 'transform rotate-180' : ''
+                }`}
               >
-                {showBreak ? 'Hide the 26 shifts' : 'Try all 26 shifts'}
-              </button>
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </button>
 
-              {showBreak && (
-                <div className="mt-4 overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead>
-                      <tr className="text-xs tracking-widest text-gray-400 uppercase dark:text-gray-500">
-                        <th className="py-2 pr-3 font-bold text-left">Shift</th>
-                        <th className="py-2 pr-3 font-bold text-left">
-                          Reads as
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {candidates.map((row, rank) => (
-                        <tr
-                          key={row.shift}
-                          className="border-t border-gray-200 dark:border-gray-700"
-                        >
-                          <td
-                            className={`py-2 pr-3 font-mono align-top ${
-                              rank === 0
-                                ? 'text-red-500'
-                                : 'text-gray-500 dark:text-gray-400'
-                            }`}
-                          >
-                            {row.shift}
-                          </td>
-                          <td
-                            className={`py-2 pr-3 font-mono break-all ${
-                              rank === 0
-                                ? 'text-red-500'
-                                : 'text-gray-600 dark:text-gray-400'
-                            }`}
-                          >
-                            {row.plain.slice(0, 72) || ' '}
-                            {rank === 0 && (
-                              <span className="ml-2 text-xs tracking-widest uppercase">
-                                best guess
-                              </span>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+            {breakOpen && (
+              <div className="mt-6">
+                <span className={LABEL}>
+                  Letter frequency of the cipher text
+                </span>
+                <FrequencyChart text={cipher} />
+
+                <div className="pt-6 mt-6 border-t border-gray-200 dark:border-gray-700">
+                  <span className={LABEL}>Brute force the shift</span>
+                  <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
+                    A Caesar cipher has 25 useful keys, which a person can try
+                    by hand in a minute. Ranking each one by how closely it
+                    matches English letter frequencies picks the answer out on
+                    its own.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setShowBreak((v) => !v)}
+                    className={BUTTON}
+                  >
+                    {showBreak ? 'Hide the 26 shifts' : 'Try all 26 shifts'}
+                  </button>
+
+                  {showBreak && (
+                    <div className="mt-4 overflow-x-auto">
+                      <table className="w-full text-sm">
+                        <thead>
+                          <tr className="text-xs tracking-widest text-gray-400 uppercase dark:text-gray-500">
+                            <th className="py-2 pr-3 font-bold text-left">
+                              Shift
+                            </th>
+                            <th className="py-2 pr-3 font-bold text-left">
+                              Reads as
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {candidates.map((row, rank) => (
+                            <tr
+                              key={row.shift}
+                              className="border-t border-gray-200 dark:border-gray-700"
+                            >
+                              <td
+                                className={`py-2 pr-3 font-mono align-top ${
+                                  rank === 0
+                                    ? 'text-red-500'
+                                    : 'text-gray-500 dark:text-gray-400'
+                                }`}
+                              >
+                                {row.shift}
+                              </td>
+                              <td
+                                className={`py-2 pr-3 font-mono break-all ${
+                                  rank === 0
+                                    ? 'text-red-500'
+                                    : 'text-gray-600 dark:text-gray-400'
+                                }`}
+                              >
+                                {row.plain.slice(0, 72) || ' '}
+                                {rank === 0 && (
+                                  <span className="ml-2 text-xs tracking-widest uppercase">
+                                    best guess
+                                  </span>
+                                )}
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
 
           <div className="w-full p-4 mb-4 border border-yellow-300 rounded-md bg-yellow-100 dark:bg-yellow-900 dark:border-yellow-700">
