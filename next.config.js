@@ -1,4 +1,7 @@
 module.exports = {
+  // Pin the workspace root: a stray lockfile in the home directory otherwise
+  // wins the inference and file tracing walks up out of the project.
+  outputFileTracingRoot: __dirname,
   async redirects() {
     return [
       {
@@ -101,7 +104,6 @@ module.exports = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
-  swcMinify: true,
   webpack: (config, { dev, isServer }) => {
     if (isServer) {
       // The sitemap is served from pages/sitemap.xml.js; its build-time data
