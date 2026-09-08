@@ -11,7 +11,6 @@ Live at **[mhrsntrk.com](https://mhrsntrk.com)**.
 - **Blog** driven by a headless Strapi (v5) backend, rendered as static pages with markdown, code highlighting, and Mermaid diagrams.
 - **Photos** a masonry gallery with a custom lightbox.
 - **Swiss Knife** a set of small self-built tools: crypto prices, ENS resolver, DID resolver, QR proxy (qroxy), fortune cookie, and The Vulgate corpus browser.
-- **Newsletter** double opt-in signup wired to a self-hosted Listmonk instance.
 - **LLM-friendly** every page is available as clean markdown (`/api/markdown/...`), plus `llms.txt` / `llms-full.txt` and a "copy for LLM" button.
 - **Dynamic OG images** generated at the edge with `@vercel/og`.
 - **Analytics** privacy-first, self-hosted Umami.
@@ -23,7 +22,6 @@ The frontend started from [leerob.io](https://leerob.io) as a base and was rewir
 - [Next.js 13](https://nextjs.org/) (Pages Router) + [React 18](https://react.dev/)
 - [Tailwind CSS](https://tailwindcss.com/) with the typography plugin
 - [Strapi](https://strapi.io/) v5 (headless CMS, external)
-- [Listmonk](https://listmonk.app/) (newsletter, external)
 - [Umami](https://umami.is/) (analytics, external)
 - [Vercel](https://vercel.com) (hosting)
 
@@ -47,9 +45,6 @@ Copy `.env.example` to `.env.local` and fill in real values. Never commit `.env.
 | -------------------------------------------------------- | --------------------------------------------------- |
 | `STRAPI_API_URL`                                         | Base URL of the Strapi instance (no trailing slash) |
 | `STRAPI_API_TOKEN` / `STRAPI_API_TOKEN_FULL`             | Strapi read tokens (server-side only)               |
-| `LISTMONK_URL`                                           | Base URL of the Listmonk instance                   |
-| `LISTMONK_API_USER` / `LISTMONK_API_TOKEN`               | Listmonk API credentials (server-side only)         |
-| `LISTMONK_LIST_ID`                                       | Numeric ID of the double opt-in newsletter list     |
 | `NEXT_PUBLIC_UMAMI_URL` / `NEXT_PUBLIC_UMAMI_WEBSITE_ID` | Analytics endpoint and site ID                      |
 | `NEXT_PUBLIC_ETHERSCAN_API_KEY`                          | ENS / on-chain lookups                              |
 | `NEXT_PUBLIC_INFURA_API_KEY`                             | Ethereum RPC provider                               |

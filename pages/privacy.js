@@ -12,13 +12,13 @@ export default function Privacy() {
       <NextSeo
         robotsProps={ROBOTS_PROPS}
         title="Privacy Policy: What This Site Collects – mhrsntrk"
-        description="How mhrsntrk.com handles your data: what the newsletter stores, which privacy-preserving analytics run, how long anything is kept, and how to have it deleted."
+        description="How mhrsntrk.com handles your data: which privacy-preserving analytics run, how long anything is kept, and how to have it deleted."
         canonical="https://mhrsntrk.com/privacy"
         openGraph={{
           url: 'https://mhrsntrk.com/privacy',
           title: 'Privacy Policy: What This Site Collects – mhrsntrk',
           description:
-            'How mhrsntrk.com handles your data: newsletter subscriptions, analytics, and your rights.'
+            'How mhrsntrk.com handles your data: analytics and your rights.'
         }}
       />
       <div className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-16">
@@ -28,19 +28,6 @@ export default function Privacy() {
         <div className="w-full prose dark:prose-dark max-w-none">
           <p>
             This is a personal website. I try to collect as little as possible.
-          </p>
-
-          <h2>Newsletter</h2>
-          <p>
-            If you subscribe, your email address is stored in my self-hosted{' '}
-            <a href="https://listmonk.app" rel="noopener noreferrer">
-              Listmonk
-            </a>{' '}
-            instance solely to send you the newsletter. Subscriptions use{' '}
-            <strong>double opt-in</strong>: you will receive a confirmation
-            email and are only added once you click the link. Every email
-            includes a one-click unsubscribe, and you can ask me to delete your
-            address at any time.
           </p>
 
           <h2>Analytics</h2>

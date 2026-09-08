@@ -5,7 +5,6 @@ import ROBOTS_PROPS from '@/lib/robots';
 
 import Container from '@/components/Container';
 import BlogPost from '@/components/BlogPost';
-import EmailCapture from '@/components/EmailCapture';
 import StructuredData from '@/components/StructuredData';
 import { AGENT_IDENTITY } from '@/lib/clusters';
 
@@ -72,8 +71,6 @@ export default function AgentIdentity() {
         <blockquote className="pl-4 mb-8 text-lg leading-relaxed text-gray-800 border-l-2 border-red-500 dark:text-gray-200">
           {AGENT_IDENTITY.definition}
         </blockquote>
-
-        <EmailCapture location="pillar" />
 
         <h2 className="mt-4 mb-6 text-2xl font-bold tracking-tight text-black dark:text-white">
           The series

@@ -8,7 +8,6 @@ import { detectPostLang, langForSlug } from '@/lib/postLanguage';
 import BlogSeo from '@/components/BlogSeo';
 import PostBody from '@/components/PostBody';
 import CopyForLLMButton from '@/components/CopyForLLMButton';
-import EmailCapture from '@/components/EmailCapture';
 import StructuredData, {
   BlogPostingSchema,
   FAQPageSchema
@@ -127,7 +126,6 @@ export default function BlogLayout({ post }) {
             </a>{' '}
             to see these posts more often in Top Stories.
           </p>
-          <EmailCapture location="post-end" />
         </div>
       </article>
     </div>
