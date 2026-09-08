@@ -78,18 +78,25 @@ module.exports = {
     ];
   },
   images: {
-    domains: ['api.qrserver.com', 'mhrsntrk.com', 'images.mhrsntrk.com'], // QR Code and own domain
+    // Every optimized remote image is a Strapi upload served from
+    // images.mhrsntrk.com, at the bucket root (/small_<name>_<hash>.JPG), so
+    // that host is the whole allowlist.
+    //
+    // What this replaces: a `domains` array plus a `hostname: '**'` pattern.
+    // The wildcard was scoped to /uploads/**, a path this site never serves,
+    // so it matched nothing and only stood as an open door - any HTTPS host on
+    // the internet could be fetched through the optimizer by asking for a
+    // /uploads/ path on it. `domains` is also gone in Next 16, and it allowed
+    // every path on each host it listed.
+    //
+    // api.qrserver.com left with it: qroxy returns the QR as a data: URI,
+    // which next/image passes through without an optimizer fetch. If that API
+    // ever goes back to returning a URL, its host has to be added here.
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '1337',
-        pathname: '/uploads/**'
-      },
-      {
         protocol: 'https',
-        hostname: '**',
-        pathname: '/uploads/**'
+        hostname: 'images.mhrsntrk.com',
+        pathname: '/**'
       }
     ],
     formats: ['image/avif', 'image/webp'], // AVIF first for better compression
