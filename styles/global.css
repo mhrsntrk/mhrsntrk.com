@@ -71,6 +71,12 @@
   }
 }
 
+:root {
+  /* bumped to change the CSS bundle hash; Cloudflare edge-cached a 404 for
+     the previous bundle URL during the 2026-09-09 deploy */
+  --css-rev: 2;
+}
+
 ::selection {
   background-color: #ef4444;
   color: #fefefe;
