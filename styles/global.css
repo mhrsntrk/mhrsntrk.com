@@ -93,6 +93,43 @@ html {
   min-height: 100vh;
 }
 
+/* Hover tooltip for the nav toggle buttons; text comes from data-tooltip.
+   Left-aligned to the button (not centered) so it never clips off-screen
+   next to the viewport edge on small screens. Hover-capable devices only —
+   touch users get nothing useful from it and the aria-labels cover them. */
+@media (hover: hover) {
+  .nav-tooltip {
+    position: relative;
+  }
+  .nav-tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: #f3f4f6;
+    background-color: #1f2937;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease-in-out;
+    pointer-events: none;
+    z-index: 20;
+  }
+  .dark .nav-tooltip::after {
+    color: #1f2937;
+    background-color: #f3f4f6;
+  }
+  .nav-tooltip:hover::after,
+  .nav-tooltip:focus-visible::after {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 .sticky-nav {
   position: sticky;
   z-index: 10;

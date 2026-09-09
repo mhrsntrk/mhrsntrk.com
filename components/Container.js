@@ -35,8 +35,15 @@ export default function Container({ children }) {
           <div className="flex items-center flex-shrink-0 gap-2">
           <button
             aria-label="Toggle Dark Mode"
+            data-tooltip={
+              mounted
+                ? theme === 'dark'
+                  ? 'Switch to light mode'
+                  : 'Switch to dark mode'
+                : undefined
+            }
             type="button"
-            className="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
+            className="nav-tooltip flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             {mounted && (
@@ -61,8 +68,15 @@ export default function Container({ children }) {
           <button
             aria-label="Toggle Monospace Font"
             aria-pressed={monoFont}
+            data-tooltip={
+              mounted
+                ? monoFont
+                  ? 'Switch to pixel font'
+                  : 'Switch to monospace font'
+                : undefined
+            }
             type="button"
-            className="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
+            className="nav-tooltip flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
             onClick={toggleFont}
           >
             {mounted && (
