@@ -7,15 +7,32 @@ import Footer from '@/components/Footer';
 
 export default function Container({ children }) {
   const [mounted, setMounted] = useState(false);
+  const [monoFont, setMonoFont] = useState(false);
   const { theme, setTheme } = useTheme();
 
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), []);
+  // After mounting, we have access to the theme and the saved font choice
+  // (the class itself is applied pre-paint by the script in _document.js)
+  useEffect(() => {
+    setMounted(true);
+    setMonoFont(document.documentElement.classList.contains('mono-font'));
+  }, []);
+
+  const toggleFont = () => {
+    const next = !monoFont;
+    setMonoFont(next);
+    document.documentElement.classList.toggle('mono-font', next);
+    try {
+      localStorage.setItem('font', next ? 'mono' : 'default');
+    } catch (e) {
+      // private mode etc. — the choice just won't persist
+    }
+  };
 
   return (
     <div className="bg-white dark:bg-black">
       <nav className="sticky-nav w-full bg-white dark:bg-black bg-opacity-60">
         <div className="flex items-center justify-between w-full max-w-4xl gap-2 px-3 py-4 mx-auto my-0 sm:gap-3 sm:p-8 md:my-8">
+          <div className="flex items-center flex-shrink-0 gap-2">
           <button
             aria-label="Toggle Dark Mode"
             type="button"
@@ -41,6 +58,20 @@ export default function Container({ children }) {
               </svg>
             )}
           </button>
+          <button
+            aria-label="Toggle Monospace Font"
+            aria-pressed={monoFont}
+            type="button"
+            className="flex items-center justify-center flex-shrink-0 w-10 h-10 bg-gray-200 rounded dark:bg-gray-800"
+            onClick={toggleFont}
+          >
+            {mounted && (
+              <span className="text-sm font-bold leading-none text-gray-800 dark:text-gray-200">
+                {monoFont ? 'Aa' : '</>'}
+              </span>
+            )}
+          </button>
+          </div>
           <div className="items-center hidden sm:hidden md:flex lg:flex xl:flex ">
             <Link href="/">
               {theme === 'light' ? (

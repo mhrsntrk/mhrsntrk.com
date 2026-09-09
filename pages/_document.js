@@ -31,6 +31,23 @@ class MyDocument extends Document {
           <link rel="dns-prefetch" href="//fonts.gstatic.com" />
 
           <link rel="stylesheet" href="https://use.typekit.net/wjs2wtl.css" />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+          />
+          {/* Apply the saved font choice before first paint (same idea as
+              next-themes' theme script) to avoid a font flash. */}
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `try{if(localStorage.getItem('font')==='mono')document.documentElement.classList.add('mono-font')}catch(e){}`
+            }}
+          />
 
           {/* Reports are a separate content type with their own feed, so it is
               discoverable site-wide rather than only from /reports. The blog

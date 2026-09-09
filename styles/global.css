@@ -45,6 +45,30 @@
   .tk-lores-9-plus-narrow {
     font-family: 'lores-9-plus-narrow', sans-serif !important;
   }
+
+  /* Font switcher: html.mono-font swaps the body font to JetBrains Mono.
+     Must out-specify the !important element rules above. */
+  html.mono-font,
+  html.mono-font body,
+  html.mono-font h1,
+  html.mono-font h2,
+  html.mono-font h3,
+  html.mono-font h4,
+  html.mono-font h5,
+  html.mono-font h6,
+  html.mono-font p,
+  html.mono-font span,
+  html.mono-font div,
+  html.mono-font a,
+  html.mono-font button,
+  html.mono-font input,
+  html.mono-font textarea,
+  html.mono-font select,
+  html.mono-font label,
+  html.mono-font .tk-lores-9-plus-narrow {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo,
+      monospace !important;
+  }
 }
 
 ::selection {
