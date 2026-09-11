@@ -44,6 +44,11 @@ const icons = {
     alt: 'Palmares car service history app icon',
     className: 'rounded-2xl'
   },
+  landline: {
+    src: '/static/icons/landline.png',
+    alt: 'Landline terminal app icon',
+    className: 'rounded-2xl'
+  },
   lightwallet: {
     src: '/static/icons/lightwallet.png',
     alt: 'Light Wallet SSI developer wallet app icon',

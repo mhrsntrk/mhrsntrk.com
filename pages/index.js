@@ -174,6 +174,15 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
             height="120"
           />
           <SwissKnifeCard
+            title="Landline: Terminal over Tailscale"
+            description="An iPhone and iPad terminal for your own Mac, Linux and Windows machines. Resume a shell over Tailscale, with a customizable key bar and tmux shortcuts. Tap to view on the App Store."
+            href="https://apps.apple.com/app/id6808344753"
+            icon="landline"
+            target="_blank"
+            width="120"
+            height="120"
+          />
+          <SwissKnifeCard
             title="Light Wallet — SSI Developer Wallet"
             description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
             href="https://apps.apple.com/app/id6755690506"
