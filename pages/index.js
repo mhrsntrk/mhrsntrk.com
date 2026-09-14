@@ -12,12 +12,13 @@ import StructuredData, {
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
-import { getAllPostsForHome, getAllPostsForBlog } from '@/lib/strapi';
+import { getAllPostsForBlog } from '@/lib/strapi';
 import { getAllReports } from '@/lib/reports';
 
 // Reports shown on the homepage. The registry is the source of truth, so a new
 // report appears here automatically and the oldest drops off.
 const HOME_REPORT_COUNT = 4;
+const HOME_POST_COUNT = 5;
 
 // Dynamically import the animation component for better performance
 const PixelAnimation = dynamic(() => import('@/components/PixelAnimation'), {
@@ -60,9 +61,11 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
           >
             <h3>
               <span className="hover:underline">Recent Posts</span>{' '}
-              <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
-                [{totalPosts} posts]
-              </span>
+              {Number.isInteger(totalPosts) && (
+                <span className="text-lg font-normal transition-opacity duration-200 opacity-0 group-hover:opacity-100">
+                  [{totalPosts} posts]
+                </span>
+              )}
             </h3>
           </Link>
 
@@ -280,23 +283,20 @@ export async function getStaticProps() {
     // During initial build, wait for Strapi to wake up
     // During ISR revalidation, use shorter timeouts (cached page served if fails)
     const isBuildTime = process.env.NEXT_PHASE === 'phase-production-build';
-    const [allPosts, allBlogPosts] = await Promise.all([
-      getAllPostsForHome(isBuildTime),
-      getAllPostsForBlog(isBuildTime)
-    ]);
+    // Derive the list and count from the same result so a separate failed
+    // request cannot show zero posts beside a populated list.
+    const allBlogPosts = await getAllPostsForBlog(isBuildTime);
 
-    // During revalidation (not build time), if we get empty posts, throw an error
-    // This ensures Next.js serves the stale cached page instead of updating with empty data
-    if (!isBuildTime && (!allPosts || allPosts.length === 0)) {
-      throw new Error(
-        'Failed to fetch posts during revalidation - keeping stale cache'
-      );
+    // The CMS helper returns an empty array on failure. Keep the stale page
+    // during revalidation, or omit the unknown count in the build fallback.
+    if (!allBlogPosts || allBlogPosts.length === 0) {
+      throw new Error('Failed to fetch homepage posts');
     }
 
     return {
       props: {
-        allPosts: allPosts || [],
-        totalPosts: allBlogPosts?.length || 0,
+        allPosts: allBlogPosts.slice(0, HOME_POST_COUNT),
+        totalPosts: allBlogPosts.length,
         ...reportProps()
       },
       // Revalidate every hour, but serve cached page if revalidation fails
@@ -318,7 +318,7 @@ export async function getStaticProps() {
     return {
       props: {
         allPosts: [],
-        totalPosts: 0,
+        totalPosts: null,
         ...reportProps()
       },
       revalidate: 60
