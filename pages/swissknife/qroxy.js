@@ -85,8 +85,8 @@ export default function Qroxy() {
         <p className="mb-4 text-gray-600 dark:text-gray-400">
           "qroxy" name is originated from concatenating "qr code" and "proxy"
           words, it will hopefully give idea of the project overview. It is a
-          dynamic QR code generator REST API with a connected mongoDB to store
-          routes. You can use the form below to generate a QR Code and update
+          dynamic QR code generator REST API that stores routes in a single
+          SQLite file. You can use the form below to generate a QR Code and update
           the target URL later on using the UUID on the end of the generated
           URL. You can get more information about the REST API{' '}
           <a
