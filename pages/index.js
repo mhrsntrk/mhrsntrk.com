@@ -39,10 +39,19 @@ export default function Home({ allPosts, totalPosts, reports, totalReports }) {
           </h1>
           <div className="mb-8 space-y-4 text-gray-600 dark:text-gray-400">
             <p>
-              <strong>product + engineering.</strong> I work on self-sovereign
-              identity and the identity layer for AI agents. Before that: Energy
-              Web, where I led Switchboard, one of the early production SSI
-              deployments.
+              <strong>product + engineering.</strong> I co-founded{' '}
+              <a
+                href="https://su.engineering"
+                className="text-black underline dark:text-white hover:text-red-500 dark:hover:text-red-500"
+              >
+                su.engineering
+              </a>
+              , an independent product and engineering studio. We build
+              software for digital identity, EUDI and privacy, and I still
+              write about the identity layer for AI agents. Before that, I
+              built IDTrust at The Hashgraph Group, serving dozens of projects
+              and tens of thousands of users, and at Energy Web I led
+              Switchboard, one of the early production SSI deployments.
             </p>
             <p>
               A decade of trying to make decentralized identity work in

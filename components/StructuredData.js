@@ -16,19 +16,24 @@ export const PersonSchema = {
   '@type': 'Person',
   name: 'Mahir Senturk',
   alternateName: 'mhrsntrk',
-  jobTitle: 'Senior Product Manager',
-  // No worksFor. The current employer is deliberately absent from every public
-  // surface on this site; credibility here comes from named, shipped work
-  // rather than from a masthead. Past roles stay, because those are the
-  // verifiable part.
+  jobTitle: 'Co-founder',
+  worksFor: {
+    '@type': 'Organization',
+    name: 'su.engineering',
+    url: 'https://su.engineering'
+  },
   alumniOf: [
+    {
+      '@type': 'Organization',
+      name: 'The Hashgraph Group'
+    },
     {
       '@type': 'Organization',
       name: 'Energy Web'
     }
   ],
   description:
-    'Works on self-sovereign identity, verifiable credentials and the identity layer for AI agents. A decade of building decentralized identity systems in production, including Switchboard at Energy Web, one of the early production SSI deployments.',
+    'Co-founder of su.engineering, an independent product and engineering studio building software for digital identity, EUDI and privacy. Works on self-sovereign identity, verifiable credentials and the identity layer for AI agents. A decade of building decentralized identity systems in production, including IDTrust at The Hashgraph Group and Switchboard at Energy Web, one of the early production SSI deployments.',
   url: 'https://mhrsntrk.com',
   sameAs: [
     'https://x.com/mhrsntrk',
@@ -58,7 +63,7 @@ export const PersonSchema = {
   ],
   hasOccupation: {
     '@type': 'Occupation',
-    name: 'Senior Product Manager',
+    name: 'Co-founder',
     description:
       'Product leadership for digital identity systems, covering self-sovereign identity, verifiable credentials and the identity layer for AI agents',
     skills: [

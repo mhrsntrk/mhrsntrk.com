@@ -1,8 +1,8 @@
 {
     "id": "/",
-    "name": "Mahir Senturk - Senior Product Manager & Digital Identity Expert",
+    "name": "Mahir Senturk - Co-founder of su.engineering",
     "short_name": "Mahir Senturk",
-    "description": "Senior Product Manager specializing in self-sovereign identity (SSI) solutions, blockchain technology, and decentralized systems.",
+    "description": "Co-founder of su.engineering, an independent product and engineering studio. Writing on digital identity, self-sovereign identity (SSI), verifiable credentials and the identity layer for AI agents.",
     "icons": [
         {
             "src": "/static/favicons/android-chrome-192x192.png",

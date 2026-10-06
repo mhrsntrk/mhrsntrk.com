@@ -11,7 +11,7 @@
 
 ## About
 
-Product lead working on digital identity, with a B.Sc. in Electrical and Electronics Engineering and an MBA. Focused on self-sovereign identity (SSI), agent identity, and decentralized systems. Previously led Switchboard at Energy Web, one of the early production SSI systems.
+Co-founder of su.engineering (https://su.engineering), an independent product and engineering studio building software for digital identity, EUDI and privacy. Product lead working on digital identity, with a B.Sc. in Electrical and Electronics Engineering and an MBA. Focused on self-sovereign identity (SSI), agent identity, and decentralized systems. Previously built IDTrust at The Hashgraph Group, serving dozens of projects and tens of thousands of users, and led Switchboard at Energy Web, one of the early production SSI systems.
 
 ## Agent Identity (core topic)
 
