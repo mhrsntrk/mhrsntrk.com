@@ -100,6 +100,42 @@
   ],
   "blogSnapshot": [
     {
+      "loc": "https://mhrsntrk.com/blog/the-private-key-was-4",
+      "lastmod": "2026-10-22T10:35:49.400Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/the-eudi-wallet-is-a-stag-hunt",
+      "lastmod": "2026-10-21T13:14:07.439Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-su-engineering",
+      "lastmod": "2026-10-06T14:05:58.814Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/sometimes-the-answer-is-an-enum",
+      "lastmod": "2026-09-18T07:00:26.090Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/agentic-development-team-memory",
+      "lastmod": "2026-09-14T15:23:48.865Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
+      "loc": "https://mhrsntrk.com/blog/introducing-landline-iphone-terminal-tailscale",
+      "lastmod": "2026-09-11T12:27:58.973Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/you-cannot-put-an-acl-on-a-sentence",
       "lastmod": "2026-09-08T10:51:14.983Z",
       "changefreq": "monthly",
@@ -154,14 +190,14 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/introducing-bino-read-along",
-      "lastmod": "2026-08-18T09:01:55.783Z",
+      "loc": "https://mhrsntrk.com/blog/sosyal-medyada-yas-dogrulama-e-devlet-tokeni",
+      "lastmod": "2026-08-18T09:56:48.913Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/sosyal-medyada-yas-dogrulama-e-devlet-tokeni",
-      "lastmod": "2026-08-18T09:56:48.913Z",
+      "loc": "https://mhrsntrk.com/blog/introducing-bino-read-along",
+      "lastmod": "2026-08-18T09:01:55.783Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -244,8 +280,8 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
-      "lastmod": "2026-07-09T07:24:29.309Z",
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-2-fortune-cookie-issuer",
+      "lastmod": "2026-07-09T07:24:28.937Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -256,8 +292,8 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-2-fortune-cookie-issuer",
-      "lastmod": "2026-07-09T07:24:28.937Z",
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
+      "lastmod": "2026-07-09T07:24:29.309Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -395,7 +431,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/how-to-use-cloudflare-email-routing-with-gmail-smtp",
-      "lastmod": "2026-08-12T10:04:15.130Z",
+      "lastmod": "2026-11-06T11:58:09.169Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
