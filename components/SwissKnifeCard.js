@@ -39,6 +39,10 @@ const icons = {
     alt: 'Bino Kids Read Along app icon',
     className: 'rounded-2xl'
   },
+  'copy-center': {
+    src: '/static/icons/copy-center.png',
+    alt: 'Copy Center app icon, a pixel-art printer on a grey tile'
+  },
   palmares: {
     src: '/static/icons/palmares.png',
     alt: 'Palmares car service history app icon',

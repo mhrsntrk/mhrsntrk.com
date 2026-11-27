@@ -46,6 +46,16 @@
       "changefreq": "monthly"
     },
     {
+      "loc": "https://mhrsntrk.com/copy-center",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/copy-center/privacy",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
       "loc": "https://mhrsntrk.com/reports",
       "priority": "0.9",
       "changefreq": "monthly"
@@ -99,6 +109,12 @@
     }
   ],
   "blogSnapshot": [
+    {
+      "loc": "https://mhrsntrk.com/blog/asking-for-id-just-got-free",
+      "lastmod": "2026-11-09T11:23:12.295Z",
+      "changefreq": "monthly",
+      "priority": "0.8"
+    },
     {
       "loc": "https://mhrsntrk.com/blog/the-private-key-was-4",
       "lastmod": "2026-10-22T10:35:49.400Z",
@@ -166,14 +182,14 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/see-which-servers-your-apps-contact",
-      "lastmod": "2026-08-25T10:50:31.838Z",
+      "loc": "https://mhrsntrk.com/blog/we-kept-the-tool-and-fired-the-crew",
+      "lastmod": "2026-08-25T09:39:45.703Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/we-kept-the-tool-and-fired-the-crew",
-      "lastmod": "2026-08-25T09:39:45.703Z",
+      "loc": "https://mhrsntrk.com/blog/see-which-servers-your-apps-contact",
+      "lastmod": "2026-08-25T10:50:31.838Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -286,14 +302,14 @@
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/delegation-chain-accountability",
-      "lastmod": "2026-07-09T06:31:41.525Z",
+      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
+      "lastmod": "2026-07-09T07:24:29.309Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
     {
-      "loc": "https://mhrsntrk.com/blog/building-my-personal-ssi-ecosystem-part-3-light-wallet",
-      "lastmod": "2026-07-09T07:24:29.309Z",
+      "loc": "https://mhrsntrk.com/blog/delegation-chain-accountability",
+      "lastmod": "2026-07-09T06:31:41.525Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -413,7 +429,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/open-id-for-verifiable-credential-issuance-oidc-4-vci-1-0-is-here",
-      "lastmod": "2026-08-12T10:09:11.849Z",
+      "lastmod": "2026-11-09T11:38:29.017Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -425,7 +441,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/secure-remote-access-to-your-raspberry-pi-in-2025-updated-cloudflare-tunnel-guide",
-      "lastmod": "2026-08-12T10:09:12.752Z",
+      "lastmod": "2026-11-09T11:38:29.822Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },
@@ -515,7 +531,7 @@
     },
     {
       "loc": "https://mhrsntrk.com/blog/open-id-for-verifiable-presentations-oidc-4-vp-1-0-is-here",
-      "lastmod": "2026-07-08T15:41:21.844Z",
+      "lastmod": "2026-11-09T11:38:29.423Z",
       "changefreq": "monthly",
       "priority": "0.8"
     },

@@ -21,13 +21,13 @@ export default function SwissKnife() {
       <NextSeo
         robotsProps={ROBOTS_PROPS}
         title="Swiss Knife: Tools and Side Projects – mhrsntrk"
-        description="The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS apps I ship."
+        description="The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS and Mac apps I ship."
         canonical="https://mhrsntrk.com/swissknife"
         openGraph={{
           url: 'https://mhrsntrk.com/swissknife',
           title: 'Swiss Knife: Tools and Side Projects – mhrsntrk',
           description:
-            'The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS apps I ship.'
+            'The tools and side projects I have built: DID and ENS resolvers, a dynamic QR code generator, a verifiable credential issuer, and the iOS and Mac apps I ship.'
         }}
       />
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
@@ -90,6 +90,18 @@ export default function SwissKnife() {
             href="https://apps.apple.com/app/id6755690506"
             icon="lightwallet"
             target="_blank"
+            width="120"
+            height="120"
+          />
+        </div>
+
+        <SwissKnifeCategory title="Mac Apps" />
+        <div className="grid w-full grid-cols-1 gap-4 my-2 ">
+          <SwissKnifeCard
+            title="Copy Center: Batch PDF Print"
+            description="A Mac app that prints a whole stack of PDFs in one go and follows every job to paper. Auto reads each page on your Mac and picks the settings per file, and switches to black and white when color ink runs low. Wears a 1995 desktop."
+            href="/copy-center"
+            icon="copy-center"
             width="120"
             height="120"
           />
