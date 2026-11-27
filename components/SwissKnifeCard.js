@@ -43,6 +43,21 @@ const icons = {
     src: '/static/icons/copy-center.png',
     alt: 'Copy Center app icon, a pixel-art printer on a grey tile'
   },
+  'bino-word': {
+    src: '/static/icons/bino-word.png',
+    alt: 'Bino Kids Word Safari app icon',
+    className: 'rounded-2xl'
+  },
+  nonna: {
+    src: '/static/icons/nonna.png',
+    alt: 'Nonna reminders app icon',
+    className: 'rounded-2xl'
+  },
+  tramontana: {
+    src: '/static/icons/tramontana.png',
+    alt: 'Tramontana wildfire radar app icon',
+    className: 'rounded-2xl'
+  },
   palmares: {
     src: '/static/icons/palmares.png',
     alt: 'Palmares car service history app icon',

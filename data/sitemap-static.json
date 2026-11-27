@@ -41,6 +41,11 @@
       "changefreq": "monthly"
     },
     {
+      "loc": "https://mhrsntrk.com/apps/privacy",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
       "loc": "https://mhrsntrk.com/blog/archive",
       "priority": "0.8",
       "changefreq": "monthly"
@@ -53,11 +58,6 @@
     {
       "loc": "https://mhrsntrk.com/copy-center/privacy",
       "priority": "0.8",
-      "changefreq": "monthly"
-    },
-    {
-      "loc": "https://mhrsntrk.com/reports",
-      "priority": "0.9",
       "changefreq": "monthly"
     },
     {
@@ -93,6 +93,51 @@
     {
       "loc": "https://mhrsntrk.com/swissknife/qroxy",
       "priority": "0.7",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/reports",
+      "priority": "0.9",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/bino-image-search",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/bino-read-along",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/bino-word-safari",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/palmares",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/nonna",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/tramontana",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/light-wallet",
+      "priority": "0.8",
+      "changefreq": "monthly"
+    },
+    {
+      "loc": "https://mhrsntrk.com/apps/landline",
+      "priority": "0.8",
       "changefreq": "monthly"
     },
     {

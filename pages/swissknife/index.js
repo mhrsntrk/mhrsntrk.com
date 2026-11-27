@@ -6,6 +6,7 @@ import ROBOTS_PROPS from '@/lib/robots';
 
 import Container from '@/components/Container';
 import SwissKnifeCard from '@/components/SwissKnifeCard';
+import { APPS, appUrl } from '@/lib/apps';
 
 function SwissKnifeCategory({ title }) {
   return (
@@ -48,64 +49,40 @@ export default function SwissKnife() {
         </div>
         <SwissKnifeCategory title="iOS Apps" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
-          <SwissKnifeCard
-            title="Bino — Kids Safe Image Search"
-            description="A native iOS app for kids ages 4–9: a safe, Camera Roll-style image browser with SafeSearch permanently enforced. Tap to view on the App Store."
-            href="https://apps.apple.com/us/app/bino-kids-safe-image-search/id6764813350"
-            icon="bino"
-            target="_blank"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Bino — Kids Read Along"
-            description="An iPhone and iPad app for young bilingual readers ages 6–8: photograph a page of your own book, tap any printed word to hear it, and sound out hard words syllable by syllable. On-device OCR and speech, nothing uploaded. Tap to view on the App Store."
-            href="https://apps.apple.com/us/app/bino-kids-read-along/id6788398289"
-            icon="bino-reader"
-            target="_blank"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Palmares — Car Service History"
-            description="An iPhone and iPad app for classic car owners: scan the binder of receipts, get an odometer-indexed service history, and export a PDF dossier for the next owner. On-device reading, no account. Tap to view on the App Store."
-            href="https://apps.apple.com/us/app/palmares-car-service-history/id6799980228"
-            icon="palmares"
-            target="_blank"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Landline: Terminal over Tailscale"
-            description="An iPhone and iPad terminal for your own Mac, Linux and Windows machines. Resume a shell over Tailscale, with a customizable key bar and tmux shortcuts. Tap to view on the App Store."
-            href="https://apps.apple.com/app/id6808344753"
-            icon="landline"
-            target="_blank"
-            width="120"
-            height="120"
-          />
-          <SwissKnifeCard
-            title="Light Wallet — SSI Developer Wallet"
-            description="A free iOS wallet for SSI developers: OID4VCI 1.0 and OID4VP 1.0 with dc+sd-jwt, did:key, and a live protocol trace that hides nothing. Tap to view on the App Store."
-            href="https://apps.apple.com/app/id6755690506"
-            icon="lightwallet"
-            target="_blank"
-            width="120"
-            height="120"
-          />
+          {APPS.filter((a) => a.os !== 'macOS' && !a.os.startsWith('macOS')).map((app) => (
+            <SwissKnifeCard
+              key={app.slug}
+              title={app.storeName}
+              description={app.tagline}
+              href={appUrl(app)}
+              icon={app.cardIcon}
+              width="120"
+              height="120"
+            />
+          ))}
         </div>
 
         <SwissKnifeCategory title="Mac Apps" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">
-          <SwissKnifeCard
-            title="Copy Center: Batch PDF Print"
-            description="A Mac app that prints a whole stack of PDFs in one go and follows every job to paper. Auto reads each page on your Mac and picks the settings per file, and switches to black and white when color ink runs low. Wears a 1995 desktop."
-            href="/copy-center"
-            icon="copy-center"
-            width="120"
-            height="120"
-          />
+          {APPS.filter((a) => a.os === 'macOS' || a.os.startsWith('macOS')).map((app) => (
+            <SwissKnifeCard
+              key={app.slug}
+              title={app.storeName}
+              description={app.tagline}
+              href={appUrl(app)}
+              icon={app.cardIcon}
+              width="120"
+              height="120"
+            />
+          ))}
         </div>
+        <p className="w-full mt-4 text-sm text-gray-600 dark:text-gray-400">
+          How each app handles your data:{' '}
+          <Link href="/apps/privacy" className="hover:underline">
+            app privacy policy
+          </Link>
+          .
+        </p>
 
         <SwissKnifeCategory title="Corpus" />
         <div className="grid w-full grid-cols-1 gap-4 my-2 ">

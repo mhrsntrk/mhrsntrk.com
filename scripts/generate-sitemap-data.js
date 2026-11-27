@@ -32,6 +32,7 @@ if (fs.existsSync(ENV_FILE)) {
 
 const { getAllPostsForBlog } = require('../lib/strapi');
 const { getAllReports } = require('../lib/reports');
+const { APPS, appUrl } = require('../lib/apps');
 const { DEFAULT_LANG, detectPostLang } = require('../lib/detectLang');
 
 const SITE_URL = 'https://mhrsntrk.com';
@@ -85,7 +86,15 @@ function priorityFor(route) {
       return route === '/index' ? '' : route;
     })
     .filter((route, i, all) => all.indexOf(route) === i)
-    .map((route) => ({ loc: `${SITE_URL}${route}`, ...priorityFor(route) }));
+    .map((route) => ({ loc: `${SITE_URL}${route}`, ...priorityFor(route) }))
+    // App pages come from lib/apps.js through pages/apps/[slug].js, which the
+    // dynamic-route exclusion above skips. Copy Center has its own static page.
+    .concat(
+      APPS.filter((a) => !a.path).map((a) => ({
+        loc: `${SITE_URL}${appUrl(a)}`,
+        ...priorityFor(appUrl(a))
+      }))
+    );
 
   // Vulgate entry permalinks are deliberately absent: the corpus is noindex, so
   // the sitemap must not advertise it. The entries remain live and linkable.
